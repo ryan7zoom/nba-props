@@ -1,0 +1,18 @@
+{
+  "run_utc": "2026-10-24T17:08:07+00:00",
+  "mode": "backfill",
+  "ok": true,
+  "errors": [],
+  "error_count": 0,
+  "warnings": [],
+  "warning_count": 0,
+  "this_run": {
+    "new_games": 25,
+    "new_rows": 692
+  },
+  "data": {
+    "games": 25,
+    "player_rows": 692,
+    "latest_game_date": "2026-10-23"
+  }
+}
