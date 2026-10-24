@@ -1,0 +1,39 @@
+name: Rates backtest and re-tune
+
+# Run by hand: Actions > Rates backtest and re-tune > Run workflow.
+# Tests the per-minute rate model on the 2025-26 season, re-tunes its settings,
+# and refreshes data/player_rates.csv.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  rates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Backtest, tune and estimate
+        run: python scripts/baseline_rates.py --mode both
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Rates backtest and estimate $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
