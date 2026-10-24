@@ -1,0 +1,53 @@
+name: Backfill box scores
+
+# Run by hand: Actions > Backfill box scores > Run workflow.
+# Safe to run again; games already saved are skipped, so it resumes where it stopped.
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "Start date (YYYY-MM-DD)"
+        required: true
+        default: "2024-10-01"
+      end:
+        description: "End date (YYYY-MM-DD), blank = today"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Backfill box scores
+        env:
+          START: ${{ inputs.start }}
+          END: ${{ inputs.end }}
+        run: |
+          ARGS="--mode backfill --start $START"
+          if [ -n "$END" ]; then ARGS="$ARGS --end $END"; fi
+          python scripts/update_data.py $ARGS
+      - name: Commit data (also after a failure, so progress is kept)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Backfill box scores $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
