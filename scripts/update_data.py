@@ -334,21 +334,62 @@ def collect_schedule(days_ahead):
 
 # ---------- injuries ----------
 
+ID_PATTERNS = [re.compile(r"/id/(\d+)"), re.compile(r"/athletes/(\d+)")]
+
+
+def athlete_id_from(ath):
+    """Find an ESPN athlete id in an injury entry: id field, $ref, or a link."""
+    if ath.get("id"):
+        return str(ath["id"])
+    candidates = [ath.get("$ref") or ""]
+    for link in ath.get("links") or []:
+        if isinstance(link, dict):
+            candidates.append(link.get("href") or "")
+    for text in candidates:
+        for pat in ID_PATTERNS:
+            m = pat.search(text)
+            if m:
+                return m.group(1)
+    return ""
+
+
+def name_to_ids():
+    """player name -> set of athlete ids, from box scores we already saved."""
+    out = {}
+    if not PLAYER_GAMES.exists():
+        return out
+    with open(PLAYER_GAMES, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if not r["athlete_id"].startswith("unk-"):
+                out.setdefault(r["player"], set()).add(r["athlete_id"])
+    return out
+
+
 def collect_injuries():
     d = fetch_json(f"{BASE}/injuries")
     snap = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    names = name_to_ids()
+    by_name = 0
+    sample = None
     rows = []
     for team in d.get("injuries", []):
         for inj in team.get("injuries", []):
             ath = inj.get("athlete") or {}
             kind = inj.get("type") or {}
             det = inj.get("details") or {}
+            player = ath.get("displayName", "") or ath.get("fullName", "") or ""
+            athlete_id = athlete_id_from(ath)
+            if not athlete_id and len(names.get(player, ())) == 1:
+                athlete_id = next(iter(names[player]))
+                by_name += 1
+            if not athlete_id and sample is None:
+                sample = json.dumps(inj)[:1500]
             rows.append({
                 "snapshot_utc": snap,
                 "team_id": team.get("id", ""),
                 "team": team.get("displayName", ""),
-                "athlete_id": ath.get("id", ""),
-                "player": ath.get("displayName", ""),
+                "athlete_id": athlete_id,
+                "player": player,
                 "status": inj.get("status", ""),
                 "injury_date": inj.get("date", ""),
                 "injury_type": det.get("type") or kind.get("description") or kind.get("name") or "",
@@ -359,9 +400,14 @@ def collect_injuries():
     if not rows:
         WARNINGS.append("injuries: feed returned zero rows")
     else:
+        if by_name:
+            WARNINGS.append(f"injuries: {by_name} rows got athlete_id by matching the player name")
         no_id = sum(1 for r in rows if not r["athlete_id"])
         if no_id > 0.2 * len(rows):
-            ERRORS.append(f"injuries: {no_id}/{len(rows)} rows lack athlete_id (schema changed?)")
+            ERRORS.append(
+                f"injuries: {no_id}/{len(rows)} rows lack athlete_id (schema changed?). "
+                f"Raw sample of one injury entry: {sample}"
+            )
     rewrite_csv(INJ_LATEST, INJURY_FIELDS, rows)
     append_rows(INJ_HISTORY, INJURY_FIELDS, rows)
     return {"injury_rows": len(rows)}
