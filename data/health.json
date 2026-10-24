@@ -1,29 +1,18 @@
 {
-  "run_utc": "2026-10-24T21:46:20+00:00",
-  "mode": "backfill",
-  "ok": true,
-  "errors": [],
-  "error_count": 0,
-  "warnings": [
-    "athlete without ESPN id kept as unk-CHI-Olbrich",
-    "box score 401869402 (2026-04-30): ESPN has no summary (404), game skipped",
-    "box score 401871334 (2026-05-07): ESPN has no summary (404), game skipped",
-    "box score 401871337 (2026-05-13): ESPN has no summary (404), game skipped",
-    "box score 401873343 (2026-05-23): ESPN has no summary (404), game skipped",
-    "event 401810150: team 4 player pts 99 != team score 101",
-    "event 401810372: team 4 player pts 91 != team score 93",
-    "event 401810547: team 4 player pts 123 != team score 125",
-    "event 401810560: team 4 player pts 82 != team score 91",
-    "event 401810577: team 4 player pts 113 != team score 115",
-    "event 401810633: team 4 player pts 98 != team score 105",
-    "event 401810760: team 4 player pts 101 != team score 105",
-    "event 401812692: team 4 player pts 113 != team score 119",
-    "event 401812719: team 4 player pts 111 != team score 117"
+  "run_utc": "2026-10-24T21:51:44+00:00",
+  "mode": "daily",
+  "ok": false,
+  "errors": [
+    "injuries: 85/85 rows lack athlete_id (schema changed?)"
   ],
-  "warning_count": 51,
+  "error_count": 1,
+  "warnings": [],
+  "warning_count": 0,
   "this_run": {
-    "new_games": 38,
-    "new_rows": 1019
+    "injury_rows": 85,
+    "schedule_rows": 24,
+    "new_games": 0,
+    "new_rows": 0
   },
   "data": {
     "games": 2885,
