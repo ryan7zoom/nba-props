@@ -12,6 +12,7 @@ import csv
 import json
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -60,6 +61,10 @@ class SchemaError(Exception):
     pass
 
 
+class NotFoundError(Exception):
+    """ESPN answered 404: the page does not exist, retrying will not help."""
+
+
 def log(msg):
     print(msg, flush=True)
 
@@ -71,11 +76,15 @@ def fetch_json(url, retries=4):
             req = urllib.request.Request(url, headers=HEADERS)
             with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
                 return json.loads(resp.read())
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                raise NotFoundError(f"404 not found: {url}") from exc
+            last = exc
         except Exception as exc:  # noqa: BLE001 - log everything, then retry
             last = exc
-            wait = 2 ** attempt
-            log(f"  retry {attempt + 1}/{retries} {url}: {type(exc).__name__}: {exc} (sleep {wait}s)")
-            time.sleep(wait)
+        wait = 2 ** attempt
+        log(f"  retry {attempt + 1}/{retries} {url}: {type(last).__name__}: {last} (sleep {wait}s)")
+        time.sleep(wait)
     raise RuntimeError(f"giving up on {url}: {type(last).__name__}: {last}")
 
 
@@ -194,7 +203,17 @@ def parse_box(d, event_id):
                     "plus_minus": 0 if dnp else to_int(g("+/-")),
                 }
                 if not row["athlete_id"] or not row["player"]:
-                    raise SchemaError(f"event {event_id}: athlete without id/name: {ath}")
+                    # ESPN sometimes lists a player with only a short name.
+                    # Keep the row (its minutes and points count for the team)
+                    # under a stable made-up id, and warn.
+                    short = ath.get("shortName") or ""
+                    if not short:
+                        raise SchemaError(f"event {event_id}: athlete without id or name: {ath}")
+                    if not row["athlete_id"]:
+                        row["athlete_id"] = f"unk-{row['team']}-{short}"
+                    if not row["player"]:
+                        row["player"] = short
+                    WARNINGS.append(f"athlete without ESPN id kept as {row['athlete_id']}")
                 rows.append(row)
                 team_points[tid] = team_points.get(tid, 0) + row["pts"]
 
@@ -264,6 +283,9 @@ def collect_boxscores(start, end):
                 known.add(eid)
                 added += 1
                 new_rows += len(rows)
+            except NotFoundError:
+                WARNINGS.append(f"box score {eid} ({day}): ESPN has no summary (404), game skipped")
+                log(f"  event {eid} ({day}): no summary on ESPN (404), skipped")
             except Exception as exc:  # noqa: BLE001
                 ERRORS.append(f"box score {eid} ({day}): {type(exc).__name__}: {exc}")
         new_games += added
