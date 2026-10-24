@@ -1,11 +1,9 @@
 {
-  "run_utc": "2026-10-24T21:51:44+00:00",
+  "run_utc": "2026-10-24T21:57:31+00:00",
   "mode": "daily",
-  "ok": false,
-  "errors": [
-    "injuries: 85/85 rows lack athlete_id (schema changed?)"
-  ],
-  "error_count": 1,
+  "ok": true,
+  "errors": [],
+  "error_count": 0,
   "warnings": [],
   "warning_count": 0,
   "this_run": {
