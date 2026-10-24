@@ -7,15 +7,21 @@ Standard library only, so it works before any dependencies are installed.
 import json
 import sys
 import time
-import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 TIMEOUT = 20
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+)
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; nba-props-smoke-test)",
-    "Accept": "application/json, */*",
+    "User-Agent": BROWSER_UA,
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
 }
+NBA_HEADERS = {"Referer": "https://www.nba.com/", "Origin": "https://www.nba.com"}
 
 results = []
 
@@ -26,31 +32,52 @@ def fetch(url, headers=None):
         return resp.status, resp.read()
 
 
+def record(name, url, required, ok, detail, seconds, data=None):
+    entry = {
+        "name": name,
+        "url": url,
+        "required": required,
+        "ok": ok,
+        "detail": detail,
+        "seconds": seconds,
+        "_data": data,
+    }
+    results.append(entry)
+    tag = "PASS" if ok else ("FAIL" if required else "info-fail")
+    print(f"[{tag}] {name}: {detail} ({seconds}s)")
+    return entry
+
+
 def check(name, url, required, validate=None, headers=None):
     start = time.time()
-    entry = {"name": name, "url": url, "required": required}
+    data = None
     try:
         status, body = fetch(url, headers)
         detail = f"HTTP {status}, {len(body)} bytes"
         ok = status == 200
-        data = None
         if ok and validate:
             data = json.loads(body)
             detail += " | " + validate(data)
-        entry.update(ok=ok, detail=detail)
-        entry["_data"] = data
     except Exception as exc:  # noqa: BLE001 - we want every failure logged
-        entry.update(ok=False, detail=f"{type(exc).__name__}: {exc}")
-    entry["seconds"] = round(time.time() - start, 2)
-    results.append(entry)
-    tag = "PASS" if entry["ok"] else ("FAIL" if required else "info-fail")
-    print(f"[{tag}] {name}: {entry['detail']} ({entry['seconds']}s)")
-    return entry
+        ok = False
+        detail = f"{type(exc).__name__}: {exc}"
+    return record(name, url, required, ok, detail, round(time.time() - start, 2), data)
 
 
 def v_cdn_scoreboard(d):
     games = d["scoreboard"]["games"]
     return f"{len(games)} games on scoreboard dated {d['scoreboard'].get('gameDate')}"
+
+
+def v_cdn_schedule(d):
+    dates = d["leagueSchedule"]["gameDates"]
+    return f"{len(dates)} game dates, season {d['leagueSchedule'].get('seasonYear')}"
+
+
+def v_cdn_boxscore(d):
+    g = d["game"]
+    n = len(g["homeTeam"]["players"]) + len(g["awayTeam"]["players"])
+    return f"game {g['gameId']} status={g.get('gameStatusText')}, {n} players"
 
 
 def v_espn_injuries(d):
@@ -60,45 +87,88 @@ def v_espn_injuries(d):
 
 
 def v_espn_scoreboard(d):
-    return f"{len(d.get('events', []))} events"
+    events = d.get("events", [])
+    done = sum(1 for e in events if e["status"]["type"].get("completed"))
+    return f"{len(events)} events, {done} completed"
 
 
-def v_cdn_schedule(d):
-    dates = d["leagueSchedule"]["gameDates"]
-    return f"{len(dates)} game dates, season {d['leagueSchedule'].get('seasonYear')}"
+def v_espn_box(d):
+    teams = d["boxscore"]["players"]
+    n = 0
+    for t in teams:
+        stats = t.get("statistics") or [{}]
+        n += len(stats[0].get("athletes", []))
+    return f"{len(teams)} teams, {n} player rows"
 
 
-def v_boxscore(d):
-    g = d["game"]
-    n = len(g["homeTeam"]["players"]) + len(g["awayTeam"]["players"])
-    return f"game {g['gameId']} status={g.get('gameStatusText')}, {n} players"
+def check_espn_boxscore(now_et):
+    """Find a finished game in the last 3 days and pull its box score."""
+    base = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba"
+    for back in (1, 2, 3):
+        day = (now_et - timedelta(days=back)).strftime("%Y%m%d")
+        sb = check(
+            f"ESPN scoreboard {day}",
+            f"{base}/scoreboard?dates={day}",
+            required=False,
+            validate=v_espn_scoreboard,
+        )
+        if not sb["ok"] or not sb["_data"]:
+            continue
+        done = [e for e in sb["_data"]["events"] if e["status"]["type"].get("completed")]
+        if done:
+            event_id = done[0]["id"]
+            check(
+                f"ESPN box score (event {event_id})",
+                f"{base}/summary?event={event_id}",
+                required=True,
+                validate=v_espn_box,
+            )
+            return
+    record("ESPN box score", base, True, False,
+           "no finished game found in the last 3 days", 0)
 
 
-def injury_pdf_urls():
-    """Official report PDFs. URL pattern is a best guess from memory; verify."""
-    now = datetime.now(timezone.utc) - timedelta(hours=5)  # rough US Eastern
+def check_injury_pdf(now_et):
+    """Official report PDFs. Try today and yesterday, newest slot first."""
     base = "https://ak-static.cms.nba.com/referee/injury/Injury-Report_"
-    urls = []
-    for day_offset in (0, 1):
-        day = (now - timedelta(days=day_offset)).strftime("%Y-%m-%d")
-        for hhmm in ("05_00PM", "01_00PM", "11_00AM"):
-            urls.append(f"{base}{day}_{hhmm}.pdf")
-    return urls
+    slots = ["08_00PM", "07_00PM", "06_00PM", "05_00PM", "04_00PM", "03_00PM",
+             "02_00PM", "01_00PM", "12_00PM", "11_00AM", "10_00AM", "09_00AM"]
+    start = time.time()
+    tried = 0
+    for off in (0, 1):
+        day = (now_et - timedelta(days=off)).strftime("%Y-%m-%d")
+        for slot in slots:
+            url = f"{base}{day}_{slot}.pdf"
+            tried += 1
+            try:
+                status, body = fetch(url)
+            except Exception:  # noqa: BLE001 - missing files return 403/404
+                continue
+            if status == 200:
+                record("official injury report PDF", url, False, True,
+                       f"HTTP 200, {len(body)} bytes (after {tried} tries)",
+                       round(time.time() - start, 2))
+                return
+    record("official injury report PDF", base, False, False,
+           f"no PDF found after {tried} guessed filenames",
+           round(time.time() - start, 2))
 
 
 def main():
-    print(f"Smoke test at {datetime.now(timezone.utc).isoformat()}\n")
+    now_et = datetime.now(ZoneInfo("America/New_York"))
+    print(f"Smoke test at {datetime.now(timezone.utc).isoformat()}")
+    print(f"US Eastern now: {now_et.isoformat()}\n")
 
+    # cdn.nba.com: informational now. ESPN is the required fallback.
     sb = check(
         "cdn.nba.com scoreboard",
         "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
-        required=True,
+        required=False,
         validate=v_cdn_scoreboard,
+        headers=NBA_HEADERS,
     )
-
-    # Box score for one game, if the scoreboard has any
     game_id = None
-    if sb.get("_data"):
+    if sb["_data"]:
         games = sb["_data"]["scoreboard"]["games"]
         started = [g for g in games if g.get("gameStatus", 1) >= 2]
         pick = started[0] if started else (games[0] if games else None)
@@ -107,18 +177,21 @@ def main():
         check(
             f"cdn.nba.com boxscore ({game_id})",
             f"https://cdn.nba.com/static/json/liveData/boxscore/boxscore_{game_id}.json",
-            required=False,  # upcoming games return nothing, so informational
-            validate=v_boxscore,
+            required=False,
+            validate=v_cdn_boxscore,
+            headers=NBA_HEADERS,
         )
     else:
-        print("[skip] boxscore: no games on today's scoreboard")
-
+        print("[skip] cdn boxscore: no scoreboard data")
     check(
         "cdn.nba.com full schedule",
         "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2.json",
         required=False,
         validate=v_cdn_schedule,
+        headers=NBA_HEADERS,
     )
+
+    # ESPN: required.
     check(
         "ESPN NBA injuries",
         "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries",
@@ -131,24 +204,16 @@ def main():
         required=True,
         validate=v_espn_scoreboard,
     )
+    check_espn_boxscore(now_et)
 
-    # Official injury report PDF: try a few likely filenames, any hit counts.
-    pdf_hit = False
-    for url in injury_pdf_urls():
-        e = check("official injury report PDF", url, required=False)
-        if e["ok"]:
-            pdf_hit = True
-            break
-    if not pdf_hit:
-        print("[note] no official injury PDF matched the guessed filenames; "
-              "the URL pattern or timing may be off, not necessarily the access.")
+    check_injury_pdf(now_et)
 
     # Expected to fail from cloud runners. Informational only.
     check(
         "stats.nba.com (expected to fail on cloud runners)",
         "https://stats.nba.com/stats/commonallplayers?LeagueID=00&Season=2026-27&IsOnlyCurrentSeason=1",
         required=False,
-        headers={"Referer": "https://www.nba.com/", "Origin": "https://www.nba.com"},
+        headers=NBA_HEADERS,
     )
 
     for r in results:
