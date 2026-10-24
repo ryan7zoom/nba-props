@@ -26,6 +26,8 @@ jobs:
           python-version: "3.12"
       - name: Fetch schedule, injuries and new box scores
         run: python scripts/update_data.py --mode daily
+      - name: Refresh per-minute rates
+        run: python scripts/baseline_rates.py --mode estimate
       - name: Commit data
         if: always()
         run: |
