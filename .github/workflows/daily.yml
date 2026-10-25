@@ -42,6 +42,9 @@ jobs:
       - name: Refresh minutes projections
         if: always()
         run: python scripts/minutes_model.py --mode project
+      - name: Simulate prop distributions
+        if: always()
+        run: python scripts/simulate_props.py --mode project
       - name: Commit data
         if: always()
         run: |
