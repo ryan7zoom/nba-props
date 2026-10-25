@@ -1,0 +1,41 @@
+name: Minutes backtest and re-fit
+
+# Run by hand: Actions > Minutes backtest and re-fit > Run workflow.
+# Tests the minutes model on the 2025-26 season, re-fits it, and refreshes
+# data/minutes_projection.csv for upcoming games.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  minutes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numpy
+        run: pip install numpy
+      - name: Backtest, fit and project
+        run: python scripts/minutes_model.py --mode both
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Minutes backtest and projection $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
