@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "delta": [
+      0.16,
+      0.0,
+      0.0
+    ],
+    "c": [
+      0.9983,
+      0.9924,
+      1.0144
+    ],
+    "phi": [
+      2.4,
+      1.093,
+      1.126
+    ],
+    "pi_pts": 0.01
+  },
+  "notes": {
+    "pts_coupling": {
+      "best_exponent": 0.16,
+      "deviance_gain": 0.00982,
+      "kept": true
+    },
+    "reb_coupling": {
+      "best_exponent": 0.02,
+      "deviance_gain": 0.00025,
+      "kept": false
+    },
+    "ast_coupling": {
+      "best_exponent": 0.04,
+      "deviance_gain": 0.00023,
+      "kept": false
+    },
+    "pts_zero_share": {
+      "best_share": 0.01,
+      "loglik_gain": 145.4,
+      "kept": true
+    }
+  },
+  "fit_rows": 28654,
+  "fitted_through": "24/10/2026",
+  "fitted_at": "25/10/2026 22:18 UTC"
+}
