@@ -2,6 +2,8 @@ name: Daily data update
 
 # Runs twice a day (after morning injury news, and after the 5pm ET reports)
 # and can be started by hand from the Actions tab.
+# Every step runs even if an earlier one failed, so one broken source does not
+# stop the rest; the run still shows red if anything failed.
 on:
   workflow_dispatch:
   schedule:
@@ -18,19 +20,27 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install packages
+        run: pip install numpy pdfplumber
       - name: Fetch schedule, injuries and new box scores
         run: python scripts/update_data.py --mode daily
+      - name: Fetch official injury reports
+        if: always()
+        run: python scripts/injury_report.py --mode fetch
+      - name: Measure play probabilities
+        if: always()
+        run: python scripts/injury_report.py --mode calibrate
       - name: Refresh per-minute rates
+        if: always()
         run: python scripts/baseline_rates.py --mode estimate
-      - name: Install numpy
-        run: pip install numpy
       - name: Refresh minutes projections
+        if: always()
         run: python scripts/minutes_model.py --mode project
       - name: Commit data
         if: always()
