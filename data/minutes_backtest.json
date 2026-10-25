@@ -1,0 +1,125 @@
+{
+  "validation_rows": 15243,
+  "train_rows": 38059,
+  "features_used": [
+    "l3",
+    "l5",
+    "l10",
+    "ewma",
+    "szn",
+    "sd10",
+    "start10",
+    "last_start",
+    "l10_x_start",
+    "n_hist",
+    "gap",
+    "home",
+    "playoff",
+    "abs_total",
+    "abs_star",
+    "abs_x"
+  ],
+  "groups_dropped": [
+    "blowout",
+    "rest"
+  ],
+  "ridge_lambda": 0.1,
+  "model": {
+    "rmse": 6.388,
+    "mae": 4.942
+  },
+  "baselines": {
+    "last_10_avg": {
+      "rmse": 6.837,
+      "mae": 5.24
+    },
+    "last_5_avg": {
+      "rmse": 6.769,
+      "mae": 5.157
+    },
+    "exp_avg": {
+      "rmse": 6.585,
+      "mae": 5.039
+    },
+    "season_to_date": {
+      "rmse": 7.39,
+      "mae": 5.702
+    }
+  },
+  "vs_best_baseline": {
+    "baseline": "exp_avg",
+    "mse_diff": -2.554,
+    "z": -11.92
+  },
+  "segments": {
+    "starters (l10 >= 28)": {
+      "rows": 4652,
+      "model": 5.696,
+      "best_baseline": 5.723
+    },
+    "rotation (18-28)": {
+      "rows": 5888,
+      "model": 6.288,
+      "best_baseline": 6.428
+    },
+    "bench (< 18)": {
+      "rows": 4703,
+      "model": 7.119,
+      "best_baseline": 7.511
+    },
+    "no rotation player out": {
+      "rows": 3316,
+      "model": 6.107,
+      "best_baseline": 6.251
+    },
+    "rotation player(s) out (>= 20 mpg)": {
+      "rows": 9323,
+      "model": 6.592,
+      "best_baseline": 6.842
+    },
+    "back-to-back": {
+      "rows": 2480,
+      "model": 6.672,
+      "best_baseline": 6.999
+    }
+  },
+  "ablation_validation_rmse": {
+    "full model": 6.388,
+    "without absences": 6.471,
+    "without blowout": 6.383,
+    "without rest": 6.383
+  },
+  "coverage": {
+    "80% interval (p10-p90) actually contains": 0.794,
+    "50% interval (p25-p75) actually contains": 0.495,
+    "below p10 (should be 0.10)": 0.102,
+    "above p90 (should be 0.10)": 0.105
+  },
+  "coverage_by_predicted_minutes": {
+    "predicted 0-10 min": {
+      "rows": 1273,
+      "p10-p90 coverage": 0.793
+    },
+    "predicted 10-16 min": {
+      "rows": 2177,
+      "p10-p90 coverage": 0.784
+    },
+    "predicted 16-22 min": {
+      "rows": 3478,
+      "p10-p90 coverage": 0.799
+    },
+    "predicted 22-28 min": {
+      "rows": 3764,
+      "p10-p90 coverage": 0.809
+    },
+    "predicted 28-33 min": {
+      "rows": 3270,
+      "p10-p90 coverage": 0.787
+    },
+    "predicted 33-99 min": {
+      "rows": 1281,
+      "p10-p90 coverage": 0.767
+    }
+  },
+  "validation_rows_skipped_for_short_history": 171
+}
