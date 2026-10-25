@@ -1,0 +1,294 @@
+{
+  "fit_rows": 12678,
+  "check_rows": 15243,
+  "draws_per_game": 3000,
+  "fit_period": "2025-26 before 15/01/2026",
+  "check_period": "2025-26 from 15/01/2026",
+  "settings": {
+    "delta": [
+      0.2,
+      0.0,
+      0.0
+    ],
+    "c": [
+      0.9977,
+      0.9932,
+      1.0212
+    ],
+    "phi": [
+      2.4,
+      1.088,
+      1.087
+    ],
+    "pi_pts": 0.015
+  },
+  "settings_notes": {
+    "pts_coupling": {
+      "best_exponent": 0.2,
+      "deviance_gain": 0.01254,
+      "kept": true
+    },
+    "reb_coupling": {
+      "best_exponent": 0.02,
+      "deviance_gain": 0.00025,
+      "kept": false
+    },
+    "ast_coupling": {
+      "best_exponent": 0.04,
+      "deviance_gain": 0.00014,
+      "kept": false
+    },
+    "pts_zero_share": {
+      "best_share": 0.015,
+      "loglik_gain": 69.3,
+      "kept": true
+    }
+  },
+  "accuracy": {
+    "rows_compared": 15216,
+    "pts": {
+      "simulated_median_MAE": 4.514,
+      "last10_average_MAE": 4.69,
+      "season_average_MAE": 4.777,
+      "simulated_mean_RMSE": 5.94,
+      "last10_average_RMSE": 6.139,
+      "season_average_RMSE": 6.234,
+      "mean_vs_best_baseline_squared_error_z": -12.4,
+      "median_vs_best_baseline_abs_error_z": -11.8
+    },
+    "pra": {
+      "simulated_median_MAE": 5.952,
+      "last10_average_MAE": 6.215,
+      "season_average_MAE": 6.387,
+      "simulated_mean_RMSE": 7.712,
+      "last10_average_RMSE": 8.009,
+      "season_average_RMSE": 8.234,
+      "mean_vs_best_baseline_squared_error_z": -13.9,
+      "median_vs_best_baseline_abs_error_z": -13.7
+    }
+  },
+  "calibration": {
+    "pts": {
+      "interval_coverage": {
+        "p10_p90": 0.795,
+        "p25_p75": 0.499,
+        "below_p10": 0.114,
+        "above_p90": 0.091
+      },
+      "p_over_at_test_lines": [
+        {
+          "predicted_range": "20-30%",
+          "n": 165,
+          "mean_predicted": 0.275,
+          "actually_over": 0.358
+        },
+        {
+          "predicted_range": "30-40%",
+          "n": 13673,
+          "mean_predicted": 0.361,
+          "actually_over": 0.369
+        },
+        {
+          "predicted_range": "40-50%",
+          "n": 16574,
+          "mean_predicted": 0.46,
+          "actually_over": 0.464
+        },
+        {
+          "predicted_range": "50-60%",
+          "n": 1042,
+          "mean_predicted": 0.582,
+          "actually_over": 0.626
+        },
+        {
+          "predicted_range": "60-70%",
+          "n": 12608,
+          "mean_predicted": 0.649,
+          "actually_over": 0.658
+        },
+        {
+          "predicted_range": "70-80%",
+          "n": 969,
+          "mean_predicted": 0.72,
+          "actually_over": 0.665
+        },
+        {
+          "predicted_range": "90-100%",
+          "n": 695,
+          "mean_predicted": 1.0,
+          "actually_over": 1.0
+        }
+      ],
+      "p_over_calibration_error": 0.0094,
+      "test_lines": "the half-point line nearest the simulated median, and lines 0.35 spread-widths above and below"
+    },
+    "pra": {
+      "interval_coverage": {
+        "p10_p90": 0.792,
+        "p25_p75": 0.495,
+        "below_p10": 0.111,
+        "above_p90": 0.097
+      },
+      "p_over_at_test_lines": [
+        {
+          "predicted_range": "30-40%",
+          "n": 14518,
+          "mean_predicted": 0.364,
+          "actually_over": 0.366
+        },
+        {
+          "predicted_range": "40-50%",
+          "n": 15847,
+          "mean_predicted": 0.469,
+          "actually_over": 0.468
+        },
+        {
+          "predicted_range": "50-60%",
+          "n": 446,
+          "mean_predicted": 0.571,
+          "actually_over": 0.556
+        },
+        {
+          "predicted_range": "60-70%",
+          "n": 14017,
+          "mean_predicted": 0.645,
+          "actually_over": 0.646
+        },
+        {
+          "predicted_range": "70-80%",
+          "n": 631,
+          "mean_predicted": 0.728,
+          "actually_over": 0.681
+        },
+        {
+          "predicted_range": "90-100%",
+          "n": 221,
+          "mean_predicted": 1.0,
+          "actually_over": 1.0
+        }
+      ],
+      "p_over_calibration_error": 0.0025,
+      "test_lines": "the half-point line nearest the simulated median, and lines 0.35 spread-widths above and below"
+    },
+    "by_expected_minutes": {
+      "expected 0-12 min": {
+        "rows": 1878,
+        "points_p10_p90": 0.804,
+        "pra_p10_p90": 0.79
+      },
+      "expected 12-20 min": {
+        "rows": 3786,
+        "points_p10_p90": 0.768,
+        "pra_p10_p90": 0.776
+      },
+      "expected 20-28 min": {
+        "rows": 5028,
+        "points_p10_p90": 0.801,
+        "pra_p10_p90": 0.791
+      },
+      "expected 28-60 min": {
+        "rows": 4551,
+        "points_p10_p90": 0.808,
+        "pra_p10_p90": 0.807
+      }
+    }
+  },
+  "vs_frequency_baseline": {
+    "pts": {
+      "rows": 15057,
+      "brier_simulation": 0.2326,
+      "brier_last20_frequency": 0.2438,
+      "z": -14.6,
+      "note": "lower is better; z < -2 means the simulation is clearly better"
+    },
+    "pra": {
+      "rows": 15057,
+      "brier_simulation": 0.2354,
+      "brier_last20_frequency": 0.2491,
+      "z": -16.5,
+      "note": "lower is better; z < -2 means the simulation is clearly better"
+    }
+  },
+  "ablations_vs_final": {
+    "without minutes coupling": {
+      "pts": {
+        "crps_change": -0.0001,
+        "crps_z": -0.1,
+        "brier_change": 0.0002,
+        "brier_z": 2.0,
+        "p10_p90_coverage": 0.778
+      },
+      "pra": {
+        "crps_change": 0.0018,
+        "crps_z": 1.4,
+        "brier_change": 0.0001,
+        "brier_z": 1.3,
+        "p10_p90_coverage": 0.773
+      }
+    },
+    "without zero-points share": {
+      "pts": {
+        "crps_change": 0.0029,
+        "crps_z": 3.3,
+        "brier_change": 0.0003,
+        "brier_z": 3.3,
+        "p10_p90_coverage": 0.798
+      },
+      "pra": {
+        "crps_change": 0.0012,
+        "crps_z": 1.1,
+        "brier_change": 0.0002,
+        "brier_z": 2.4,
+        "p10_p90_coverage": 0.79
+      }
+    },
+    "minutes fixed at their mean (no minutes spread)": {
+      "pts": {
+        "crps_change": 0.0274,
+        "crps_z": 11.9,
+        "brier_change": 0.0021,
+        "brier_z": 8.5,
+        "p10_p90_coverage": 0.7
+      },
+      "pra": {
+        "crps_change": 0.104,
+        "crps_z": 23.5,
+        "brier_change": 0.0047,
+        "brier_z": 13.8,
+        "p10_p90_coverage": 0.631
+      }
+    },
+    "Poisson counts (no overdispersion)": {
+      "pts": {
+        "crps_change": 0.0486,
+        "crps_z": 15.2,
+        "brier_change": 0.0022,
+        "brier_z": 7.8,
+        "p10_p90_coverage": 0.674
+      },
+      "pra": {
+        "crps_change": 0.0286,
+        "crps_z": 10.6,
+        "brier_change": 0.0008,
+        "brier_z": 4.6,
+        "p10_p90_coverage": 0.721
+      }
+    }
+  },
+  "ablations_note": "positive change = worse than the final model; all variants answer the same lines. Tested earlier and not kept: extra rate-uncertainty draws (no change), a correlation copula between points/rebounds/assists (see below), and forcing team minutes to 240 (see below).",
+  "stat_correlation_given_minutes": {
+    "points_rebounds": 0.072,
+    "points_assists": 0.025,
+    "rebounds_assists": 0.073,
+    "pra_variance_vs_independent_sum": 1.07,
+    "note": "ratio near 1 = no extra correlation to model; shared minutes already correlate the three stats"
+  },
+  "team_minutes_check": {
+    "team_games": 1430,
+    "mean_predicted_total_for_players_who_played": 239.9,
+    "mean_actual_total_same_players": 238.7,
+    "mean_difference": 1.17,
+    "note": "average bias is about half a percent, so a forced 240 adds little; it also needs complete rosters, which early in a season are not available"
+  },
+  "seconds": 83
+}
