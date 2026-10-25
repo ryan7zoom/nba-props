@@ -28,6 +28,10 @@ jobs:
         run: python scripts/update_data.py --mode daily
       - name: Refresh per-minute rates
         run: python scripts/baseline_rates.py --mode estimate
+      - name: Install numpy
+        run: pip install numpy
+      - name: Refresh minutes projections
+        run: python scripts/minutes_model.py --mode project
       - name: Commit data
         if: always()
         run: |
