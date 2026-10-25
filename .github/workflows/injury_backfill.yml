@@ -1,0 +1,59 @@
+name: Injury reports backfill
+
+# Run by hand: Actions > Injury reports backfill > Run workflow.
+# Downloads the official injury report PDFs for a range of past days, builds the
+# status history, and re-measures how often players with each status play.
+# Resumable: reports already processed are skipped, so it is safe to run again.
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "First day (YYYY-MM-DD)"
+        required: true
+        default: "2025-10-21"
+      end:
+        description: "Last day (YYYY-MM-DD), blank = today"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install packages
+        run: pip install numpy pdfplumber
+      - name: Backfill injury reports
+        run: |
+          if [ -n "${{ inputs.end }}" ]; then
+            python scripts/injury_report.py --mode backfill --start "${{ inputs.start }}" --end "${{ inputs.end }}"
+          else
+            python scripts/injury_report.py --mode backfill --start "${{ inputs.start }}"
+          fi
+      - name: Measure play probabilities
+        if: always()
+        run: python scripts/injury_report.py --mode calibrate
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Injury report backfill $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
