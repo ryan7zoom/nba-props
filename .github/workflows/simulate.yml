@@ -1,0 +1,41 @@
+name: Simulation backtest and projection
+
+# Run by hand: Actions > Simulation backtest and projection > Run workflow.
+# Tests the distribution simulation on 2025-26 (about 2-4 minutes), then
+# writes data/projections.csv and data/projections_latest.json for upcoming games.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install packages
+        run: pip install numpy pdfplumber
+      - name: Backtest and project
+        run: python scripts/simulate_props.py --mode both
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Simulation backtest and projection $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
