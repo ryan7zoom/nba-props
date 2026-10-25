@@ -8,7 +8,7 @@ blowout-risk proxy built from both teams' scoring margins so far.
 
 Modes
   backtest  walk-forward test: every game is predicted using earlier games only.
-            Trains on everything before 2026-01-15, checks on 2025-26 games from
+            Trains on everything before 15/01/2026, checks on 2025-26 games from
             that date on, against simple baselines (last 10 games, season-to-date,
             exponential average). Writes data/minutes_backtest.json and
             data/minutes_params.json.
@@ -30,7 +30,7 @@ from pathlib import Path
 
 import numpy as np
 
-from injury_report import DEFAULT_PLAY, last_first_key, norm_name
+from injury_report import DEFAULT_NON_INJURY, DEFAULT_PLAY, dmy, dmy_time, is_non_injury, last_first_key, norm_name
 
 DATA = Path("data")
 PLAYER_GAMES = DATA / "player_games.csv"
@@ -320,7 +320,7 @@ def run_backtest(rows):
     log(f"  mean rotation minutes out per player-game in training: "
         f"{np.mean([f['x']['abs_total'] for f in train]):.1f}")
     log(f"Minutes backtest: {len(train)} training player-games, {len(valid)} validation player-games "
-        f"(2025-26 from {SPLIT_DATE})")
+        f"(2025-26 from {dmy(SPLIT_DATE)})")
     y = np.array([f["y"] for f in valid])
 
     # parsimony: start from all features, drop whole groups that do not clearly help
@@ -447,8 +447,8 @@ def run_project(rows, names):
         "features": names, "ridge_lambda": lam, "weights": [round(float(w), 5) for w in model["w"]],
         "intercept": round(float(model["b"]), 4), "bin_edges": BIN_EDGES, "quantile_levels": QLEVELS,
         "residual_quantiles": [[round(float(v), 3) for v in row] for row in q],
-        "trained_rows": len(usable), "trained_through": rows[-1]["date"],
-        "fit_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "trained_rows": len(usable), "trained_through": dmy(rows[-1]["date"]),
+        "fit_at": dmy_time(datetime.now(timezone.utc)) + " UTC",
     }, indent=2), encoding="utf-8")
 
     if not SCHEDULE.exists():
@@ -466,15 +466,16 @@ def run_project(rows, names):
         with open(INJURIES, newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 out_status[r["athlete_id"]] = r["status"]
-    official = defaultdict(dict)          # (game_date, team) -> {player_norm: status}
+    official = defaultdict(dict)          # (game_date, team) -> {player_norm: (status, reason)}
     if OFFICIAL.exists():
         with open(OFFICIAL, newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
-                official[(r["game_date_et"], r["team"])][r["player_norm"]] = r["status"]
-    play_probs, probs_source = dict(DEFAULT_PLAY), "defaults"
+                official[(r["game_date_et"], r["team"])][r["player_norm"]] = (r["status"], r["reason"])
+    play_probs, probs_source, p_non_injury = dict(DEFAULT_PLAY), "defaults", DEFAULT_NON_INJURY
     if PLAY_PROBS.exists():
         pp = json.loads(PLAY_PROBS.read_text(encoding="utf-8"))
         play_probs.update(pp.get("probs", {}))
+        p_non_injury = pp.get("non_injury", DEFAULT_NON_INJURY)
         probs_source = pp.get("source", "defaults")
     names_by_id = {r["aid"]: r["name"] for r in rows}
     sy_now = rows[-1]["sy"]
@@ -503,18 +504,18 @@ def run_project(rows, names):
             off = official.get((g["game_date_et"], team))
             norm_of = {a: norm_name(names_by_id.get(a, "")) for a in cands}
             lf_count = Counter(last_first_key(n) for n in norm_of.values())
-            p_play, status, source = {}, {}, {}
+            p_play, status, source, reason_of = {}, {}, {}, {}
             for a in cands:
-                stt, src = None, "none"
+                stt, src, why = None, "none", ""
                 if off:
-                    stt = off.get(norm_of[a])
-                    if stt is None:  # fall back to last name + first initial when unique on the team
+                    hit = off.get(norm_of[a])
+                    if hit is None:  # fall back to last name + first initial when unique on the team
                         lf = last_first_key(norm_of[a])
-                        hit = [v for k2, v in off.items() if last_first_key(k2) == lf]
-                        if lf_count[lf] == 1 and len(hit) == 1:
-                            stt = hit[0]
-                    if stt is not None:
-                        src = "official"
+                        cand = [v for k2, v in off.items() if last_first_key(k2) == lf]
+                        if lf_count[lf] == 1 and len(cand) == 1:
+                            hit = cand[0]
+                    if hit is not None:
+                        (stt, why), src = hit, "official"
                     else:
                         stt, src = "", "official_not_listed"
                 e = out_status.get(a, "")
@@ -522,8 +523,11 @@ def run_project(rows, names):
                     stt, src = "Out", "espn"
                 elif not stt and e and src == "none":  # no official report for this game yet
                     stt, src = "Questionable", "espn"  # ESPN "Day-To-Day" has no finer level
-                status[a], source[a] = stt or "", src
-                p_play[a] = play_probs.get(stt, 1.0) if stt else 1.0
+                status[a], source[a], reason_of[a] = stt or "", src, why
+                if stt and stt in ("Questionable", "Doubtful", "Probable") and is_non_injury(why):
+                    p_play[a] = p_non_injury       # G League / two-way assignment, not a health question
+                else:
+                    p_play[a] = play_probs.get(stt, 1.0) if stt else 1.0
             sure_out = [a for a in cands if p_play[a] <= 0.03]
             unsure = sorted((a for a in cands if 0.03 < p_play[a] < 0.97), key=lambda a: -mpg[a])
             branch = unsure[:MAX_UNCERTAIN]
@@ -573,9 +577,9 @@ def run_project(rows, names):
                 cdf = np.cumsum(wts) / wts.sum()
                 qv = {lvl: float(vals[min(np.searchsorted(cdf, lvl), len(vals) - 1)]) for lvl in QLEVELS}
                 pp_a = p_play[a]
-                row = {"game_date_et": g["game_date_et"], "event_id": g["event_id"], "team": team,
+                row = {"_iso": g["game_date_et"], "game_date_et": dmy(g["game_date_et"]), "event_id": g["event_id"], "team": team,
                        "opp": opp, "home": home, "athlete_id": a, "player": names_by_id.get(a, ""),
-                       "status": status[a], "status_source": source[a], "p_play": round(pp_a, 3),
+                       "status": status[a], "reason": reason_of[a], "status_source": source[a], "p_play": round(pp_a, 3),
                        "proj_min": round(mean, 1), "exp_min": round(pp_a * mean, 1)}
                 for lvl, nm in zip(QLEVELS, ("p05", "p10", "p25", "p50", "p75", "p90", "p95")):
                     row[nm] = round(qv[lvl], 1)
@@ -593,15 +597,16 @@ def run_project(rows, names):
     if not out:
         log("No upcoming games to project (schedule empty or all games started).")
     else:
-        out.sort(key=lambda r: (r["game_date_et"], r["event_id"], r["team"], -r["exp_min"]))
+        out.sort(key=lambda r: (r["_iso"], r["event_id"], r["team"], -r["exp_min"]))
+        fields = [k for k in out[0].keys() if k != "_iso"]
         with open(PROJECTION, "w", newline="", encoding="utf-8") as fh:
-            w = csv.DictWriter(fh, fieldnames=list(out[0].keys()))
+            w = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore")
             w.writeheader()
             w.writerows(out)
         log(f"  mean rotation minutes out per projected player-game: "
             f"{np.mean([r['team_rotation_min_out'] for r in out]):.1f}")
     log(f"\nProjected {len(out)} player-games across {len(games)} upcoming games "
-        f"(as of {today_et} ET); {stats['low_history']} flagged low-history. "
+        f"(as of {dmy(today_et)} ET); {stats['low_history']} flagged low-history. "
         f"Status source: official={stats['src_official']}, official-but-not-listed={stats['src_official_not_listed']}, "
         f"espn={stats['src_espn']}, none={stats['src_none']}. Play probabilities: {probs_source}. "
         f"Wrote {PROJECTION}")
