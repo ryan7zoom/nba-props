@@ -50,6 +50,7 @@ PLAYER_GAMES = DATA / "player_games.csv"
 ET = ZoneInfo("America/New_York")
 BASE = "https://ak-static.cms.nba.com/referee/injury/Injury-Report_"
 STATUSES = ("Out", "Doubtful", "Questionable", "Probable", "Available")
+DEFAULT_NON_INJURY = 0.10  # "Questionable"/"Probable" next to a G League or two-way reason
 DEFAULT_PLAY = {"Available": 0.97, "Probable": 0.90, "Questionable": 0.55, "Doubtful": 0.12, "Out": 0.02}
 PRIOR_STRENGTH = 20  # defaults count as this many games of evidence
 
@@ -69,8 +70,9 @@ TEAMS = {  # ESPN code -> names as printed in the report
 TRI = {"GSW": "GS", "NOP": "NO", "NYK": "NY", "SAS": "SA", "UTA": "UTAH", "WAS": "WSH"}
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 
+NORM_V = "2"  # bump when name or reason parsing changes; old history is then rebuilt automatically
 HISTORY_FIELDS = ["report_et", "report_utc", "game_date_et", "game_time_et", "matchup", "team",
-                  "player_raw", "player_norm", "status", "reason", "file"]
+                  "player_raw", "player_norm", "status", "reason", "file", "norm_v"]
 LATEST_FIELDS = HISTORY_FIELDS[:]
 
 WARNINGS, ERRORS = [], []
@@ -78,6 +80,29 @@ WARNINGS, ERRORS = [], []
 
 def log(msg):
     print(msg, flush=True)
+
+
+def dmy(iso):
+    """2026-10-24 -> 24/10/2026 (all dates shown to people use this format)."""
+    s = str(iso)
+    return f"{s[8:10]}/{s[5:7]}/{s[0:4]}" if len(s) >= 10 and s[4] == "-" else s
+
+
+def dmy_slot(name):
+    """2026-10-24_05_30PM -> 24/10/2026 05:30PM"""
+    return f"{dmy(name[:10])} {name[11:13]}:{name[14:]}" if len(name) >= 17 else name
+
+
+def dmy_time(dt):
+    return dt.strftime("%d/%m/%Y %H:%M")
+
+
+NON_INJURY_RE = re.compile(r"g\s*league|two-?\s*way|not\s*with\s*team|suspension|personal|trade|coach", re.I)
+
+
+def is_non_injury(reason):
+    """G League assignments, two-way contracts, suspensions etc.: a different thing from a health status."""
+    return bool(NON_INJURY_RE.search(reason or ""))
 
 
 def warn(msg):
@@ -105,7 +130,15 @@ def norm_name(raw):
     s = strip_accents(raw).lower()
     s = re.sub(r"[.'`]", "", s)
     s = re.sub(r"[^a-z0-9]+", " ", s)
-    toks = [t for t in s.split() if t not in SUFFIXES]
+    toks = []
+    for t in s.split():
+        if t in SUFFIXES:
+            continue
+        for suf in ("iii", "jr", "sr", "iv", "ii"):  # suffix glued on, e.g. "porterjr"
+            if t.endswith(suf) and len(t) >= len(suf) + 3:
+                t = t[:-len(suf)]
+                break
+        toks.append(t)
     return " ".join(toks)
 
 
@@ -149,11 +182,31 @@ def to_24h(h, m, ampm):
     return f"{h:02d}:{m}"
 
 
+CATEGORY_RE = re.compile(r"^(Injury|Illness|G\s*League|Not\s*With|Personal|Suspension|Trade|Coach|Health|Return|Conditioning)", re.I)
+
+
 def parse_text(text):
-    """Turn the report's text into rows. Returns (rows, not_submitted_teams, unparsed_lines)."""
+    """Turn the report's text into rows. Returns (rows, not_submitted_teams, unparsed_lines).
+
+    Reason cells can wrap onto several lines, and the PDF centers them vertically, so the
+    first part of a long reason can print on the line ABOVE the player's row. A loose line
+    is therefore held back and attached to the next row if that row's own reason does not
+    start a new reason, otherwise to the row before it.
+    """
     rows, not_submitted, unparsed = [], [], []
     cur = {"date": "", "time": "", "matchup": "", "team": "", "team_raw": ""}
     last_row = None
+    pending = []
+
+    def flush_to_previous():
+        nonlocal pending
+        if pending:
+            if last_row is not None:
+                last_row["reason"] = (last_row["reason"] + " " + " ".join(pending)).strip()
+            else:
+                unparsed.extend(pending)
+            pending = []
+
     for raw_line in text.splitlines():
         line = raw_line.strip()
         if not line or SKIP_RE.match(line):
@@ -179,6 +232,7 @@ def parse_text(text):
             cur["team"] = TEAM_LOOKUP[re.sub(r"\s+", "", m.group(1)).lower()]
             rest = rest[m.end():]
         if NOT_SUBMITTED_RE.search(rest):
+            flush_to_previous()
             not_submitted.append(cur["team"])
             last_row = None
             continue
@@ -186,15 +240,25 @@ def parse_text(text):
         sm = STATUS_RE.search(rest, comma + 1) if comma >= 0 else None
         if sm:
             name = rest[:sm.start()].strip()
-            reason = rest[sm.end():].strip()
+            own = rest[sm.end():].strip()
+            if pending:
+                if own and CATEGORY_RE.match(own):
+                    flush_to_previous()          # loose lines belonged to the row above
+                    reason = own
+                else:
+                    reason = " ".join(pending + ([own] if own else []))  # first part of this row's reason
+                    pending = []
+            else:
+                reason = own
             last_row = {"game_date_et": cur["date"], "game_time_et": cur["time"], "matchup": cur["matchup"],
                         "team": cur["team"], "player_raw": name, "player_norm": norm_name(name),
                         "status": sm.group(1), "reason": reason}
             rows.append(last_row)
-        elif last_row is not None and len(rest) < 120 and not STATUS_RE.search(rest):
-            last_row["reason"] = (last_row["reason"] + " " + rest).strip()  # wrapped reason text
+        elif len(rest) < 120 and not STATUS_RE.search(rest):
+            pending.append(rest)
         else:
             unparsed.append(line)
+    flush_to_previous()
     return rows, not_submitted, unparsed
 
 
@@ -223,7 +287,7 @@ def check_rows(rows, unparsed, text, fname):
         problems.append(f"{len(unparsed)} unparsed lines vs {len(rows)} rows")
     if problems:
         sample = "\n".join(text.splitlines()[:25])
-        return f"{fname}: " + "; ".join(problems) + f". First lines of the PDF text:\n{sample}"
+        return f"{dmy_slot(fname)}: " + "; ".join(problems) + f". First lines of the PDF text:\n{sample}"
     return None
 
 
@@ -324,7 +388,7 @@ def process_reports(found, known):
         try:
             rows, ns, unparsed, text = parse_pdf(data)
         except Exception as e:
-            err(f"{name}: could not read PDF ({type(e).__name__}: {e})")
+            err(f"{dmy_slot(name)}: could not read PDF ({type(e).__name__}: {e})")
             stats["failed"] += 1
             continue
         problem = check_rows(rows, unparsed, text, name)
@@ -333,12 +397,13 @@ def process_reports(found, known):
             stats["failed"] += 1
             continue
         if unparsed:
-            warn(f"{name}: {len(unparsed)} unparsed lines, e.g. {unparsed[0]!r}")
+            warn(f"{dmy_slot(name)}: {len(unparsed)} unparsed lines, e.g. {unparsed[0]!r}")
         stats["parsed"] += 1
         stats["rows"] += len(rows)
         ok_names.append((name, t))
         report_utc = t.astimezone(timezone.utc).isoformat(timespec="minutes")
-        base = {"report_et": t.isoformat(timespec="minutes"), "report_utc": report_utc, "file": name}
+        base = {"report_et": t.isoformat(timespec="minutes"), "report_utc": report_utc, "file": name,
+                "norm_v": NORM_V}
         teams_in_report = set()
         present = set()
         for r in rows:
@@ -366,6 +431,12 @@ def process_reports(found, known):
 def run_fetch(start_day, end_day, mode):
     DATA.mkdir(exist_ok=True)
     now_et = datetime.now(timezone.utc).astimezone(ET)
+    old = read_csv(HISTORY)
+    if old and old[0].get("norm_v") != NORM_V:
+        log("Old injury history was built with an older name/reason parser: rebuilding it from the reports.")
+        for path in (HISTORY, SEEN, LATEST):
+            if path.exists():
+                path.unlink()
     seen_rows = read_csv(SEEN)
     seen = {r["file"] for r in seen_rows}
     hist = read_csv(HISTORY)
@@ -388,21 +459,21 @@ def run_fetch(start_day, end_day, mode):
                        [{"file": n, "report_utc": t.astimezone(timezone.utc).isoformat(timespec="minutes"),
                          "rows": ""} for n, t in ok])
             seen.update(n for n, _ in ok)
-            log(f"{day}: {len(found)} new reports, {stats['rows']} rows, {len(new_hist)} status changes")
+            log(f"{dmy(day)}: {len(found)} new reports, {stats['rows']} rows, {len(new_hist)} status changes")
         elif probed:
-            log(f"{day}: no new reports ({probed} slots probed)")
+            log(f"{dmy(day)}: no new reports ({probed} slots probed)")
         day += timedelta(days=1)
 
     # latest file for backfill runs: newest report seen overall is rebuilt from history is not needed
     health = {
-        "run_at": datetime.now(timezone.utc).isoformat(timespec="seconds"), "mode": mode,
-        "ok": not ERRORS, "days": f"{start_day}..{end_day}", "slots_probed": total_probed,
+        "run_at": dmy_time(datetime.now(timezone.utc)) + " UTC", "mode": mode,
+        "ok": not ERRORS, "days": f"{dmy(start_day.isoformat())} to {dmy(end_day.isoformat())}", "slots_probed": total_probed,
         "reports_found": total_found, "probe_errors": total_err,
         "warnings": WARNINGS[:50], "errors": ERRORS[:20],
     }
     if mode == "fetch":
         latest_rows = read_csv(LATEST)
-        health["latest_report_et"] = latest_rows[0]["report_et"] if latest_rows else None
+        health["latest_report_et"] = (dmy_time(datetime.fromisoformat(latest_rows[0]["report_et"])) + " ET") if latest_rows else None
         health["latest_rows"] = len(latest_rows)
         if not latest_rows:
             warn("no official report saved yet")
@@ -424,33 +495,40 @@ def run_fetch(start_day, end_day, mode):
 
 # ---------- calibration ----------
 
-def status_before_tip(hist_rows):
-    """(game_date, team, player_norm) -> status in the last report before tip-off."""
+LEAD_MINUTES = 120  # judge statuses as they stood this long before tip-off (a realistic time to bet)
+
+
+def status_at_lead(hist_rows, lead_minutes=LEAD_MINUTES):
+    """(game_date, team, player_norm) -> (status, reason) as of `lead_minutes` before tip-off."""
     by_key = defaultdict(list)
     for r in hist_rows:
         by_key[(r["game_date_et"], r["team"], r["player_norm"])].append(r)
     out = {}
     for key, rs in by_key.items():
         rs.sort(key=lambda r: r["report_utc"])
-        tip = None
         tip_str = next((r["game_time_et"] for r in rs if r["game_time_et"]), "")
-        if tip_str:
-            h, m = tip_str.split(":")
-            d = datetime.fromisoformat(key[0])
-            tip = datetime(d.year, d.month, d.day, int(h), int(m), tzinfo=ET).astimezone(timezone.utc).isoformat(timespec="minutes")
-        usable = [r for r in rs if tip is None or r["report_utc"] <= tip]
+        if not tip_str:
+            continue
+        h, m = tip_str.split(":")
+        d = datetime.fromisoformat(key[0])
+        cutoff = (datetime(d.year, d.month, d.day, int(h), int(m), tzinfo=ET)
+                  - timedelta(minutes=lead_minutes)).astimezone(timezone.utc).isoformat(timespec="minutes")
+        usable = [r for r in rs if r["report_utc"] <= cutoff]
         if usable:
-            st = usable[-1]["status"]
-            out[key] = "Available" if st == "Removed" else st
+            last = usable[-1]
+            st = "Available" if last["status"] == "Removed" else last["status"]
+            reason = next((r["reason"] for r in reversed(usable) if r["reason"]), "")
+            out[key] = (st, reason)
     return out
 
 
 def run_calibrate():
     hist = read_csv(HISTORY)
+    now_txt = dmy_time(datetime.now(timezone.utc)) + " UTC"
     if not hist:
         log("No official injury history yet; keeping default play probabilities.")
         PLAY_PROBS.write_text(json.dumps({"source": "defaults", "probs": DEFAULT_PLAY,
-                                          "stats": {}, "as_of": datetime.now(timezone.utc).isoformat(timespec="seconds")},
+                                          "non_injury": DEFAULT_NON_INJURY, "stats": {}, "as_of": now_txt},
                                          indent=2), encoding="utf-8")
         return 0
     played, team_days, by_team_last = set(), set(), defaultdict(set)
@@ -463,14 +541,12 @@ def run_calibrate():
                 n = norm_name(r["player"])
                 played.add((r["game_date_et"], r["team"], n))
                 by_team_last[(r["game_date_et"], r["team"])].add((last_first_key(n), n))
-    final = status_before_tip(hist)
-    counts = defaultdict(lambda: [0, 0])  # status -> [n, played]
+    snap = status_at_lead(hist)
+    counts = defaultdict(lambda: [0, 0])  # status -> [n, played], health reasons only
+    non_inj = [0, 0]
     reason_counts = defaultdict(lambda: [0, 0])
-    reasons = {}
-    for r in hist:
-        reasons[(r["game_date_et"], r["team"], r["player_norm"])] = r["reason"]
     skipped_no_box = 0
-    for key, st in final.items():
+    for key, (st, reason) in snap.items():
         d, team, n = key
         if (d, team) not in team_days:
             skipped_no_box += 1
@@ -480,10 +556,14 @@ def run_calibrate():
             lf = last_first_key(n)
             cands = [full for k, full in by_team_last[(d, team)] if k == lf]
             did = len(cands) == 1 and (d, team, cands[0]) in played
+        if is_non_injury(reason) and st != "Available":
+            non_inj[0] += 1
+            non_inj[1] += int(did)
+            continue
         counts[st][0] += 1
         counts[st][1] += int(did)
         if st == "Questionable":
-            low = reasons.get(key, "").lower()
+            low = reason.lower()
             tag = "rest/management" if ("rest" in low or "management" in low) else (
                 "illness" if "illness" in low else "injury")
             reason_counts[tag][0] += 1
@@ -494,27 +574,40 @@ def run_calibrate():
         prior = DEFAULT_PLAY[st]
         probs[st] = round((p + PRIOR_STRENGTH * prior) / (n + PRIOR_STRENGTH), 4)
         stats[st] = {"n": n, "played": p, "raw_rate": round(p / n, 3) if n else None, "default": prior}
-    out = {"source": "history", "probs": probs, "stats": stats,
+    p_non = round((non_inj[1] + PRIOR_STRENGTH * DEFAULT_NON_INJURY) / (non_inj[0] + PRIOR_STRENGTH), 4)
+    out = {"source": "history", "status_taken_minutes_before_tip": LEAD_MINUTES, "probs": probs,
+           "non_injury": p_non,
+           "non_injury_counts": {"n": non_inj[0], "played": non_inj[1]}, "stats": stats,
            "questionable_by_reason": {k: {"n": v[0], "played": v[1], "raw_rate": round(v[1] / v[0], 3)}
                                       for k, v in reason_counts.items() if v[0]},
-           "games_without_box_scores_skipped": skipped_no_box,
-           "as_of": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+           "players_with_status_but_no_box_score_day": skipped_no_box, "as_of": now_txt}
     PLAY_PROBS.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    log("Probability a player plays, by official status (history vs default):")
+    log(f"Probability a player plays, by official status {LEAD_MINUTES} minutes before tip-off "
+        f"(history vs default):")
     for st in STATUSES:
         s = stats[st]
         log(f"  {st:<13} n={s['n']:<6} played={s['played']:<6} raw={s['raw_rate']}  used={probs[st]}")
+    log(f"  G League / two-way / suspension etc. (not health): n={non_inj[0]} played={non_inj[1]} used={p_non}")
     for k, v in out["questionable_by_reason"].items():
         log(f"  Questionable ({k}): n={v['n']} raw={v['raw_rate']}")
     return 0
+
+
+def parse_user_date(text):
+    """Accepts dd/mm/yyyy (preferred) or yyyy-mm-dd."""
+    text = text.strip()
+    if re.fullmatch(r"\d{1,2}/\d{1,2}/\d{4}", text):
+        d, m, y = text.split("/")
+        return date(int(y), int(m), int(d))
+    return date.fromisoformat(text)
 
 
 def main(argv=None):
     p = argparse.ArgumentParser()
     p.add_argument("--mode", choices=["fetch", "backfill", "calibrate"], required=True)
     p.add_argument("--days", type=int, default=2)
-    p.add_argument("--start")
-    p.add_argument("--end")
+    p.add_argument("--start", help="dd/mm/yyyy")
+    p.add_argument("--end", help="dd/mm/yyyy")
     args = p.parse_args(argv)
     today = datetime.now(timezone.utc).astimezone(ET).date()
     if args.mode == "calibrate":
@@ -522,9 +615,9 @@ def main(argv=None):
     if args.mode == "fetch":
         return run_fetch(today - timedelta(days=args.days), today, "fetch")
     if not args.start:
-        raise SystemExit("--start YYYY-MM-DD is required for backfill")
-    end = date.fromisoformat(args.end) if args.end else today
-    return run_fetch(date.fromisoformat(args.start), end, "backfill")
+        raise SystemExit("--start dd/mm/yyyy is required for backfill")
+    end = parse_user_date(args.end) if args.end else today
+    return run_fetch(parse_user_date(args.start), end, "backfill")
 
 
 if __name__ == "__main__":
