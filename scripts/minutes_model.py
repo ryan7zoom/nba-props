@@ -16,18 +16,21 @@ Modes
             game in data/schedule.csv. Writes data/minutes_projection.csv.
   both      backtest, then project.
 
-Needs numpy. Reads data/player_games.csv, schedule.csv, injuries_latest.csv.
+Needs numpy. Reads data/player_games.csv, schedule.csv, injuries_latest.csv, and (when present)
+injuries_official_latest.csv and play_probs.json from the official injury report step.
 """
 import argparse
 import csv
 import json
 import math
 import sys
-from collections import defaultdict, deque
+from collections import Counter, defaultdict, deque
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
+
+from injury_report import DEFAULT_PLAY, last_first_key, norm_name
 
 DATA = Path("data")
 PLAYER_GAMES = DATA / "player_games.csv"
@@ -36,6 +39,8 @@ INJURIES = DATA / "injuries_latest.csv"
 PARAMS = DATA / "minutes_params.json"
 BACKTEST = DATA / "minutes_backtest.json"
 PROJECTION = DATA / "minutes_projection.csv"
+OFFICIAL = DATA / "injuries_official_latest.csv"
+PLAY_PROBS = DATA / "play_probs.json"
 
 NBA = {
     "ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GS", "HOU",
@@ -50,6 +55,8 @@ HOME_EDGE = 2.5            # points, for the blowout proxy
 LAMBDAS = [0.1, 1.0, 10.0, 100.0, 1000.0]
 BIN_EDGES = [0, 10, 16, 22, 28, 33, 99]
 QLEVELS = [0.05, 0.10, 0.25, 0.50, 0.75, 0.90, 0.95]
+GRID = 41                  # points used to represent one residual distribution
+MAX_UNCERTAIN = 6          # players per team whose play/sit is enumerated
 SIMPLER_WINS_UNLESS = 0.002  # extra feature groups must cut squared error by 0.2% to be kept
 
 FEATURES = [
@@ -459,10 +466,30 @@ def run_project(rows, names):
         with open(INJURIES, newline="", encoding="utf-8") as f:
             for r in csv.DictReader(f):
                 out_status[r["athlete_id"]] = r["status"]
+    official = defaultdict(dict)          # (game_date, team) -> {player_norm: status}
+    if OFFICIAL.exists():
+        with open(OFFICIAL, newline="", encoding="utf-8") as f:
+            for r in csv.DictReader(f):
+                official[(r["game_date_et"], r["team"])][r["player_norm"]] = r["status"]
+    play_probs, probs_source = dict(DEFAULT_PLAY), "defaults"
+    if PLAY_PROBS.exists():
+        pp = json.loads(PLAY_PROBS.read_text(encoding="utf-8"))
+        play_probs.update(pp.get("probs", {}))
+        probs_source = pp.get("source", "defaults")
     names_by_id = {r["aid"]: r["name"] for r in rows}
     sy_now = rows[-1]["sy"]
+    # residual shapes by predicted-minutes bin, as 41 evenly spaced quantile points
+    tr_res = np.array([t["y"] for t in usable]) - tr_pred
+    tr_bins = np.array([bin_of(p) for p in tr_pred])
+    grid_levels = (np.arange(GRID) + 0.5) / GRID
+    res_grid = []
+    for k in range(len(BIN_EDGES) - 1):
+        r = tr_res[tr_bins == k]
+        res_grid.append(np.quantile(r if len(r) >= 200 else tr_res, grid_levels))
+    res_grid = np.array(res_grid)
+
     out = []
-    low_history = 0
+    stats = Counter()
     for g in games:
         d = ordinal(g["game_date_et"])
         for team, opp, home in ((g["home"], g["away"], 1), (g["away"], g["home"], 0)):
@@ -472,45 +499,112 @@ def run_project(rows, names):
                 for aid, m in gm.items():
                     seen[aid].append(m)
             cands = {a: ms for a, ms in seen.items() if st.last_team.get(a) == team and len(ms) >= 2}
-            outs = {a for a in cands if out_status.get(a) == "Out"}
-            abs_total = sum(sum(cands[a]) / len(cands[a]) for a in outs if sum(cands[a]) / len(cands[a]) >= 8)
-            abs_star = sum(1 for a in outs if sum(cands[a]) / len(cands[a]) >= 24)
-            for aid in cands:
-                if aid in outs:
+            mpg = {a: sum(ms) / len(ms) for a, ms in cands.items()}
+            off = official.get((g["game_date_et"], team))
+            norm_of = {a: norm_name(names_by_id.get(a, "")) for a in cands}
+            lf_count = Counter(last_first_key(n) for n in norm_of.values())
+            p_play, status, source = {}, {}, {}
+            for a in cands:
+                stt, src = None, "none"
+                if off:
+                    stt = off.get(norm_of[a])
+                    if stt is None:  # fall back to last name + first initial when unique on the team
+                        lf = last_first_key(norm_of[a])
+                        hit = [v for k2, v in off.items() if last_first_key(k2) == lf]
+                        if lf_count[lf] == 1 and len(hit) == 1:
+                            stt = hit[0]
+                    if stt is not None:
+                        src = "official"
+                    else:
+                        stt, src = "", "official_not_listed"
+                e = out_status.get(a, "")
+                if not stt and e == "Out":  # ESPN says out and the official report does not contradict it
+                    stt, src = "Out", "espn"
+                elif not stt and e and src == "none":  # no official report for this game yet
+                    stt, src = "Questionable", "espn"  # ESPN "Day-To-Day" has no finer level
+                status[a], source[a] = stt or "", src
+                p_play[a] = play_probs.get(stt, 1.0) if stt else 1.0
+            sure_out = [a for a in cands if p_play[a] <= 0.03]
+            unsure = sorted((a for a in cands if 0.03 < p_play[a] < 0.97), key=lambda a: -mpg[a])
+            branch = unsure[:MAX_UNCERTAIN]
+            fixed_out = set(sure_out) | {a for a in unsure[MAX_UNCERTAIN:] if p_play[a] < 0.5}
+            active_always = [a for a in cands if a not in fixed_out and a not in branch]
+            # one base feature row per player; only the absence features change by scenario
+            base = {}
+            for a in active_always + branch:
+                f = st.features(a, team, opp, home, g["game_date_et"], sy_now, g["season_type"], (0.0, 0))
+                if f is not None:
+                    base[a] = f
+            pts = defaultdict(list)       # aid -> [(weight, minutes)]
+            wsum = defaultdict(float)
+            for combo in range(2 ** len(branch)):
+                w, outs = 1.0, set(fixed_out)
+                for i, a in enumerate(branch):
+                    if combo >> i & 1:
+                        w *= p_play[a]
+                    else:
+                        w *= 1 - p_play[a]
+                        outs.add(a)
+                if w < 1e-6:
                     continue
-                f = st.features(aid, team, opp, home, g["game_date_et"], sy_now, g["season_type"],
-                                (abs_total, abs_star))
-                if f is None:
+                tot = sum(mpg[a] for a in outs if mpg[a] >= 8)
+                stars = sum(1 for a in outs if mpg[a] >= 24)
+                playing = [a for a in base if a not in outs]
+                if not playing:
                     continue
-                p = predict(model, design([{"x": f}], names))
-                lo, hi = [], []
+                X = []
+                for a in playing:
+                    f = dict(base[a])
+                    f["abs_total"], f["abs_star"], f["abs_x"] = tot, stars, tot * f["l10"] / 36.0
+                    X.append([f[n] for n in names])
+                mu = predict(model, np.array(X, dtype=float))
+                for a, m in zip(playing, mu):
+                    wsum[a] += w
+                    pts[a].append((w, float(m), bin_of(m)))
+            for a, lst in pts.items():
+                tw = sum(w for w, _, _ in lst)
+                mean = sum(w * m for w, m, _ in lst) / tw
+                vals, wts = [], []
+                for w, m, k in lst:
+                    vals.extend(np.clip(m + res_grid[k], 0, 60))
+                    wts.extend([w / GRID] * GRID)
+                order = np.argsort(vals)
+                vals, wts = np.array(vals)[order], np.array(wts)[order]
+                cdf = np.cumsum(wts) / wts.sum()
+                qv = {lvl: float(vals[min(np.searchsorted(cdf, lvl), len(vals) - 1)]) for lvl in QLEVELS}
+                pp_a = p_play[a]
                 row = {"game_date_et": g["game_date_et"], "event_id": g["event_id"], "team": team,
-                       "opp": opp, "home": home, "athlete_id": aid, "player": names_by_id.get(aid, ""),
-                       "injury_status": out_status.get(aid, ""), "proj_min": round(float(p[0]), 1)}
-                k = bin_of(p[0])
+                       "opp": opp, "home": home, "athlete_id": a, "player": names_by_id.get(a, ""),
+                       "status": status[a], "status_source": source[a], "p_play": round(pp_a, 3),
+                       "proj_min": round(mean, 1), "exp_min": round(pp_a * mean, 1)}
                 for lvl, nm in zip(QLEVELS, ("p05", "p10", "p25", "p50", "p75", "p90", "p95")):
-                    row[nm] = round(float(np.clip(p[0] + q[k][QLEVELS.index(lvl)], 0, 60)), 1)
+                    row[nm] = round(qv[lvl], 1)
+                f = base[a]
                 row.update({"last10_avg": round(f["l10"], 1), "starter_share_l10": round(f["start10"], 2),
-                            "team_rotation_min_out": round(abs_total, 1), "rest_days": f["rest"],
-                            "games_of_history": st.n[aid], "low_history": int(st.n[aid] < MIN_HIST)})
-                low_history += row["low_history"]
+                            "team_rotation_min_out": round(sum(mpg[x] for x in cands
+                                                               if p_play[x] <= 0.03 and mpg[x] >= 8), 1),
+                            "rest_days": f["rest"], "games_of_history": st.n[a],
+                            "low_history": int(st.n[a] < MIN_HIST)})
+                stats["low_history"] += row["low_history"]
+                stats["src_" + source[a]] += 1
                 out.append(row)
-            # the player in an upcoming game also counts toward the team's rest for later games
         for team in (g["home"], g["away"]):
             st.team_dates[team].append(d)
     if not out:
         log("No upcoming games to project (schedule empty or all games started).")
     else:
-        out.sort(key=lambda r: (r["game_date_et"], r["event_id"], r["team"], -r["proj_min"]))
+        out.sort(key=lambda r: (r["game_date_et"], r["event_id"], r["team"], -r["exp_min"]))
         with open(PROJECTION, "w", newline="", encoding="utf-8") as fh:
             w = csv.DictWriter(fh, fieldnames=list(out[0].keys()))
             w.writeheader()
             w.writerows(out)
-    if out:
         log(f"  mean rotation minutes out per projected player-game: "
             f"{np.mean([r['team_rotation_min_out'] for r in out]):.1f}")
     log(f"\nProjected {len(out)} player-games across {len(games)} upcoming games "
-        f"(as of {today_et} ET); {low_history} flagged low-history. Wrote {PROJECTION}")
+        f"(as of {today_et} ET); {stats['low_history']} flagged low-history. "
+        f"Status source: official={stats['src_official']}, official-but-not-listed={stats['src_official_not_listed']}, "
+        f"espn={stats['src_espn']}, none={stats['src_none']}. Play probabilities: {probs_source}. "
+        f"Wrote {PROJECTION}")
     return out
 
 
