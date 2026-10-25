@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBA safe lines</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f3f5f7;--card:#ffffff;--ink:#15191f;--mute:#5d6672;--line:#dde2e8;--accent:#0a6b5c;--accent-soft:#dff1ec;--warn:#9a5b00;--warn-bg:#fff1d6;--bad:#a3261f;--bad-bg:#fde3e1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1317;--card:#171d23;--ink:#e8ecf0;--mute:#97a1ad;--line:#26303a;--accent:#4fd1b5;--accent-soft:#12332d;--warn:#ffc266;--warn-bg:#3a2a0b;--bad:#ff8a80;--bad-bg:#3d1714}}
+:root[data-theme="dark"]{--bg:#0f1317;--card:#171d23;--ink:#e8ecf0;--mute:#97a1ad;--line:#26303a;--accent:#4fd1b5;--accent-soft:#12332d;--warn:#ffc266;--warn-bg:#3a2a0b;--bad:#ff8a80;--bad-bg:#3d1714}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
+main{max-width:760px;margin:0 auto;padding:14px 12px 40px}
+h1{font-size:22px;margin:4px 0 2px;letter-spacing:-.01em}
+.sub{color:var(--mute);font-size:13px;margin:0 0 10px}
+.banner{border-radius:10px;padding:9px 12px;font-size:14px;margin:0 0 10px;background:var(--accent-soft);color:var(--ink)}
+.banner.warn{background:var(--warn-bg);color:var(--warn)}
+.banner.bad{background:var(--bad-bg);color:var(--bad)}
+.ctl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 12px;display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lab{font-size:13px;color:var(--mute);min-width:84px}
+button.chip{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 11px;border-radius:999px;cursor:pointer}
+button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){button.chip[aria-pressed="true"]{color:#06201b}}
+button.chip:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.game{margin:14px 0 6px;font-weight:650;font-size:15px}
+.game small{font-weight:400;color:var(--mute)}
+.p{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin:0 0 6px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
+.nm{font-weight:600}
+.meta{color:var(--mute);font-size:12.5px}
+.big{text-align:right;font-variant-numeric:tabular-nums}
+.big b{display:block;font-size:16px}.big small{font-weight:400;color:var(--mute);font-size:13px}
+.big span{display:block;color:var(--mute);font-size:12.5px}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:999px;margin-left:6px;background:var(--warn-bg);color:var(--warn);font-weight:500}
+.tag.bad{background:var(--bad-bg);color:var(--bad)}
+.none{color:var(--mute)}
+.note{color:var(--mute);font-size:12.5px;margin-top:18px}
+</style>
+</head>
+<body>
+<main>
+<h1>NBA safe lines</h1>
+<p class="sub" id="sub"></p>
+<div class="banner" id="fresh">Loading predictions…</div>
+<div class="ctl">
+ <div class="row"><span class="lab">Stat</span><span id="stat"></span></div>
+ <div class="row"><span class="lab">Chance wanted</span><span id="conf"></span></div>
+ <div class="row"><span class="lab">Day</span><span id="days"></span></div>
+ <div class="row"><span class="lab">Plays at least</span><span id="play"></span></div>
+ <div class="row"><span class="lab">Order</span><span id="ord"></span></div>
+ <input type="search" id="q" placeholder="Find a player or team" aria-label="Find a player or team">
+</div>
+<div id="list"></div>
+<p class="note" id="note"></p>
+</main>
+<script>
+var D={players:[],gen:"",epoch:0,thru:""};var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:""};
+var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
+function el(id){return document.getElementById(id)}
+function chips(id,opts,cur,fmt,on){var h="";opts.forEach(function(o){h+='<button class="chip" type="button" data-v="'+o+'" aria-pressed="'+(String(o)===String(cur))+'">'+fmt(o)+'</button> '});var e=el(id);e.innerHTML=h;Array.prototype.forEach.call(e.querySelectorAll("button"),function(b){b.onclick=function(){on(b.getAttribute("data-v"))}})}
+function pct(x){return Math.round(x*100)+"%"}
+function safe(cdf,t,side){if(side==="under"){for(var j=0;j<cdf.length;j++){if(cdf[j]>=t-1e-9)return {line:j+0.5,p:cdf[j]}}return null}
+ var best=-1;for(var k=0;k<cdf.length;k++){if(1-cdf[k]>=t-1e-9)best=k;else break}
+ if(best<0)return null;return {line:best+0.5,p:1-cdf[best]}}
+function days(){var s=[];D.players.forEach(function(p){if(s.indexOf(p.d)<0)s.push(p.d)});return s}
+function render(){
+ var DY=days();if(!S.day)S.day=DY[0];
+ chips("stat",["pts","pra"],S.stat,function(v){return v==="pts"?"Points":"Points + rebounds + assists"},function(v){S.stat=v;render()});
+ chips("conf",CONFS,S.conf,pct,function(v){S.conf=parseFloat(v);render()});
+ chips("days",DY,S.day,function(v){return v},function(v){S.day=v;render()});
+ chips("play",PLAYS,S.play,function(v){return pct(parseFloat(v))},function(v){S.play=parseFloat(v);render()});
+ chips("ord",["game","line"],S.ord,function(v){return v==="game"?"By game":"Highest line first"},function(v){S.ord=v;render()});
+ var q=S.q.toLowerCase(),rows=[];
+ D.players.forEach(function(p){
+  if(p.d!==S.day||p.pp<S.play)return;
+  if(q&&(p.n.toLowerCase().indexOf(q)<0&&p.t.toLowerCase().indexOf(q)<0&&p.o.toLowerCase().indexOf(q)<0))return;
+  var c=S.stat==="pts"?p.pc:p.rc;rows.push({p:p,s:safe(c,S.conf,"over"),u:safe(c,S.conf,"under")});
+ });
+ var out="";
+ function card(r){var p=r.p,s=r.s,u=r.u,m=S.stat==="pts"?p.pm:p.rm;
+  var tags="";if(p.pp<0.97)tags+='<span class="tag'+(p.pp<0.7?" bad":"")+'">plays '+pct(p.pp)+(p.st?" · "+p.st:"")+'</span>';
+  if(p.lh)tags+='<span class="tag">few games</span>';
+  return '<div class="p"><div><span class="nm">'+p.n+'</span>'+tags+'<div class="meta">'+p.t+(p.h?" vs ":" at ")+p.o+" · about "+Math.round(p.mn)+" min · average "+m.toFixed(1)+'</div></div>'+
+  '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+pct(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+pct(u.p)+'</small>':'Under: none')+'</b></div></div>'}
+ if(S.ord==="line"){rows.sort(function(a,b){return (b.s?b.s.line:-1)-(a.s?a.s.line:-1)});rows.forEach(function(r){out+=card(r)})}
+ else{var g={},order=[];rows.forEach(function(r){var k=r.p.e;if(!g[k]){g[k]={t:r.p.t,o:r.p.o,h:r.p.h,r:[]};order.push(k)}g[k].r.push(r)});
+  order.forEach(function(k){var G=g[k];var home=G.h?G.t:G.o,away=G.h?G.o:G.t;out+='<div class="game">'+away+' at '+home+'</div>';
+   G.r.sort(function(a,b){return b.p.mn-a.p.mn}).forEach(function(r){out+=card(r)})})}
+ el("list").innerHTML=out||'<p class="none">No players match.</p>';
+}
+function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
+ var t="Predictions made "+D.gen+" · games played up to "+D.thru+". ";
+ if(age>30){b.className="banner bad";t+="This is "+Math.round(age)+" hours old. Do not rely on it."}
+ else if(age>14){b.className="banner warn";t+="This is "+Math.round(age)+" hours old; injury news may have changed."}
+ else{b.className="banner";t+="Updated "+(age<1?Math.round(age*60)+" minutes":Math.round(age)+" hours")+" ago."}
+ b.textContent=t}
+el("q").oninput=function(){S.q=this.value;render()};
+el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. They are not sportsbook prices, so there is no edge figure yet. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay.";
+var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
+function load(url){return fetch(url+"?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(url+" "+r.status);return r.json()})}
+function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Could not load predictions: "+msg+". Nothing below can be trusted."}
+function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,lh:p.flags.low_history}})}}
+load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
+ D=conv(j);fresh();render();
+ load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
+}).catch(function(e){fail(e.message)});
+</script>
+</body>
+</html>
