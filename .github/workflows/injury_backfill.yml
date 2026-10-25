@@ -8,11 +8,11 @@ on:
   workflow_dispatch:
     inputs:
       start:
-        description: "First day (YYYY-MM-DD)"
+        description: "First day (dd/mm/yyyy)"
         required: true
-        default: "2025-10-21"
+        default: "21/10/2025"
       end:
-        description: "Last day (YYYY-MM-DD), blank = today"
+        description: "Last day (dd/mm/yyyy), blank = today"
         required: false
         default: ""
 
