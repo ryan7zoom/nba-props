@@ -39,7 +39,7 @@ import math
 import sys
 import time
 from collections import defaultdict, deque
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import numpy as np
@@ -80,6 +80,14 @@ REQUIRED_COLS = ["game_date_et", "event_id", "team", "opp", "home", "athlete_id"
                  "status_source", "p_play", "proj_min", "p05", "p10", "p25", "p50", "p75", "p90", "p95"]
 LINE_OFFSETS = (0.0, 0.35, -0.35)   # test lines: near the median, and a bit above / below it
 CDF_DONE = 0.9999
+
+
+GMT8 = timezone(timedelta(hours=8))   # China time, for every time stamp people read
+PRA_WEIGHTS = (0.63, 0.23, 0.14)      # typical share of a player's PRA that comes from points / rebounds / assists
+
+
+def stamp(now):
+    return dmy_time(now.astimezone(GMT8)) + " GMT+8"
 
 
 def log(msg=""):
@@ -586,23 +594,30 @@ def read_rates():
 
 
 def read_defense(last_game, warnings):
-    """Opponent defense multipliers {team: (pts, reb, ast) as fractions}, or {} when not in use."""
+    """Opponent defense: ({team: (pts, reb, ast) as fractions}, in_use, {team: rank info}).
+    Rank 1 = toughest defense of the 30 teams."""
     if not DEFENSE_PARAMS.exists():
         warnings.append("defense is not in use: data/defense_params.json is missing (run the Defense workflow)")
-        return {}, False
+        return {}, False, {}
     if not json.loads(DEFENSE_PARAMS.read_text(encoding="utf-8")).get("kept"):
-        return {}, False
+        return {}, False, {}
     if not DEFENSE_EFFECTS.exists():
         warnings.append("defense is switched on but data/defense_effects.csv is missing: predictions are WITHOUT defense")
-        return {}, False
-    out, as_of = {}, ""
+        return {}, False, {}
+    out, games, as_of = {}, {}, ""
     with open(DEFENSE_EFFECTS, newline="", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             out[r["team"]] = tuple(float(r[k]) / 100.0 for k in ("pts_pct", "reb_pct", "ast_pct"))
+            games[r["team"]] = int(r.get("games_this_season") or 0)
             as_of = r["data_through"]
     if as_of and datetime.strptime(as_of, "%d/%m/%Y").date().isoformat() < last_game:
         warnings.append(f"defense effects are older than the box scores (to {as_of}, games to {dmy(last_game)})")
-    return out, True
+    pra = {t: sum(w * e for w, e in zip(PRA_WEIGHTS, v)) for t, v in out.items()}
+    rank_pts = {t: i + 1 for i, t in enumerate(sorted(out, key=lambda t: out[t][0]))}
+    rank_pra = {t: i + 1 for i, t in enumerate(sorted(out, key=lambda t: pra[t]))}
+    info = {t: {"rank_pts": rank_pts[t], "rank_pra": rank_pra[t], "pra_pct": round(pra[t] * 100, 1),
+                "teams": len(out), "early": games[t] < 10} for t in out}
+    return out, True, info
 
 
 def cdf_table(counts_row, n):
@@ -636,7 +651,7 @@ def run_project(rows):
     last_game = max(r["date"] for r in rows)
     SIM_PARAMS.write_text(json.dumps({
         "settings": {k: P[k] for k in ("delta", "c", "phi", "pi_pts")}, "notes": P["notes"], "fit_rows": P["fit_rows"],
-        "fitted_through": dmy(last_game), "fitted_at": dmy_time(datetime.now(timezone.utc)) + " UTC"}, indent=2), encoding="utf-8")
+        "fitted_through": dmy(last_game), "fitted_at": stamp(datetime.now(timezone.utc))}, indent=2), encoding="utf-8")
     log(f"Fitted simulation settings on {P['fit_rows']} past player-games through {dmy(last_game)}: "
         f"points exponent {P['delta'][0]}, phi {P['phi']}, zero-points share {P['pi_pts']}")
 
@@ -651,8 +666,6 @@ def run_project(rows):
         warnings.append("minutes_projection.csv has no rows")
     elif not games_ok:
         warnings.append(f"every row in minutes_projection.csv is for a game before {today_et.strftime('%d/%m/%Y')}: no upcoming games, or the minutes step did not refresh")
-    elif stale:
-        warnings.append(f"{stale} rows for games already past were skipped")
     proj = games_ok
 
     # league-average rates as a fallback for players the rates file does not know
@@ -660,7 +673,7 @@ def run_project(rows):
     league = [sum(float(r[f"{s}_per_min"] or 0) * (float(r["min_last_season"] or 0) + float(r["min_this_season"] or 0))
                   for r in rates_by_id.values()) / tot_m for s in STATS]
 
-    defense, defense_on = read_defense(last_game, warnings)
+    defense, defense_on, dinfo = read_defense(last_game, warnings)
     rng = np.random.default_rng(SEED)
     out_rows, players, no_rates = [], [], 0
     bs = 50
@@ -703,6 +716,14 @@ def run_project(rows):
             rec.update({"opp_defense_pts_pct": round(dpts * 100, 1), "opp_defense_reb_pct": round(dreb * 100, 1),
                         "opp_defense_ast_pct": round(dast * 100, 1)})
             js["defense_pct"] = {"pts": rec["opp_defense_pts_pct"], "reb": rec["opp_defense_reb_pct"], "ast": rec["opp_defense_ast_pct"]}
+            di = dinfo.get(r["opp"])
+            if di:
+                js["defense_rank"] = {"pts": di["rank_pts"], "pra": di["rank_pra"], "of": di["teams"]}
+                js["defense_pra_pct"] = di["pra_pct"]
+                js["defense_early"] = di["early"]
+                rec["opp_defense_rank_pts"], rec["opp_defense_rank_pra"] = di["rank_pts"], di["rank_pra"]
+            else:
+                rec["opp_defense_rank_pts"], rec["opp_defense_rank_pra"] = "", ""
             rec["rates_fallback"] = fallback[i]
             rec["low_history"] = int(r.get("low_history") or 0)
             no_rates += fallback[i]
@@ -726,7 +747,7 @@ def run_project(rows):
     else:
         OUT_CSV.write_text("", encoding="utf-8")
     OUT_JSON.write_text(json.dumps({
-        "generated": dmy_time(now) + " UTC", "generated_epoch": int(now.timestamp()),
+        "generated": stamp(now), "generated_epoch": int(now.timestamp()),
         "data_through": dmy(last_game), "draws_per_player_game": N_PROJECT,
         "note": "All stat numbers assume the player plays (books normally void the prop otherwise); p_play is the chance he plays. "
                 "cdf[k] = P(stat <= k) for k = 0, 1, 2 ...; P(over a x.5 line) = 1 - cdf[floor(line)].",
@@ -736,11 +757,11 @@ def run_project(rows):
         errors.append(f"non-finite results for {nonfinite[:5]}")
     games = len({(r["game_date_et"], r["event_id"]) for r in out_rows})
     health = {
-        "run": dmy_time(now) + " UTC", "ok": not errors, "errors": errors, "error_count": len(errors),
+        "run": stamp(now), "ok": not errors, "errors": errors, "error_count": len(errors),
         "warnings": warnings, "warning_count": len(warnings),
         "player_games": len(out_rows), "games": games, "game_dates": sorted({r["game_date_et"] for r in out_rows},
                                                                            key=lambda s: datetime.strptime(s, "%d/%m/%Y")),
-        "data_through": dmy(last_game), "fit_rows": P["fit_rows"], "defense_applied": defense_on, "seconds": round(time.time() - t0),
+        "past_rows_skipped": stale, "data_through": dmy(last_game), "fit_rows": P["fit_rows"], "defense_applied": defense_on, "seconds": round(time.time() - t0),
         "team_expected_minutes_total": ({"mean": round(float(np.mean(tt)), 1), "min": round(float(np.min(tt)), 1),
                                          "max": round(float(np.max(tt)), 1)} if tt else None),
     }
@@ -768,7 +789,7 @@ def main(argv=None):
         except SystemExit as e:
             msg = str(e)
             DATA.mkdir(exist_ok=True)
-            HEALTH.write_text(json.dumps({"run": dmy_time(datetime.now(timezone.utc)) + " UTC", "ok": False, "errors": [msg],
+            HEALTH.write_text(json.dumps({"run": stamp(datetime.now(timezone.utc)), "ok": False, "errors": [msg],
                                           "error_count": 1, "warnings": [], "warning_count": 0}, indent=2), encoding="utf-8")
             raise
     return 0 if (health is None or health["ok"]) else 1
