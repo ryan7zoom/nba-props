@@ -23,7 +23,8 @@ Modes
             each game uses only information from before it). Reports accuracy vs simple
             baselines, calibration, and which pieces earn their keep. Writes
             data/sim_backtest.json.
-  project   refit the small set of simulation settings on all games so far, then
+  project   (applies opponent defense from data/defense_effects.csv when the defense backtest kept it)
+            refit the small set of simulation settings on all games so far, then
             simulate every player-game in data/minutes_projection.csv. Writes
             data/projections.csv, data/projections_latest.json, data/sim_params.json,
             data/sim_health.json. Exits with an error if anything is wrong.
@@ -48,6 +49,8 @@ import minutes_model as mm
 from injury_report import dmy, dmy_time
 
 DATA = Path("data")
+DEFENSE_EFFECTS = DATA / "defense_effects.csv"
+DEFENSE_PARAMS = DATA / "defense_params.json"
 PLAYER_GAMES = DATA / "player_games.csv"
 MIN_PROJECTION = DATA / "minutes_projection.csv"
 PLAYER_RATES = DATA / "player_rates.csv"
@@ -157,6 +160,7 @@ def make_items(feats_sel, pred, qtab, rmap):
 
 def attach_actuals(it, row_lookup):
     it["y"] = np.array([row_lookup[(d, a)]["y"] for d, a in zip(it["date"], it["aid"])], dtype=float).reshape(-1, 3)
+    it["opp"] = [row_lookup[(d, a)]["opp"] for d, a in zip(it["date"], it["aid"])]
     return it
 
 
@@ -385,8 +389,8 @@ def coverage(pit):
 
 # ---------- backtest ----------
 
-def run_backtest(rows):
-    t0 = time.time()
+def prepare_backtest(rows):
+    """Everything the backtest needs: settings files, fit-period items (tr) and check-period items (va)."""
     rp, _ = br.load_params()
     names = json.loads(mm.PARAMS.read_text(encoding="utf-8"))["features"] if mm.PARAMS.exists() else list(mm.FEATURES)
     feats, _ = mm.walk(rows)
@@ -400,6 +404,13 @@ def run_backtest(rows):
     lookup = {(r["date"], r["aid"]): r for r in rows}
     tr = attach_actuals(make_items(train_f, mm.predict(model, mm.design(train_f, names)), qtab, rmap), lookup)
     va = attach_actuals(make_items(valid_f, mm.predict(model, mm.design(valid_f, names)), qtab, rmap), lookup)
+    return {"rp": rp, "tr": tr, "va": va}
+
+
+def run_backtest(rows):
+    t0 = time.time()
+    prep = prepare_backtest(rows)
+    tr, va = prep["tr"], prep["va"]
     log(f"Simulation backtest: fit on {len(tr['mean'])} player-games before {dmy(SPLIT_DATE)}, "
         f"check on {len(va['mean'])} player-games from {dmy(SPLIT_DATE)} (2025-26)")
     if len(tr["mean"]) < MIN_FIT_ROWS or len(va["mean"]) < 500:
@@ -574,6 +585,26 @@ def read_rates():
     return out
 
 
+def read_defense(last_game, warnings):
+    """Opponent defense multipliers {team: (pts, reb, ast) as fractions}, or {} when not in use."""
+    if not DEFENSE_PARAMS.exists():
+        warnings.append("defense is not in use: data/defense_params.json is missing (run the Defense workflow)")
+        return {}, False
+    if not json.loads(DEFENSE_PARAMS.read_text(encoding="utf-8")).get("kept"):
+        return {}, False
+    if not DEFENSE_EFFECTS.exists():
+        warnings.append("defense is switched on but data/defense_effects.csv is missing: predictions are WITHOUT defense")
+        return {}, False
+    out, as_of = {}, ""
+    with open(DEFENSE_EFFECTS, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            out[r["team"]] = tuple(float(r[k]) / 100.0 for k in ("pts_pct", "reb_pct", "ast_pct"))
+            as_of = r["data_through"]
+    if as_of and datetime.strptime(as_of, "%d/%m/%Y").date().isoformat() < last_game:
+        warnings.append(f"defense effects are older than the box scores (to {as_of}, games to {dmy(last_game)})")
+    return out, True
+
+
 def cdf_table(counts_row, n):
     """P(X <= k) for k = 0, 1, 2 ... until it reaches ~1."""
     cdf = np.cumsum(np.bincount(counts_row)) / n
@@ -629,6 +660,7 @@ def run_project(rows):
     league = [sum(float(r[f"{s}_per_min"] or 0) * (float(r["min_last_season"] or 0) + float(r["min_this_season"] or 0))
                   for r in rates_by_id.values()) / tot_m for s in STATS]
 
+    defense, defense_on = read_defense(last_game, warnings)
     rng = np.random.default_rng(SEED)
     out_rows, players, no_rates = [], [], 0
     bs = 50
@@ -645,7 +677,10 @@ def run_project(rows):
             else:
                 rts.append([float(rr[f"{s}_per_min"]) for s in STATS])
                 fallback.append(0)
-        d = simulate(q7, mean, np.array(rts), P, N_PROJECT, rng)
+        rts = np.array(rts, dtype=float)
+        dfx = np.array([defense.get(r["opp"], (0.0, 0.0, 0.0)) for r in chunk], dtype=float)
+        rts = rts * (1.0 + np.clip(dfx, -0.30, 0.30))
+        d = simulate(q7, mean, rts, P, N_PROJECT, rng)
         for i, r in enumerate(chunk):
             rec = {"game_date_et": r["game_date_et"], "event_id": r["event_id"], "team": r["team"], "opp": r["opp"], "home": int(r["home"]),
                    "athlete_id": r["athlete_id"], "player": r["player"], "status": r["status"], "status_source": r["status_source"],
@@ -664,6 +699,10 @@ def run_project(rows):
             for s in ("reb", "ast"):
                 rec[f"{s}_mean"] = round(float(d[s][i].mean()), 2)
                 js[f"{s}_mean"] = rec[f"{s}_mean"]
+            dpts, dreb, dast = (float(x) for x in dfx[i])
+            rec.update({"opp_defense_pts_pct": round(dpts * 100, 1), "opp_defense_reb_pct": round(dreb * 100, 1),
+                        "opp_defense_ast_pct": round(dast * 100, 1)})
+            js["defense_pct"] = {"pts": rec["opp_defense_pts_pct"], "reb": rec["opp_defense_reb_pct"], "ast": rec["opp_defense_ast_pct"]}
             rec["rates_fallback"] = fallback[i]
             rec["low_history"] = int(r.get("low_history") or 0)
             no_rates += fallback[i]
@@ -701,7 +740,7 @@ def run_project(rows):
         "warnings": warnings, "warning_count": len(warnings),
         "player_games": len(out_rows), "games": games, "game_dates": sorted({r["game_date_et"] for r in out_rows},
                                                                            key=lambda s: datetime.strptime(s, "%d/%m/%Y")),
-        "data_through": dmy(last_game), "fit_rows": P["fit_rows"], "seconds": round(time.time() - t0),
+        "data_through": dmy(last_game), "fit_rows": P["fit_rows"], "defense_applied": defense_on, "seconds": round(time.time() - t0),
         "team_expected_minutes_total": ({"mean": round(float(np.mean(tt)), 1), "min": round(float(np.min(tt)), 1),
                                          "max": round(float(np.max(tt)), 1)} if tt else None),
     }
