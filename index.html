@@ -37,6 +37,8 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 .tag{display:inline-block;font-size:12px;padding:1px 7px;border-radius:999px;margin-left:6px;background:var(--warn-bg);color:var(--warn);font-weight:500}
 .tag.bad{background:var(--bad-bg);color:var(--bad)}
 .none{color:var(--mute)}
+.mu{grid-column:1/-1;font-size:12.5px;margin-top:3px;padding:3px 8px;border-radius:6px;background:var(--accent-soft)}
+.mu.tough{background:var(--warn-bg);color:var(--warn)}
 .note{color:var(--mute);font-size:12.5px;margin-top:18px}
 </style>
 </head>
@@ -48,7 +50,7 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 <div class="ctl">
  <div class="row"><span class="lab">Stat</span><span id="stat"></span></div>
  <div class="row"><span class="lab">Chance wanted</span><span id="conf"></span></div>
- <div class="row"><span class="lab">Day</span><span id="days"></span></div>
+ <div class="row"><span class="lab">Game day (US)</span><span id="days"></span></div>
  <div class="row"><span class="lab">Plays at least</span><span id="play"></span></div>
  <div class="row"><span class="lab">Order</span><span id="ord"></span></div>
  <input type="search" id="q" placeholder="Find a player or team" aria-label="Find a player or team">
@@ -80,30 +82,35 @@ function render(){
   var c=S.stat==="pts"?p.pc:p.rc;rows.push({p:p,s:safe(c,S.conf,"over"),u:safe(c,S.conf,"under")});
  });
  var out="";
+ function matchup(p){if(!p.dr)return"";var pra=S.stat==="pra",rank=pra?p.dr.pra:p.dr.pts,pct=pra?p.dpra:(p.dp?p.dp.pts:0),n=p.dr.of||30;
+  var sg=((pct>0?"+":"")+pct.toFixed(0)+"%").replace("-","\u2212"),ear=p.de?" (early season)":"";
+  if(rank<=5)return '<div class="mu tough">Top-5 defense '+sg+': leans Under'+ear+'</div>';
+  if(rank>=n-4)return '<div class="mu soft">Bottom-5 defense '+sg+': leans Over'+ear+'</div>';return""}
  function card(r){var p=r.p,s=r.s,u=r.u,m=S.stat==="pts"?p.pm:p.rm;
   var tags="";if(p.pp<0.97)tags+='<span class="tag'+(p.pp<0.7?" bad":"")+'">plays '+pct(p.pp)+(p.st?" · "+p.st:"")+'</span>';
   if(p.lh)tags+='<span class="tag">few games</span>';
   return '<div class="p"><div><span class="nm">'+p.n+'</span>'+tags+'<div class="meta">'+p.t+(p.h?" vs ":" at ")+p.o+" · about "+Math.round(p.mn)+" min · average "+m.toFixed(1)+'</div></div>'+
-  '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+pct(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+pct(u.p)+'</small>':'Under: none')+'</b></div></div>'}
+  '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+pct(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+pct(u.p)+'</small>':'Under: none')+'</b></div>'+matchup(p)+'</div>'}
  if(S.ord==="line"){rows.sort(function(a,b){return (b.s?b.s.line:-1)-(a.s?a.s.line:-1)});rows.forEach(function(r){out+=card(r)})}
  else{var g={},order=[];rows.forEach(function(r){var k=r.p.e;if(!g[k]){g[k]={t:r.p.t,o:r.p.o,h:r.p.h,r:[]};order.push(k)}g[k].r.push(r)});
   order.forEach(function(k){var G=g[k];var home=G.h?G.t:G.o,away=G.h?G.o:G.t;out+='<div class="game">'+away+' at '+home+'</div>';
    G.r.sort(function(a,b){return b.p.mn-a.p.mn}).forEach(function(r){out+=card(r)})})}
  el("list").innerHTML=out||'<p class="none">No players match.</p>';
 }
+function fmt8(e){var d=new Date((e+8*3600)*1000);function z(n){return (n<10?"0":"")+n}return z(d.getUTCDate())+"/"+z(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()+" "+z(d.getUTCHours())+":"+z(d.getUTCMinutes())}
 function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
- var t="Predictions made "+D.gen+" · games played up to "+D.thru+". ";
+ var t="Predictions made "+fmt8(D.epoch)+" (GMT+8) · games played up to "+D.thru+" (US Eastern). ";
  if(age>30){b.className="banner bad";t+="This is "+Math.round(age)+" hours old. Do not rely on it."}
  else if(age>14){b.className="banner warn";t+="This is "+Math.round(age)+" hours old; injury news may have changed."}
  else{b.className="banner";t+="Updated "+(age<1?Math.round(age*60)+" minutes":Math.round(age)+" hours")+" ago."}
  b.textContent=t}
 el("q").oninput=function(){S.q=this.value;render()};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
-el("note").textContent="These chances are the model’s own, checked on last season’s games. They are not sportsbook prices, so there is no edge figure yet. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. They are not sportsbook prices, so there is no edge figure yet. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function load(url){return fetch(url+"?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(url+" "+r.status);return r.json()})}
 function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Could not load predictions: "+msg+". Nothing below can be trusted."}
-function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,lh:p.flags.low_history}})}}
+function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
