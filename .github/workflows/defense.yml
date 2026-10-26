@@ -1,0 +1,44 @@
+name: Defense backtest and projection
+
+# Run by hand: Actions > Defense backtest and projection > Run workflow.
+# Tests opponent defense on 2025-26 (about 1-2 minutes), saves today's team effects,
+# then re-makes the player projections with defense applied if the test says it helps.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  defense:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install packages
+        run: pip install numpy pdfplumber
+      - name: Defense backtest and today's effects
+        run: python scripts/defense_effects.py --mode both
+      - name: Re-make projections with defense
+        if: always()
+        run: python scripts/simulate_props.py --mode project
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Defense backtest and projection $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
