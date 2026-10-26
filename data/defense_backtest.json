@@ -1,0 +1,147 @@
+{
+  "tuned_on": "2025-26 before 15/01/2026",
+  "checked_on": "2025-26 from 15/01/2026",
+  "settings": {
+    "K": 100,
+    "H": 40,
+    "a": 0.25
+  },
+  "kept": true,
+  "check_period": {
+    "fit_change_z": -16.1,
+    "per_stat": {
+      "pts": {
+        "deviance_change_pct": -1.327,
+        "z": -11.6
+      },
+      "reb": {
+        "deviance_change_pct": -0.908,
+        "z": -8.2
+      },
+      "ast": {
+        "deviance_change_pct": -1.214,
+        "z": -9.2
+      }
+    },
+    "effect_size_slope_pts_reb_ast": [
+      1.77,
+      1.45,
+      1.38
+    ],
+    "slope_note": "1.0 means the predicted gap is the right size; below 1 means it is too big"
+  },
+  "first_30_days_of_season": {
+    "last_season_adds_improvement_z": 0.1,
+    "rows": 4888,
+    "note": "negative z = using last season's defense helped the opening weeks"
+  },
+  "simulation_with_vs_without": {
+    "pts": {
+      "median_MAE_without": 4.514,
+      "median_MAE_with": 4.498,
+      "mean_RMSE_without": 5.94,
+      "mean_RMSE_with": 5.918,
+      "crps_change": -0.0122,
+      "crps_z": -5.9,
+      "brier_change": -0.0011,
+      "brier_z": -6.1,
+      "p10_p90_without": 0.795,
+      "p10_p90_with": 0.798,
+      "p_over_calibration_error_with": 0.0117,
+      "p_over_calibration_error_without": 0.0094
+    },
+    "pra": {
+      "median_MAE_without": 5.953,
+      "median_MAE_with": 5.916,
+      "mean_RMSE_without": 7.713,
+      "mean_RMSE_with": 7.665,
+      "crps_change": -0.0263,
+      "crps_z": -8.0,
+      "brier_change": -0.0018,
+      "brier_z": -7.9,
+      "p10_p90_without": 0.792,
+      "p10_p90_with": 0.791,
+      "p_over_calibration_error_with": 0.0027,
+      "p_over_calibration_error_without": 0.0025
+    }
+  },
+  "end_of_2025_26_points_effect_pct": {
+    "toughest": [
+      [
+        "BOS",
+        -7.3
+      ],
+      [
+        "NY",
+        -6.8
+      ],
+      [
+        "OKC",
+        -5.5
+      ],
+      [
+        "DET",
+        -3.9
+      ],
+      [
+        "HOU",
+        -3.8
+      ]
+    ],
+    "softest": [
+      [
+        "NO",
+        5.6
+      ],
+      [
+        "MEM",
+        6.7
+      ],
+      [
+        "CHI",
+        7.1
+      ],
+      [
+        "WSH",
+        10.4
+      ],
+      [
+        "UTAH",
+        10.9
+      ]
+    ]
+  },
+  "tuning_grid_best_5": [
+    {
+      "fit_change": -0.012,
+      "K": 100,
+      "H": 40,
+      "a": 0.25
+    },
+    {
+      "fit_change": -0.012,
+      "K": 100,
+      "H": 20,
+      "a": 0.25
+    },
+    {
+      "fit_change": -0.0119,
+      "K": 100,
+      "H": null,
+      "a": 0.25
+    },
+    {
+      "fit_change": -0.0119,
+      "K": 200,
+      "H": 40,
+      "a": 0.25
+    },
+    {
+      "fit_change": -0.0119,
+      "K": 200,
+      "H": null,
+      "a": 0.25
+    }
+  ],
+  "seconds": 47
+}
