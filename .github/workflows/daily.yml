@@ -48,6 +48,11 @@ jobs:
       - name: Simulate prop distributions
         if: always()
         run: python scripts/simulate_props.py --mode project
+      - name: Fetch sportsbook lines
+        if: always()
+        env:
+          PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
+        run: python scripts/lines.py
       - name: Commit data
         if: always()
         run: |
