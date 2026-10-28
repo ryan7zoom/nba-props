@@ -1,5 +1,5 @@
 {
-  "run": "28/10/2026 20:32 GMT+8",
+  "run": "29/10/2026 03:00 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -13,10 +13,10 @@
     "ORL at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 8,
-  "events_listed": 124,
+  "events_listed": 125,
   "events_upcoming": 20,
   "games_with_lines": 12,
-  "players_with_lines": 120,
+  "players_with_lines": 138,
   "book_players_unmatched": 3,
   "unmatched_examples": [
     "aj dybantsa",
@@ -24,6 +24,6 @@
     "anthony black"
   ],
   "requests_this_run": 21,
-  "requests_left_today": 978,
+  "requests_left_today": 949,
   "daily_limit": 1000
 }

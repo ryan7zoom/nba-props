@@ -3416,3 +3416,26 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-10-27T20:00-04:00,2026-10-28T00:00+00:00,2026-10-28,22:30,LAL@LAC,LAC,"Strus,Max",max strus,Out,Injury/Illness-RightPlantarFascia Tear,2026-10-27_08_00PM,2
 2026-10-27T20:45-04:00,2026-10-28T00:45+00:00,2026-10-28,20:00,GS@MIN,MIN,"Edwards,Anthony",anthony edwards,Out,Repair/Surgery Injury/Illness-RightKneeInjury Management,2026-10-27_08_45PM,2
 2026-10-27T22:15-04:00,2026-10-28T02:15+00:00,2026-10-27,11:00,POR@LAL,POR,"Henderson,Scoot",scoot henderson,Available,Injury/Illness-LeftAnkleSoreness,2026-10-27_10_15PM,2
+2026-10-28T10:30-04:00,2026-10-28T14:30+00:00,2026-10-28,19:30,ORL@TOR,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightLowGradeHigh AnkleSprain,2026-10-28_10_30AM,2
+2026-10-28T10:30-04:00,2026-10-28T14:30+00:00,2026-10-28,19:30,ORL@TOR,ORL,"Black,Anthony",anthony black,Questionable,PersonalReasons,2026-10-28_10_30AM,2
+2026-10-28T10:30-04:00,2026-10-28T14:30+00:00,2026-10-28,19:30,ORL@TOR,ORL,"Isaac,Jonathan",jonathan isaac,Out,Injury/Illness-LeftKneeInjury,2026-10-28_10_30AM,2
+2026-10-28T11:00-04:00,2026-10-28T15:00+00:00,2026-10-28,19:00,MIA@ATL,MIA,"Fontecchio,Simone",simone fontecchio,Out,Injury/Illness-Illness,2026-10-28_11_00AM,2
+2026-10-28T11:30-04:00,2026-10-28T15:30+00:00,2026-10-28,19:00,MIA@ATL,MIA,"Larsson,Pelle",pelle larsson,Available,Injury/Illness-RightAnkleSprain,2026-10-28_11_30AM,2
+2026-10-28T12:15-04:00,2026-10-28T16:15+00:00,2026-10-28,19:00,MIA@ATL,ATL,"Wiggins,Aaron",aaron wiggins,Probable,Injury/Illness-LeftKneeContusion,2026-10-28_12_15PM,2
+2026-10-28T12:30-04:00,2026-10-28T16:30+00:00,2026-10-28,19:00,WSH@CLE,WSH,"Dybantsa,AJ",aj dybantsa,Available,Injury/Illness-LeftAnkleSprain,2026-10-28_12_30PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:00,CHA@DET,DET,"Duren,Jalen",jalen duren,Out,Injury/Illness-RightHamstringStrain,2026-10-28_12_45PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:00,CHA@DET,DET,"Joe,Isaiah",isaiah joe,Out,Injury/Illness-RightHipContusion,2026-10-28_12_45PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:00,CHA@DET,DET,"Onyenso,Ugonna",ugonna onyenso,Out,GLeague-Two-Way,2026-10-28_12_45PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:00,CHA@DET,DET,"Thompson,Ausar",ausar thompson,Probable,Injury/Illness-RightAnkleSprain,2026-10-28_12_45PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:30,ORL@TOR,ORL,"Suggs,Jalen",jalen suggs,Out,Hamstring Injury/Illness-RightKneeContusion /BoneBruise,2026-10-28_12_45PM,2
+2026-10-28T12:45-04:00,2026-10-28T16:45+00:00,2026-10-28,19:30,ORL@TOR,TOR,"Bittle,Nate",nate bittle,Out,Injury/Illness-RightFootAvulsion,2026-10-28_12_45PM,2
+2026-10-28T13:30-04:00,2026-10-28T17:30+00:00,2026-10-28,20:00,DEN@NO,NO,"Dia,Malik",malik dia,Out,GLeague-Two-Way,2026-10-28_01_30PM,2
+2026-10-28T13:30-04:00,2026-10-28T17:30+00:00,2026-10-28,20:00,DEN@NO,NO,"PierreJr.,Jaron",jaron pierre,Out,GLeague-Two-Way,2026-10-28_01_30PM,2
+2026-10-28T13:30-04:00,2026-10-28T17:30+00:00,2026-10-28,20:00,DEN@NO,NO,"Poole,Jordan",jordan poole,Available,Injury/Illness-Illness,2026-10-28_01_30PM,2
+2026-10-28T13:30-04:00,2026-10-28T17:30+00:00,2026-10-28,20:00,HOU@MIL,HOU,"Smart,Marcus",marcus smart,Out,Injury/Illness-LeftForearmStrain,2026-10-28_01_30PM,2
+2026-10-28T14:15-04:00,2026-10-28T18:15+00:00,2026-10-28,20:00,NY@CHI,NY,"Alvarado,Jose",jose alvarado,Out,Injury/Illness-LeftAnkleSprain,2026-10-28_02_15PM,2
+2026-10-28T14:15-04:00,2026-10-28T18:15+00:00,2026-10-28,21:30,OKC@DAL,DAL,"Aldama,Santi",santi aldama,Out,Injury/Illness-RightKneeSurgery,2026-10-28_02_15PM,2
+2026-10-28T14:15-04:00,2026-10-28T18:15+00:00,2026-10-28,21:30,OKC@DAL,DAL,"Biberovic,Tarik",tarik biberovic,Out,Injury/Illness-RightHeelBursitis,2026-10-28_02_15PM,2
+2026-10-28T14:15-04:00,2026-10-28T18:15+00:00,2026-10-28,21:30,OKC@DAL,DAL,"Marshall,Naji",naji marshall,Doubtful,Injury/Illness-Illness,2026-10-28_02_15PM,2
+2026-10-28T14:30-04:00,2026-10-28T18:30+00:00,2026-10-28,21:00,SA@UTAH,SA,"Harris,Tobias",tobias harris,Out,Injury/Illness-LeftCalfStrain,2026-10-28_02_30PM,2
+2026-10-28T14:30-04:00,2026-10-28T18:30+00:00,2026-10-28,21:00,SA@UTAH,SA,"Quaintance,Jayden",jayden quaintance,Out,Injury/Illness-RightKneeSurgery,2026-10-28_02_30PM,2
