@@ -48,6 +48,9 @@ jobs:
       - name: Simulate prop distributions
         if: always()
         run: python scripts/simulate_props.py --mode project
+      - name: Update recent form
+        if: always()
+        run: python scripts/form.py
       - name: Fetch sportsbook lines
         if: always()
         env:
