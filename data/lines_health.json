@@ -1,5 +1,5 @@
 {
-  "run": "29/10/2026 03:00 GMT+8",
+  "run": "29/10/2026 09:09 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -10,20 +10,21 @@
     "NY at PHI: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "DET at BKN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "CHI at BOS: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "ORL at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "ORL at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "IND at MIA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "HOU at DAL: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "LAC at MIN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "LAL at GS: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "DEN at PHX: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 8,
+  "warning_count": 13,
   "events_listed": 125,
-  "events_upcoming": 20,
-  "games_with_lines": 12,
-  "players_with_lines": 138,
-  "book_players_unmatched": 3,
-  "unmatched_examples": [
-    "aj dybantsa",
-    "alexandre sarr",
-    "anthony black"
-  ],
-  "requests_this_run": 21,
-  "requests_left_today": 949,
+  "events_upcoming": 15,
+  "games_with_lines": 2,
+  "players_with_lines": 28,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 16,
+  "requests_left_today": 996,
   "daily_limit": 1000
 }
