@@ -26,8 +26,16 @@ button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--acc
 @media (prefers-color-scheme:dark){button.chip[aria-pressed="true"]{color:#06201b}}
 button.chip:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
-.game{margin:14px 0 6px;font-weight:650;font-size:15px}
-.game small{font-weight:400;color:var(--mute)}
+.gm{margin:10px 0}
+.gm>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;font-weight:650;font-size:15px;min-height:44px}
+.gm>summary::-webkit-details-marker{display:none}
+.gm>summary::before{content:"\25B8";color:var(--accent);transition:transform .15s}
+.gm[open]>summary::before{transform:rotate(90deg)}
+.gm>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.gm .cnt{margin-left:auto;font-weight:400;font-size:12.5px;color:var(--mute)}
+.gm[open]>summary{margin-bottom:6px}
+.l5{font-size:12.5px;margin-top:3px;color:var(--mute)}
+.l5 b{color:var(--ink);font-weight:600}
 .p{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin:0 0 6px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center}
 .nm{font-weight:600}
 .meta{color:var(--mute);font-size:12.5px}
@@ -62,13 +70,14 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
  <div class="row"><span class="lab">Game day (US)</span><span id="days"></span></div>
  <div class="row"><span class="lab">Plays at least</span><span id="play"></span></div>
  <div class="row"><span class="lab">Order</span><span id="ord"></span></div>
+ <div class="row" id="gctl"><span class="lab">Games</span><span id="gbtn"></span></div>
  <input type="search" id="q" placeholder="Find a player or team" aria-label="Find a player or team">
 </div>
 <div id="list"></div>
 <p class="note" id="note"></p>
 </main>
 <script>
-var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:""};
+var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,FM=null;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
 function el(id){return document.getElementById(id)}
 function chips(id,opts,cur,fmt,on){var h="";opts.forEach(function(o){h+='<button class="chip" type="button" data-v="'+o+'" aria-pressed="'+(String(o)===String(cur))+'">'+fmt(o)+'</button> '});var e=el(id);e.innerHTML=h;Array.prototype.forEach.call(e.querySelectorAll("button"),function(b){b.onclick=function(){on(b.getAttribute("data-v"))}})}
@@ -91,6 +100,10 @@ function lineBlock(p){if(!LN)return"";var e=lineOf(p);if(!e)return'<div class="l
  var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o,u:q.u}});
  if(best){var ev=evs(best.p,best.u,best.a);h+='<div class="ln alt">Safe alt: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+', <span class="'+(ev>0?"pos":"neg")+'">EV '+(ev>0?"+":"")+Math.round(ev*100)+"%</span></div>"}
  else h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
+function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5">Last 5: no games on record</div>';
+ var vals=g.map(function(x){return S.stat==="pts"?x[3]:x[3]+x[4]+x[5]});var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
+ var parts=g.map(function(x,i){return"<b>"+vals[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]});
+ return '<div class="l5">Last '+g.length+" ("+(S.stat==="pts"?"pts":"PRA")+"): "+parts.join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
 function days(){var s=[];D.players.forEach(function(p){if(s.indexOf(p.d)<0)s.push(p.d)});return s}
 function render(){
  var DY=days();if(!S.day)S.day=DY[0];
@@ -115,14 +128,19 @@ function render(){
   if(p.lh)tags+='<span class="tag">few games</span>';
   var where=S.ord!=="game"?p.t+(p.h?" (home) vs ":" (away) at ")+p.o+" · ":"";
   return '<div class="p"><div><span class="nm">'+p.n+'</span>'+tags+'<div class="proj">Projected <b>'+Math.round(p.pm)+' pts</b> · <b>'+Math.round(p.rm)+' PRA</b></div>'+
-  '<div class="meta">'+where+'about '+Math.round(p.mn)+' min · likely '+(S.stat==="pts"?"points":"PRA")+' '+Math.round(sel[0])+'\u2013'+Math.round(sel[1])+'</div></div>'+
+  l5Line(p)+'<div class="meta">'+where+'about '+Math.round(p.mn)+' min · likely '+(S.stat==="pts"?"points":"PRA")+' '+Math.round(sel[0])+'\u2013'+Math.round(sel[1])+'</div></div>'+
   '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+pct(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+pct(u.p)+'</small>':'Under: none')+'</b></div>'+lineBlock(p)+matchup(p)+'</div>'}
  if(S.ord==="line"){rows.sort(function(a,b){return (b.s?b.s.line:-1)-(a.s?a.s.line:-1)});rows.forEach(function(r){out+=card(r)})}
  else if(S.ord==="edge"){rows.sort(function(a,b){return bestEV(b.p)-bestEV(a.p)});rows.forEach(function(r){out+=card(r)})}
  else{var g={},order=[];rows.forEach(function(r){var k=r.p.e;if(!g[k]){g[k]={h:[],a:[],hn:"",an:""};order.push(k)}var G=g[k];if(r.p.h){G.h.push(r);G.hn=r.p.t;G.an=G.an||r.p.o}else{G.a.push(r);G.an=r.p.t;G.hn=G.hn||r.p.o}});
   function team(name,side,list){if(!list.length)return"";var h='<div class="team">'+name+' ('+side+')</div>';list.sort(function(a,b){return b.p.mn-a.p.mn}).forEach(function(r){h+=card(r)});return h}
-  order.forEach(function(k){var G=g[k];out+='<div class="game">'+G.an+' at '+G.hn+'</div>'+team(G.hn,"home",G.h)+team(G.an,"away",G.a)})}
+  order.forEach(function(k){var G=g[k],n=G.h.length+G.a.length;out+='<details class="gm" data-k="'+k+'"'+(S.open[k]?" open":"")+'><summary>'+G.an+' at '+G.hn+'<span class="cnt">'+n+' players</span></summary>'+team(G.hn,"home",G.h)+team(G.an,"away",G.a)+'</details>'})}
  el("list").innerHTML=out||'<p class="none">No players match.</p>';
+ Array.prototype.forEach.call(el("list").querySelectorAll("details.gm"),function(d){d.addEventListener("toggle",function(){S.open[d.getAttribute("data-k")]=d.open})});
+ el("gctl").style.display=(S.ord==="game"&&rows.length)?"flex":"none";
+ el("gbtn").innerHTML='<button class="chip" type="button" id="oa">Open all</button> <button class="chip" type="button" id="ca">Close all</button>';
+ el("oa").onclick=function(){rows.forEach(function(r){S.open[r.p.e]=true});render()};
+ el("ca").onclick=function(){S.open={};render()};
 }
 function fmt8(e){var d=new Date((e+8*3600)*1000);function z(n){return (n<10?"0":"")+n}return z(d.getUTCDate())+"/"+z(d.getUTCMonth()+1)+"/"+d.getUTCFullYear()+" "+z(d.getUTCHours())+":"+z(d.getUTCMinutes())}
 function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
@@ -135,6 +153,7 @@ el("q").oninput=function(){S.q=this.value;render()};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
 el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. EV compares our chance with the price you would be paid; a large EV usually means the model is missing news (an injury or lineup change) rather than a real bargain, so check before betting. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
+function loadForm(){load(BASE+"form_latest.json").then(function(j){FM=j.players;render()}).catch(function(){FM=null})}
 function loadLines(){var n=el("lnote");
  load(BASE+"lines_latest.json").then(function(j){LN={};j.players.forEach(function(p){LN[p.d+"|"+p.t+"|"+p.n]=p});LNMETA=j;
   var age=(Date.now()/1000-j.epoch)/3600;n.textContent="Book lines from DraftKings and FanDuel, fetched "+fmt8(j.epoch)+" (GMT+8)"+(age>14?" \u00b7 "+Math.round(age)+" hours old, prices may have moved":"")+".";if(age>14)n.style.color="var(--warn)";
@@ -143,10 +162,10 @@ function loadLines(){var n=el("lnote");
  }).catch(function(){LN=null;n.textContent="Book lines are not available yet, so there are no edge figures.";render()})}
 function load(url){return fetch(url+"?t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw new Error(url+" "+r.status);return r.json()})}
 function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Could not load predictions: "+msg+". Nothing below can be trusted."}
-function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
+function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {id:p.id,n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
- loadLines();
+ loadLines();loadForm();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
 }).catch(function(e){fail(e.message)});
 </script>
