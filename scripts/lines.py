@@ -15,7 +15,9 @@ The page does the maths (our chance of Over / Under at the book's line, and the 
 Run:  python scripts/lines.py
 Exit code is 1 when anything is wrong, so the workflow shows red.
 """
+import csv
 import json
+import math
 import os
 import re
 import sys
@@ -30,6 +32,7 @@ from pathlib import Path
 DATA = Path("data")
 PROJECTIONS = DATA / "projections_latest.json"
 OUT = DATA / "lines_latest.json"
+HISTORY = DATA / "lines_history.csv"
 HEALTH = DATA / "lines_health.json"
 
 BASE = "https://api.prop-line.com/v1"
@@ -160,6 +163,40 @@ def describe(odds):
         return f"unreadable structure ({e})"
 
 
+# ---------- history, for grading our numbers against real results ----------
+
+HISTORY_COLS = ["fetched_utc", "game_date", "team", "opp", "player", "market", "book", "line", "over_price", "under_price",
+                "our_p_over", "our_p_under", "our_mean", "our_median", "p_play"]
+
+
+def _cdf(c, k):
+    return 0.0 if k < 0 else (1.0 if k >= len(c) else c[k])
+
+
+def append_history(now, players, proj_by_key):
+    """One row per book main line, with what our model said at that moment. Machine file: ISO dates."""
+    new = not HISTORY.exists()
+    n = 0
+    with open(HISTORY, "a", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if new:
+            w.writerow(HISTORY_COLS)
+        for p in players:
+            pr = proj_by_key.get((p["d"], p["t"], p["n"]))
+            if not pr:
+                continue
+            iso = datetime.strptime(p["d"], "%d/%m/%Y").strftime("%Y-%m-%d")
+            for mk in ("pts", "pra"):
+                c = pr[mk]["cdf"]
+                for book, point, over, under in p[mk]["m"]:
+                    fl = math.floor(point)
+                    p_under = _cdf(c, fl) if point != fl else _cdf(c, fl - 1)
+                    w.writerow([now.strftime("%Y-%m-%dT%H:%M:%SZ"), iso, p["t"], pr["opp"], p["n"], mk, book, point, over, under,
+                                round(1.0 - _cdf(c, fl), 4), round(p_under, 4), pr[mk]["mean"], pr[mk]["p50"], pr["p_play"]])
+                    n += 1
+    return n
+
+
 # ---------- main ----------
 
 def run(key, now=None, api_fn=None):
@@ -246,6 +283,8 @@ def run(key, now=None, api_fn=None):
               "events_listed": len(events), "events_upcoming": len(upcoming), "games_with_lines": games_matched,
               "players_with_lines": len(players), "book_players_unmatched": len(set(unmatched)), "unmatched_examples": sorted(set(unmatched))[:15],
               "requests_this_run": requests, "requests_left_today": QUOTA["remaining"], "daily_limit": QUOTA["limit"]}
+    proj_by_key = {(p["game_date"], p["team"], p["name"]): p for p in proj["players"]}
+    health["history_rows_added"] = append_history(now, players, proj_by_key)
     HEALTH.write_text(json.dumps(health, indent=2), encoding="utf-8")
     log(f"Lines for {len(players)} players in {games_matched} games ({requests} requests; {QUOTA['remaining']} left today). Wrote {OUT}")
     for w in warnings:
