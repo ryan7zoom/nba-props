@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install packages
-        run: pip install numpy pdfplumber
+        run: pip install numpy pandas pdfplumber
       - name: Fetch schedule, injuries and new box scores
         run: python scripts/update_data.py --mode daily
       - name: Fetch official injury reports
@@ -56,6 +56,9 @@ jobs:
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
         run: python scripts/lines.py
+      - name: Build team model and game builders
+        if: always()
+        run: python scripts/game_model.py project
       - name: Grade lines against results
         if: always()
         run: python scripts/grade_lines.py
