@@ -1,5 +1,5 @@
 {
-  "run": "31/10/2026 06:36 GMT+8",
+  "run": "31/10/2026 06:43 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -18,7 +18,7 @@
   "events_listed": 88,
   "events_upcoming": 20,
   "games_with_lines": 10,
-  "players_with_lines": 139,
+  "players_with_lines": 140,
   "book_players_unmatched": 4,
   "unmatched_examples": [
     "aj dybantsa",
@@ -27,7 +27,7 @@
     "cameron johnson"
   ],
   "requests_this_run": 21,
-  "requests_left_today": 924,
+  "requests_left_today": 919,
   "daily_limit": 1000,
-  "history_rows_added": 479
+  "history_rows_added": 480
 }
