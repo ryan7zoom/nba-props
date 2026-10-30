@@ -56,6 +56,9 @@ jobs:
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
         run: python scripts/lines.py
+      - name: Grade lines against results
+        if: always()
+        run: python scripts/grade_lines.py
       - name: Commit data
         if: always()
         run: |
