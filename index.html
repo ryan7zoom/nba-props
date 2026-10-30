@@ -79,6 +79,7 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 <script>
 var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,FM=null;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
+var MW=0.35,BET_MIN=0.03,BIG_GAP=0.12;
 function el(id){return document.getElementById(id)}
 function chips(id,opts,cur,fmt,on){var h="";opts.forEach(function(o){h+='<button class="chip" type="button" data-v="'+o+'" aria-pressed="'+(String(o)===String(cur))+'">'+fmt(o)+'</button> '});var e=el(id);e.innerHTML=h;Array.prototype.forEach.call(e.querySelectorAll("button"),function(b){b.onclick=function(){on(b.getAttribute("data-v"))}})}
 function pct(x){return Math.round(x*100)+"%"}
@@ -91,14 +92,22 @@ function probs(c,L){var f=Math.floor(L);return {o:1-cdfAt(c,f),u:(L===f)?cdfAt(c
 function bk(b){return b==="draftkings"?"DK":b==="fanduel"?"FD":b}
 function px(a){return (a>0?"+":"")+a}
 function evs(pw,pl,price){return pw*(dec(price)-1)-pl}
-function sideTxt(lab,price,pw,pl){if(price==null)return lab+" \u2013";var e=evs(pw,pl,price);return lab+" "+px(price)+' <span class="'+(e>0?"pos":"neg")+'">ours '+pct(pw)+", EV "+(e>0?"+":"")+Math.round(e*100)+"%</span>"}
+function fairOver(o,u){if(o==null||u==null)return null;var a=1/dec(o),b=1/dec(u);return a/(a+b)}
+function sideTxt(lab,price,pw,pm){if(price==null)return lab+" \u2013";return lab+" "+px(price)+' <span class="neg">ours '+pct(pw)+(pm==null?"":" \u00b7 market "+pct(pm))+"</span>"}
+function mainEdge(p){var e=lineOf(p);if(!e)return null;var E=e[S.stat],c=S.stat==="pts"?p.pc:p.rc,best=null;
+ E.m.forEach(function(r){var q=probs(c,r[1]),fo=fairOver(r[2],r[3]);if(fo==null)return;
+  [["Over",r[2],q.o,fo],["Under",r[3],q.u,1-fo]].forEach(function(s){if(s[1]==null)return;var pb=MW*s[2]+(1-MW)*s[3],ev=pb*(dec(s[1])-1)-(1-pb);
+   if(!best||ev>best.ev)best={side:s[0],book:r[0],L:r[1],price:s[1],ours:s[2],mkt:s[3],ev:ev,gap:s[2]-s[3]}})});return best}
+function bestEV(p){var b=mainEdge(p);return b?b.ev:-9}
 function lineOf(p){return LN?LN[p.d+"|"+p.t+"|"+p.n]:null}
-function bestEV(p){var e=lineOf(p);if(!e)return -9;var E=e[S.stat],c=S.stat==="pts"?p.pc:p.rc,b=-9;E.m.forEach(function(r){var q=probs(c,r[1]);if(r[2]!=null)b=Math.max(b,evs(q.o,q.u,r[2]));if(r[3]!=null)b=Math.max(b,evs(q.u,q.o,r[3]))});return b}
 function lineBlock(p){if(!LN)return"";var e=lineOf(p);if(!e)return'<div class="ln neg">No book line yet</div>';
  var E=e[S.stat],c=S.stat==="pts"?p.pc:p.rc;if(!E||(!E.m.length&&!E.a.length))return'<div class="ln neg">No book line yet</div>';
- var h="";E.m.forEach(function(r){var q=probs(c,r[1]);h+='<div class="ln"><b>'+bk(r[0])+" "+r[1].toFixed(1)+"</b> \u00b7 "+sideTxt("Over",r[2],q.o,q.u)+" \u00b7 "+sideTxt("Under",r[3],q.u,q.o)+"</div>"});
- var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o,u:q.u}});
- if(best){var ev=evs(best.p,best.u,best.a);h+='<div class="ln alt">Safe alt: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+', <span class="'+(ev>0?"pos":"neg")+'">EV '+(ev>0?"+":"")+Math.round(ev*100)+"%</span></div>"}
+ var h="";E.m.forEach(function(r){var q=probs(c,r[1]),fo=fairOver(r[2],r[3]);h+='<div class="ln"><b>'+bk(r[0])+" "+r[1].toFixed(1)+"</b> \u00b7 "+sideTxt("Over",r[2],q.o,fo)+" \u00b7 "+sideTxt("Under",r[3],q.u,fo==null?null:1-fo)+"</div>"});
+ var b=mainEdge(p);
+ if(b){if(b.ev>=BET_MIN){h+='<div class="ln"><span class="pos">Lean '+b.side+" "+b.L.toFixed(1)+" "+px(b.price)+" ("+bk(b.book)+")</span>: ours "+pct(b.ours)+" vs market "+pct(b.mkt)+", market-adjusted edge "+(b.ev>0?"+":"")+Math.round(b.ev*100)+"%"+(Math.abs(b.gap)>=BIG_GAP?' <span class="neg">\u00b7 big gap vs the market, check lineup news first</span>':"")+"</div>"}
+  else h+='<div class="ln neg">Main line: no real edge, skip'+(Math.abs(b.gap)>=BIG_GAP?" \u00b7 big gap vs the market, check lineup news":"")+"</div>"}
+ var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o}});
+ if(best)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+", price implies "+pct(1/dec(best.a))+"</div>";
  else h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
 function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5">Last 5: no games on record</div>';
  var vals=g.map(function(x){return S.stat==="pts"?x[3]:x[3]+x[4]+x[5]});var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
@@ -151,7 +160,7 @@ function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
  b.textContent=t}
 el("q").oninput=function(){S.q=this.value;render()};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
-el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. EV compares our chance with the price you would be paid; a large EV usually means the model is missing news (an injury or lineup change) rather than a real bargain, so check before betting. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own fair odds (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function loadForm(){load(BASE+"form_latest.json").then(function(j){FM=j.players;render()}).catch(function(){FM=null})}
 function loadLines(){var n=el("lnote");
