@@ -1,5 +1,5 @@
 {
-  "run": "30/10/2026 03:08 GMT+8",
+  "run": "30/10/2026 09:16 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -22,13 +22,13 @@
     "OKC at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 17,
-  "events_listed": 55,
-  "events_upcoming": 20,
-  "games_with_lines": 3,
-  "players_with_lines": 41,
+  "events_listed": 71,
+  "events_upcoming": 18,
+  "games_with_lines": 1,
+  "players_with_lines": 15,
   "book_players_unmatched": 0,
   "unmatched_examples": [],
-  "requests_this_run": 21,
-  "requests_left_today": 948,
+  "requests_this_run": 19,
+  "requests_left_today": 993,
   "daily_limit": 1000
 }
