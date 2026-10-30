@@ -56,6 +56,12 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 .neg{color:var(--mute)}
 .lnote{font-size:12.5px;color:var(--mute);margin:-4px 0 10px}
 .note{color:var(--mute);font-size:12.5px;margin-top:18px}
+.bd{background:var(--card);border:1px solid var(--accent);border-radius:10px;padding:10px 12px;margin:0 0 8px}
+.bdh{font-size:14.5px;margin-bottom:4px}
+.bl{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 8px;font-size:14px;padding:3px 0;border-top:1px solid var(--line)}
+.bl small{flex-basis:100%;color:var(--mute);font-size:12px}
+.gp{font-size:13px;margin-top:6px;color:var(--mute)}
+.gp b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -77,7 +83,7 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 <p class="note" id="note"></p>
 </main>
 <script>
-var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,FM=null;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
+var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
 var MW=0.35,BET_MIN=0.03,BIG_GAP=0.12;
 function el(id){return document.getElementById(id)}
@@ -107,12 +113,20 @@ function lineBlock(p){if(!LN)return"";var e=lineOf(p);if(!e)return'<div class="l
  if(b){if(b.ev>=BET_MIN){h+='<div class="ln"><span class="pos">Lean '+b.side+" "+b.L.toFixed(1)+" "+px(b.price)+" ("+bk(b.book)+")</span>: ours "+pct(b.ours)+" vs market "+pct(b.mkt)+", market-adjusted edge "+(b.ev>0?"+":"")+Math.round(b.ev*100)+"%"+(Math.abs(b.gap)>=BIG_GAP?' <span class="neg">\u00b7 big gap vs the market, check lineup news first</span>':"")+"</div>"}
   else h+='<div class="ln neg">Main line: no real edge, skip'+(Math.abs(b.gap)>=BIG_GAP?" \u00b7 big gap vs the market, check lineup news":"")+"</div>"}
  var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o}});
- if(best)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+", price implies "+pct(1/dec(best.a))+"</div>";
- else h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
+ if(best&&HASALT)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+", price implies "+pct(1/dec(best.a))+"</div>";
+ else if(HASALT)h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
 function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5">Last 5: no games on record</div>';
  var vals=g.map(function(x){return S.stat==="pts"?x[3]:x[3]+x[4]+x[5]});var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
  var parts=g.map(function(x,i){return"<b>"+vals[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]});
  return '<div class="l5">Last '+g.length+" ("+(S.stat==="pts"?"pts":"PRA")+"): "+parts.join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
+function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder,p=G.proj,h='<div class="bd">';
+ if(b.legs.length){h+='<div class="bdh">Safest builder: all '+b.legs.length+' legs hit <b>'+pct(b.all_hit)+'</b></div>';
+  b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="neg">'+pct(l.p)+" \u00b7 all hit without it "+pct(b.without_leg[i])+'</span>'+(nt?'<small>'+nt+'</small>':'')+'</div>'})}
+ else h+='<div class="bdh neg">No safe builder for this game yet (not enough lines or players).</div>';
+ h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+pct(p.home_win):G.away+' win '+pct(1-p.home_win))+'</div>';
+ var ml=G.margin_lines.filter(function(m){return m.line<0});if(ml.length){h+='<div class="gp">'+ml.map(function(m){return m.team+(Math.abs(m.line)===0.5?' to win ':' wins by 6+ ').replace('6+',Math.ceil(Math.abs(m.line))+'+')+pct(m.p)}).join(' \u00b7 ')+'</div>'}
+ if(G.unders&&G.unders.length){h+='<div class="gp">Player Unders (main line only, singles): '+G.unders.map(function(u){return u.label+' '+pct(u.p)}).join(' \u00b7 ')+'</div>'}
+ return h+'</div>'}
 function days(){var s=[];D.players.forEach(function(p){if(s.indexOf(p.d)<0)s.push(p.d)});return s}
 function render(){
  var DY=days();if(!S.day)S.day=DY[0];
@@ -143,7 +157,7 @@ function render(){
  else if(S.ord==="edge"){rows.sort(function(a,b){return bestEV(b.p)-bestEV(a.p)});rows.forEach(function(r){out+=card(r)})}
  else{var g={},order=[];rows.forEach(function(r){var k=r.p.e;if(!g[k]){g[k]={h:[],a:[],hn:"",an:""};order.push(k)}var G=g[k];if(r.p.h){G.h.push(r);G.hn=r.p.t;G.an=G.an||r.p.o}else{G.a.push(r);G.an=r.p.t;G.hn=G.hn||r.p.o}});
   function team(name,side,list){if(!list.length)return"";var h='<div class="team">'+name+' ('+side+')</div>';list.sort(function(a,b){return b.p.mn-a.p.mn}).forEach(function(r){h+=card(r)});return h}
-  order.forEach(function(k){var G=g[k],n=G.h.length+G.a.length;out+='<details class="gm" data-k="'+k+'"'+(S.open[k]?" open":"")+'><summary>'+G.an+' at '+G.hn+'<span class="cnt">'+n+' players</span></summary>'+team(G.hn,"home",G.h)+team(G.an,"away",G.a)+'</details>'})}
+  order.forEach(function(k){var G=g[k],n=G.h.length+G.a.length;out+='<details class="gm" data-k="'+k+'"'+(S.open[k]?" open":"")+'><summary>'+G.an+' at '+G.hn+'<span class="cnt">'+n+' players</span></summary>'+gameBlock(k)+team(G.hn,"home",G.h)+team(G.an,"away",G.a)+'</details>'})}
  el("list").innerHTML=out||'<p class="none">No players match.</p>';
  Array.prototype.forEach.call(el("list").querySelectorAll("details.gm"),function(d){d.addEventListener("toggle",function(){S.open[d.getAttribute("data-k")]=d.open})});
  el("gctl").style.display=(S.ord==="game"&&rows.length)?"flex":"none";
@@ -160,11 +174,12 @@ function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
  b.textContent=t}
 el("q").oninput=function(){S.q=this.value;render()};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
-el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own fair odds (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. Legs in the same game tend to rise and fall together, so multiplying chances across them overstates a parlay. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own fair odds (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. The safest builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Player legs sit 6 points (points) or 12 points (PRA) below the main line, which is how far your bookie goes; legs marked \u201cline est.\u201d use our own number because no DK/FD line was posted, so check your bookie\u2019s real line. Team and total legs are set at about 85% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; its chances held up on last season\u2019s games, but the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
+function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
 function loadForm(){load(BASE+"form_latest.json").then(function(j){FM=j.players;render()}).catch(function(){FM=null})}
 function loadLines(){var n=el("lnote");
- load(BASE+"lines_latest.json").then(function(j){LN={};j.players.forEach(function(p){LN[p.d+"|"+p.t+"|"+p.n]=p});LNMETA=j;
+ load(BASE+"lines_latest.json").then(function(j){LN={};HASALT=false;j.players.forEach(function(p){LN[p.d+"|"+p.t+"|"+p.n]=p;if((p.pts&&p.pts.a&&p.pts.a.length)||(p.pra&&p.pra.a&&p.pra.a.length))HASALT=true});LNMETA=j;
   var age=(Date.now()/1000-j.epoch)/3600;n.textContent="Book lines from DraftKings and FanDuel, fetched "+fmt8(j.epoch)+" (GMT+8)"+(age>14?" \u00b7 "+Math.round(age)+" hours old, prices may have moved":"")+".";if(age>14)n.style.color="var(--warn)";
   render();
   load(BASE+"lines_health.json").then(function(h){if(!h.ok){n.style.color="var(--bad)";n.textContent="Book lines problem: "+h.errors.join("; ")}}).catch(function(){})
@@ -174,7 +189,7 @@ function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Cou
 function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {id:p.id,n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
- loadLines();loadForm();
+ loadLines();loadForm();loadGames();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
 }).catch(function(e){fail(e.message)});
 </script>
