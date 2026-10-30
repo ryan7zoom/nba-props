@@ -23,12 +23,17 @@ N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 12          # how far below the main line the bookie's alternate Overs go
 TEAM_TARGETS = (0.85,)              # chance level tried for each team/game line (about the "Wizards +15" kind of leg)
 MIN_LEG = 0.75                     # a leg must be at least this likely on its own
-FLOOR = 0.60                       # keep adding legs while all-legs-hit chance stays above this
-MAX_LEGS = 8
+FLOOR = 0.45                       # pool keeps growing until the all-legs chance would drop below this; you pick the legs you want from it
+MAX_LEGS = 6
+MAX_TEAM_LEGS = 3                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
+MIN_LEG_PLAYER = 0.70              # player points legs at the bookie's lowest rung are rarely above 85%, so allow a bit lower
 MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almost nothing
-MIN_MAIN = {'pts': 10.5, 'pra': 18.5}      # real line must be at least this big to be a builder leg
+MIN_MAIN = {'pts': 14.5, 'pra': 18.5}      # real line must be at least this big to be a builder leg (role players with tiny lines pay nothing)
 MIN_MAIN_EST = {'pts': 14.5, 'pra': 24.5}  # no real line: only stars (our own median) qualify
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
+STATS = (('pts', PTS_GAP),)       # player legs: points only for now (PRA later)
+TT_GAP = 11                       # lowest alternate team-total Over is about this far below our projection (WSH 110.9 -> 99.5)
+TOT_GAP = 14                      # same idea for game totals (a guess: tell me your bookie's real range)
 SPREAD_GAP = 8                    # alternate spread goes about this far past our projected deficit (BOS -13 -> CHI +21.5)
 MIN_SHOW = 3                       # always show at least this many legs
 RHO = {'pts': 0.23, 'pra': 0.25}   # player points follow own team's score (measured both seasons)
@@ -228,13 +233,13 @@ def load_lines():
 
 
 def anchor(pl, line_rec, stat):
-    """Main line used to place the alternate ladder: average of DK/FD main lines, else our median (flagged est)."""
+    """Main line used to place the alternate ladder: the higher of the DK/FD main lines (so the rung surely exists), else our median (flagged est)."""
     est = True
     main = None
     if line_rec and line_rec.get(stat) and line_rec[stat].get('m'):
         ls = [b[1] for b in line_rec[stat]['m'] if b[1] is not None]
         if ls:
-            main = round(float(np.mean(ls)) * 2) / 2
+            main = round(float(max(ls)) * 2) / 2
             est = False
             books = ' / '.join(f"{BOOK.get(b[0], b[0][:2].upper())} {b[1]:g}" for b in line_rec[stat]['m'])
     if main is None:
@@ -263,7 +268,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
         cands.append({'label': label, 'family': family, 'hit': hit, 'p': float(hit.mean()), 'note': note, 'kind': kind})
 
     H, A = g['home'], g['away']
-    # spreads (team plus / minus), one rung per target chance, never past the bookie's highest alternate
+    # spreads (team plus / minus), one rung per target chance
     for tm, mg, tmu in ((H, M, mu_m), (A, -M, -mu_m)):
         cap = math.floor(max(0.0, -tmu)) + SPREAD_GAP + 0.5   # bookie's highest alternate: about 8 past our projected deficit
         for tgt in TEAM_TARGETS:
@@ -277,31 +282,29 @@ def simulate_game(g, sm, st, c, players, lines, rng):
     # moneyline
     for tm, mg in ((H, M), (A, -M)):
         add(f'{tm} to win', f'spread_{tm}', mg > 0, 'moneyline')
-    # game total
+    # game total: Over from the lowest alternate up, Under from the highest alternate down
     for tgt in TEAM_TARGETS:
-        for x in np.arange(mu_t - 40, mu_t + 40, 1.0):
-            xx = math.floor(x) + 0.5
-            if (T > xx).mean() <= tgt + 1e-9 and (T > xx).mean() >= tgt - 0.03:
+        lo = math.floor(mu_t - TOT_GAP) + 0.5
+        for xx in np.arange(lo, mu_t + 40, 1.0):
+            if (T > xx).mean() <= tgt + 1e-9:
                 add(f'Game total over {xx:g}', 'total', T > xx)
                 break
-        for x in np.arange(mu_t + 40, mu_t - 40, -1.0):
-            xx = math.floor(x) + 0.5
-            if (T < xx).mean() <= tgt + 1e-9 and (T < xx).mean() >= tgt - 0.03:
+        hi = math.floor(mu_t + TOT_GAP) + 0.5
+        for xx in np.arange(hi, mu_t - 40, -1.0):
+            if (T < xx).mean() <= tgt + 1e-9:
                 add(f'Game total under {xx:g}', 'total', T < xx)
                 break
-    # team totals
+    # team totals, same idea with TT_GAP
     for tm, P, mu in ((H, PH, mu_t / 2 + mu_m / 2), (A, PA, mu_t / 2 - mu_m / 2)):
         for tgt in TEAM_TARGETS:
-            for x in np.arange(mu - 30, mu + 30, 1.0):
-                xx = math.floor(x) + 0.5
-                p = (P > xx).mean()
-                if tgt - 0.03 <= p <= tgt + 1e-9:
+            lo = math.floor(mu - TT_GAP) + 0.5
+            for xx in np.arange(lo, mu + 30, 1.0):
+                if (P > xx).mean() <= tgt + 1e-9:
                     add(f'{tm} team total over {xx:g}', f'tt_{tm}', P > xx)
                     break
-            for x in np.arange(mu + 30, mu - 30, -1.0):
-                xx = math.floor(x) + 0.5
-                p = (P < xx).mean()
-                if tgt - 0.03 <= p <= tgt + 1e-9:
+            hi = math.floor(mu + TT_GAP) + 0.5
+            for xx in np.arange(hi, mu - 30, -1.0):
+                if (P < xx).mean() <= tgt + 1e-9:
                     add(f'{tm} team total under {xx:g}', f'tt_{tm}', P < xx)
                     break
     # players
@@ -314,7 +317,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
         plays = rng.random(n) < pp
         e = rng.normal(0, 1, n)
         best = None
-        for stat, gap in (('pts', PTS_GAP), ('pra', PRA_GAP)):
+        for stat, gap in STATS:
             a, b = RHO[stat], BLOW[stat]
             s = sqrt(max(0.5, 1 - a * a - b * b))
             z = a * zt + b * zb + s * e
@@ -346,13 +349,16 @@ def pick_pool(cands, singles):
         if s['p'] >= MIN_LEG:
             cands.append({'label': s['label'], 'family': 'pl_u_' + s['player'], 'hit': s['hit'], 'p': s['p'],
                           'note': s['note'], 'kind': 'player_under'})
-    pool = [c for c in cands if MIN_LEG <= c['p'] <= MAX_LEG_P]
+    pool = [c for c in cands if (MIN_LEG_PLAYER if c['kind'] == 'player' else MIN_LEG) <= c['p'] <= MAX_LEG_P]
     chosen, used = [], set()
+    team_n = 0
     joint = np.ones(len(pool[0]['hit']), bool) if pool else None
     while pool and len(chosen) < MAX_LEGS:
         best = None
         for c in pool:
             if c['family'] in used:
+                continue
+            if c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS:
                 continue
             pj = float((joint & c['hit']).mean())
             if best is None or pj > best[0]:
@@ -362,6 +368,8 @@ def pick_pool(cands, singles):
         if best[0] < FLOOR and len(chosen) >= MIN_SHOW:
             break
         chosen.append(best[1])
+        if best[1]['kind'] == 'team':
+            team_n += 1
         used.add(best[1]['family'])
         joint = joint & best[1]['hit']
     if not chosen:
