@@ -1,5 +1,5 @@
 {
-  "run": "31/10/2026 06:54 GMT+8",
+  "run": "31/10/2026 08:58 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -12,23 +12,21 @@
     "OKC at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "BOS at ORL: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "BKN at IND: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "LAC at GS: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "LAC at GS: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "TOR at LAL: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 10,
+  "warning_count": 11,
   "events_listed": 88,
-  "events_upcoming": 20,
-  "games_with_lines": 10,
-  "players_with_lines": 140,
-  "book_players_unmatched": 5,
+  "events_upcoming": 13,
+  "games_with_lines": 2,
+  "players_with_lines": 28,
+  "book_players_unmatched": 2,
   "unmatched_examples": [
-    "aj dybantsa",
-    "alexandre sarr",
     "cam johnson",
-    "cameron johnson",
-    "obi toppin"
+    "cameron johnson"
   ],
-  "requests_this_run": 21,
-  "requests_left_today": 898,
+  "requests_this_run": 14,
+  "requests_left_today": 994,
   "daily_limit": 1000,
-  "history_rows_added": 481
+  "history_rows_added": 99
 }
