@@ -22,7 +22,7 @@ FIT_SEASON, FIT_END = 2026, '2026-01-15'   # ESPN season_year 2026 = 2025-26
 N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 12          # how far below the main line the bookie's alternate Overs go
 TEAM_TARGETS = (0.85,)              # chance level tried for each team/game line (about the "Wizards +15" kind of leg)
-MIN_LEG = 0.75                     # a leg must be at least this likely on its own
+MIN_LEG = 0.70                     # a team or game leg must be at least this likely on its own
 FLOOR = 0.45                       # pool keeps growing until the all-legs chance would drop below this; you pick the legs you want from it
 MAX_LEGS = 6
 MAX_TEAM_LEGS = 3                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
@@ -37,8 +37,9 @@ PACE_BAND = 4                     # market-blended total this far below / above 
 TT_OVER_GAP, TT_UNDER_GAP = 9, 12  # bookie's team-total alternates start ~9 below the market team total (WSH 108 -> 99.5) and reach ~12 above
 MIN_MINUTES = 20                  # players projected under this many minutes are not used for legs
 TT_GAP = 11                       # lowest alternate team-total Over is about this far below our projection (WSH 110.9 -> 99.5)
-TOT_GAP = 14                      # same idea for game totals (a guess: tell me your bookie's real range)
-SPREAD_GAP = 8                    # alternate spread goes about this far past our projected deficit (BOS -13 -> CHI +21.5)
+TOT_GAP = 21                      # DK's alternate game totals start ~21-22 below the main line (210.5 vs 231.5; 193.5 vs 215.5), read from the feed
+SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7 (your bookie gives 7 to 10; 7 is the sure end): UTAH +6.5 -> +13.5, CHI +13.5 -> +20.5, a -2.5 favourite -> +4.5
+MIN_PLUS_CAP = 1.0                # a heavy favourite (own spread + 7 below this, e.g. POR -6.5 -> +0.5) gets no plus-spread leg at all
 MIN_SHOW = 3                       # always show at least this many legs
 RHO = {'pts': 0.23, 'pra': 0.25}   # player points follow own team's score (measured both seasons)
 BLOW = {'pts': -0.09, 'pra': -0.115}  # and drop in blowouts (per 10 pts of margin)
@@ -323,10 +324,12 @@ def simulate_game(g, sm, st, c, players, lines, rng):
     # spreads (team plus / minus), one rung per target chance
     anc_m = mk_m if mk_m is not None else mu_m
     for tm, mg, tmu in ((H, M, anc_m), (A, -M, -anc_m)):
-        cap = math.floor(max(0.0, -tmu)) + SPREAD_GAP + 0.5   # bookie's highest alternate: about 8 past our projected deficit
+        # bookie's highest alternate = the team's own spread + 7; a heavy favourite ends up with no plus lines at all
+        cap = round((SPREAD_GAP - tmu) * 2) / 2
+        if cap < MIN_PLUS_CAP:
+            continue
         for tgt in TEAM_TARGETS:
-            found = False
-            for L in np.arange(-15.5, cap + 0.01, 1.0):      # team margin > -L  (L>0: team +L)
+            for L in list(np.arange(-15.5, cap - 1e-9, 1.0)) + [cap]:      # team margin > -L  (L>0: team +L)
                 hit = mg > -L
                 if hit.mean() >= tgt or L >= cap - 1e-9:
                     lab = f'{tm} +{L:g}' if L > 0 else f'{tm} {L:g}'
