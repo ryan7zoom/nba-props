@@ -23,9 +23,11 @@ N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 12          # how far below the main line the bookie's alternate Overs go
 TEAM_TARGETS = (0.85,)              # chance level tried for each team/game line (about the "Wizards +15" kind of leg)
 MIN_LEG = 0.70                     # a team or game leg must be at least this likely on its own
-FLOOR = 0.45                       # pool keeps growing until the all-legs chance would drop below this; you pick the legs you want from it
+FLOOR = 0.45                       # team legs are only added while the all-legs chance stays above this; you pick the legs you want from the pool
 MAX_LEGS = 6
-MAX_TEAM_LEGS = 3                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
+MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
+MAX_PLAYER_LEGS = 4                # player legs are picked FIRST, up to this many
+FLOOR_PLAYERS = 0.55               # player legs stop being added when their joint chance would drop below this
 MIN_LEG_PLAYER = 0.70              # player points legs at the bookie's lowest rung are rarely above 85%, so allow a bit lower
 MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almost nothing
 MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; lower it if your bookie offers legs on smaller lines)
@@ -413,29 +415,32 @@ def pick_pool(cands, singles):
         if s['p'] >= MIN_LEG:
             cands.append({'label': s['label'], 'family': 'pl_u_' + s['player'], 'hit': s['hit'], 'p': s['p'],
                           'note': s['note'], 'kind': 'player_under'})
-    pool = [c for c in cands if (MIN_LEG_PLAYER if c['kind'] == 'player' else MIN_LEG) <= c['p'] <= MAX_LEG_P]
+    pool = [c for c in cands if (MIN_LEG_PLAYER if c['kind'] != 'team' else MIN_LEG) <= c['p'] <= MAX_LEG_P]
+    if not pool:
+        return [], 0.0, []
     chosen, used = [], set()
-    team_n = 0
-    joint = np.ones(len(pool[0]['hit']), bool) if pool else None
-    while pool and len(chosen) < MAX_LEGS:
-        best = None
-        for c in pool:
-            if c['family'] in used:
-                continue
-            if c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS:
-                continue
-            pj = float((joint & c['hit']).mean())
-            if best is None or pj > best[0]:
-                best = (pj, c)
-        if best is None:
-            break
-        if best[0] < FLOOR and len(chosen) >= MIN_SHOW:
-            break
-        chosen.append(best[1])
-        if best[1]['kind'] == 'team':
-            team_n += 1
-        used.add(best[1]['family'])
-        joint = joint & best[1]['hit']
+    joint = np.ones(len(pool[0]['hit']), bool)
+
+    def grow(kind_is_player, limit, floor):
+        nonlocal joint
+        n = 0
+        while n < limit and len(chosen) < MAX_LEGS:
+            best = None
+            for c in pool:
+                if (c['kind'] != 'team') != kind_is_player or c['family'] in used:
+                    continue
+                pj = float((joint & c['hit']).mean())
+                if best is None or pj > best[0]:
+                    best = (pj, c)
+            if best is None or (best[0] < floor and len(chosen) >= MIN_SHOW):
+                break
+            chosen.append(best[1])
+            used.add(best[1]['family'])
+            joint = joint & best[1]['hit']
+            n += 1
+
+    grow(True, MAX_PLAYER_LEGS, FLOOR_PLAYERS)     # players first: they get the main places
+    grow(False, MAX_TEAM_LEGS, FLOOR)              # then up to MAX_TEAM_LEGS team legs, only if they keep the pool above the floor
     if not chosen:
         return [], 0.0, []
     allhit = np.ones(len(chosen[0]['hit']), bool)
