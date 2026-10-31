@@ -3727,3 +3727,21 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-10-30T21:00-04:00,2026-10-31T01:00+00:00,2026-10-30,22:00,DEN@PHX,PHX,"Ighodaro,Oso",oso ighodaro,Available,Injury/Illness-RightObliqueStrain,2026-10-30_09_00PM,2
 2026-10-30T21:30-04:00,2026-10-31T01:30+00:00,2026-10-30,22:00,DEN@PHX,DEN,"Diallo,Alpha",alpha diallo,Out,Arthroscopy Injury/Illness-Rightwrist sprain/PersonalReasons,2026-10-30_09_30PM,2
 2026-10-30T21:30-04:00,2026-10-31T01:30+00:00,2026-10-30,22:00,DEN@PHX,DEN,"Johnson,Cameron",cameron johnson,Available,Injury/Illness-RightAnkleSprain,2026-10-30_09_30PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,15:00,POR@UTAH,UTAH,"Nurkic,Jusuf",jusuf nurkic,Out,Injury/Illness-RightFoot2ndPlantar,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Barlow,Dominick",dominick barlow,Out,PlateTear Injury/Illness-LowBackStress,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Brown,Jaylen",jaylen brown,Questionable,Reaction Injury/Illness-LeftPatellar,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Embiid,Joel",joel embiid,Out,Tendinopathy Injury/Illness-RightFootPlantar FasciaInjuryManagement,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Fall,Tacko",tacko fall,Questionable,Injury/Illness-LeftQuadricepsStrain,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Hukporti,Ariel",ariel hukporti,Out,Injury/Illness-RightAchillesTendon,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"James,LeBron",lebron james,Out,Rupture/Tear Injury/Illness-LowBack/Sciatica,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,PHI,"Walker,Jabari",jabari walker,Questionable,Management Injury/Illness-LeftPatellar Tendinopathy,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,CHA,"Ajayi,Michael",michael ajayi,Out,GLeague-Two-Way,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,CHA,"Boswell,Kylan",kylan boswell,Out,GLeague-Two-Way,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,CHA,"Knueppel,Kon",kon knueppel,Out,Injury/Illness-LeftHamstringStrain,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,CHA,"White,Coby",coby white,Out,Injury/Illness-LeftCalfStrain,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,18:00,PHI@CHA,CHA,"Williams,Grant",grant williams,Out,Injury/Illness-RightHamstringStrain,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,20:30,OKC@HOU,HOU,"Adams,Steven",steven adams,Out,Injury/Illness-RightSoleusStrain,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,20:30,OKC@HOU,HOU,"Copeland,Quadir",quadir copeland,Out,GLeague-Two-Way,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,20:30,OKC@HOU,HOU,"Phillips,Julian",julian phillips,Out,GLeague-Two-Way,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,20:30,OKC@HOU,HOU,"Sheppard,Reed",reed sheppard,Out,Injury/Illness-LowBackSoreness,2026-10-31_01_00PM,2
+2026-10-31T13:00-04:00,2026-10-31T17:00+00:00,2026-10-31,20:30,OKC@HOU,HOU,"VanVleet,Fred",fred vanvleet,Out,Injury/Illness-RightKneeInjury Management,2026-10-31_01_00PM,2
