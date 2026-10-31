@@ -28,10 +28,14 @@ MAX_LEGS = 6
 MAX_TEAM_LEGS = 3                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
 MIN_LEG_PLAYER = 0.70              # player points legs at the bookie's lowest rung are rarely above 85%, so allow a bit lower
 MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almost nothing
-MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; set 0.5 to allow every player)
+MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; lower it if your bookie offers legs on smaller lines)
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5}   # same, for players with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
 STATS = (('pts', PTS_GAP),)       # player legs: points only for now (PRA later)
+W_OURS = 0.35                     # share of OUR team model when a market total/spread exists (rest is the bookmakers'); provisional, same as the player-prop blend
+PACE_BAND = 4                     # market-blended total this far below / above the league average = slow / fast game
+TT_OVER_GAP, TT_UNDER_GAP = 9, 12  # bookie's team-total alternates start ~9 below the market team total (WSH 108 -> 99.5) and reach ~12 above
+MIN_MINUTES = 20                  # players projected under this many minutes are not used for legs
 TT_GAP = 11                       # lowest alternate team-total Over is about this far below our projection (WSH 110.9 -> 99.5)
 TOT_GAP = 14                      # same idea for game totals (a guess: tell me your bookie's real range)
 SPREAD_GAP = 8                    # alternate spread goes about this far past our projected deficit (BOS -13 -> CHI +21.5)
@@ -221,6 +225,39 @@ def backtest():
 
 
 # ------------------------------------------------------------------ builder
+def load_game_lines():
+    """Market total / spread per game: {(home, away): [records with date, total, home_spread]}. Manual file wins over the feed."""
+    out = {}
+    try:
+        for g in json.load(open(os.path.join(DATA, 'game_lines_latest.json'))).get('games', {}).values():
+            out.setdefault((g['home'], g['away']), []).append(dict(g, src='feed'))
+    except Exception:
+        pass
+    try:
+        with open(os.path.join(DATA, 'game_lines_manual.csv'), newline='', encoding='utf-8') as f:
+            for r in csv.DictReader(f):
+                rec = {'date': r['date'].strip(), 'src': 'manual'}
+                for k in ('total', 'home_spread'):
+                    if (r.get(k) or '').strip():
+                        rec[k] = float(r[k])
+                out.setdefault((r['home'].strip(), r['away'].strip()), []).insert(0, rec)
+    except Exception:
+        pass
+    return out
+
+
+def pick_market(table, home, away, date):
+    best = None
+    for rec in table.get((home, away), []):
+        try:
+            d = abs((datetime.datetime.strptime(rec['date'], '%d/%m/%Y') - datetime.datetime.strptime(date, '%d/%m/%Y')).days)
+        except Exception:
+            continue
+        if d <= 1 and (best is None or rec['src'] == 'manual'):
+            best = rec
+    return best
+
+
 def load_lines():
     try:
         L = json.load(open(os.path.join(DATA, 'lines_latest.json')))
@@ -256,6 +293,21 @@ def simulate_game(g, sm, st, c, players, lines, rng):
     n = N_SIM
     mu_m = g['mh'] - g['ma']
     mu_t = (g['mh'] + g['ma']) * c
+    mk = g.get('market') or {}
+    mk_t = mk.get('total')
+    mk_m = -mk['home_spread'] if mk.get('home_spread') is not None else None
+    if mk_t is not None:
+        mu_t = W_OURS * mu_t + (1 - W_OURS) * mk_t
+    if mk_m is not None:
+        mu_m = W_OURS * mu_m + (1 - W_OURS) * mk_m
+    lg = g.get('lg_total')
+    pace = 'normal'
+    if lg:
+        pace = 'slow' if mu_t <= lg - PACE_BAND else 'fast' if mu_t >= lg + PACE_BAND else 'normal'
+    ctx = ''
+    if mk_t is not None or mk_m is not None:
+        ctx = 'market ' + (f'total {mk_t:g}' if mk_t is not None else '') + (' ' if mk_t is not None and mk_m is not None else '') + \
+              (f'{g["home"]} {-mk_m:+g}' if mk_m is not None else '') + f' \u00b7 {pace} game'
     M = rng.normal(mu_m, sm, n)
     T = rng.normal(mu_t, st, n)
     PH, PA = (T + M) / 2, (T - M) / 2
@@ -269,7 +321,8 @@ def simulate_game(g, sm, st, c, players, lines, rng):
 
     H, A = g['home'], g['away']
     # spreads (team plus / minus), one rung per target chance
-    for tm, mg, tmu in ((H, M, mu_m), (A, -M, -mu_m)):
+    anc_m = mk_m if mk_m is not None else mu_m
+    for tm, mg, tmu in ((H, M, anc_m), (A, -M, -anc_m)):
         cap = math.floor(max(0.0, -tmu)) + SPREAD_GAP + 0.5   # bookie's highest alternate: about 8 past our projected deficit
         for tgt in TEAM_TARGETS:
             found = False
@@ -277,41 +330,49 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 hit = mg > -L
                 if hit.mean() >= tgt or L >= cap - 1e-9:
                     lab = f'{tm} +{L:g}' if L > 0 else f'{tm} {L:g}'
-                    add(lab, f'spread_{tm}', hit, '' if hit.mean() >= tgt else 'highest alternate (our estimate of your bookie)')
+                    add(lab, f'spread_{tm}', hit, ctx if hit.mean() >= tgt else ('highest alternate (our estimate of your bookie)' + (' \u00b7 ' + ctx if ctx else '')))
                     break
     # moneyline
     for tm, mg in ((H, M), (A, -M)):
-        add(f'{tm} to win', f'spread_{tm}', mg > 0, 'moneyline')
-    # game total: Over from the lowest alternate up, Under from the highest alternate down
+        add(f'{tm} to win', f'spread_{tm}', mg > 0, 'moneyline' + (' \u00b7 ' + ctx if ctx else ''))
+    # game total: Over from the lowest alternate up, Under from the highest alternate down.
+    # Slow game (market total well under the league average): no Overs. Fast game: no Unders.
+    anc_t = mk_t if mk_t is not None else mu_t
     for tgt in TEAM_TARGETS:
-        lo = math.floor(mu_t - TOT_GAP) + 0.5
-        for xx in np.arange(lo, mu_t + 40, 1.0):
-            if (T > xx).mean() <= tgt + 1e-9:
-                add(f'Game total over {xx:g}', 'total', T > xx)
-                break
-        hi = math.floor(mu_t + TOT_GAP) + 0.5
-        for xx in np.arange(hi, mu_t - 40, -1.0):
-            if (T < xx).mean() <= tgt + 1e-9:
-                add(f'Game total under {xx:g}', 'total', T < xx)
-                break
-    # team totals, same idea with TT_GAP
-    for tm, P, mu in ((H, PH, mu_t / 2 + mu_m / 2), (A, PA, mu_t / 2 - mu_m / 2)):
+        if pace != 'slow':
+            lo = math.floor(anc_t - TOT_GAP) + 0.5
+            for xx in np.arange(lo, mu_t + 40, 1.0):
+                if (T > xx).mean() <= tgt + 1e-9:
+                    add(f'Game total over {xx:g}', 'total', T > xx, ctx)
+                    break
+        if pace != 'fast':
+            hi = math.floor(anc_t + TOT_GAP) + 0.5
+            for xx in np.arange(hi, mu_t - 40, -1.0):
+                if (T < xx).mean() <= tgt + 1e-9:
+                    add(f'Game total under {xx:g}', 'total', T < xx, ctx)
+                    break
+    # team totals, ladder placed from the market's own team total (total and spread) when we have it
+    for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
+        anc = (mk_t / 2 + sign * mk_m / 2) if (mk_t is not None and mk_m is not None) else mu
+        o_gap, u_gap = (TT_OVER_GAP, TT_UNDER_GAP) if (mk_t is not None and mk_m is not None) else (TT_GAP, TT_GAP)
         for tgt in TEAM_TARGETS:
-            lo = math.floor(mu - TT_GAP) + 0.5
-            for xx in np.arange(lo, mu + 30, 1.0):
-                if (P > xx).mean() <= tgt + 1e-9:
-                    add(f'{tm} team total over {xx:g}', f'tt_{tm}', P > xx)
-                    break
-            hi = math.floor(mu + TT_GAP) + 0.5
-            for xx in np.arange(hi, mu - 30, -1.0):
-                if (P < xx).mean() <= tgt + 1e-9:
-                    add(f'{tm} team total under {xx:g}', f'tt_{tm}', P < xx)
-                    break
+            if pace != 'slow':
+                lo = math.floor(anc - o_gap) + 0.5
+                for xx in np.arange(lo, mu + 30, 1.0):
+                    if (P > xx).mean() <= tgt + 1e-9:
+                        add(f'{tm} team total over {xx:g}', f'tt_{tm}', P > xx, ctx)
+                        break
+            if pace != 'fast':
+                hi = math.floor(anc + u_gap) + 0.5
+                for xx in np.arange(hi, mu - 30, -1.0):
+                    if (P < xx).mean() <= tgt + 1e-9:
+                        add(f'{tm} team total under {xx:g}', f'tt_{tm}', P < xx, ctx)
+                        break
     # players
     singles = []
     for pl in players:
         pp = pl['p_play']
-        if pp < 0.9:
+        if pp < 0.9 or pl['minutes']['mean'] < MIN_MINUTES:
             continue
         zt = zH if pl['team'] == H else zA
         plays = rng.random(n) < pp
@@ -340,7 +401,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                                 'hit': plays & (x <= math.floor(main)), 'player': pl['name']})
         if best:
             cands.append(best)
-    return cands, singles, dict(M=M, T=T, PH=PH, PA=PA)
+    return cands, singles, dict(M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
 
 
 def pick_pool(cands, singles):
@@ -399,6 +460,8 @@ def project():
     for p in proj['players']:
         by_ev.setdefault(p['event_id'], []).append(p)
     lines = load_lines()
+    gl = load_game_lines()
+    lg_total = float(j[j.sy == last].eval('pts_h + pts_a').mean())
     sched = pd.read_csv(os.path.join(DATA, 'schedule.csv'), dtype=str)
     sched = sched[(sched.state == 'pre') & (sched.season_type.isin(['2', '3', '5']))]
     rng = np.random.default_rng(7)
@@ -406,7 +469,8 @@ def project():
     for r in sched.itertuples():
         H, A = r.home, r.away
         mh, ma, poss, _, _ = R.predict(H, A, c)
-        g = {'event_id': r.event_id, 'home': H, 'away': A, 'mh': mh / c, 'ma': ma / c}
+        g = {'event_id': r.event_id, 'home': H, 'away': A, 'mh': mh / c, 'ma': ma / c, 'lg_total': lg_total,
+             'market': pick_market(gl, H, A, fmt_date(r.game_date_et))}
         players = by_ev.get(r.event_id, [])
         cands, singles, sim = simulate_game(g, sm, st, c, players, lines, rng)
         chosen, joint, drop = pick_pool(cands, singles)
@@ -414,8 +478,9 @@ def project():
         pH = float((M > 0).mean())
         gd = {'event_id': r.event_id, 'game_date': fmt_date(r.game_date_et), 'tipoff_utc': r.tipoff_utc,
               'home': H, 'away': A,
-              'proj': {'home_pts': round(mh, 1), 'away_pts': round(ma, 1), 'margin_home': round(mh - ma, 1),
-                       'total': round(mh + ma, 1), 'pace': round(poss, 1), 'home_win': round(pH, 3)},
+              'proj': {'home_pts': round(sim['mu_t'] / 2 + sim['mu_m'] / 2, 1), 'away_pts': round(sim['mu_t'] / 2 - sim['mu_m'] / 2, 1),
+                       'margin_home': round(sim['mu_m'], 1), 'total': round(sim['mu_t'], 1), 'pace': round(poss, 1), 'home_win': round(pH, 3),
+                       'read': sim['pace'], 'market': g['market'] and {k: v for k, v in g['market'].items() if k in ('total', 'home_spread', 'src')}},
               'margin_lines': [{'team': H, 'line': -L, 'p': round(float((M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)]
                               + [{'team': A, 'line': -L, 'p': round(float((-M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)],
               'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind']} for x in chosen],
@@ -427,6 +492,7 @@ def project():
     out = {'generated': datetime.datetime.now(GMT8).strftime('%d/%m/%Y %H:%M GMT+8'),
            'generated_epoch': int(time.time()),
            'sigma_margin': round(sm, 2), 'sigma_total': round(st, 2), 'total_scale': round(c, 4),
+           'league_avg_total': round(lg_total, 1), 'games_with_market': sum(1 for x in games if x['proj']['market']),
            'settings': {'floor': FLOOR, 'min_leg': MIN_LEG, 'pts_gap': PTS_GAP, 'pra_gap': PRA_GAP},
            'games': games}
     with open(os.path.join(DATA, 'games_latest.json'), 'w') as f:
