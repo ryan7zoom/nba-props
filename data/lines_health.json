@@ -1,5 +1,5 @@
 {
-  "run": "31/10/2026 18:17 GMT+8",
+  "run": "31/10/2026 18:20 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -16,7 +16,7 @@
   "book_players_unmatched": 0,
   "unmatched_examples": [],
   "requests_this_run": 12,
-  "requests_left_today": 983,
+  "requests_left_today": 958,
   "daily_limit": 1000,
   "history_rows_added": 302
 }
