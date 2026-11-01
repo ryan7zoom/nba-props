@@ -1,6 +1,6 @@
 {
-  "run": "01/11/2026 04:50 GMT+8",
-  "games_with_lines": 6,
+  "run": "01/11/2026 08:19 GMT+8",
+  "games_with_lines": 1,
   "warnings": [
     "BOS at ORL: no game lines (spread/total/moneyline) in the answer (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "BKN at IND: no game lines (spread/total/moneyline) in the answer (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
@@ -22,17 +22,33 @@
     "PHX at GS: no game lines (spread/total/moneyline) in the answer (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "TOR at LAC: no game lines (spread/total/moneyline) in the answer (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "requests": 26,
+  "requests": 21,
   "raw_totals_sample": [
     {
-      "game": "PHI at CHA",
+      "game": "OKC at HOU",
       "totals_rows [book, market line_type, outcome line_type, name, point, price]": [
         [
           "draftkings",
           "main",
           null,
           "Over",
-          211.5,
+          219.5,
+          -108
+        ],
+        [
+          "draftkings",
+          "main",
+          null,
+          "Under",
+          219.5,
+          -112
+        ],
+        [
+          "draftkings",
+          "main",
+          null,
+          "Over",
+          110.5,
           -112
         ],
         [
@@ -40,7 +56,7 @@
           "main",
           null,
           "Under",
-          211.5,
+          110.5,
           -108
         ],
         [
@@ -48,215 +64,86 @@
           "main",
           null,
           "Over",
-          105.5,
-          -112
+          108.5,
+          -110
         ],
         [
           "draftkings",
           "main",
           null,
           "Under",
-          105.5,
-          -108
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Over",
-          105.5,
-          -115
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Under",
-          105.5,
-          -105
+          108.5,
+          -110
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Over",
-          193.5,
-          -720
+          197.5,
+          -1340
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Under",
-          193.5,
-          471
+          197.5,
+          710
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Over",
-          194.5,
-          -640
+          198.5,
+          -1160
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Under",
-          194.5,
-          430
+          198.5,
+          650
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Over",
-          195.5,
-          -559
+          199.5,
+          -980
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Under",
-          195.5,
-          389
+          199.5,
+          586
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Over",
-          196.5,
-          -499
+          200.5,
+          -850
         ],
         [
           "draftkings",
           "alternate",
           null,
           "Under",
-          196.5,
-          355
+          200.5,
+          532
         ]
       ]
     },
     {
-      "game": "ATL at NO",
-      "totals_rows [book, market line_type, outcome line_type, name, point, price]": [
-        [
-          "draftkings",
-          "main",
-          null,
-          "Over",
-          241.5,
-          -105
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Under",
-          241.5,
-          -115
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Over",
-          122.5,
-          -112
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Under",
-          122.5,
-          -108
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Over",
-          118.5,
-          -105
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Under",
-          118.5,
-          -115
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
-          220.5,
-          -870
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          220.5,
-          541
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
-          221.5,
-          -760
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          221.5,
-          489
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
-          222.5,
-          -680
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          222.5,
-          449
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
-          223.5,
-          -589
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          223.5,
-          405
-        ]
-      ]
+      "game": "BOS at ORL",
+      "totals_rows [book, market line_type, outcome line_type, name, point, price]": []
     }
   ]
 }
