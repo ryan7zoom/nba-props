@@ -1,0 +1,539 @@
+{
+  "run": "03/11/2026 05:33 GMT+8",
+  "games": [
+    {
+      "top_level_keys": [
+        "againstTheSpread",
+        "article",
+        "boxscore",
+        "broadcasts",
+        "format",
+        "gameInfo",
+        "header",
+        "injuries",
+        "leaders",
+        "meta",
+        "news",
+        "odds",
+        "pickcenter",
+        "plays",
+        "seasonseries",
+        "standings",
+        "videos",
+        "wallclockAvailable",
+        "winprobability"
+      ],
+      "plays": 537,
+      "shooting_plays": 243,
+      "shots_with_position": 186,
+      "shots_with_shooter_id": 243,
+      "shots_with_both": 186,
+      "share_with_both": 0.765,
+      "free_throws_among_shots": 57,
+      "descriptions_with_feet": 143,
+      "x_range": [
+        1.0,
+        49.0
+      ],
+      "y_range": [
+        -3.0,
+        64.0
+      ],
+      "shot_types_top": [
+        [
+          "Jump Shot",
+          60
+        ],
+        [
+          "Free Throw - 1 of 2",
+          21
+        ],
+        [
+          "Free Throw - 2 of 2",
+          21
+        ],
+        [
+          "Step Back Jump Shot",
+          18
+        ],
+        [
+          "Driving Layup Shot",
+          13
+        ],
+        [
+          "Pullup Jump Shot",
+          11
+        ],
+        [
+          "Driving Floating Jump Shot",
+          10
+        ],
+        [
+          "Running Jump Shot",
+          10
+        ],
+        [
+          "Fade Away Jump Shot",
+          7
+        ],
+        [
+          "Free Throw - 1 of 1",
+          6
+        ],
+        [
+          "Running Layup Shot",
+          6
+        ],
+        [
+          "Running Pullup Jump Shot",
+          5
+        ],
+        [
+          "Cutting Dunk Shot",
+          5
+        ],
+        [
+          "Floating Jump Shot",
+          4
+        ],
+        [
+          "Turnaround Jump Shot",
+          4
+        ],
+        [
+          "Layup Driving Reverse",
+          3
+        ],
+        [
+          "Free Throw - Technical",
+          3
+        ],
+        [
+          "Layup Shot Putback",
+          3
+        ],
+        [
+          "Tip Shot",
+          3
+        ],
+        [
+          "Reverse Layup Shot",
+          2
+        ]
+      ],
+      "samples": [
+        {
+          "text": "Ja'Kobe Walter makes 22-foot three point jumper (RJ Barrett assists)",
+          "type": "Jump Shot",
+          "scoreValue": 3,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 2,
+            "y": -2
+          },
+          "team_id": "28",
+          "shooter_id": "4684272",
+          "participants_n": 2
+        },
+        {
+          "text": "Ja'Kobe Walter makes 10-foot driving floating jump shot (Immanuel Quickley assists)",
+          "type": "Driving Floating Jump Shot",
+          "scoreValue": 2,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 14,
+            "y": 0
+          },
+          "team_id": "28",
+          "shooter_id": "4684272",
+          "participants_n": 2
+        },
+        {
+          "text": "Luka Doncic makes 25-foot three point step back jumpshot",
+          "type": "Step Back Jump Shot",
+          "scoreValue": 3,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 3,
+            "y": 14
+          },
+          "team_id": "13",
+          "shooter_id": "3945274",
+          "participants_n": 1
+        },
+        {
+          "text": "Scottie Barnes makes free throw 1 of 2",
+          "type": "Free Throw - 1 of 2",
+          "scoreValue": 1,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": -214748340,
+            "y": -214748365
+          },
+          "team_id": "28",
+          "shooter_id": "4433134",
+          "participants_n": 1
+        }
+      ],
+      "event_id": "401909906",
+      "game_date": "01/11/2026"
+    },
+    {
+      "top_level_keys": [
+        "againstTheSpread",
+        "article",
+        "boxscore",
+        "broadcasts",
+        "format",
+        "gameInfo",
+        "header",
+        "injuries",
+        "leaders",
+        "meta",
+        "news",
+        "odds",
+        "pickcenter",
+        "plays",
+        "seasonseries",
+        "standings",
+        "videos",
+        "wallclockAvailable",
+        "winprobability"
+      ],
+      "plays": 491,
+      "shooting_plays": 225,
+      "shots_with_position": 181,
+      "shots_with_shooter_id": 225,
+      "shots_with_both": 181,
+      "share_with_both": 0.804,
+      "free_throws_among_shots": 44,
+      "descriptions_with_feet": 131,
+      "x_range": [
+        1.0,
+        49.0
+      ],
+      "y_range": [
+        -2.0,
+        61.0
+      ],
+      "shot_types_top": [
+        [
+          "Jump Shot",
+          53
+        ],
+        [
+          "Driving Floating Jump Shot",
+          19
+        ],
+        [
+          "Free Throw - 1 of 2",
+          19
+        ],
+        [
+          "Free Throw - 2 of 2",
+          19
+        ],
+        [
+          "Pullup Jump Shot",
+          17
+        ],
+        [
+          "Driving Layup Shot",
+          10
+        ],
+        [
+          "Driving Finger Roll Layup",
+          9
+        ],
+        [
+          "Step Back Jump Shot",
+          7
+        ],
+        [
+          "Running Jump Shot",
+          7
+        ],
+        [
+          "Layup Driving Reverse",
+          6
+        ],
+        [
+          "Driving Floating Bank Jump Shot",
+          6
+        ],
+        [
+          "Running Layup Shot",
+          4
+        ],
+        [
+          "Tip Shot",
+          4
+        ],
+        [
+          "Turnaround Hook Shot",
+          3
+        ],
+        [
+          "Fade Away Jump Shot",
+          3
+        ],
+        [
+          "Reverse Layup Shot",
+          3
+        ],
+        [
+          "Running Dunk Shot",
+          3
+        ],
+        [
+          "Heave Jump Shot",
+          3
+        ],
+        [
+          "Turnaround Jump Shot",
+          3
+        ],
+        [
+          "Cutting Finger Roll Layup Shot",
+          2
+        ]
+      ],
+      "samples": [
+        {
+          "text": "Wendell Carter Jr. misses 24-foot three point jumper",
+          "type": "Jump Shot",
+          "scoreValue": 0,
+          "scoringPlay": false,
+          "coordinate": {
+            "x": 41,
+            "y": 19
+          },
+          "team_id": "19",
+          "shooter_id": "4277847",
+          "participants_n": 1
+        },
+        {
+          "text": "Paolo Banchero makes driving layup (Anthony Black assists)",
+          "type": "Driving Layup Shot",
+          "scoreValue": 2,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 25,
+            "y": 1
+          },
+          "team_id": "19",
+          "shooter_id": "4432573",
+          "participants_n": 2
+        },
+        {
+          "text": "Jaren Jackson Jr. makes 9-foot two point shot (Cam Spencer assists)",
+          "type": "Turnaround Bank Jump Shot",
+          "scoreValue": 2,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 31,
+            "y": 8
+          },
+          "team_id": "29",
+          "shooter_id": "4277961",
+          "participants_n": 2
+        },
+        {
+          "text": "Wendell Carter Jr. makes free throw 1 of 2",
+          "type": "Free Throw - 1 of 2",
+          "scoreValue": 1,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": -214748340,
+            "y": -214748365
+          },
+          "team_id": "19",
+          "shooter_id": "4277847",
+          "participants_n": 1
+        }
+      ],
+      "event_id": "401810433",
+      "game_date": "15/01/2026"
+    },
+    {
+      "top_level_keys": [
+        "againstTheSpread",
+        "article",
+        "boxscore",
+        "broadcasts",
+        "format",
+        "gameInfo",
+        "header",
+        "injuries",
+        "leaders",
+        "meta",
+        "news",
+        "odds",
+        "pickcenter",
+        "plays",
+        "seasonseries",
+        "standings",
+        "videos",
+        "wallclockAvailable",
+        "winprobability"
+      ],
+      "plays": 478,
+      "shooting_plays": 225,
+      "shots_with_position": 178,
+      "shots_with_shooter_id": 225,
+      "shots_with_both": 178,
+      "share_with_both": 0.791,
+      "free_throws_among_shots": 47,
+      "descriptions_with_feet": 140,
+      "x_range": [
+        1.0,
+        50.0
+      ],
+      "y_range": [
+        -1.0,
+        36.0
+      ],
+      "shot_types_top": [
+        [
+          "Jump Shot",
+          59
+        ],
+        [
+          "Free Throw - 1 of 2",
+          19
+        ],
+        [
+          "Free Throw - 2 of 2",
+          19
+        ],
+        [
+          "Pullup Jump Shot",
+          15
+        ],
+        [
+          "Step Back Jump Shot",
+          12
+        ],
+        [
+          "Driving Finger Roll Layup",
+          12
+        ],
+        [
+          "Fade Away Jump Shot",
+          9
+        ],
+        [
+          "Tip Shot",
+          7
+        ],
+        [
+          "Driving Layup Shot",
+          7
+        ],
+        [
+          "Driving Floating Jump Shot",
+          7
+        ],
+        [
+          "Driving Floating Bank Jump Shot",
+          7
+        ],
+        [
+          "Layup Shot Putback",
+          6
+        ],
+        [
+          "Free Throw - 1 of 1",
+          6
+        ],
+        [
+          "Cutting Dunk Shot",
+          4
+        ],
+        [
+          "Layup Running Reverse",
+          4
+        ],
+        [
+          "Turnaround Fade Away Jump Shot",
+          4
+        ],
+        [
+          "Running Finger Roll Layup",
+          4
+        ],
+        [
+          "Free Throw - Technical",
+          3
+        ],
+        [
+          "Running Jump Shot",
+          3
+        ],
+        [
+          "Layup Shot",
+          2
+        ]
+      ],
+      "samples": [
+        {
+          "text": "Trey Murphy III makes 21-foot step back jumpshot",
+          "type": "Step Back Jump Shot",
+          "scoreValue": 2,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": 38,
+            "y": 17
+          },
+          "team_id": "3",
+          "shooter_id": "4397688",
+          "participants_n": 1
+        },
+        {
+          "text": "Pascal Siakam misses 24-foot three point jumper",
+          "type": "Jump Shot",
+          "scoreValue": 0,
+          "scoringPlay": false,
+          "coordinate": {
+            "x": 49,
+            "y": 3
+          },
+          "team_id": "11",
+          "shooter_id": "3149673",
+          "participants_n": 1
+        },
+        {
+          "text": "Trey Murphy III misses 27-foot three point jumper",
+          "type": "Jump Shot",
+          "scoreValue": 0,
+          "scoringPlay": false,
+          "coordinate": {
+            "x": 26,
+            "y": 28
+          },
+          "team_id": "3",
+          "shooter_id": "4397688",
+          "participants_n": 1
+        },
+        {
+          "text": "Pascal Siakam makes free throw 1 of 2",
+          "type": "Free Throw - 1 of 2",
+          "scoreValue": 1,
+          "scoringPlay": true,
+          "coordinate": {
+            "x": -214748340,
+            "y": -214748365
+          },
+          "team_id": "11",
+          "shooter_id": "3149673",
+          "participants_n": 1
+        }
+      ],
+      "event_id": "401736810",
+      "game_date": "15/12/2024"
+    }
+  ],
+  "errors": [],
+  "overall_share_with_position_and_shooter": 0.786,
+  "usable": true
+}
