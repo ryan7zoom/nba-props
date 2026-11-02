@@ -1,14 +1,17 @@
 name: Daily data update
 
-# Runs twice a day (after morning injury news, and after the 5pm ET reports)
-# and can be started by hand from the Actions tab.
-# Every step runs even if an earlier one failed, so one broken source does not
-# stop the rest; the run still shows red if anything failed.
+# Runs once an hour from 14:20 to 03:20 UTC (about 22:20 to 11:20 GMT+8) so the injury reports and lineups are
+# never more than about an hour old before tip-off, and can be started by hand from the Actions tab.
+# GitHub's schedule is not exact: a run can start 10-30 minutes late, and now and then one is skipped.
+# A run only does the heavy work when a game tips off within 9 hours, and only asks PropLine for lines when a game
+# tips off within 4 hours (the free plan allows 1,000 requests a day). Box scores are always updated.
+# Every step runs even if an earlier one failed, so one broken source does not stop the rest;
+# the run still shows red if anything failed.
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 13 * * *"
-    - cron: "30 21 * * *"
+    - cron: "20 14-23 * * *"
+    - cron: "20 0-3 * * *"
 
 permissions:
   contents: write
@@ -30,39 +33,69 @@ jobs:
         run: pip install numpy pandas pdfplumber
       - name: Fetch schedule, injuries and new box scores
         run: python scripts/update_data.py --mode daily
-      - name: Fetch official injury reports
+      - name: Is a game coming up?
+        id: gate
         if: always()
+        run: |
+          python - <<'PY'
+          import csv, os
+          from datetime import datetime, timezone
+          now = datetime.now(timezone.utc)
+          go = soon = False
+          try:
+              for r in csv.DictReader(open("data/schedule.csv", newline="", encoding="utf-8")):
+                  if r["state"] != "pre" or r["season_type"] not in ("2", "3", "5"):
+                      continue
+                  t = datetime.fromisoformat(r["tipoff_utc"].replace("Z", "+00:00"))
+                  h = (t - now).total_seconds() / 3600
+                  if -0.5 <= h <= 9:
+                      go = True
+                  if -0.5 <= h <= 4:
+                      soon = True
+          except Exception as e:
+              print("gate error, running everything:", e)
+              go = soon = True
+          print("game within 9 hours:", go, "| within 4 hours:", soon)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("go=" + ("true" if go else "false") + "\n")
+              f.write("soon=" + ("true" if soon else "false") + "\n")
+          PY
+      - name: Fetch official injury reports
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/injury_report.py --mode fetch
       - name: Measure play probabilities
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/injury_report.py --mode calibrate
       - name: Refresh per-minute rates
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/baseline_rates.py --mode estimate
       - name: Refresh minutes projections
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/minutes_model.py --mode project
       - name: Update opponent defense
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/defense_effects.py --mode estimate
       - name: Simulate prop distributions
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/simulate_props.py --mode project
+      - name: Adjust for missing teammates
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        run: python scripts/absence_adjust.py
       - name: Update recent form
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/form.py
       - name: Fetch sportsbook lines
-        if: always()
+        if: ${{ always() && steps.gate.outputs.soon == 'true' }}
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
         run: python scripts/lines.py
       - name: Fetch game lines (total, spread)
-        if: always()
+        if: ${{ always() && steps.gate.outputs.soon == 'true' }}
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
         run: python scripts/game_lines.py
       - name: Build team model and game builders
-        if: always()
+        if: ${{ always() && steps.gate.outputs.go == 'true' }}
         run: python scripts/game_model.py project
       - name: Grade lines against results
         if: always()
