@@ -1,0 +1,40 @@
+name: Shot zones fetch
+
+# Run by hand: Actions > Shot zones fetch > Run workflow.
+# Downloads play-by-play for every game in player_games.csv and writes data/shot_zones.csv.
+# The first run takes up to about 2 hours; if it stops early, just run it again and it continues.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# its own group, so the long run does not block the daily updates
+concurrency:
+  group: zones-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch shot zones
+        run: python scripts/shot_zones.py --max-minutes 120
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/shot_zones.csv
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Shot zones $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
