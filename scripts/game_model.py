@@ -23,11 +23,10 @@ N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 12          # how far below the main line the bookie's alternate Overs go
 TEAM_TARGETS = (0.85,)              # chance level tried for each team/game line (about the "Wizards +15" kind of leg)
 MIN_LEG = 0.70                     # a team or game leg must be at least this likely on its own
-FLOOR = 0.45                       # team legs are only added while the all-legs chance stays above this; you pick the legs you want from the pool
-MAX_LEGS = 6
+FLOOR = 0.60                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
+MAX_LEGS = 3                       # 2 legs always (when two exist), a 3rd only above FLOOR
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
-MAX_PLAYER_LEGS = 4                # player legs are picked FIRST, up to this many
-FLOOR_PLAYERS = 0.55               # player legs stop being added when their joint chance would drop below this
+PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team leg (you mostly bet player props)
 MIN_LEG_PLAYER = 0.70              # player points legs at the bookie's lowest rung are rarely above 85%, so allow a bit lower
 MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almost nothing
 MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; lower it if your bookie offers legs on smaller lines)
@@ -36,13 +35,13 @@ BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
 STATS = (('pts', PTS_GAP),)       # player legs: points only for now (PRA later)
 W_OURS = 0.35                     # share of OUR team model when a market total/spread exists (rest is the bookmakers'); provisional, same as the player-prop blend
 PACE_BAND = 4                     # market-blended total this far below / above the league average = slow / fast game
-TT_OVER_GAP, TT_UNDER_GAP = 9, 12  # bookie's team-total alternates start ~9 below the market team total (WSH 108 -> 99.5) and reach ~12 above
+TT_OVER_GAP, TT_UNDER_GAP = 20, 20  # your bookie's team-total alternates reach 20 points below (Over) and 20 above (Under) the main team total
 MIN_MINUTES = 20                  # players projected under this many minutes are not used for legs
-TT_GAP = 11                       # lowest alternate team-total Over is about this far below our projection (WSH 110.9 -> 99.5)
-TOT_GAP = 21                      # DK's alternate game totals start ~21-22 below the main line (210.5 vs 231.5; 193.5 vs 215.5), read from the feed
+TT_GAP = 20                       # same 20-point reach when there is no market team total (measured from our own projection)
+TOT_GAP = 10                      # your bookie's alternate GAME totals reach 10 points below (Over) and 10 above (Under) the main total
 SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7 (your bookie gives 7 to 10; 7 is the sure end): UTAH +6.5 -> +13.5, CHI +13.5 -> +20.5, a -2.5 favourite -> +4.5
 MIN_PLUS_CAP = 1.0                # a heavy favourite (own spread + 7 below this, e.g. POR -6.5 -> +0.5) gets no plus-spread leg at all
-MIN_SHOW = 3                       # always show at least this many legs
+MIN_SHOW = 2                       # always build at least this many legs
 RHO = {'pts': 0.23, 'pra': 0.25}   # player points follow own team's score (measured both seasons)
 BLOW = {'pts': -0.09, 'pra': -0.115}  # and drop in blowouts (per 10 pts of margin)
 
@@ -420,27 +419,22 @@ def pick_pool(cands, singles):
         return [], 0.0, []
     chosen, used = [], set()
     joint = np.ones(len(pool[0]['hit']), bool)
-
-    def grow(kind_is_player, limit, floor):
-        nonlocal joint
-        n = 0
-        while n < limit and len(chosen) < MAX_LEGS:
-            best = None
-            for c in pool:
-                if (c['kind'] != 'team') != kind_is_player or c['family'] in used:
-                    continue
-                pj = float((joint & c['hit']).mean())
-                if best is None or pj > best[0]:
-                    best = (pj, c)
-            if best is None or (best[0] < floor and len(chosen) >= MIN_SHOW):
-                break
-            chosen.append(best[1])
-            used.add(best[1]['family'])
-            joint = joint & best[1]['hit']
-            n += 1
-
-    grow(True, MAX_PLAYER_LEGS, FLOOR_PLAYERS)     # players first: they get the main places
-    grow(False, MAX_TEAM_LEGS, FLOOR)              # then up to MAX_TEAM_LEGS team legs, only if they keep the pool above the floor
+    team_n = 0
+    while len(chosen) < MAX_LEGS:
+        best = None
+        for c in pool:
+            if c['family'] in used or (c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS):
+                continue
+            pj = float((joint & c['hit']).mean())
+            score = pj + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
+            if best is None or score > best[0]:
+                best = (score, pj, c)
+        if best is None or (best[1] < FLOOR and len(chosen) >= MIN_SHOW):
+            break
+        chosen.append(best[2])
+        used.add(best[2]['family'])
+        team_n += 1 if best[2]['kind'] == 'team' else 0
+        joint = joint & best[2]['hit']
     if not chosen:
         return [], 0.0, []
     allhit = np.ones(len(chosen[0]['hit']), bool)
