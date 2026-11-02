@@ -1,5 +1,5 @@
 {
-  "run": "03/11/2026 04:14 GMT+8",
+  "run": "03/11/2026 06:27 GMT+8",
   "games_with_lines": 15,
   "warnings": [
     "PHI at DET: no game lines (spread/total/moneyline) in the answer (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
@@ -28,7 +28,7 @@
           null,
           "Over",
           229.5,
-          -106
+          -110
         ],
         [
           "draftkings",
@@ -36,7 +36,7 @@
           null,
           "Under",
           229.5,
-          -115
+          -110
         ],
         [
           "draftkings",
@@ -75,24 +75,8 @@
           "alternate",
           null,
           "Over",
-          207.5,
-          -1180
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          207.5,
-          660
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
           208.5,
-          -1000
+          -1060
         ],
         [
           "draftkings",
@@ -100,7 +84,7 @@
           null,
           "Under",
           208.5,
-          595
+          610
         ],
         [
           "draftkings",
@@ -108,7 +92,7 @@
           null,
           "Over",
           209.5,
-          -870
+          -910
         ],
         [
           "draftkings",
@@ -116,7 +100,7 @@
           null,
           "Under",
           209.5,
-          541
+          556
         ],
         [
           "draftkings",
@@ -124,7 +108,7 @@
           null,
           "Over",
           210.5,
-          -770
+          -790
         ],
         [
           "draftkings",
@@ -132,7 +116,23 @@
           null,
           "Under",
           210.5,
-          495
+          506
+        ],
+        [
+          "draftkings",
+          "alternate",
+          null,
+          "Over",
+          211.5,
+          -690
+        ],
+        [
+          "draftkings",
+          "alternate",
+          null,
+          "Under",
+          211.5,
+          455
         ]
       ]
     },
@@ -145,7 +145,7 @@
           null,
           "Over",
           218.5,
-          -112
+          -113
         ],
         [
           "draftkings",
@@ -153,7 +153,7 @@
           null,
           "Under",
           218.5,
-          -108
+          -107
         ],
         [
           "draftkings",
@@ -176,16 +176,16 @@
           "main",
           null,
           "Over",
-          117.5,
-          -102
-        ],
-        [
-          "draftkings",
-          "main",
-          null,
-          "Under",
-          117.5,
+          116.5,
           -118
+        ],
+        [
+          "draftkings",
+          "main",
+          null,
+          "Under",
+          116.5,
+          -102
         ],
         [
           "draftkings",
@@ -201,7 +201,7 @@
           null,
           "Under",
           198.5,
-          583
+          585
         ],
         [
           "draftkings",
@@ -209,7 +209,7 @@
           null,
           "Over",
           199.5,
-          -840
+          -850
         ],
         [
           "draftkings",
@@ -217,7 +217,7 @@
           null,
           "Under",
           199.5,
-          526
+          533
         ],
         [
           "draftkings",
@@ -225,7 +225,7 @@
           null,
           "Over",
           200.5,
-          -730
+          -750
         ],
         [
           "draftkings",
@@ -233,7 +233,7 @@
           null,
           "Under",
           200.5,
-          478
+          487
         ],
         [
           "draftkings",
@@ -241,7 +241,7 @@
           null,
           "Over",
           201.5,
-          -650
+          -670
         ],
         [
           "draftkings",
@@ -249,7 +249,7 @@
           null,
           "Under",
           201.5,
-          435
+          444
         ]
       ]
     }

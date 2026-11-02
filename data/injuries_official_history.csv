@@ -3959,3 +3959,26 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-02T15:00-05:00,2026-11-02T20:00+00:00,2026-11-02,22:00,MIA@LAL,MIA,"Donaldson,Tre",tre donaldson,Available,GLeague-Two-Way,2026-11-02_03_00PM,2
 2026-11-02T15:00-05:00,2026-11-02T20:00+00:00,2026-11-02,22:00,MIA@LAL,MIA,"Goldin,Vladislav",vladislav goldin,Available,GLeague-Two-Way,2026-11-02_03_00PM,2
 2026-11-02T15:00-05:00,2026-11-02T20:00+00:00,2026-11-02,22:00,MIA@LAL,MIA,"HardawayJr.,Tim",tim hardaway,Available,PersonalReasons,2026-11-02_03_00PM,2
+2026-11-02T15:15-05:00,2026-11-02T20:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Bittle,Nate",nate bittle,Out,Injury/Illness-RightAvulsion,2026-11-02_03_15PM,2
+2026-11-02T15:15-05:00,2026-11-02T20:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Leonard,Kawhi",kawhi leonard,Out,Fracture Injury/Illness-LeftKneeInjury Management,2026-11-02_03_15PM,2
+2026-11-02T15:15-05:00,2026-11-02T20:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Poeltl,Jakob",jakob poeltl,Questionable,Injury/Illness-LeftShoulderBursitis,2026-11-02_03_15PM,2
+2026-11-02T15:15-05:00,2026-11-02T20:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Smith,Malachi",malachi smith,Out,GLeague-Two-Way,2026-11-02_03_15PM,2
+2026-11-02T15:30-05:00,2026-11-02T20:30+00:00,2026-11-02,20:00,SAC@DAL,SAC,"Cardwell,Dylan",dylan cardwell,Questionable,Injury/Illness-LeftCalfStrain,2026-11-02_03_30PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,MIA@LAL,LAL,"Kessler,Walker",walker kessler,Available,Injury/Illness-LeftFingerSplint,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,MIA@LAL,LAL,"Thiero,Adou",adou thiero,Out,Injury/Illness-LeftKneeInjury Management,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"ButlerIII,Jimmy",jimmy butler,Out,Injury/Illness-RightACLRepair/,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"Horford,Al",al horford,Out,Surgery Injury/Illness-BilateralLowBack,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"Moody,Moses",moses moody,Out,InjuryManagement Injury/Illness-LeftPatellarTendon Repair/Surgery,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"Porzingis,Kristaps",kristaps porzingis,Out,NotWithTeam,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"Santos,Gui",gui santos,Out,Injury/Illness-LeftKneeTendinitis,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,PHX@GS,GS,"Williams,Brandon",brandon williams,Questionable,Injury/Illness-LeftQuadriceps,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Barnes,Scottie",scottie barnes,Questionable,Contusion Injury/Illness-LeftHipSoreness/,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Bittle,Nate",nate bittle,Out,Tightness Injury/Illness-RightAvulsion,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"Beal,Bradley",bradley beal,Out,Injury/Illness-RightKneeInjury,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"Hachimura,Rui",rui hachimura,Out,Management Injury/Illness-LeftQuadriceps Soreness,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"Ingram,Brandon",brandon ingram,Out,Injury/Illness-RightHeelSurgery,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"JonesJr.,Derrick",derrick jones,Out,Injury/Illness-RightKneeSoreness,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff Surgery,2026-11-02_04_00PM,2
+2026-11-02T16:00-05:00,2026-11-02T21:00+00:00,2026-11-02,22:00,TOR@LAC,LAC,"Niederhauser,YanicKonan",yanickonan niederhauser,Out,Injury/Illness-RightLisfrancSurgery,2026-11-02_04_00PM,2
+2026-11-02T16:30-05:00,2026-11-02T21:30+00:00,2026-11-02,19:30,ATL@IND,ATL,"Gilbert,Keshon",keshon gilbert,Out,GLeague-Two-Way,2026-11-02_04_30PM,2
+2026-11-02T16:30-05:00,2026-11-02T21:30+00:00,2026-11-02,19:30,ATL@IND,ATL,"Wilson,Jalen",jalen wilson,Out,GLeague-Two-Way,2026-11-02_04_30PM,2
