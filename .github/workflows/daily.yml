@@ -89,17 +89,15 @@ jobs:
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
         run: python scripts/lines.py
-      - name: Fetch game lines (total, spread)
+      - name: Build Under shortlist and freeze started games
         if: ${{ always() && steps.gate.outputs.soon == 'true' }}
-        env:
-          PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
-        run: python scripts/game_lines.py
-      - name: Build team model and game builders
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
-        run: python scripts/game_model.py project
+        run: python scripts/shortlist.py
       - name: Grade lines against results
         if: always()
         run: python scripts/grade_lines.py
+      - name: Grade the shortlist log
+        if: always()
+        run: python scripts/shortlist.py --grade
       - name: Commit data
         if: always()
         run: |
