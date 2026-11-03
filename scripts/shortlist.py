@@ -1,7 +1,8 @@
 """Daily Under shortlist: main-line player-prop Unders only, single bets, the best few per day.
 
 Modes
-  python scripts/shortlist.py            build today's shortlist and update the pick log
+  python scripts/shortlist.py            build the shortlist from whatever data exists now (picks stay open for change)
+  python scripts/shortlist.py --lock     same, and LOCK the next slate's picks into the log (a manual run does this)
   python scripts/shortlist.py --grade    grade the pick log against box scores, compare with "bet every Under"
 
 Reads    data/projections_latest.json, data/lines_latest.json, data/schedule.csv
@@ -18,13 +19,14 @@ How a pick is chosen
      must not sit more than MAX_GAP from the market's (a huge gap usually means news we do not have).
   4. Two shortlists: Points and PRA (PRA only for players the books post it for). Per list: at most PER_GAME picks
      per game, top TOP_N per day. A player can be on both lists.
-  5. A pick is frozen into the log when its game tips off. Until then it can change as lines move.
+  5. A locked pick never changes. Picks are locked by a manual run (--lock), or automatically when their game tips off.
+     Locked picks are the record the test is judged on; re-running only fills slots that are still empty.
 """
 import csv
 import json
 import math
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -50,7 +52,7 @@ MIN_PLAY = 0.85        # chance the player plays
 MIN_MINUTES = 18.0     # projected minutes
 STATS = ("pts", "pra")
 LOG_FIELDS = ["game_date", "player", "team", "opp", "market", "line", "book", "price", "our_p", "market_p",
-              "blend_p", "edge", "tipoff_utc", "frozen", "logged_utc"]
+              "blend_p", "edge", "tipoff_utc", "frozen", "logged_utc", "all_lines", "mean", "p_play"]
 
 
 def dec(a):
@@ -143,7 +145,31 @@ def write_log(rows):
     with open(LOG, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=LOG_FIELDS, extrasaction="ignore")
         w.writeheader()
-        w.writerows(rows)
+        for r in rows:
+            r = dict(r)
+            if isinstance(r.get("all_lines"), list):
+                r["all_lines"] = json.dumps(r["all_lines"])
+            w.writerow(r)
+
+
+def to_pick(r):
+    """A log row (all text) back into the shape the page shows."""
+    p = dict(r)
+    for k in ("line", "our_p", "market_p", "blend_p", "edge", "mean", "p_play"):
+        try:
+            p[k] = float(r[k])
+        except (KeyError, ValueError, TypeError):
+            p[k] = None
+    try:
+        p["price"] = int(float(r["price"]))
+    except (KeyError, ValueError, TypeError):
+        pass
+    try:
+        p["all_lines"] = json.loads(r.get("all_lines") or "[]")
+    except ValueError:
+        p["all_lines"] = []
+    p["locked"] = r.get("frozen") == "1"
+    return p
 
 
 def pick_day(cands, frozen):
@@ -162,42 +188,53 @@ def pick_day(cands, frozen):
     return chosen
 
 
-def build():
+def build(lock=False):
     now = datetime.now(timezone.utc)
     cands = candidates()
     log = read_log()
-    started = lambda tip: (parse_tip(tip) or now) <= now
+
+    def started(tip, date):
+        """Has the game tipped off? With no tip-off time on file, count it as started only once its date is over."""
+        t = parse_tip(tip or "")
+        if t:
+            return t <= now
+        return date < (now - timedelta(days=1)).strftime("%Y-%m-%d")
+
     keep = [r for r in log if r["frozen"] == "1"]
     live_old = {(r["game_date"], r["player"], r["market"]): r for r in log if r["frozen"] != "1"}
     # a live pick whose game has now tipped off freezes with the numbers it last had
     for k, r in list(live_old.items()):
-        if started(r["tipoff_utc"]):
+        if started(r["tipoff_utc"], r["game_date"]):
             r["frozen"] = "1"
             keep.append(r)
             del live_old[k]
     dates = sorted({c["game_date"] for c in cands} | {r["game_date"] for r in live_old.values()})
     new_live, shown = [], []
+    open_dates = sorted({c["game_date"] for c in cands if not started(c["tipoff_utc"], c["game_date"])})
+    lock_date = open_dates[0] if open_dates else None      # a manual run locks the next slate only
     for d in dates:
         day = {"game_date": d, "markets": {}}
         for m in STATS:
-            day_c = [c for c in cands if c["game_date"] == d and c["market"] == m and not started(c["tipoff_utc"])]
+            day_c = [c for c in cands if c["game_date"] == d and c["market"] == m and not started(c["tipoff_utc"], c["game_date"])]
             day_frozen = [r for r in keep if r["game_date"] == d and r["market"] == m]
             chosen = pick_day(day_c, day_frozen)
             for c in chosen:
-                c["frozen"] = "0"
+                c["frozen"] = "1" if (lock and d == lock_date) else "0"
+                c["locked"] = c["frozen"] == "1"
                 c["logged_utc"] = now.strftime("%Y-%m-%dT%H:%MZ")
                 new_live.append(c)
-            day["markets"][m] = chosen
+            day["markets"][m] = [to_pick(r) for r in day_frozen] + chosen
         shown.append(day)
-    write_log(sorted(keep + new_live, key=lambda r: (r["game_date"], r["player"])))
-    out = {"generated_utc": now.strftime("%Y-%m-%dT%H:%MZ"), "top_n": TOP_N, "days": shown,
+    write_log(sorted(keep + new_live, key=lambda r: (r["game_date"], r["market"], r["player"])))
+    out = {"generated_utc": now.strftime("%Y-%m-%dT%H:%MZ"), "top_n": TOP_N, "locked_by_manual_run": bool(lock), "days": shown,
            "rules": {"min_blend": MIN_BLEND, "min_edge": MIN_EDGE, "max_gap": MAX_GAP, "model_weight": MW,
                      "line_used": "lowest main line across DK/FD"}}
     OUT.write_text(json.dumps(out, indent=1), encoding="utf-8")
     for d in shown:
         for m, picks in d["markets"].items():
             print(d["game_date"], m, [f"{p['player']} U{p['line']:g} {p['price']} blend {p['blend_p']:.0%}" for p in picks] or "no picks")
-    print(f"{len(cands)} qualifying candidates; log has {len(keep)} frozen picks")
+    print(f"{len(cands)} qualifying candidates; log has {len(keep) + sum(c['frozen'] == '1' for c in new_live)} locked picks"
+          + (f"; locked the {lock_date} slate" if lock and lock_date else ""))
     return 0
 
 
@@ -287,4 +324,4 @@ def every_under_baseline():
 
 
 if __name__ == "__main__":
-    sys.exit(grade() if "--grade" in sys.argv else build())
+    sys.exit(grade() if "--grade" in sys.argv else build(lock="--lock" in sys.argv))
