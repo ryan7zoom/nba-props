@@ -3990,3 +3990,27 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-02T18:00-05:00,2026-11-02T23:00+00:00,2026-11-02,19:30,ATL@IND,ATL,"Johnson,Jalen",jalen johnson,Out,Injury/Illness-LeftAnkleSprain,2026-11-02_06_00PM,2
 2026-11-02T18:00-05:00,2026-11-02T23:00+00:00,2026-11-02,19:30,ATL@IND,IND,"NanceJr.,Larry",larry nance,Out,Injury/Illness-Illness,2026-11-02_06_00PM,2
 2026-11-02T18:00-05:00,2026-11-02T23:00+00:00,2026-11-02,19:30,ATL@IND,IND,"Toppin,Obi",obi toppin,Out,Injury/Illness-LumbarSprain,2026-11-02_06_00PM,2
+2026-11-02T18:15-05:00,2026-11-02T23:15+00:00,2026-11-02,19:30,BKN@NY,NY,"Alvarado,Jose",jose alvarado,Available,Injury/Illness-LeftAnkleSprain,2026-11-02_06_15PM,2
+2026-11-02T18:30-05:00,2026-11-02T23:30+00:00,2026-11-02,20:00,MIL@MIN,MIN,"ShannonJr,Terrence",terrence shannon,Out,Injury/Illness-LeftHipContusion,2026-11-02_06_30PM,2
+2026-11-02T18:30-05:00,2026-11-02T23:30+00:00,2026-11-02,20:00,SAC@DAL,SAC,"Cardwell,Dylan",dylan cardwell,Out,Injury/Illness-LeftCalfStrain,2026-11-02_06_30PM,2
+2026-11-02T18:30-05:00,2026-11-02T23:30+00:00,2026-11-02,20:30,UTAH@SA,UTAH,"Bufkin,Kobe",kobe bufkin,Available,GLeague-Two-Way,2026-11-02_06_30PM,2
+2026-11-02T18:45-05:00,2026-11-02T23:45+00:00,2026-11-02,19:00,OKC@CLE,CLE,"Watson,Peyton",peyton watson,Out,Injury/Illness-RightHamstring,2026-11-02_06_45PM,2
+2026-11-02T18:45-05:00,2026-11-02T23:45+00:00,2026-11-02,20:00,SAC@DAL,DAL,"Aldama,Santi",santi aldama,Out,Injury/Illness-RightKneeSurgery,2026-11-02_06_45PM,2
+2026-11-02T18:45-05:00,2026-11-02T23:45+00:00,2026-11-02,20:00,SAC@DAL,DAL,"Irving,Kyrie",kyrie irving,Out,Injury/Illness-LeftKneeInjury Management,2026-11-02_06_45PM,2
+2026-11-02T19:00-05:00,2026-11-03T00:00+00:00,2026-11-02,20:00,SAC@DAL,SAC,"LaVine,Zach",zach lavine,Available,-,2026-11-02_07_00PM,2
+2026-11-02T19:15-05:00,2026-11-03T00:15+00:00,2026-11-02,20:00,NO@MEM,MEM,"PippenJr.,Scotty",scotty pippen,Out,Injury/Illness-LowBackSoreness,2026-11-02_07_15PM,2
+2026-11-02T19:15-05:00,2026-11-03T00:15+00:00,2026-11-02,20:00,NO@MEM,MEM,"Post,Quinten",quinten post,Out,Injury/Illness-RightAnkleSprain,2026-11-02_07_15PM,2
+2026-11-02T19:15-05:00,2026-11-03T00:15+00:00,2026-11-02,20:00,NO@MEM,MEM,"Small,Javon",javon small,Out,GLeague-Two-Way,2026-11-02_07_15PM,2
+2026-11-02T19:30-05:00,2026-11-03T00:30+00:00,2026-11-02,19:30,CHI@PHI,PHI,"Embiid,Joel",joel embiid,Available,Reaction Injury/Illness-RightFootPlantar,2026-11-02_07_30PM,2
+2026-11-02T19:30-05:00,2026-11-03T00:30+00:00,2026-11-02,20:00,MIL@MIN,MIN,"Ball,LaMelo",lamelo ball,Available,Injury/Illness-RightWristContusion,2026-11-02_07_30PM,2
+2026-11-02T19:30-05:00,2026-11-03T00:30+00:00,2026-11-02,20:30,BOS@HOU,HOU,"Sheppard,Reed",reed sheppard,Available,Injury/Illness-LowBackStrain,2026-11-02_07_30PM,2
+2026-11-02T20:30-05:00,2026-11-03T01:30+00:00,2026-11-02,22:00,PHX@GS,GS,"Williams,Brandon",brandon williams,Out,Injury/Illness-LeftQuadriceps,2026-11-02_08_30PM,2
+2026-11-02T21:15-05:00,2026-11-03T02:15+00:00,2026-11-02,21:00,POR@DEN,DEN,"Diallo,Alpha",alpha diallo,Available,Injury/Illness-RightWristSprain,2026-11-02_09_15PM,2
+2026-11-02T21:15-05:00,2026-11-03T02:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Barnes,Scottie",scottie barnes,Probable,Contusion Injury/Illness-LeftHipSoreness/,2026-11-02_09_15PM,2
+2026-11-02T21:15-05:00,2026-11-03T02:15+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Poeltl,Jakob",jakob poeltl,Doubtful,Injury/Illness-LeftShoulderBursitis,2026-11-02_09_15PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,PHX@GS,PHX,"Reath,Duop",duop reath,Out,GLeague-Two-Way,2026-11-02_09_30PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,PHX@GS,PHX,"Spencer,Pat",pat spencer,Out,GLeague-Two-Way,2026-11-02_09_30PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,PHX@GS,GS,"ButlerIII,Jimmy",jimmy butler,Out,Injury/Illness-RightACLRepair/ Surgery,2026-11-02_09_30PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,PHX@GS,GS,"Horford,Al",al horford,Out,Injury/Illness-BilateralLowBack,2026-11-02_09_30PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Barnes,Scottie",scottie barnes,Available,Contusion Injury/Illness-LeftHipSoreness/,2026-11-02_09_30PM,2
+2026-11-02T21:30-05:00,2026-11-03T02:30+00:00,2026-11-02,22:00,TOR@LAC,TOR,"Poeltl,Jakob",jakob poeltl,Out,Injury/Illness-LeftShoulderBursitis,2026-11-02_09_30PM,2

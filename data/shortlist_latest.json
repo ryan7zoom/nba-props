@@ -1,0 +1,13 @@
+{
+ "generated_utc": "2026-11-03T09:42Z",
+ "top_n": 4,
+ "locked_by_manual_run": true,
+ "days": [],
+ "rules": {
+  "min_blend": 0.56,
+  "min_edge": 0.02,
+  "max_gap": 0.2,
+  "model_weight": 0.35,
+  "line_used": "lowest main line across DK/FD"
+ }
+}
