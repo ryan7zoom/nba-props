@@ -11,11 +11,11 @@ main{max-width:640px;margin:0 auto;padding:14px 12px 40px}h1{font-size:22px;marg
 .big{font-size:19px;font-weight:700}.m{color:var(--mute);font-size:13px}.acc{color:var(--acc);font-weight:650}
 </style></head><body><main>
 <h1>Under shortlist</h1><div id="rec" class="c m">Loading…</div><div id="picks"></div>
-<p class="m">Single bets at the main line only. Same stake every time. If your bookie's line is lower than the one shown, skip the bet. Players with no line posted yet do not appear.</p>
+<p class="m">Single bets at the main line only. Same stake every time. Run the workflow when you are ready to bet: it locks the next slate's picks. If your bookie's line is lower than the one shown, skip the bet. Players with no line posted yet do not appear.</p>
 <script>
 var q=function(i){return document.getElementById(i)},px=function(a){return a>0?"+"+a:""+a};
 function card(p){var t=p.tipoff_utc?new Date(p.tipoff_utc).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):"";
-return '<div class="c"><div class="big">'+p.player+' Under '+p.line+' '+p.market.toUpperCase()+' <span class="m">('+px(p.price)+')</span></div>'+
+return '<div class="c"><div class="big">'+p.player+' Under '+p.line+' '+p.market.toUpperCase()+' <span class="m">('+px(p.price)+')</span>'+(p.locked?' <span class="acc">locked</span>':'')+'</div>'+
 '<div class="m">'+p.team+' vs '+p.opp+(t?' · tip '+t:'')+' · lines '+p.all_lines.map(function(l){return l[0].slice(0,2).toUpperCase()+' '+l[1]}).join(', ')+'</div>'+
 '<div>Our chance <b>'+Math.round(p.our_p*100)+'%</b> · market '+Math.round(p.market_p*100)+'% · blended <span class="acc">'+Math.round(p.blend_p*100)+'%</span> · avg '+p.mean+' · plays '+Math.round(p.p_play*100)+'%</div></div>'}
 fetch("data/shortlist_latest.json?"+Date.now()).then(function(r){return r.json()}).then(function(j){
