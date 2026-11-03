@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Under shortlist</title>
+<style>
+:root{--bg:#f3f5f7;--card:#fff;--ink:#15191f;--mute:#5d6672;--line:#dde2e8;--acc:#0a6b5c;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1317;--card:#171d23;--ink:#e8ecf0;--mute:#97a1ad;--line:#26303a;--acc:#4fd1b5}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 -apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:14px 12px 40px}h1{font-size:22px;margin:4px 0 10px}h2{font-size:15px;color:var(--mute);margin:18px 0 6px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:0 0 8px}
+.big{font-size:19px;font-weight:700}.m{color:var(--mute);font-size:13px}.acc{color:var(--acc);font-weight:650}
+</style></head><body><main>
+<h1>Under shortlist</h1><div id="rec" class="c m">Loading…</div><div id="picks"></div>
+<p class="m">Single bets at the main line only. Same stake every time. If your bookie's line is lower than the one shown, skip the bet. Players with no line posted yet do not appear.</p>
+<script>
+var q=function(i){return document.getElementById(i)},px=function(a){return a>0?"+"+a:""+a};
+function card(p){var t=p.tipoff_utc?new Date(p.tipoff_utc).toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}):"";
+return '<div class="c"><div class="big">'+p.player+' Under '+p.line+' '+p.market.toUpperCase()+' <span class="m">('+px(p.price)+')</span></div>'+
+'<div class="m">'+p.team+' vs '+p.opp+(t?' · tip '+t:'')+' · lines '+p.all_lines.map(function(l){return l[0].slice(0,2).toUpperCase()+' '+l[1]}).join(', ')+'</div>'+
+'<div>Our chance <b>'+Math.round(p.our_p*100)+'%</b> · market '+Math.round(p.market_p*100)+'% · blended <span class="acc">'+Math.round(p.blend_p*100)+'%</span> · avg '+p.mean+' · plays '+Math.round(p.p_play*100)+'%</div></div>'}
+fetch("data/shortlist_latest.json?"+Date.now()).then(function(r){return r.json()}).then(function(j){
+ var h="",nm={pts:"Points",pra:"PRA"};j.days.forEach(function(d){h+='<h2>'+d.game_date+'</h2>';Object.keys(d.markets).forEach(function(k){var a=d.markets[k];h+='<div class="m"><b>'+nm[k]+' Unders</b></div>'+(a.length?a.map(card).join(""):'<div class="c m">No qualifying Unders.</div>')})});
+ q("picks").innerHTML=h||'<div class="c m">No games with lines yet.</div>'}).catch(function(){q("picks").innerHTML='<div class="c m">No shortlist file yet.</div>'});
+fetch("data/shortlist_grade.json?"+Date.now()).then(function(r){return r.json()}).then(function(g){
+ var b=g.every_main_line_under_baseline;
+ q("rec").innerHTML='<b>Record:</b> '+g.wins+'-'+g.losses+(g.pushes?'-'+g.pushes:'')+' ('+(g.bets?Math.round(g.win_rate*1000)/10+'%':'no bets')+'), '+g.units_won+' units'+
+ (g.break_even?'<br>Break-even at your prices: '+Math.round(g.break_even*1000)/10+'%':'')+(b&&b.win_rate?'<br>Every main-line Under so far: '+Math.round(b.win_rate*1000)/10+'% ('+b.bets+' bets)':'')+'<br>'+g.verdict
+}).catch(function(){q("rec").textContent="No graded picks yet."});
+</script></main></body></html>
