@@ -12,7 +12,8 @@ What it does
 
 The page does the maths (our chance of Over / Under at the book's line, and the expected value of the price).
 
-Run:  python scripts/lines.py
+Run:  python scripts/lines.py            (games whose lines were already found are reused from data/lines_cache.json)
+      python scripts/lines.py --refresh  (ignore the cache and ask for every game again)
 Exit code is 1 when anything is wrong, so the workflow shows red.
 """
 import csv
@@ -34,12 +35,14 @@ PROJECTIONS = DATA / "projections_latest.json"
 OUT = DATA / "lines_latest.json"
 HISTORY = DATA / "lines_history.csv"
 HEALTH = DATA / "lines_health.json"
+CACHE = DATA / "lines_cache.json"
 
 BASE = "https://api.prop-line.com/v1"
 SPORT = "basketball_nba"
 MARKETS = {"player_points": "pts", "player_points_rebounds_assists": "pra"}
 BOOKS = ["draftkings", "fanduel"]
 MAX_EVENTS = 20
+MIN_PLAYERS_TO_CACHE = 8       # a game's lines are kept (and not asked for again) once at least this many players have lines
 LOOKAHEAD_HOURS = 60
 MIN_MATCH_SHARE = 0.5          # warn when fewer than this share of book players are matched to ours
 GMT8 = timezone(timedelta(hours=8))
@@ -197,10 +200,27 @@ def append_history(now, players, proj_by_key):
     return n
 
 
+# ---------- cache: games whose lines we already have are not asked for again ----------
+
+def load_cache():
+    try:
+        c = json.loads(CACHE.read_text(encoding="utf-8"))
+        return c if isinstance(c, dict) else {}
+    except Exception:
+        return {}
+
+
+def save_cache(cache):
+    DATA.mkdir(exist_ok=True)
+    CACHE.write_text(json.dumps(cache, separators=(",", ":")), encoding="utf-8")
+
+
 # ---------- main ----------
 
-def run(key, now=None, api_fn=None):
+def run(key, now=None, api_fn=None, refresh=False):
     api_fn = api_fn or api
+    cache = {} if refresh else load_cache()
+    new_cache, fresh_keys, games_cached = {}, set(), 0
     now = now or datetime.now(timezone.utc)
     errors, warnings = [], []
     if not PROJECTIONS.exists():
@@ -245,6 +265,16 @@ def run(key, now=None, api_fn=None):
         if ours is None:
             warnings.append(f"no projections for {away} at {home} on {d.strftime('%d/%m/%Y')} (lines skipped)")
             continue
+        eid = str(e["id"])
+        cached = cache.get(eid)
+        if cached and cached.get("game_date") == game_date and cached.get("players"):
+            for ent in cached["players"]:
+                out_players[(ent["d"], ent["t"], ent["n"])] = ent
+            games_matched += 1
+            games_cached += 1
+            new_cache[eid] = cached
+            continue
+        before = set(out_players)
         odds = api_fn(f"/sports/{SPORT}/events/{e['id']}/odds", {"markets": ",".join(MARKETS), "bookmakers": ",".join(BOOKS)}, key)
         requests += 1
         found = parse_odds(odds if isinstance(odds, dict) else {})
@@ -260,6 +290,11 @@ def run(key, now=None, api_fn=None):
                 continue
             ent = out_players.setdefault((game_date, p["team"], p["name"]), {"n": p["name"], "t": p["team"], "d": game_date, "pts": {"m": [], "a": []}, "pra": {"m": [], "a": []}})
             ent[mk]["m" if rec["type"] == "main" else "a"].append([book, point, rec["o"], rec["u"]])
+        keys_game = set(out_players) - before
+        fresh_keys |= keys_game
+        if len(keys_game) >= MIN_PLAYERS_TO_CACHE:
+            new_cache[eid] = {"game_date": game_date, "commence": e["commence_time"], "fetched": stamp(now),
+                              "players": [out_players[k] for k in keys_game]}
         book_players += len(names_seen)
         matched_players += len([n for n in names_seen if n in ours])
         for n in names_seen:
@@ -276,17 +311,18 @@ def run(key, now=None, api_fn=None):
             p[mk]["m"].sort(key=lambda r: (r[0], r[1]))
             p[mk]["a"].sort(key=lambda r: (r[0], r[1]))
     DATA.mkdir(exist_ok=True)
+    save_cache(new_cache)
     OUT.write_text(json.dumps({
         "fetched": stamp(now), "epoch": int(now.timestamp()), "books": BOOKS, "source": "PropLine",
         "games": games_matched, "players": players}, separators=(",", ":")), encoding="utf-8")
     health = {"run": stamp(now), "ok": not errors, "errors": errors, "warnings": warnings, "warning_count": len(warnings),
               "events_listed": len(events), "events_upcoming": len(upcoming), "games_with_lines": games_matched,
               "players_with_lines": len(players), "book_players_unmatched": len(set(unmatched)), "unmatched_examples": sorted(set(unmatched))[:15],
-              "requests_this_run": requests, "requests_left_today": QUOTA["remaining"], "daily_limit": QUOTA["limit"]}
+              "requests_this_run": requests, "games_reused_from_cache": games_cached, "requests_left_today": QUOTA["remaining"], "daily_limit": QUOTA["limit"]}
     proj_by_key = {(p["game_date"], p["team"], p["name"]): p for p in proj["players"]}
-    health["history_rows_added"] = append_history(now, players, proj_by_key)
+    health["history_rows_added"] = append_history(now, [out_players[k] for k in fresh_keys], proj_by_key)
     HEALTH.write_text(json.dumps(health, indent=2), encoding="utf-8")
-    log(f"Lines for {len(players)} players in {games_matched} games ({requests} requests; {QUOTA['remaining']} left today). Wrote {OUT}")
+    log(f"Lines for {len(players)} players in {games_matched} games ({requests} requests, {games_cached} games reused from cache; {QUOTA['remaining']} left today). Wrote {OUT}")
     for w in warnings:
         log(f"  WARNING: {w}")
     for er in errors:
@@ -299,7 +335,7 @@ def main():
     try:
         if not key:
             raise LinesError("PROPLINE_API_KEY is not set. Add it as a repository secret (Settings > Secrets and variables > Actions)")
-        health = run(key)
+        health = run(key, refresh="--refresh" in sys.argv)
     except LinesError as e:
         DATA.mkdir(exist_ok=True)
         HEALTH.write_text(json.dumps({"run": stamp(datetime.now(timezone.utc)), "ok": False, "errors": [str(e)], "warnings": [], "warning_count": 0}, indent=2), encoding="utf-8")
