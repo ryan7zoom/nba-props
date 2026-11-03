@@ -1,1 +1,2 @@
 game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tipoff_utc,frozen,logged_utc,all_lines,mean,p_play
+2026-11-04,Cade Cunningham,DET,PHI,pra,38.5,fanduel,-125,0.697,0.519,0.581,0.046,2026-11-05T00:00Z,0,2026-11-03T19:30Z,"[[""fanduel"", 38.5, -125]]",33.75,1.0

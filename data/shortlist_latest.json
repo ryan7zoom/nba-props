@@ -1,8 +1,46 @@
 {
- "generated_utc": "2026-11-03T09:42Z",
+ "generated_utc": "2026-11-03T19:30Z",
  "top_n": 4,
- "locked_by_manual_run": true,
- "days": [],
+ "locked_by_manual_run": false,
+ "days": [
+  {
+   "game_date": "2026-11-04",
+   "markets": {
+    "pts": [],
+    "pra": [
+     {
+      "game_date": "2026-11-04",
+      "player": "Cade Cunningham",
+      "team": "DET",
+      "opp": "PHI",
+      "market": "pra",
+      "line": 38.5,
+      "book": "fanduel",
+      "price": -125,
+      "our_p": 0.697,
+      "market_p": 0.519,
+      "blend_p": 0.581,
+      "edge": 0.046,
+      "tipoff_utc": "2026-11-05T00:00Z",
+      "all_lines": [
+       [
+        "fanduel",
+        38.5,
+        -125
+       ]
+      ],
+      "mean": 33.75,
+      "p_play": 1.0,
+      "minutes": 32.2,
+      "event_id": "401909922",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-03T19:30Z"
+     }
+    ]
+   }
+  }
+ ],
  "rules": {
   "min_blend": 0.56,
   "min_edge": 0.02,
