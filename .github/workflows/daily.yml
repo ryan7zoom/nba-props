@@ -1,19 +1,23 @@
 name: Daily data update
 
-# Runs once an hour from 14:20 to 03:20 UTC (about 22:20 to 11:20 GMT+8) so the injury reports and lineups are
-# never more than about an hour old before tip-off, and can be started by hand from the Actions tab.
-# GitHub's schedule is not exact: a run can start 10-30 minutes late, and now and then one is skipped.
-# Scheduled runs do the heavy work when a game tips off within 30 hours, and ask PropLine for lines when a game
-# tips off within 24 hours (the free plan allows 1,000 requests a day). Box scores are always updated.
-# A run started by hand ("Run workflow") ignores those windows: it uses whatever lines and injury news exist right
-# then, builds the Under shortlist and LOCKS the next slate's picks into data/picks_log.csv.
+# Runs twice a day on its own (07:20 and 12:20 UTC = 15:20 and 20:20 GMT+8) and does everything: box scores,
+# injuries, projections, sportsbook lines, the Under shortlist and grading. A run you start by hand ("Run workflow")
+# does the same and also LOCKS the next slate's picks into data/picks_log.csv. Scheduled runs never lock.
+# Sportsbook lines: PropLine is asked per game (the free plan allows 1,000 requests a day). Games whose lines were
+# already found are kept in data/lines_cache.json and not asked for again; only games with no lines yet are asked.
+# Tick "refresh_lines" when starting a run by hand to ask for every game again.
 # Every step runs even if an earlier one failed, so one broken source does not stop the rest;
 # the run still shows red if anything failed.
 on:
   workflow_dispatch:
+    inputs:
+      refresh_lines:
+        description: "Ask PropLine for every game again (ignore the saved lines)"
+        type: boolean
+        default: false
   schedule:
-    - cron: "20 14-23 * * *"
-    - cron: "20 0-3 * * *"
+    - cron: "20 7 * * *"
+    - cron: "20 12 * * *"
 
 permissions:
   contents: write
@@ -35,67 +39,37 @@ jobs:
         run: pip install numpy pandas pdfplumber
       - name: Fetch schedule, injuries and new box scores
         run: python scripts/update_data.py --mode daily
-      - name: Is a game coming up?
-        id: gate
-        if: always()
-        run: |
-          python - <<'PY'
-          import csv, os
-          from datetime import datetime, timezone
-          now = datetime.now(timezone.utc)
-          go = soon = False
-          try:
-              for r in csv.DictReader(open("data/schedule.csv", newline="", encoding="utf-8")):
-                  if r["state"] != "pre" or r["season_type"] not in ("2", "3", "5"):
-                      continue
-                  t = datetime.fromisoformat(r["tipoff_utc"].replace("Z", "+00:00"))
-                  h = (t - now).total_seconds() / 3600
-                  if -0.5 <= h <= 30:
-                      go = True
-                  if -0.5 <= h <= 24:
-                      soon = True
-          except Exception as e:
-              print("gate error, running everything:", e)
-              go = soon = True
-          if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
-              go = soon = True
-              print("manual run: using whatever data exists now")
-          print("heavy work:", go, "| lines and shortlist:", soon)
-          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-              f.write("go=" + ("true" if go else "false") + "\n")
-              f.write("soon=" + ("true" if soon else "false") + "\n")
-          PY
       - name: Fetch official injury reports
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/injury_report.py --mode fetch
       - name: Measure play probabilities
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/injury_report.py --mode calibrate
       - name: Refresh per-minute rates
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/baseline_rates.py --mode estimate
       - name: Refresh minutes projections
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/minutes_model.py --mode project
       - name: Update opponent defense
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/defense_effects.py --mode estimate
       - name: Simulate prop distributions
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/simulate_props.py --mode project
       - name: Adjust for missing teammates
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/absence_adjust.py
       - name: Update recent form
-        if: ${{ always() && steps.gate.outputs.go == 'true' }}
+        if: always()
         run: python scripts/form.py
       - name: Fetch sportsbook lines
-        if: ${{ always() && steps.gate.outputs.soon == 'true' }}
+        if: always()
         env:
           PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
-        run: python scripts/lines.py
+        run: python scripts/lines.py ${{ inputs.refresh_lines && '--refresh' || '' }}
       - name: Build Under shortlist and freeze started games
-        if: ${{ always() && steps.gate.outputs.soon == 'true' }}
+        if: always()
         run: python scripts/shortlist.py ${{ github.event_name == 'workflow_dispatch' && '--lock' || '' }}
       - name: Grade lines against results
         if: always()
