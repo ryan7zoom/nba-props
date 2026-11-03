@@ -3,8 +3,10 @@ name: Daily data update
 # Runs once an hour from 14:20 to 03:20 UTC (about 22:20 to 11:20 GMT+8) so the injury reports and lineups are
 # never more than about an hour old before tip-off, and can be started by hand from the Actions tab.
 # GitHub's schedule is not exact: a run can start 10-30 minutes late, and now and then one is skipped.
-# A run only does the heavy work when a game tips off within 9 hours, and only asks PropLine for lines when a game
-# tips off within 4 hours (the free plan allows 1,000 requests a day). Box scores are always updated.
+# Scheduled runs do the heavy work when a game tips off within 30 hours, and ask PropLine for lines when a game
+# tips off within 24 hours (the free plan allows 1,000 requests a day). Box scores are always updated.
+# A run started by hand ("Run workflow") ignores those windows: it uses whatever lines and injury news exist right
+# then, builds the Under shortlist and LOCKS the next slate's picks into data/picks_log.csv.
 # Every step runs even if an earlier one failed, so one broken source does not stop the rest;
 # the run still shows red if anything failed.
 on:
@@ -48,14 +50,17 @@ jobs:
                       continue
                   t = datetime.fromisoformat(r["tipoff_utc"].replace("Z", "+00:00"))
                   h = (t - now).total_seconds() / 3600
-                  if -0.5 <= h <= 9:
+                  if -0.5 <= h <= 30:
                       go = True
-                  if -0.5 <= h <= 4:
+                  if -0.5 <= h <= 24:
                       soon = True
           except Exception as e:
               print("gate error, running everything:", e)
               go = soon = True
-          print("game within 9 hours:", go, "| within 4 hours:", soon)
+          if os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch":
+              go = soon = True
+              print("manual run: using whatever data exists now")
+          print("heavy work:", go, "| lines and shortlist:", soon)
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write("go=" + ("true" if go else "false") + "\n")
               f.write("soon=" + ("true" if soon else "false") + "\n")
@@ -91,7 +96,7 @@ jobs:
         run: python scripts/lines.py
       - name: Build Under shortlist and freeze started games
         if: ${{ always() && steps.gate.outputs.soon == 'true' }}
-        run: python scripts/shortlist.py
+        run: python scripts/shortlist.py ${{ github.event_name == 'workflow_dispatch' && '--lock' || '' }}
       - name: Grade lines against results
         if: always()
         run: python scripts/grade_lines.py
