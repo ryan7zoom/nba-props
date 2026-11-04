@@ -62,6 +62,8 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 .bl small{flex-basis:100%;color:var(--mute);font-size:12px}
 .gp{font-size:13px;margin-top:6px;color:var(--mute)}
 .gp b{color:var(--ink)}
+.ctx{font-size:12px;color:var(--mute);margin:0 0 8px;line-height:1.35}
+.ctx b{color:var(--ink)}.ctx div.t{margin-top:6px;color:var(--ink);font-weight:600}.ctx div.w{color:var(--warn)}
 </style>
 </head>
 <body>
@@ -71,6 +73,7 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 <div class="banner" id="fresh">Loading predictions…</div>
 <div class="lnote" id="lnote"></div>
 <div class="ctl">
+ <div class="row"><span class="lab">Show chances as</span><span id="fmt"></span></div>
  <div class="row"><span class="lab">Stat</span><span id="stat"></span></div>
  <div class="row"><span class="lab">Chance wanted</span><span id="conf"></span></div>
  <div class="row"><span class="lab">Game day (US)</span><span id="days"></span></div>
@@ -83,12 +86,13 @@ input[type=search]{font:inherit;width:100%;padding:8px 10px;border-radius:8px;bo
 <p class="note" id="note"></p>
 </main>
 <script>
-var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
+var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,TC=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={fmt:"odds",stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
 var MW=0.35,BET_MIN=0.03,BIG_GAP=0.12;
 function el(id){return document.getElementById(id)}
 function chips(id,opts,cur,fmt,on){var h="";opts.forEach(function(o){h+='<button class="chip" type="button" data-v="'+o+'" aria-pressed="'+(String(o)===String(cur))+'">'+fmt(o)+'</button> '});var e=el(id);e.innerHTML=h;Array.prototype.forEach.call(e.querySelectorAll("button"),function(b){b.onclick=function(){on(b.getAttribute("data-v"))}})}
 function pct(x){return Math.round(x*100)+"%"}
+function od(x){return(S.fmt==="odds"&&x>0)?(1/x).toFixed(2):pct(x)}
 function safe(cdf,t,side){if(side==="under"){for(var j=0;j<cdf.length;j++){if(cdf[j]>=t-1e-9)return {line:j+0.5,p:cdf[j]}}return null}
  var best=-1;for(var k=0;k<cdf.length;k++){if(1-cdf[k]>=t-1e-9)best=k;else break}
  if(best<0)return null;return {line:best+0.5,p:1-cdf[best]}}
@@ -99,7 +103,7 @@ function bk(b){return b==="draftkings"?"DK":b==="fanduel"?"FD":b}
 function px(a){return (a>0?"+":"")+a}
 function evs(pw,pl,price){return pw*(dec(price)-1)-pl}
 function fairOver(o,u){if(o==null||u==null)return null;var a=1/dec(o),b=1/dec(u);return a/(a+b)}
-function sideTxt(lab,price,pw,pm){if(price==null)return lab+" \u2013";return lab+" "+px(price)+' <span class="neg">ours '+pct(pw)+(pm==null?"":" \u00b7 market "+pct(pm))+"</span>"}
+function sideTxt(lab,price,pw,pm){if(price==null)return lab+" \u2013";return lab+" "+px(price)+' <span class="neg">ours '+od(pw)+(pm==null?"":" \u00b7 market "+od(pm))+"</span>"}
 function mainEdge(p){var e=lineOf(p);if(!e)return null;var E=e[S.stat],c=S.stat==="pts"?p.pc:p.rc,best=null;
  E.m.forEach(function(r){var q=probs(c,r[1]),fo=fairOver(r[2],r[3]);if(fo==null)return;
   [["Over",r[2],q.o,fo],["Under",r[3],q.u,1-fo]].forEach(function(s){if(s[1]==null)return;var pb=MW*s[2]+(1-MW)*s[3],ev=pb*(dec(s[1])-1)-(1-pb);
@@ -110,26 +114,31 @@ function lineBlock(p){if(!LN)return"";var e=lineOf(p);if(!e)return'<div class="l
  var E=e[S.stat],c=S.stat==="pts"?p.pc:p.rc;if(!E||(!E.m.length&&!E.a.length))return'<div class="ln neg">No book line yet</div>';
  var h="";E.m.forEach(function(r){var q=probs(c,r[1]),fo=fairOver(r[2],r[3]);h+='<div class="ln"><b>'+bk(r[0])+" "+r[1].toFixed(1)+"</b> \u00b7 "+sideTxt("Over",r[2],q.o,fo)+" \u00b7 "+sideTxt("Under",r[3],q.u,fo==null?null:1-fo)+"</div>"});
  var b=mainEdge(p);
- if(b){if(b.ev>=BET_MIN){h+='<div class="ln"><span class="pos">Lean '+b.side+" "+b.L.toFixed(1)+" "+px(b.price)+" ("+bk(b.book)+")</span>: ours "+pct(b.ours)+" vs market "+pct(b.mkt)+", market-adjusted edge "+(b.ev>0?"+":"")+Math.round(b.ev*100)+"%"+(Math.abs(b.gap)>=BIG_GAP?' <span class="neg">\u00b7 big gap vs the market, check lineup news first</span>':"")+"</div>"}
+ if(b){if(b.ev>=BET_MIN){h+='<div class="ln"><span class="pos">Lean '+b.side+" "+b.L.toFixed(1)+" "+px(b.price)+" ("+bk(b.book)+")</span>: ours "+od(b.ours)+" vs market "+od(b.mkt)+", market-adjusted edge "+(b.ev>0?"+":"")+Math.round(b.ev*100)+"%"+(Math.abs(b.gap)>=BIG_GAP?' <span class="neg">\u00b7 big gap vs the market, check lineup news first</span>':"")+"</div>"}
   else h+='<div class="ln neg">Main line: no real edge, skip'+(Math.abs(b.gap)>=BIG_GAP?" \u00b7 big gap vs the market, check lineup news":"")+"</div>"}
  var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o}});
- if(best&&HASALT)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+pct(best.p)+", price implies "+pct(1/dec(best.a))+"</div>";
+ if(best&&HASALT)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+od(best.p)+", bookie pays "+dec(best.a).toFixed(2)+"</div>";
  else if(HASALT)h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
 function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5">Last 5: no games on record</div>';
  var vals=g.map(function(x){return S.stat==="pts"?x[3]:x[3]+x[4]+x[5]});var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
  var parts=g.map(function(x,i){return"<b>"+vals[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]});
  return '<div class="l5">Last '+g.length+" ("+(S.stat==="pts"?"pts":"PRA")+"): "+parts.join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
+function ctxBlock(k){if(!TC||!TC[k])return"";var c=TC[k],h='<div class="ctx">';
+ ["away","home"].forEach(function(s){var t=c[s];if(!t)return;h+='<div class="t">'+t.team+" ("+s+")</div>";t.lines.forEach(function(l,i){h+="<div"+(l.indexOf("Out:")>-1?' class="w"':"")+">"+l+"</div>"})});
+ return h+'<div class="t">Matchup</div><div>'+c.matchup+"</div></div>"}
 function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder,p=G.proj,h='<div class="bd">';
- if(b.legs.length){h+='<div class="bdh">Safest builder: all '+b.legs.length+' legs hit <b>'+pct(b.all_hit)+'</b></div>';
-  b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="neg">'+pct(l.p)+" \u00b7 all hit without it "+pct(b.without_leg[i])+'</span>'+(nt?'<small>'+nt+'</small>':'')+'</div>'})}
+ if(b.legs.length){var O=S.fmt==="odds";h+='<div class="bdh">Safest builder, all '+b.legs.length+' legs: <b>'+(O?'model odds '+od(b.all_hit):pct(b.all_hit)+' to hit')+'</b></div>';
+  b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="neg">'+(O?'model odds '+od(l.p)+' \u00b7 parlay without this leg '+od(b.without_leg[i]):pct(l.p)+' \u00b7 parlay without this leg '+pct(b.without_leg[i]))+'</span>'+(nt?'<small>'+nt+'</small>':'')+'</div>'});
+  if(O)h+='<div class="gp">Model odds = 1 \u00f7 the model\u2019s chance. A bookie price above them is a better deal than the model expects; below them is worse.</div>'}
  else h+='<div class="bdh neg">No safe builder for this game yet (not enough lines or players).</div>';
- h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+pct(p.home_win):G.away+' win '+pct(1-p.home_win))+'</div>';
- var ml=G.margin_lines.filter(function(m){return m.line<0});if(ml.length){h+='<div class="gp">'+ml.map(function(m){return m.team+(Math.abs(m.line)===0.5?' to win ':' wins by 6+ ').replace('6+',Math.ceil(Math.abs(m.line))+'+')+pct(m.p)}).join(' \u00b7 ')+'</div>'}
- if(G.unders&&G.unders.length){h+='<div class="gp">Player Unders (main line only, singles): '+G.unders.map(function(u){return u.label+' '+pct(u.p)}).join(' \u00b7 ')+'</div>'}
+ h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+od(p.home_win):G.away+' win '+od(1-p.home_win))+'</div>';
+ var ml=G.margin_lines.filter(function(m){return m.line<0});if(ml.length){h+='<div class="gp">'+ml.map(function(m){return m.team+(Math.abs(m.line)===0.5?' to win ':' wins by 6+ ').replace('6+',Math.ceil(Math.abs(m.line))+'+')+od(m.p)}).join(' \u00b7 ')+'</div>'}
+ if(G.unders&&G.unders.length){h+='<div class="gp">Player Unders (main line only, singles): '+G.unders.map(function(u){return u.label+' '+od(u.p)}).join(' \u00b7 ')+'</div>'}
  return h+'</div>'}
 function days(){var s=[];D.players.forEach(function(p){if(s.indexOf(p.d)<0)s.push(p.d)});return s}
 function render(){
  var DY=days();if(!S.day)S.day=DY[0];
+ chips("fmt",["odds","percent"],S.fmt,function(v){return v==="odds"?"Odds (1.50)":"Percent (67%)"},function(v){S.fmt=v;render()});
  chips("stat",["pts","pra"],S.stat,function(v){return v==="pts"?"Points":"Points + rebounds + assists"},function(v){S.stat=v;render()});
  chips("conf",CONFS,S.conf,pct,function(v){S.conf=parseFloat(v);render()});
  chips("days",DY,S.day,function(v){return v},function(v){S.day=v;render()});
@@ -152,12 +161,12 @@ function render(){
   var where=S.ord!=="game"?p.t+(p.h?" (home) vs ":" (away) at ")+p.o+" · ":"";
   return '<div class="p"><div><span class="nm">'+p.n+'</span>'+tags+'<div class="proj">Projected <b>'+Math.round(p.pm)+' pts</b> · <b>'+Math.round(p.rm)+' PRA</b></div>'+
   l5Line(p)+'<div class="meta">'+where+'about '+Math.round(p.mn)+' min · likely '+(S.stat==="pts"?"points":"PRA")+' '+Math.round(sel[0])+'\u2013'+Math.round(sel[1])+'</div></div>'+
-  '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+pct(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+pct(u.p)+'</small>':'Under: none')+'</b></div>'+lineBlock(p)+matchup(p)+'</div>'}
+  '<div class="big"><b>'+(s?'Over '+s.line.toFixed(1)+' <small>'+od(s.p)+'</small>':'Over: none')+'</b><b>'+(u?'Under '+u.line.toFixed(1)+' <small>'+od(u.p)+'</small>':'Under: none')+'</b></div>'+lineBlock(p)+matchup(p)+'</div>'}
  if(S.ord==="line"){rows.sort(function(a,b){return (b.s?b.s.line:-1)-(a.s?a.s.line:-1)});rows.forEach(function(r){out+=card(r)})}
  else if(S.ord==="edge"){rows.sort(function(a,b){return bestEV(b.p)-bestEV(a.p)});rows.forEach(function(r){out+=card(r)})}
  else{var g={},order=[];rows.forEach(function(r){var k=r.p.e;if(!g[k]){g[k]={h:[],a:[],hn:"",an:""};order.push(k)}var G=g[k];if(r.p.h){G.h.push(r);G.hn=r.p.t;G.an=G.an||r.p.o}else{G.a.push(r);G.an=r.p.t;G.hn=G.hn||r.p.o}});
   function team(name,side,list){if(!list.length)return"";var h='<div class="team">'+name+' ('+side+')</div>';list.sort(function(a,b){return b.p.mn-a.p.mn}).forEach(function(r){h+=card(r)});return h}
-  order.forEach(function(k){var G=g[k],n=G.h.length+G.a.length;out+='<details class="gm" data-k="'+k+'"'+(S.open[k]?" open":"")+'><summary>'+G.an+' at '+G.hn+'<span class="cnt">'+n+' players</span></summary>'+gameBlock(k)+team(G.hn,"home",G.h)+team(G.an,"away",G.a)+'</details>'})}
+  order.forEach(function(k){var G=g[k],n=G.h.length+G.a.length;out+='<details class="gm" data-k="'+k+'"'+(S.open[k]?" open":"")+'><summary>'+G.an+' at '+G.hn+'<span class="cnt">'+n+' players</span></summary>'+ctxBlock(k)+gameBlock(k)+team(G.hn,"home",G.h)+team(G.an,"away",G.a)+'</details>'})}
  el("list").innerHTML=out||'<p class="none">No players match.</p>';
  Array.prototype.forEach.call(el("list").querySelectorAll("details.gm"),function(d){d.addEventListener("toggle",function(){S.open[d.getAttribute("data-k")]=d.open})});
  el("gctl").style.display=(S.ord==="game"&&rows.length)?"flex":"none";
@@ -174,9 +183,10 @@ function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
  b.textContent=t}
 el("q").oninput=function(){S.q=this.value;render()};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
-el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own fair odds (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. The safest builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Player legs sit 6 points (points) or 12 points (PRA) below the main line, which is how far your bookie goes; legs marked \u201cline est.\u201d use our own number because no DK/FD line was posted, so check your bookie\u2019s real line. Team and total legs are set at about 85% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; its chances held up on last season\u2019s games, but the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own odds with its margin removed (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. The safest builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Player legs sit 6 points (points) or 12 points (PRA) below the main line, which is how far your bookie goes; legs marked \u201cline est.\u201d use our own number because no DK/FD line was posted, so check your bookie\u2019s real line. Team and total legs are set at about 85% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; its chances held up on last season\u2019s games, but the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
+function loadCtx(){load(BASE+"team_context_latest.json").then(function(j){TC=j.games;render()}).catch(function(){TC=null})}
 function loadForm(){load(BASE+"form_latest.json").then(function(j){FM=j.players;render()}).catch(function(){FM=null})}
 function loadLines(){var n=el("lnote");
  load(BASE+"lines_latest.json").then(function(j){LN={};HASALT=false;j.players.forEach(function(p){LN[p.d+"|"+p.t+"|"+p.n]=p;if((p.pts&&p.pts.a&&p.pts.a.length)||(p.pra&&p.pra.a&&p.pra.a.length))HASALT=true});LNMETA=j;
@@ -189,7 +199,7 @@ function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Cou
 function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {id:p.id,n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
- loadLines();loadForm();loadGames();
+ loadLines();loadForm();loadGames();loadCtx();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
 }).catch(function(e){fail(e.message)});
 </script>
