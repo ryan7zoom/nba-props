@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-04T15:30Z",
+ "generated_utc": "2026-11-04T19:48Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -9,40 +9,6 @@
     "pts": [
      {
       "game_date": "2026-11-04",
-      "player": "Scoot Henderson",
-      "team": "POR",
-      "opp": "PHX",
-      "market": "pts",
-      "line": 13.5,
-      "book": "fanduel",
-      "price": -114,
-      "our_p": 0.689,
-      "market_p": 0.5,
-      "blend_p": 0.566,
-      "edge": 0.063,
-      "tipoff_utc": "2026-11-05T02:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        13.5,
-        -121
-       ],
-       [
-        "fanduel",
-        13.5,
-        -114
-       ]
-      ],
-      "mean": 11.12,
-      "p_play": 1.0,
-      "minutes": 25.0,
-      "event_id": "401909932",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
-     },
-     {
-      "game_date": "2026-11-04",
       "player": "Lauri Markkanen",
       "team": "UTAH",
       "opp": "NO",
@@ -50,10 +16,10 @@
       "line": 21.5,
       "book": "draftkings",
       "price": -112,
-      "our_p": 0.677,
+      "our_p": 0.681,
       "market_p": 0.498,
-      "blend_p": 0.561,
-      "edge": 0.061,
+      "blend_p": 0.562,
+      "edge": 0.064,
       "tipoff_utc": "2026-11-05T01:00Z",
       "all_lines": [
        [
@@ -67,13 +33,47 @@
         -132
        ]
       ],
-      "mean": 18.45,
+      "mean": 18.36,
       "p_play": 1.0,
       "minutes": 28.2,
       "event_id": "401909928",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
+      "logged_utc": "2026-11-04T19:48Z"
+     },
+     {
+      "game_date": "2026-11-04",
+      "player": "Scoot Henderson",
+      "team": "POR",
+      "opp": "PHX",
+      "market": "pts",
+      "line": 13.5,
+      "book": "fanduel",
+      "price": -114,
+      "our_p": 0.692,
+      "market_p": 0.5,
+      "blend_p": 0.567,
+      "edge": 0.064,
+      "tipoff_utc": "2026-11-05T02:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        13.5,
+        -121
+       ],
+       [
+        "fanduel",
+        13.5,
+        -114
+       ]
+      ],
+      "mean": 11.1,
+      "p_play": 1.0,
+      "minutes": 25.0,
+      "event_id": "401909932",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T19:48Z"
      },
      {
       "game_date": "2026-11-04",
@@ -84,10 +84,10 @@
       "line": 15.5,
       "book": "draftkings",
       "price": -119,
-      "our_p": 0.692,
+      "our_p": 0.689,
       "market_p": 0.512,
-      "blend_p": 0.575,
-      "edge": 0.059,
+      "blend_p": 0.574,
+      "edge": 0.057,
       "tipoff_utc": "2026-11-05T03:30Z",
       "all_lines": [
        [
@@ -101,13 +101,13 @@
         -125
        ]
       ],
-      "mean": 13.05,
+      "mean": 13.02,
       "p_play": 1.0,
       "minutes": 30.6,
       "event_id": "401909935",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
+      "logged_utc": "2026-11-04T19:48Z"
      },
      {
       "game_date": "2026-11-04",
@@ -118,7 +118,7 @@
       "line": 18.5,
       "book": "draftkings",
       "price": -125,
-      "our_p": 0.702,
+      "our_p": 0.701,
       "market_p": 0.524,
       "blend_p": 0.586,
       "edge": 0.055,
@@ -135,13 +135,13 @@
         -132
        ]
       ],
-      "mean": 15.39,
+      "mean": 15.45,
       "p_play": 1.0,
       "minutes": 32.9,
       "event_id": "401909927",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
+      "logged_utc": "2026-11-04T19:48Z"
      }
     ],
     "pra": [
@@ -154,10 +154,10 @@
       "line": 18.5,
       "book": "draftkings",
       "price": -116,
-      "our_p": 0.7,
+      "our_p": 0.701,
       "market_p": 0.503,
       "blend_p": 0.572,
-      "edge": 0.065,
+      "edge": 0.066,
       "tipoff_utc": "2026-11-05T00:30Z",
       "all_lines": [
        [
@@ -171,13 +171,13 @@
         -118
        ]
       ],
-      "mean": 15.13,
+      "mean": 15.11,
       "p_play": 1.0,
       "minutes": 20.3,
       "event_id": "401909924",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
+      "logged_utc": "2026-11-04T19:48Z"
      },
      {
       "game_date": "2026-11-04",
@@ -188,10 +188,10 @@
       "line": 38.5,
       "book": "fanduel",
       "price": -125,
-      "our_p": 0.697,
+      "our_p": 0.695,
       "market_p": 0.519,
       "blend_p": 0.581,
-      "edge": 0.046,
+      "edge": 0.045,
       "tipoff_utc": "2026-11-05T00:00Z",
       "all_lines": [
        [
@@ -200,13 +200,13 @@
         -125
        ]
       ],
-      "mean": 33.69,
+      "mean": 33.74,
       "p_play": 1.0,
       "minutes": 32.2,
       "event_id": "401909922",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-04T15:30Z"
+      "logged_utc": "2026-11-04T19:48Z"
      }
     ]
    }

@@ -1,11 +1,11 @@
 {
-  "run": "04/11/2026 23:30 GMT+8",
+  "run": "05/11/2026 03:48 GMT+8",
   "ok": true,
   "errors": [],
   "error_count": 0,
   "warnings": [],
   "warning_count": 0,
-  "player_games": 649,
+  "player_games": 643,
   "games": 25,
   "game_dates": [
     "04/11/2026",
@@ -16,10 +16,10 @@
   "data_through": "02/11/2026",
   "fit_rows": 30118,
   "defense_applied": true,
-  "seconds": 11,
+  "seconds": 10,
   "team_expected_minutes_total": {
-    "mean": 259.0,
+    "mean": 257.8,
     "min": 231.9,
-    "max": 295.1
+    "max": 287.9
   }
 }

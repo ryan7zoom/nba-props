@@ -4141,3 +4141,25 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-03T20:00-05:00,2026-11-04T01:00+00:00,2026-11-04,22:30,MIA@LAC,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Probable,Injury/Illness-RightWristSprain,2026-11-03_08_00PM,2
 2026-11-03T20:00-05:00,2026-11-04T01:00+00:00,2026-11-04,22:30,MIA@LAC,MIA,"Gardner,Myron",myron gardner,Questionable,Injury/Illness-RightQuadriceps Contusion,2026-11-03_08_00PM,2
 2026-11-03T20:00-05:00,2026-11-04T01:00+00:00,2026-11-04,22:30,MIA@LAC,MIA,"Smith,Dru",dru smith,Available,Injury/Illness-FacialLaceration,2026-11-03_08_00PM,2
+2026-11-04T12:30-05:00,2026-11-04T17:30+00:00,2026-11-04,19:00,ATL@WSH,ATL,"Dennis,RayJ",rayj dennis,Doubtful,GLeague-Two-Way,2026-11-04_12_30PM,2
+2026-11-04T12:30-05:00,2026-11-04T17:30+00:00,2026-11-04,19:00,ATL@WSH,WSH,"Coulibaly,Bilal",bilal coulibaly,Questionable,Injury/Illness-Illness,2026-11-04_12_30PM,2
+2026-11-04T12:30-05:00,2026-11-04T17:30+00:00,2026-11-04,19:00,PHI@DET,DET,"Harkless,Elijah",elijah harkless,Out,GLeague-Two-Way,2026-11-04_12_30PM,2
+2026-11-04T12:30-05:00,2026-11-04T17:30+00:00,2026-11-04,19:00,PHI@DET,DET,"Jones,Isaac",isaac jones,Available,GLeague-Two-Way,2026-11-04_12_30PM,2
+2026-11-04T12:45-05:00,2026-11-04T17:45+00:00,2026-11-04,19:30,MIL@BOS,MIL,"Jones,Kam",kam jones,Questionable,Injury/Illness-RightAnkleSprain,2026-11-04_12_45PM,2
+2026-11-04T12:45-05:00,2026-11-04T17:45+00:00,2026-11-04,19:30,MIL@BOS,BOS,"Tatum,Jayson",jayson tatum,Out,Contusion Rest,2026-11-04_12_45PM,2
+2026-11-04T13:00-05:00,2026-11-04T18:00+00:00,2026-11-04,19:30,CHA@BKN,CHA,"Knueppel,Kon",kon knueppel,Available,Injury/Illness-LeftHamstringStrain,2026-11-04_01_00PM,2
+2026-11-04T13:00-05:00,2026-11-04T18:00+00:00,2026-11-04,19:30,CHA@BKN,CHA,"Williams,Grant",grant williams,Out,GLeague-OnAssignment,2026-11-04_01_00PM,2
+2026-11-04T13:00-05:00,2026-11-04T18:00+00:00,2026-11-04,19:30,CHI@NY,NY,"Hart,Josh",josh hart,Out,Injury/Illness-RightAnkleSoreness,2026-11-04_01_00PM,2
+2026-11-04T13:15-05:00,2026-11-04T18:15+00:00,2026-11-04,20:30,MIN@HOU,MIN,"ShannonJr,Terrence",terrence shannon,Out,Injury/Illness-LeftHipContusion,2026-11-04_01_15PM,2
+2026-11-04T13:30-05:00,2026-11-04T18:30+00:00,2026-11-04,20:00,UTAH@NO,NO,"MurphyIII,Trey",trey murphy,Questionable,BoneBruise Injury/Illness-BilateralPatella Tendinopathy,2026-11-04_01_30PM,2
+2026-11-04T13:30-05:00,2026-11-04T18:30+00:00,2026-11-04,20:00,UTAH@NO,NO,"Reese,Julian",julian reese,Available,GLeague-Two-Way,2026-11-04_01_30PM,2
+2026-11-04T13:30-05:00,2026-11-04T18:30+00:00,2026-11-04,20:30,MIN@HOU,HOU,"Capela,Clint",clint capela,Out,Injury/Illness-RightAnkleSprain,2026-11-04_01_30PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-04,21:30,DAL@SA,DAL,"Aldama,Santi",santi aldama,Doubtful,Injury/Illness-RightKneeSurgery,2026-11-04_02_00PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle,2026-11-04_02_00PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-04_02_00PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleInjury,2026-11-04_02_00PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Penda,Noah",noah penda,Out,Recovery Injury/Illness-RightPartiallyTorn,2026-11-04_02_00PM,2
+2026-11-04T14:00-05:00,2026-11-04T19:00+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Suggs,Jalen",jalen suggs,Out,Hamstring Injury/Illness-RightKneeContusion /BoneBruise,2026-11-04_02_00PM,2
+2026-11-04T14:15-05:00,2026-11-04T19:15+00:00,2026-11-04,22:30,MIA@LAC,MIA,"Gardner,Myron",myron gardner,Available,Injury/Illness-RightQuadriceps,2026-11-04_02_15PM,2
+2026-11-04T14:15-05:00,2026-11-04T19:15+00:00,2026-11-04,22:30,MIA@LAC,LAC,"Beal,Bradley",bradley beal,Out,Contusion Injury/Illness-RightKneeInjury Management,2026-11-04_02_15PM,2
+2026-11-04T14:15-05:00,2026-11-04T19:15+00:00,2026-11-04,,,MIA,,dru smith,Removed,,2026-11-04_02_15PM,2

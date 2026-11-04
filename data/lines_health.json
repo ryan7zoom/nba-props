@@ -1,5 +1,5 @@
 {
-  "run": "04/11/2026 23:30 GMT+8",
+  "run": "05/11/2026 03:48 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -11,21 +11,15 @@
     "OKC at MEM: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 6,
-  "events_listed": 94,
+  "events_listed": 95,
   "events_upcoming": 20,
   "games_with_lines": 14,
   "players_with_lines": 176,
-  "book_players_unmatched": 5,
-  "unmatched_examples": [
-    "alexandre sarr",
-    "cam johnson",
-    "coby white",
-    "kon knueppel",
-    "max strus"
-  ],
-  "requests_this_run": 19,
-  "games_reused_from_cache": 2,
-  "requests_left_today": 994,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 7,
+  "games_reused_from_cache": 14,
+  "requests_left_today": 978,
   "daily_limit": 1000,
-  "history_rows_added": 512
+  "history_rows_added": 0
 }
