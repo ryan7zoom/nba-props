@@ -1,13 +1,184 @@
 {
- "generated_utc": "2026-11-03T19:30Z",
+ "generated_utc": "2026-11-04T15:30Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-04",
    "markets": {
-    "pts": [],
+    "pts": [
+     {
+      "game_date": "2026-11-04",
+      "player": "Scoot Henderson",
+      "team": "POR",
+      "opp": "PHX",
+      "market": "pts",
+      "line": 13.5,
+      "book": "fanduel",
+      "price": -114,
+      "our_p": 0.689,
+      "market_p": 0.5,
+      "blend_p": 0.566,
+      "edge": 0.063,
+      "tipoff_utc": "2026-11-05T02:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        13.5,
+        -121
+       ],
+       [
+        "fanduel",
+        13.5,
+        -114
+       ]
+      ],
+      "mean": 11.12,
+      "p_play": 1.0,
+      "minutes": 25.0,
+      "event_id": "401909932",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T15:30Z"
+     },
+     {
+      "game_date": "2026-11-04",
+      "player": "Lauri Markkanen",
+      "team": "UTAH",
+      "opp": "NO",
+      "market": "pts",
+      "line": 21.5,
+      "book": "draftkings",
+      "price": -112,
+      "our_p": 0.677,
+      "market_p": 0.498,
+      "blend_p": 0.561,
+      "edge": 0.061,
+      "tipoff_utc": "2026-11-05T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        21.5,
+        -112
+       ],
+       [
+        "fanduel",
+        22.5,
+        -132
+       ]
+      ],
+      "mean": 18.45,
+      "p_play": 1.0,
+      "minutes": 28.2,
+      "event_id": "401909928",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T15:30Z"
+     },
+     {
+      "game_date": "2026-11-04",
+      "player": "Rui Hachimura",
+      "team": "LAC",
+      "opp": "MIA",
+      "market": "pts",
+      "line": 15.5,
+      "book": "draftkings",
+      "price": -119,
+      "our_p": 0.692,
+      "market_p": 0.512,
+      "blend_p": 0.575,
+      "edge": 0.059,
+      "tipoff_utc": "2026-11-05T03:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        15.5,
+        -119
+       ],
+       [
+        "fanduel",
+        15.5,
+        -125
+       ]
+      ],
+      "mean": 13.05,
+      "p_play": 1.0,
+      "minutes": 30.6,
+      "event_id": "401909935",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T15:30Z"
+     },
+     {
+      "game_date": "2026-11-04",
+      "player": "Andrew Nembhard",
+      "team": "IND",
+      "opp": "MEM",
+      "market": "pts",
+      "line": 18.5,
+      "book": "draftkings",
+      "price": -125,
+      "our_p": 0.702,
+      "market_p": 0.524,
+      "blend_p": 0.586,
+      "edge": 0.055,
+      "tipoff_utc": "2026-11-05T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        18.5,
+        -125
+       ],
+       [
+        "fanduel",
+        18.5,
+        -132
+       ]
+      ],
+      "mean": 15.39,
+      "p_play": 1.0,
+      "minutes": 32.9,
+      "event_id": "401909927",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T15:30Z"
+     }
+    ],
     "pra": [
+     {
+      "game_date": "2026-11-04",
+      "player": "Brayden Burries",
+      "team": "MIL",
+      "opp": "BOS",
+      "market": "pra",
+      "line": 18.5,
+      "book": "draftkings",
+      "price": -116,
+      "our_p": 0.7,
+      "market_p": 0.503,
+      "blend_p": 0.572,
+      "edge": 0.065,
+      "tipoff_utc": "2026-11-05T00:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        18.5,
+        -116
+       ],
+       [
+        "fanduel",
+        18.5,
+        -118
+       ]
+      ],
+      "mean": 15.13,
+      "p_play": 1.0,
+      "minutes": 20.3,
+      "event_id": "401909924",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-04T15:30Z"
+     },
      {
       "game_date": "2026-11-04",
       "player": "Cade Cunningham",
@@ -29,13 +200,13 @@
         -125
        ]
       ],
-      "mean": 33.75,
+      "mean": 33.69,
       "p_play": 1.0,
       "minutes": 32.2,
       "event_id": "401909922",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-03T19:30Z"
+      "logged_utc": "2026-11-04T15:30Z"
      }
     ]
    }
