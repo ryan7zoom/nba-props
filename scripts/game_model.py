@@ -20,18 +20,20 @@ FIT_SEASON, FIT_END = 2026, '2026-01-15'   # ESPN season_year 2026 = 2025-26
 
 # ---- builder settings ----
 N_SIM = 20000
-PTS_GAP, PRA_GAP = 6, 12          # lowest possible rung = main line minus this (search starts here, then goes up to the price band)
-LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.83, 0.75   # every leg must be priced 1.2 to 1.5 (chance 67-83%); the builder aims at 1.33 (75%)
-TEAM_TARGETS = (0.75,)             # chance level tried for each team/game line
+PTS_GAP, PRA_GAP = 6, 10          # lowest rung = main line minus this (points 6, PRA 10); the search goes up from there
+FLOOR_RA = 3                      # bookie's lowest rung for rebounds and for assists
+LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.80, 0.74   # every leg is priced 1.25 to 1.50 (chance 67-80%); the builder aims at about 1.35
+TEAM_TARGETS = (0.74,)             # chance level tried for each team/game line
 MIN_LEG = 0.70                     # a main-line Under joins the pool only when at least this likely
 FLOOR = 0.30                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
 MAX_LEGS = 3                       # 2 legs always (when two exist), a 3rd only above FLOOR
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
 PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team leg (you mostly bet player props)
-MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line that can be a builder leg
-MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5}   # same, for players with no DK/FD line (our own median is the anchor, flagged as an estimate)
+MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line (with a DK/FD line) that can be a builder leg
+MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5, 'reb': 3.5, 'ast': 3.5, 'pr': 12.5, 'pa': 12.5, 'ar': 6.5}   # same, for stats with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
-STATS = (('pts', PTS_GAP), ('pra', PRA_GAP))   # player legs: points or points+rebounds+assists, whichever rung lands closest to the target price
+STATS = ('pts', 'reb', 'ast', 'pr', 'pa', 'ar', 'pra')   # player legs: every stat is tried, the rung closest to the target price wins
+STAT_NAME = {'pts': 'pts', 'reb': 'reb', 'ast': 'ast', 'pr': 'P+R', 'pa': 'P+A', 'ar': 'A+R', 'pra': 'PRA'}
 STARTERS_ONLY = True              # builder player legs: only players who started at least 3 of their last 5 games (needs data/player_context_latest.json)
 PCTX = {}
 W_OURS = 0.35                     # share of OUR team model when a market total/spread exists (rest is the bookmakers'); provisional, same as the player-prop blend
@@ -43,8 +45,10 @@ TOT_GAP = 10                      # your bookie's alternate GAME totals reach 10
 SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7
 MIN_PLUS_CAP = 1.0                # a heavy favourite (own spread + 7 below this) gets no plus-spread leg at all
 MIN_SHOW = 2                       # always build at least this many legs
-RHO = {'pts': 0.23, 'pra': 0.25}   # player points follow own team's score (measured both seasons)
-BLOW = {'pts': -0.09, 'pra': -0.115}  # and drop in blowouts (per 10 pts of margin)
+# how strongly a player's stat follows his team's score and drops in blowouts. Points and PRA were measured on two seasons;
+# the others are careful guesses (smaller, because rebounds and assists depend less on team scoring) and have not been measured yet
+RHO = {'pts': 0.23, 'pra': 0.25, 'reb': 0.10, 'ast': 0.15, 'pr': 0.20, 'pa': 0.22, 'ar': 0.12}
+BLOW = {'pts': -0.09, 'pra': -0.115, 'reb': -0.05, 'ast': -0.05, 'pr': -0.08, 'pa': -0.08, 'ar': -0.06}
 
 
 def Phi(x):
@@ -273,9 +277,11 @@ def load_lines():
 
 
 def anchor(pl, line_rec, stat):
-    """Main line used to place the alternate ladder: the higher of the DK/FD main lines (so the rung surely exists), else our median (flagged est)."""
+    """Main line used as the anchor: the higher of the DK/FD main lines (so the rung surely exists), else our median (flagged est).
+    Only points and PRA have book lines in the feed; every other stat is an estimate."""
     est = True
     main = None
+    books = ''
     if line_rec and line_rec.get(stat) and line_rec[stat].get('m'):
         ls = [b[1] for b in line_rec[stat]['m'] if b[1] is not None]
         if ls:
@@ -286,6 +292,21 @@ def anchor(pl, line_rec, stat):
         main = math.floor(pl[stat]['p50']) + 0.5
         books = 'est. from our median'
     return main, est, books
+
+
+def k_floor(stat, main, est, k_pts):
+    """Lowest rung we assume the bookie offers for this stat."""
+    if stat == 'pts':
+        return max(1, int(math.floor(main) + 1 - PTS_GAP))
+    if stat in ('reb', 'ast'):
+        return FLOOR_RA
+    if stat == 'ar':
+        return 2 * FLOOR_RA
+    if stat in ('pr', 'pa'):
+        return k_pts + FLOOR_RA
+    if stat == 'pra':
+        return max(1, int(math.floor(main) + 1 - PRA_GAP)) if not est else k_pts + 2 * FLOOR_RA
+    return 1
 
 
 def cdf_draw(cdf, u):
@@ -382,18 +403,25 @@ def simulate_game(g, sm, st, c, players, lines, rng):
         zt = zH if pl['team'] == H else zA
         plays = rng.random(n) < pp
         e = rng.normal(0, 1, n)
+        lrec = lines.get((pl['name'], pl['team'], pl['game_date']))
+        if 'pts' not in pl:
+            continue
+        main_p, est_p, _ = anchor(pl, lrec, 'pts')
+        k_pts = max(1, int(math.floor(main_p) + 1 - PTS_GAP))     # points floor, also the base for the combos
         best = None
-        for stat, gap in STATS:
+        for stat in STATS:
+            if stat not in pl:
+                continue
             a, b = RHO[stat], BLOW[stat]
             s = sqrt(max(0.5, 1 - a * a - b * b))
             z = a * zt + b * zb + s * e
             u = ndtr(z)
             x = cdf_draw(pl[stat]['cdf'], u)
-            main, est, books = anchor(pl, lines.get((pl['name'], pl['team'], pl['game_date'])), stat)
+            main, est, books = anchor(pl, lrec, stat)
             if main < (MIN_MAIN_EST if est else MIN_MAIN)[stat]:
                 continue
-            k_low = max(1, int(math.floor(main) + 1 - gap))       # lowest rung we assume the bookie could offer
-            # walk up from the lowest rung and keep the one whose chance lands closest to the target price (inside the 1.2-1.5 band)
+            k_low = k_floor(stat, main, est, k_pts)               # lowest rung we assume the bookie could offer
+            # walk up from the lowest rung and keep the one whose chance lands closest to the target price (inside the 1.25-1.5 band)
             pick = None
             for k in range(k_low, int(math.floor(main)) + 1):
                 pk = float((plays & (x >= k)).mean())
@@ -401,7 +429,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                     break
                 if pk <= LEG_HI and (pick is None or abs(pk - LEG_TARGET) < abs(pick[1] - LEG_TARGET)):
                     pick = (k, pk)
-            nm = 'pts' if stat == 'pts' else 'PRA'
+            nm = STAT_NAME[stat]
             if pick is not None:
                 k_min = pick[0]
                 hit = plays & (x >= k_min)
