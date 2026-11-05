@@ -4267,3 +4267,22 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-05T17:15-05:00,2026-11-05T22:15+00:00,2026-11-06,20:00,UTAH@DAL,DAL,"deLarrea,Sergio",sergio delarrea,Out,Injury/Illness-RightKneeSprain,2026-11-05_05_15PM,2
 2026-11-05T17:15-05:00,2026-11-05T22:15+00:00,2026-11-06,20:00,UTAH@DAL,DAL,"LivelyII,Dereck",dereck lively,Out,Injury/Illness-RightFootSurgery,2026-11-05_05_15PM,2
 2026-11-05T17:15-05:00,2026-11-05T22:15+00:00,2026-11-06,20:00,UTAH@DAL,DAL,"Martin,Caleb",caleb martin,Available,Injury/Illness-RightThumbSplint,2026-11-05_05_15PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Bittle,Nate",nate bittle,Out,Injury/Illness-RightAvulsion,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Leonard,Kawhi",kawhi leonard,Out,Fracture Injury/Illness-LeftKneeInjury Management,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,TOR@MIL,TOR,"McCullarJr.,Kevin",kevin mccullar,Out,GLeague-Two-Way,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Smith,Malachi",malachi smith,Out,GLeague-Two-Way,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,UTAH@DAL,UTAH,"Alexander,Trey",trey alexander,Out,GLeague-Two-Way,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,UTAH@DAL,UTAH,"Ingram,Harrison",harrison ingram,Out,GLeague-Two-Way,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,UTAH@DAL,UTAH,"JacksonJr.,Jaren",jaren jackson,Out,Injury/Illness-RightMCLTear,2026-11-05_05_45PM,2
+2026-11-05T17:45-05:00,2026-11-05T22:45+00:00,2026-11-06,20:00,UTAH@DAL,UTAH,"Nurkic,Jusuf",jusuf nurkic,Out,Injury/Illness-Right2ndPlantar PlateTear,2026-11-05_05_45PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,19:30,PHI@CLE,CLE,"Watson,Peyton",peyton watson,Questionable,Injury/Illness-RightHamstringInjury,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,MIN@NO,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Management Injury/Illness-RightAchillesTendon,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,MIN@NO,MIN,"Edwards,Anthony",anthony edwards,Out,Repair/Surgery Injury/Illness-RightKnee Arthroscopy,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,MIN@NO,MIN,"ShannonJr,Terrence",terrence shannon,Questionable,Injury/Illness-LeftHipContusion,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,OKC@MEM,MEM,"PippenJr.,Scotty",scotty pippen,Out,Injury/Illness-LumbarDisc,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,OKC@MEM,MEM,"Stewart,Isaiah",isaiah stewart,Out,Herniation Injury/Illness-RightKneeBone,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Bittle,Nate",nate bittle,Out,Bruise Injury/Illness-RightAvulsion,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Jones,Kam",kam jones,Out,GLeague-Two-Way,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Markovic,Bogoljub",bogoljub markovic,Out,GLeague-OnAssignment,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Nance,Pete",pete nance,Out,GLeague-Two-Way,2026-11-05_06_00PM,2
+2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Ryan,Cormac",cormac ryan,Out,GLeague-Two-Way,2026-11-05_06_00PM,2
