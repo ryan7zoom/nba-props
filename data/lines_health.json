@@ -1,5 +1,5 @@
 {
-  "run": "05/11/2026 23:34 GMT+8",
+  "run": "06/11/2026 03:59 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -21,15 +21,15 @@
     "SA at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 16,
-  "events_listed": 115,
+  "events_listed": 80,
   "events_upcoming": 18,
   "games_with_lines": 2,
   "players_with_lines": 27,
   "book_players_unmatched": 0,
   "unmatched_examples": [],
-  "requests_this_run": 19,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 989,
+  "requests_this_run": 17,
+  "games_reused_from_cache": 2,
+  "requests_left_today": 945,
   "daily_limit": 1000,
-  "history_rows_added": 100
+  "history_rows_added": 0
 }

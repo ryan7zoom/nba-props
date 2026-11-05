@@ -1,10 +1,10 @@
 report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_norm,status,reason,file,norm_v
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleInjury,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Penda,Noah",noah penda,Out,Recovery Injury/Illness-RightPartiallyTorn,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Suggs,Jalen",jalen suggs,Out,Hamstring Injury/Illness-RightKneeContusion /BoneBruise,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,22:00,MIA@GS,GS,"ButlerIII,Jimmy",jimmy butler,Out,Injury/Illness-RightACLRepair/,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,22:00,MIA@GS,GS,"Moody,Moses",moses moody,Out,Surgery Injury/Illness-LeftPatellarTendon Repair/Surgery,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,22:00,MIA@GS,GS,"Porzingis,Kristaps",kristaps porzingis,Out,NotWithTeam,2026-11-05_10_30AM,2
-2026-11-05T10:30-05:00,2026-11-05T15:30+00:00,2026-11-05,22:00,MIA@GS,GS,"Santos,Gui",gui santos,Out,Injury/Illness-LeftKneeTendinitis,2026-11-05_10_30AM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleInjury,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Penda,Noah",noah penda,Out,Recovery Injury/Illness-RightPartiallyTorn,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,21:00,ORL@PHX,ORL,"Suggs,Jalen",jalen suggs,Out,Hamstring Injury/Illness-RightKneeContusion /BoneBruise,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,22:00,MIA@GS,GS,"ButlerIII,Jimmy",jimmy butler,Out,Injury/Illness-RightACLRepair/,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,22:00,MIA@GS,GS,"Moody,Moses",moses moody,Out,Surgery Injury/Illness-LeftPatellarTendon Repair/Surgery,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,22:00,MIA@GS,GS,"Porzingis,Kristaps",kristaps porzingis,Out,NotWithTeam,2026-11-05_02_45PM,2
+2026-11-05T14:45-05:00,2026-11-05T19:45+00:00,2026-11-05,22:00,MIA@GS,GS,"Santos,Gui",gui santos,Out,Injury/Illness-LeftKneeTendinitis,2026-11-05_02_45PM,2
