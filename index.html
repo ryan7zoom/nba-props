@@ -63,6 +63,8 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 .bl small{flex-basis:100%;color:var(--mute);font-size:14px}
 .gp{font-size:15px;margin-top:8px;color:var(--mute)}
 .gp b{color:var(--ink)}
+.lc{flex-basis:100%;font-size:14.5px;color:var(--mute);margin-top:2px}
+.lc b{color:var(--ink)}
 .ctx{font-size:15.5px;line-height:1.55;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px}
 .ctx div{margin:3px 0}
 .ctx b.l{font-weight:700}
@@ -98,7 +100,7 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 <p class="note" id="note"></p>
 </main>
 <script>
-var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,TC=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={fmt:"odds",stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
+var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,TC=null,PC=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={fmt:"odds",stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
 var MW=0.35,BET_MIN=0.03,BIG_GAP=0.12;
 function el(id){return document.getElementById(id)}
@@ -144,9 +146,14 @@ function ctxBlock(k){if(!TC||!TC[k])return"";var c=TC[k],h='<div class="ctx">';
    rest=rk(rest).replace(/= (very slow|very fast|slow|fast|average)/,"= <b>$1</b>");
    h+="<div"+(l.indexOf("Out:")>-1?' class="w"':"")+">"+(lab?'<b class="l">'+lab+":</b> ":"")+rest+"</div>"})});
  return h+'<div class="t m">Matchup</div><div>'+rk(c.matchup)+"</div></div>"}
+function legCtx(l,k){if(!l.id)return"";var pra=l.stat==="pra",u=pra?"PRA":"pts",v=function(x){return pra?x[3]+x[4]+x[5]:x[3]},h="",g=FM&&FM[l.id],c=PC&&PC[l.id+"|"+k];
+ if(g&&g.length){var vs=g.map(v),avg=vs.reduce(function(a,b){return a+b},0)/vs.length;h+='<div class="lc">Last '+g.length+' ('+u+'): '+g.map(function(x,i){return"<b>"+vs[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]}).join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
+ if(c){if(c.h.length)h+='<div class="lc">Against '+c.o+' (last '+c.h.length+'): '+c.h.map(function(x){return"<b>"+v(x)+"</b> "+u+", "+x[2]+" min, "+x[6]+"/"+x[7]+" FG ("+x[0].slice(3)+")"}).join(" \u00b7 ")+"</div>";else h+='<div class="lc">Against '+c.o+': no earlier game on record</div>';
+  h+='<div class="lc">Starter: started '+c.s+" of his last "+c.n+" games</div>"}
+ return h}
 function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder,p=G.proj,h='<div class="bd">';
  if(b.legs.length){var O=S.fmt==="odds";h+='<div class="bdh">Safest builder, all '+b.legs.length+' legs: <b>'+(O?'model odds '+od(b.all_hit):pct(b.all_hit)+' to hit')+'</b></div>';
-  b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="lg">'+(O?'model odds '+od(l.p)+' \u00b7 parlay without this leg '+od(b.without_leg[i]):pct(l.p)+' \u00b7 parlay without this leg '+pct(b.without_leg[i]))+'</span>'+(nt?'<small>'+nt+'</small>':'')+'</div>'});
+  b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="lg">'+(O?'model odds '+od(l.p)+' \u00b7 parlay without this leg '+od(b.without_leg[i]):pct(l.p)+' \u00b7 parlay without this leg '+pct(b.without_leg[i]))+'</span>'+(nt?'<small>'+nt+'</small>':'')+legCtx(l,k)+'</div>'});
   if(O)h+='<div class="gp">Model odds = 1 \u00f7 the model\u2019s chance. A bookie price above them is a better deal than the model expects; below them is worse.</div>'}
  else h+='<div class="bdh neg">No safe builder for this game yet (not enough lines or players).</div>';
  h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+od(p.home_win):G.away+' win '+od(1-p.home_win))+'</div>';
@@ -206,6 +213,7 @@ el("note").textContent="These chances are the model’s own, checked on last sea
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
 function loadCtx(){load(BASE+"team_context_latest.json").then(function(j){TC=j.games;render()}).catch(function(){TC=null})}
+function loadPC(){load(BASE+"player_context_latest.json").then(function(j){PC=j.players;render()}).catch(function(){PC=null})}
 function loadForm(){load(BASE+"form_latest.json").then(function(j){FM=j.players;render()}).catch(function(){FM=null})}
 function loadLines(){var n=el("lnote");
  load(BASE+"lines_latest.json").then(function(j){LN={};HASALT=false;j.players.forEach(function(p){LN[p.d+"|"+p.t+"|"+p.n]=p;if((p.pts&&p.pts.a&&p.pts.a.length)||(p.pra&&p.pra.a&&p.pra.a.length))HASALT=true});LNMETA=j;
@@ -218,7 +226,7 @@ function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Cou
 function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {id:p.id,n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
- loadLines();loadForm();loadGames();loadCtx();
+ loadLines();loadForm();loadGames();loadCtx();loadPC();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
 }).catch(function(e){fail(e.message)});
 </script>
