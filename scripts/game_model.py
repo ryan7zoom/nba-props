@@ -32,7 +32,9 @@ MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almo
 MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; lower it if your bookie offers legs on smaller lines)
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5}   # same, for players with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
-STATS = (('pts', PTS_GAP),)       # player legs: points only for now (PRA later)
+STATS = (('pts', PTS_GAP), ('pra', PRA_GAP))   # player legs: points or points+rebounds+assists, whichever is safer for that player
+STARTERS_ONLY = True              # builder player legs: only players who started at least 3 of their last 5 games (needs data/player_context_latest.json)
+PCTX = {}
 W_OURS = 0.35                     # share of OUR team model when a market total/spread exists (rest is the bookmakers'); provisional, same as the player-prop blend
 PACE_BAND = 4                     # market-blended total this far below / above the league average = slow / fast game
 TT_OVER_GAP, TT_UNDER_GAP = 20, 20  # your bookie's team-total alternates reach 20 points below (Over) and 20 above (Under) the main team total
@@ -378,6 +380,8 @@ def simulate_game(g, sm, st, c, players, lines, rng):
         pp = pl['p_play']
         if pp < 0.9 or pl['minutes']['mean'] < MIN_MINUTES:
             continue
+        if STARTERS_ONLY and PCTX and not (PCTX.get(f"{pl['id']}|{pl['event_id']}") or {}).get('st'):
+            continue
         zt = zH if pl['team'] == H else zA
         plays = rng.random(n) < pp
         e = rng.normal(0, 1, n)
@@ -396,7 +400,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
             nm = 'pts' if stat == 'pts' else 'PRA'
             cand = {'label': f"{pl['name']} {k_min}+ {nm}", 'family': f"pl_{pl['id']}", 'hit': hit, 'p': float(hit.mean()),
                     'note': ('line est. (no DK/FD line)' if est else f'main {main:g} ({books})'), 'kind': 'player',
-                    'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main}
+                    'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main, 'pid': pl['id']}
             if best is None or cand['p'] > best['p']:
                 best = cand
             if not est:
@@ -462,6 +466,11 @@ def project():
     for p in proj['players']:
         by_ev.setdefault(p['event_id'], []).append(p)
     lines = load_lines()
+    global PCTX
+    try:
+        PCTX = json.load(open(os.path.join(DATA, 'player_context_latest.json')))['players']
+    except Exception:
+        PCTX = {}
     gl = load_game_lines()
     lg_total = float(j[j.sy == last].eval('pts_h + pts_a').mean())
     sched = pd.read_csv(os.path.join(DATA, 'schedule.csv'), dtype=str)
@@ -485,7 +494,7 @@ def project():
                        'read': sim['pace'], 'market': g['market'] and {k: v for k, v in g['market'].items() if k in ('total', 'home_spread', 'src')}},
               'margin_lines': [{'team': H, 'line': -L, 'p': round(float((M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)]
                               + [{'team': A, 'line': -L, 'p': round(float((-M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)],
-              'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind']} for x in chosen],
+              'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind'], 'id': x.get('pid'), 'stat': x.get('stat')} for x in chosen],
                           'all_hit': round(joint, 3), 'without_leg': drop,
                           'players_in_play': len(players)},
               'unders': sorted([{'label': s['label'], 'p': round(s['p'], 3), 'note': s['note']} for s in singles if s['p'] >= 0.58],
@@ -507,6 +516,7 @@ def project():
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'both'
     if mode in ('backtest', 'both'):
+        project_mode = None
         backtest()
     if mode in ('project', 'both'):
         project()
