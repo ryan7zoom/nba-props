@@ -516,7 +516,6 @@ def project():
 if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'both'
     if mode in ('backtest', 'both'):
-        project_mode = None
         backtest()
     if mode in ('project', 'both'):
         project()
