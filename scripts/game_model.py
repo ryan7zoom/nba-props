@@ -1,4 +1,4 @@
-"""Game model: team scores, margin, total, win chance, and the safest bet-builder pool per game.
+"""Game model: team scores, margin, total, win chance, and the bet-builder pool per game.
 
 Modes:  python scripts/game_model.py backtest   (walk-forward test on 2025-26, writes data/team_backtest.json)
         python scripts/game_model.py project    (writes data/games_latest.json for upcoming games)
@@ -20,19 +20,18 @@ FIT_SEASON, FIT_END = 2026, '2026-01-15'   # ESPN season_year 2026 = 2025-26
 
 # ---- builder settings ----
 N_SIM = 20000
-PTS_GAP, PRA_GAP = 6, 12          # how far below the main line the bookie's alternate Overs go
-TEAM_TARGETS = (0.85,)              # chance level tried for each team/game line (about the "Wizards +15" kind of leg)
-MIN_LEG = 0.70                     # a team or game leg must be at least this likely on its own
-FLOOR = 0.60                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
+PTS_GAP, PRA_GAP = 6, 12          # lowest possible rung = main line minus this (search starts here, then goes up to the price band)
+LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.83, 0.75   # every leg must be priced 1.2 to 1.5 (chance 67-83%); the builder aims at 1.33 (75%)
+TEAM_TARGETS = (0.75,)             # chance level tried for each team/game line
+MIN_LEG = 0.70                     # a main-line Under joins the pool only when at least this likely
+FLOOR = 0.30                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
 MAX_LEGS = 3                       # 2 legs always (when two exist), a 3rd only above FLOOR
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
 PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team leg (you mostly bet player props)
-MIN_LEG_PLAYER = 0.70              # player points legs at the bookie's lowest rung are rarely above 85%, so allow a bit lower
-MAX_LEG_P = 0.97                   # skip legs so safe the bookie would pay almost nothing
-MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main points line that can be a builder leg (9.5 keeps Sarr 5+; lower it if your bookie offers legs on smaller lines)
+MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line that can be a builder leg
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5}   # same, for players with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
-STATS = (('pts', PTS_GAP), ('pra', PRA_GAP))   # player legs: points or points+rebounds+assists, whichever is safer for that player
+STATS = (('pts', PTS_GAP), ('pra', PRA_GAP))   # player legs: points or points+rebounds+assists, whichever rung lands closest to the target price
 STARTERS_ONLY = True              # builder player legs: only players who started at least 3 of their last 5 games (needs data/player_context_latest.json)
 PCTX = {}
 W_OURS = 0.35                     # share of OUR team model when a market total/spread exists (rest is the bookmakers'); provisional, same as the player-prop blend
@@ -41,8 +40,8 @@ TT_OVER_GAP, TT_UNDER_GAP = 20, 20  # your bookie's team-total alternates reach 
 MIN_MINUTES = 20                  # players projected under this many minutes are not used for legs
 TT_GAP = 20                       # same 20-point reach when there is no market team total (measured from our own projection)
 TOT_GAP = 10                      # your bookie's alternate GAME totals reach 10 points below (Over) and 10 above (Under) the main total
-SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7 (your bookie gives 7 to 10; 7 is the sure end): UTAH +6.5 -> +13.5, CHI +13.5 -> +20.5, a -2.5 favourite -> +4.5
-MIN_PLUS_CAP = 1.0                # a heavy favourite (own spread + 7 below this, e.g. POR -6.5 -> +0.5) gets no plus-spread leg at all
+SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7
+MIN_PLUS_CAP = 1.0                # a heavy favourite (own spread + 7 below this) gets no plus-spread leg at all
 MIN_SHOW = 2                       # always build at least this many legs
 RHO = {'pts': 0.23, 'pra': 0.25}   # player points follow own team's score (measured both seasons)
 BLOW = {'pts': -0.09, 'pra': -0.115}  # and drop in blowouts (per 10 pts of margin)
@@ -327,7 +326,6 @@ def simulate_game(g, sm, st, c, players, lines, rng):
     # spreads (team plus / minus), one rung per target chance
     anc_m = mk_m if mk_m is not None else mu_m
     for tm, mg, tmu in ((H, M, anc_m), (A, -M, -anc_m)):
-        # bookie's highest alternate = the team's own spread + 7; a heavy favourite ends up with no plus lines at all
         cap = round((SPREAD_GAP - tmu) * 2) / 2
         if cap < MIN_PLUS_CAP:
             continue
@@ -341,8 +339,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
     # moneyline
     for tm, mg in ((H, M), (A, -M)):
         add(f'{tm} to win', f'spread_{tm}', mg > 0, 'moneyline' + (' \u00b7 ' + ctx if ctx else ''))
-    # game total: Over from the lowest alternate up, Under from the highest alternate down.
-    # Slow game (market total well under the league average): no Overs. Fast game: no Unders.
+    # game total
     anc_t = mk_t if mk_t is not None else mu_t
     for tgt in TEAM_TARGETS:
         if pace != 'slow':
@@ -357,7 +354,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 if (T < xx).mean() <= tgt + 1e-9:
                     add(f'Game total under {xx:g}', 'total', T < xx, ctx)
                     break
-    # team totals, ladder placed from the market's own team total (total and spread) when we have it
+    # team totals
     for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
         anc = (mk_t / 2 + sign * mk_m / 2) if (mk_t is not None and mk_m is not None) else mu
         o_gap, u_gap = (TT_OVER_GAP, TT_UNDER_GAP) if (mk_t is not None and mk_m is not None) else (TT_GAP, TT_GAP)
@@ -395,14 +392,24 @@ def simulate_game(g, sm, st, c, players, lines, rng):
             main, est, books = anchor(pl, lines.get((pl['name'], pl['team'], pl['game_date'])), stat)
             if main < (MIN_MAIN_EST if est else MIN_MAIN)[stat]:
                 continue
-            k_min = max(1, int(math.floor(main) + 1 - gap))       # lowest "N+" the bookie offers
-            hit = plays & (x >= k_min)
+            k_low = max(1, int(math.floor(main) + 1 - gap))       # lowest rung we assume the bookie could offer
+            # walk up from the lowest rung and keep the one whose chance lands closest to the target price (inside the 1.2-1.5 band)
+            pick = None
+            for k in range(k_low, int(math.floor(main)) + 1):
+                pk = float((plays & (x >= k)).mean())
+                if pk < LEG_LO:
+                    break
+                if pk <= LEG_HI and (pick is None or abs(pk - LEG_TARGET) < abs(pick[1] - LEG_TARGET)):
+                    pick = (k, pk)
             nm = 'pts' if stat == 'pts' else 'PRA'
-            cand = {'label': f"{pl['name']} {k_min}+ {nm}", 'family': f"pl_{pl['id']}", 'hit': hit, 'p': float(hit.mean()),
-                    'note': ('line est. (no DK/FD line)' if est else f'main {main:g} ({books})'), 'kind': 'player',
-                    'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main, 'pid': pl['id']}
-            if best is None or cand['p'] > best['p']:
-                best = cand
+            if pick is not None:
+                k_min = pick[0]
+                hit = plays & (x >= k_min)
+                cand = {'label': f"{pl['name']} {k_min}+ {nm}", 'family': f"pl_{pl['id']}", 'hit': hit, 'p': float(hit.mean()),
+                        'note': ('line est. (no DK/FD line)' if est else f'main {main:g} ({books})'), 'kind': 'player',
+                        'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main, 'pid': pl['id']}
+                if best is None or abs(cand['p'] - LEG_TARGET) < abs(best['p'] - LEG_TARGET):
+                    best = cand
             if not est:
                 pu = float((plays & (x <= math.floor(main))).mean())   # Under needs the player to play too (conservative)
                 singles.append({'label': f"{pl['name']} UNDER {main:g} {nm}", 'p': pu, 'note': f'main line only ({books})',
@@ -413,12 +420,12 @@ def simulate_game(g, sm, st, c, players, lines, rng):
 
 
 def pick_pool(cands, singles):
-    # unders at the main line may join the pool when really strong
+    # unders at the main line may join the pool when strong
     for s in singles:
         if s['p'] >= MIN_LEG:
             cands.append({'label': s['label'], 'family': 'pl_u_' + s['player'], 'hit': s['hit'], 'p': s['p'],
                           'note': s['note'], 'kind': 'player_under'})
-    pool = [c for c in cands if (MIN_LEG_PLAYER if c['kind'] != 'team' else MIN_LEG) <= c['p'] <= MAX_LEG_P]
+    pool = [c for c in cands if LEG_LO <= c['p'] <= LEG_HI]
     if not pool:
         return [], 0.0, []
     chosen, used = [], set()
@@ -430,7 +437,7 @@ def pick_pool(cands, singles):
             if c['family'] in used or (c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS):
                 continue
             pj = float((joint & c['hit']).mean())
-            score = pj + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
+            score = -abs(c['p'] - LEG_TARGET) + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
             if best is None or score > best[0]:
                 best = (score, pj, c)
         if best is None or (best[1] < FLOOR and len(chosen) >= MIN_SHOW):
@@ -504,7 +511,7 @@ def project():
            'generated_epoch': int(time.time()),
            'sigma_margin': round(sm, 2), 'sigma_total': round(st, 2), 'total_scale': round(c, 4),
            'league_avg_total': round(lg_total, 1), 'games_with_market': sum(1 for x in games if x['proj']['market']),
-           'settings': {'floor': FLOOR, 'min_leg': MIN_LEG, 'pts_gap': PTS_GAP, 'pra_gap': PRA_GAP},
+           'settings': {'floor': FLOOR, 'leg_lo': LEG_LO, 'leg_hi': LEG_HI, 'leg_target': LEG_TARGET, 'pts_gap': PTS_GAP, 'pra_gap': PRA_GAP},
            'games': games}
     with open(os.path.join(DATA, 'games_latest.json'), 'w') as f:
         json.dump(out, f, separators=(',', ':'))
