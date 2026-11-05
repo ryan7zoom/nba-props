@@ -4286,3 +4286,9 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Markovic,Bogoljub",bogoljub markovic,Out,GLeague-OnAssignment,2026-11-05_06_00PM,2
 2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Nance,Pete",pete nance,Out,GLeague-Two-Way,2026-11-05_06_00PM,2
 2026-11-05T18:00-05:00,2026-11-05T23:00+00:00,2026-11-06,20:00,TOR@MIL,MIL,"Ryan,Cormac",cormac ryan,Out,GLeague-Two-Way,2026-11-05_06_00PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Holmgren,Chet",chet holmgren,Out,Injury/Illness-RightKnee/Injury Recovery,2026-11-05_06_15PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Sorber,Thomas",thomas sorber,Out,Injury/Illness-RightKneeSurgery,2026-11-05_06_15PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Topic,Nikola",nikola topic,Out,Injury/Illness-LowBackSurgery,2026-11-05_06_15PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Wallace,Cason",cason wallace,Out,Injury/Illness-LeftShoulderSurgery,2026-11-05_06_15PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Williams,Jalen",jalen williams,Out,Injury/Illness-LeftAnkleSurgery,2026-11-05_06_15PM,2
+2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Williams,Jaylin",jaylin williams,Out,Injury/Illness-LowbackSpasms,2026-11-05_06_15PM,2
