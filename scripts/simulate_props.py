@@ -30,6 +30,9 @@ Modes
             data/sim_health.json. Exits with an error if anything is wrong.
   both      backtest, then project.
 
+projections_latest.json now also carries chance tables (cdf) for rebounds, assists,
+points+rebounds (pr), points+assists (pa) and assists+rebounds (ar), next to points and PRA.
+
 Needs numpy. Reads the files made by update_data.py, baseline_rates.py and minutes_model.py.
 """
 import argparse
@@ -80,6 +83,7 @@ REQUIRED_COLS = ["game_date_et", "event_id", "team", "opp", "home", "athlete_id"
                  "status_source", "p_play", "proj_min", "p05", "p10", "p25", "p50", "p75", "p90", "p95"]
 LINE_OFFSETS = (0.0, 0.35, -0.35)   # test lines: near the median, and a bit above / below it
 CDF_DONE = 0.9999
+EXTRA_STATS = ("reb", "ast", "pr", "pa", "ar")   # chance tables written for the bet builder, besides pts and pra
 
 
 GMT8 = timezone(timedelta(hours=8))   # China time, for every time stamp people read
@@ -202,7 +206,7 @@ def nb_counts(mu, phi, rng):
 
 
 def simulate(q7, mean_min, rates, P, n, rng, point_minutes=False):
-    """Draws for a batch of player-games. Returns pts, reb, ast, pra, min as (batch, n) arrays."""
+    """Draws for a batch of player-games. Returns pts, reb, ast, pra, pr, pa, ar, min as (batch, n) arrays."""
     mean_min = np.asarray(mean_min, dtype=float)
     if point_minutes:
         m = np.repeat(mean_min[:, None], n, axis=1)
@@ -221,6 +225,9 @@ def simulate(q7, mean_min, rates, P, n, rng, point_minutes=False):
             cnt = nb_counts(mu, P["phi"][s], rng)
         out[name] = cnt
     out["pra"] = out["pts"] + out["reb"] + out["ast"]
+    out["pr"] = out["pts"] + out["reb"]
+    out["pa"] = out["pts"] + out["ast"]
+    out["ar"] = out["ast"] + out["reb"]
     out["min"] = m
     return out
 
@@ -712,6 +719,11 @@ def run_project(rows):
             for s in ("reb", "ast"):
                 rec[f"{s}_mean"] = round(float(d[s][i].mean()), 2)
                 js[f"{s}_mean"] = rec[f"{s}_mean"]
+            for s in EXTRA_STATS:          # chance tables for the bet builder (rebounds, assists, P+R, P+A, A+R)
+                x = d[s][i]
+                qs = np.quantile(x, [0.10, 0.50, 0.90])
+                js[s] = {"mean": round(float(x.mean()), 2), "p10": float(qs[0]), "p50": float(qs[1]), "p90": float(qs[2]),
+                         "cdf": cdf_table(x, N_PROJECT)}
             dpts, dreb, dast = (float(x) for x in dfx[i])
             rec.update({"opp_defense_pts_pct": round(dpts * 100, 1), "opp_defense_reb_pct": round(dreb * 100, 1),
                         "opp_defense_ast_pct": round(dast * 100, 1)})
