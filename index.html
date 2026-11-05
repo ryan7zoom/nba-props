@@ -33,8 +33,7 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 .gm>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .gm .cnt{margin-left:auto;font-weight:400;font-size:14px;color:var(--mute)}
 .gm[open]>summary{margin-bottom:8px}
-.l5{font-size:14.5px;margin-top:4px;color:var(--mute)}
-.l5 b{color:var(--ink);font-weight:650}
+.l5{margin-top:4px}
 .p{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin:0 0 8px;display:grid;grid-template-columns:1fr auto;gap:3px 12px;align-items:center}
 .nm{font-weight:700;font-size:18px}
 .meta{color:var(--mute);font-size:14.5px}
@@ -59,25 +58,36 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 .bd{background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:12px 14px;margin:0 0 10px}
 .bdh{font-size:17px;margin-bottom:6px}
 .bdh b{color:var(--accent);font-size:20px}
-.bl{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 10px;font-size:16px;padding:6px 0;border-top:1px solid var(--line)}
+.bl{display:flex;flex-wrap:wrap;justify-content:space-between;gap:3px 10px;font-size:16px;padding:8px 0;border-top:1px solid var(--line)}
+.bl>span:first-child{font-weight:700;font-size:17px}
 .bl small{flex-basis:100%;color:var(--mute);font-size:14px}
 .gp{font-size:15px;margin-top:8px;color:var(--mute)}
 .gp b{color:var(--ink)}
-.lc{flex-basis:100%;font-size:14.5px;color:var(--mute);margin-top:2px}
-.lc b{color:var(--ink)}
-.ctx{font-size:15.5px;line-height:1.55;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px}
-.ctx div{margin:3px 0}
-.ctx b.l{font-weight:700}
-.ctx div.t{font-size:18px;font-weight:700;margin:12px 0 5px;padding-bottom:3px;border-bottom:2px solid var(--line)}
+.lc{flex-basis:100%;margin-top:4px}
+.lr{display:grid;grid-template-columns:78px 1fr;gap:2px 8px;align-items:baseline;margin:3px 0}
+.lk{font-size:12.5px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.03em}
+.c{display:inline-block;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:1px 8px;margin:2px 5px 2px 0;font-size:14px;color:var(--mute);font-variant-numeric:tabular-nums}
+.c b{color:var(--ink);font-size:16px}
+.av{display:inline-block;font-size:14px;color:var(--mute);margin-left:2px}
+.av b{color:var(--accent);font-size:16px}
+.st{display:inline-block;font-size:14px;font-weight:650;padding:1px 9px;border-radius:999px;background:var(--green-bg);color:var(--green)}
+.st.lo{background:var(--warn-bg);color:var(--warn)}
+.ctx{font-size:15.5px;line-height:1.5;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.ctx .r{display:grid;grid-template-columns:106px 1fr;gap:2px 10px;margin:5px 0}
+.ctx .r .l{color:var(--mute);font-weight:650;font-size:14px;padding-top:1px}
+.ctx .r.w .l,.ctx .r.w .v{color:var(--bad);font-weight:650}
+.ctx .s2{display:block;color:var(--mute);font-size:14.5px;margin-top:1px}
+.ctx .src{color:var(--mute);font-weight:400;font-size:13.5px}
+.ctx div.t{font-size:18px;font-weight:700;margin:14px 0 5px;padding-bottom:3px;border-bottom:2px solid var(--line)}
 .ctx div.t:first-child{margin-top:0}
 .ctx div.t.a{color:var(--blue);border-color:var(--blue)}
 .ctx div.t.h{color:var(--accent);border-color:var(--accent)}
 .ctx div.t.m{color:var(--ink)}
-.ctx div.w{color:var(--bad);font-weight:650}
 .rk{font-weight:700;padding:0 6px;border-radius:5px;white-space:nowrap}
 .rk.g{color:var(--green);background:var(--green-bg)}
 .rk.r{color:var(--bad);background:var(--bad-bg)}
 .rk.y{color:var(--warn);background:var(--warn-bg)}
+@media(max-width:520px){.ctx .r{grid-template-columns:86px 1fr}.lr{grid-template-columns:62px 1fr}}
 </style>
 </head>
 <body>
@@ -136,21 +146,32 @@ function lineBlock(p){if(!LN)return"";var e=lineOf(p);if(!e)return'<div class="l
  var best=null;E.m.concat(E.a).forEach(function(r){if(r[2]==null)return;var q=probs(c,r[1]);if(q.o<S.conf-1e-9)return;if(!best||r[1]>best.L||(r[1]===best.L&&dec(r[2])>dec(best.a)))best={L:r[1],a:r[2],b:r[0],p:q.o}});
  if(best&&HASALT)h+='<div class="ln alt">For a builder: <b>Over '+best.L.toFixed(1)+" "+px(best.a)+"</b> ("+bk(best.b)+") \u00b7 ours "+od(best.p)+", bookie pays "+dec(best.a).toFixed(2)+"</div>";
  else if(HASALT)h+='<div class="ln neg">No priced Over reaches '+pct(S.conf)+"</div>";return h}
-function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5">Last 5: no games on record</div>';
- var vals=g.map(function(x){return S.stat==="pts"?x[3]:x[3]+x[4]+x[5]});var avg=vals.reduce(function(a,b){return a+b},0)/vals.length;
- var parts=g.map(function(x,i){return"<b>"+vals[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]});
- return '<div class="l5">Last '+g.length+" ("+(S.stat==="pts"?"pts":"PRA")+"): "+parts.join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
+function chipRow(label,html){return '<div class="lr"><span class="lk">'+label+'</span><span>'+html+'</span></div>'}
+function lastChips(g,v,u){var vs=g.map(v),avg=vs.reduce(function(a,b){return a+b},0)/vs.length;
+ return chipRow("Last "+g.length,g.map(function(x,i){return'<span class="c"><b>'+vs[i]+'</b> '+(x[2]?"vs ":"at ")+x[1]+'</span>'}).join("")+'<span class="av">avg <b>'+avg.toFixed(1)+'</b> '+u+'</span>')}
+function l5Line(p){if(!FM)return"";var g=FM[p.id];if(!g||!g.length)return'<div class="l5 meta">Last 5: no games on record</div>';
+ var pts=S.stat==="pts";return '<div class="l5">'+lastChips(g,function(x){return pts?x[3]:x[3]+x[4]+x[5]},pts?"pts":"PRA")+'</div>'}
+function tidy(l){return l.replace(/ \(a possession = one trip down the court\)/,"").replace(/ \(lower is better\)/,"").replace(/\(league average ([\d.]+)\)/,"\u00b7 league avg $1").replace(/ possessions a game/," possessions/game").replace(/ points per 100 possessions/g," pts per 100").replace(/ per 100 possessions/g," per 100")}
+function ctxRow(lab,rest,cls){return '<div class="r'+(cls?" "+cls:"")+'"><span class="l">'+lab+'</span><span class="v">'+rest+'</span></div>'}
+function ctxRest(r){var sn=r.split(". ");var o=sn[0];for(var i=1;i<sn.length;i++)o+='<span class="s2">'+sn[i]+'</span>';return o}
 function ctxBlock(k){if(!TC||!TC[k])return"";var c=TC[k],h='<div class="ctx">';
  ["away","home"].forEach(function(s){var t=c[s];if(!t)return;h+='<div class="t '+(s==="home"?"h":"a")+'">'+t.team+" ("+s+")</div>";
-  t.lines.forEach(function(l){var i=l.indexOf(": "),lab="",rest=l;if(i>0&&i<26&&l.charAt(0)!=="("){lab=l.slice(0,i);rest=l.slice(i+2)}
+  t.lines.forEach(function(l){
+   var m=l.match(/^Injury list(?: \(([^)]*)\))?: (.*)$/);
+   if(m){h+=ctxRow("Injuries",m[2]+(m[1]?' <span class="src">('+m[1]+')</span>':""),"w");return}
+   l=tidy(l);
+   if(/^Home /.test(l)){var ps=l.split(" \u00b7 "),rs=ps.length>2?ps.pop():"";
+    h+=ctxRow("Home / road",ps.join(" \u00b7 ").replace(" (this season)",""));if(rs)h+=ctxRow("Rest",rs);return}
+   var i=l.indexOf(": "),lab="",rest=l;if(i>0&&i<26&&l.charAt(0)!=="("){lab=l.slice(0,i);rest=l.slice(i+2)}
    rest=rk(rest).replace(/= (very slow|very fast|slow|fast|average)/,"= <b>$1</b>");
-   h+="<div"+(l.indexOf("Out:")>-1?' class="w"':"")+">"+(lab?'<b class="l">'+lab+":</b> ":"")+rest+"</div>"})});
+   h+=ctxRow(lab,ctxRest(rest),l.indexOf("Out:")>-1?"w":"")})});
  return h+'<div class="t m">Matchup</div><div>'+rk(c.matchup)+"</div></div>"}
 function legCtx(l,k){if(!l.id)return"";var pra=l.stat==="pra",u=pra?"PRA":"pts",v=function(x){return pra?x[3]+x[4]+x[5]:x[3]},h="",g=FM&&FM[l.id],c=PC&&PC[l.id+"|"+k];
- if(g&&g.length){var vs=g.map(v),avg=vs.reduce(function(a,b){return a+b},0)/vs.length;h+='<div class="lc">Last '+g.length+' ('+u+'): '+g.map(function(x,i){return"<b>"+vs[i]+"</b> "+(x[2]?"vs ":"at ")+x[1]}).join(" \u00b7 ")+" \u00b7 avg <b>"+avg.toFixed(1)+"</b></div>"}
- if(c){if(c.h.length)h+='<div class="lc">Against '+c.o+' (last '+c.h.length+'): '+c.h.map(function(x){return"<b>"+v(x)+"</b> "+u+", "+x[2]+" min, "+x[6]+"/"+x[7]+" FG ("+x[0].slice(3)+")"}).join(" \u00b7 ")+"</div>";else h+='<div class="lc">Against '+c.o+': no earlier game on record</div>';
-  h+='<div class="lc">Starter: started '+c.s+" of his last "+c.n+" games</div>"}
- return h}
+ if(g&&g.length)h+=lastChips(g,v,u);
+ if(c){if(c.h.length)h+=chipRow("Vs "+c.o,c.h.map(function(x){return'<span class="c"><b>'+v(x)+'</b> '+u+' \u00b7 '+x[2]+' min \u00b7 '+x[6]+'/'+x[7]+' FG \u00b7 '+x[0].slice(3)+'</span>'}).join(""));
+  else h+=chipRow("Vs "+c.o,'<span class="av">no earlier game on record</span>');
+  h+=chipRow("Starter",'<span class="st'+(c.s>=4?"":" lo")+'">started '+c.s+" of last "+c.n+"</span>")}
+ return h?'<div class="lc">'+h+'</div>':""}
 function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder,p=G.proj,h='<div class="bd">';
  if(b.legs.length){var O=S.fmt==="odds";h+='<div class="bdh">Safest builder, all '+b.legs.length+' legs: <b>'+(O?'model odds '+od(b.all_hit):pct(b.all_hit)+' to hit')+'</b></div>';
   b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?l.note+" \u00b7 check your bookie\u2019s number":l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="lg">'+(O?'model odds '+od(l.p)+' \u00b7 parlay without this leg '+od(b.without_leg[i]):pct(l.p)+' \u00b7 parlay without this leg '+pct(b.without_leg[i]))+'</span>'+(nt?'<small>'+nt+'</small>':'')+legCtx(l,k)+'</div>'});
@@ -209,7 +230,7 @@ function fresh(){var age=(Date.now()/1000-D.epoch)/3600,b=el("fresh");
 el("q").oninput=function(){S.q=this.value;render()};
 theme(T0);el("theme").onclick=function(){theme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")};
 el("sub").textContent="For every player: the Over line and the Under line that each reach the chance you pick.";
-el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own odds with its margin removed (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line; for builders use the Over lines. The chance assumes the player plays; “plays 85%” shows how likely that is. The safest builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Player legs sit 6 points (points) or 12 points (PRA) below the main line, which is how far your bookie goes; legs marked \u201cline est.\u201d use our own number because no DK/FD line was posted, so check your bookie\u2019s real line. Team and total legs are set at about 85% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; its chances held up on last season\u2019s games, but the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
+el("note").textContent="These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own odds with its margin removed (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line. The chance assumes the player plays; “plays 85%” shows how likely that is. The builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Builder legs are starters only. Each player leg uses the rung (points or PRA) whose price is closest to 1.33, always between 1.2 and 1.5; the rung is assumed to exist at your bookie, so check the real number. Legs marked “line est.” use our own number because no DK/FD line was posted. Team and total legs are set at about 75% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.";
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
 function loadCtx(){load(BASE+"team_context_latest.json").then(function(j){TC=j.games;render()}).catch(function(){TC=null})}
