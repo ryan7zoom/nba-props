@@ -1,232 +1,46 @@
 {
- "generated_utc": "2026-11-04T21:44Z",
+ "generated_utc": "2026-11-05T15:34Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-04",
+   "game_date": "2026-11-05",
    "markets": {
-    "pts": [
-     {
-      "game_date": "2026-11-04",
-      "player": "Andrew Nembhard",
-      "team": "IND",
-      "opp": "MEM",
-      "market": "pts",
-      "line": 18.5,
-      "book": "draftkings",
-      "price": -125,
-      "our_p": 0.701,
-      "market_p": 0.524,
-      "blend_p": 0.586,
-      "edge": 0.055,
-      "tipoff_utc": "2026-11-05T01:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "draftkings",
-        18.5,
-        -125
-       ],
-       [
-        "fanduel",
-        18.5,
-        -132
-       ]
-      ],
-      "mean": 15.45,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-04",
-      "player": "Lauri Markkanen",
-      "team": "UTAH",
-      "opp": "NO",
-      "market": "pts",
-      "line": 21.5,
-      "book": "draftkings",
-      "price": -112,
-      "our_p": 0.681,
-      "market_p": 0.498,
-      "blend_p": 0.562,
-      "edge": 0.064,
-      "tipoff_utc": "2026-11-05T01:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -112
-       ],
-       [
-        "fanduel",
-        22.5,
-        -132
-       ]
-      ],
-      "mean": 18.36,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-04",
-      "player": "Rui Hachimura",
-      "team": "LAC",
-      "opp": "MIA",
-      "market": "pts",
-      "line": 15.5,
-      "book": "draftkings",
-      "price": -119,
-      "our_p": 0.685,
-      "market_p": 0.512,
-      "blend_p": 0.573,
-      "edge": 0.054,
-      "tipoff_utc": "2026-11-05T03:30Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "draftkings",
-        15.5,
-        -119
-       ],
-       [
-        "fanduel",
-        15.5,
-        -125
-       ]
-      ],
-      "mean": 13.02,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-04",
-      "player": "Scoot Henderson",
-      "team": "POR",
-      "opp": "PHX",
-      "market": "pts",
-      "line": 13.5,
-      "book": "fanduel",
-      "price": -114,
-      "our_p": 0.686,
-      "market_p": 0.5,
-      "blend_p": 0.565,
-      "edge": 0.061,
-      "tipoff_utc": "2026-11-05T02:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "draftkings",
-        13.5,
-        -121
-       ],
-       [
-        "fanduel",
-        13.5,
-        -114
-       ]
-      ],
-      "mean": 11.2,
-      "p_play": 1.0,
-      "locked": true
-     }
-    ],
+    "pts": [],
     "pra": [
      {
-      "game_date": "2026-11-04",
-      "player": "Brayden Burries",
-      "team": "MIL",
-      "opp": "BOS",
+      "game_date": "2026-11-05",
+      "player": "Oso Ighodaro",
+      "team": "PHX",
+      "opp": "ORL",
       "market": "pra",
-      "line": 18.5,
+      "line": 15.5,
       "book": "draftkings",
-      "price": -116,
-      "our_p": 0.701,
-      "market_p": 0.503,
-      "blend_p": 0.572,
-      "edge": 0.066,
-      "tipoff_utc": "2026-11-05T00:30Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
+      "price": -123,
+      "our_p": 0.657,
+      "market_p": 0.516,
+      "blend_p": 0.566,
+      "edge": 0.025,
+      "tipoff_utc": "2026-11-06T02:00Z",
       "all_lines": [
        [
         "draftkings",
-        18.5,
-        -116
+        15.5,
+        -123
        ],
        [
         "fanduel",
-        18.5,
-        -118
+        15.5,
+        -130
        ]
       ],
-      "mean": 15.11,
+      "mean": 13.5,
       "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-04",
-      "player": "Cade Cunningham",
-      "team": "DET",
-      "opp": "PHI",
-      "market": "pra",
-      "line": 38.5,
-      "book": "fanduel",
-      "price": -125,
-      "our_p": 0.695,
-      "market_p": 0.519,
-      "blend_p": 0.581,
-      "edge": 0.045,
-      "tipoff_utc": "2026-11-05T00:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "fanduel",
-        38.5,
-        -125
-       ]
-      ],
-      "mean": 33.74,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-04",
-      "player": "Scoot Henderson",
-      "team": "POR",
-      "opp": "PHX",
-      "market": "pra",
-      "line": 19.5,
-      "book": "fanduel",
-      "price": -112,
-      "our_p": 0.689,
-      "market_p": 0.494,
-      "blend_p": 0.562,
-      "edge": 0.064,
-      "tipoff_utc": "2026-11-05T02:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-04T21:08Z",
-      "all_lines": [
-       [
-        "draftkings",
-        19.5,
-        -118
-       ],
-       [
-        "fanduel",
-        19.5,
-        -112
-       ]
-      ],
-      "mean": 16.52,
-      "p_play": 1.0,
-      "locked": true
+      "minutes": 21.7,
+      "event_id": "401909936",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-05T15:34Z"
      }
     ]
    }
