@@ -66,6 +66,9 @@ jobs:
       - name: Team context (ratings, form, rest, injuries)
         if: always()
         run: python scripts/team_context.py
+      - name: Player context (starters, games against tonight's opponent)
+        if: always()
+        run: python scripts/player_context.py
       - name: Fetch sportsbook lines
         if: always()
         env:
