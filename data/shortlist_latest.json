@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-06T19:27Z",
+ "generated_utc": "2026-11-06T22:28Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-06",
@@ -16,10 +16,10 @@
       "line": 27.5,
       "book": "draftkings",
       "price": -123,
-      "our_p": 0.721,
+      "our_p": 0.718,
       "market_p": 0.521,
-      "blend_p": 0.591,
-      "edge": 0.071,
+      "blend_p": 0.59,
+      "edge": 0.07,
       "tipoff_utc": "2026-11-07T00:00Z",
       "all_lines": [
        [
@@ -33,13 +33,13 @@
         -130
        ]
       ],
-      "mean": 23.09,
+      "mean": 23.08,
       "p_play": 1.0,
       "minutes": 34.2,
       "event_id": "401909288",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-06T19:27Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-06T22:28Z"
      },
      {
       "game_date": "2026-11-06",
@@ -50,10 +50,10 @@
       "line": 21.5,
       "book": "draftkings",
       "price": -118,
-      "our_p": 0.697,
+      "our_p": 0.701,
       "market_p": 0.51,
-      "blend_p": 0.576,
-      "edge": 0.064,
+      "blend_p": 0.577,
+      "edge": 0.066,
       "tipoff_utc": "2026-11-07T03:00Z",
       "all_lines": [
        [
@@ -67,13 +67,13 @@
         -128
        ]
       ],
-      "mean": 18.08,
+      "mean": 18.03,
       "p_play": 1.0,
       "minutes": 30.6,
       "event_id": "401909294",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-06T19:27Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-06T22:28Z"
      }
     ],
     "pra": [
@@ -86,10 +86,10 @@
       "line": 41.5,
       "book": "draftkings",
       "price": -117,
-      "our_p": 0.697,
+      "our_p": 0.695,
       "market_p": 0.505,
       "blend_p": 0.572,
-      "edge": 0.061,
+      "edge": 0.06,
       "tipoff_utc": "2026-11-07T00:00Z",
       "all_lines": [
        [
@@ -103,13 +103,13 @@
         -122
        ]
       ],
-      "mean": 36.66,
+      "mean": 36.67,
       "p_play": 1.0,
       "minutes": 34.2,
       "event_id": "401909288",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-06T19:27Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-06T22:28Z"
      }
     ]
    }
