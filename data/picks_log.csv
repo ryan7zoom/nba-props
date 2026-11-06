@@ -7,6 +7,6 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-04,Rui Hachimura,LAC,MIA,pts,15.5,draftkings,-119,0.685,0.512,0.573,0.054,2026-11-05T03:30Z,1,2026-11-04T21:08Z,"[[""draftkings"", 15.5, -119], [""fanduel"", 15.5, -125]]",13.02,1.0
 2026-11-04,Scoot Henderson,POR,PHX,pts,13.5,fanduel,-114,0.686,0.5,0.565,0.061,2026-11-05T02:00Z,1,2026-11-04T21:08Z,"[[""draftkings"", 13.5, -121], [""fanduel"", 13.5, -114]]",11.2,1.0
 2026-11-05,Oso Ighodaro,PHX,ORL,pra,15.5,draftkings,-123,0.649,0.516,0.563,0.02,2026-11-06T02:00Z,1,2026-11-05T22:43Z,"[[""draftkings"", 15.5, -123], [""fanduel"", 15.5, -130]]",13.61,1.0
-2026-11-06,Jayson Tatum,BOS,CHA,pra,41.5,draftkings,-117,0.681,0.505,0.567,0.051,2026-11-07T00:00Z,0,2026-11-06T15:08Z,"[[""draftkings"", 41.5, -117], [""fanduel"", 41.5, -122]]",37.1,1.0
-2026-11-06,Damian Lillard,POR,LAL,pts,21.5,draftkings,-118,0.699,0.51,0.576,0.065,2026-11-07T03:00Z,0,2026-11-06T15:08Z,"[[""draftkings"", 21.5, -118], [""fanduel"", 21.5, -128]]",18.15,1.0
-2026-11-06,Jayson Tatum,BOS,CHA,pts,27.5,draftkings,-123,0.701,0.521,0.584,0.058,2026-11-07T00:00Z,0,2026-11-06T15:08Z,"[[""draftkings"", 27.5, -123], [""fanduel"", 27.5, -130]]",23.5,1.0
+2026-11-06,Jayson Tatum,BOS,CHA,pra,41.5,draftkings,-117,0.697,0.505,0.572,0.061,2026-11-07T00:00Z,0,2026-11-06T19:27Z,"[[""draftkings"", 41.5, -117], [""fanduel"", 41.5, -122]]",36.66,1.0
+2026-11-06,Damian Lillard,POR,LAL,pts,21.5,draftkings,-118,0.697,0.51,0.576,0.064,2026-11-07T03:00Z,0,2026-11-06T19:27Z,"[[""draftkings"", 21.5, -118], [""fanduel"", 21.5, -128]]",18.08,1.0
+2026-11-06,Jayson Tatum,BOS,CHA,pts,27.5,draftkings,-123,0.721,0.521,0.591,0.071,2026-11-07T00:00Z,0,2026-11-06T19:27Z,"[[""draftkings"", 27.5, -123], [""fanduel"", 27.5, -130]]",23.09,1.0

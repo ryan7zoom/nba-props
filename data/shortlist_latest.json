@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-06T15:08Z",
+ "generated_utc": "2026-11-06T19:27Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -9,40 +9,6 @@
     "pts": [
      {
       "game_date": "2026-11-06",
-      "player": "Damian Lillard",
-      "team": "POR",
-      "opp": "LAL",
-      "market": "pts",
-      "line": 21.5,
-      "book": "draftkings",
-      "price": -118,
-      "our_p": 0.699,
-      "market_p": 0.51,
-      "blend_p": 0.576,
-      "edge": 0.065,
-      "tipoff_utc": "2026-11-07T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -118
-       ],
-       [
-        "fanduel",
-        21.5,
-        -128
-       ]
-      ],
-      "mean": 18.15,
-      "p_play": 1.0,
-      "minutes": 30.6,
-      "event_id": "401909294",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-06T15:08Z"
-     },
-     {
-      "game_date": "2026-11-06",
       "player": "Jayson Tatum",
       "team": "BOS",
       "opp": "CHA",
@@ -50,10 +16,10 @@
       "line": 27.5,
       "book": "draftkings",
       "price": -123,
-      "our_p": 0.701,
+      "our_p": 0.721,
       "market_p": 0.521,
-      "blend_p": 0.584,
-      "edge": 0.058,
+      "blend_p": 0.591,
+      "edge": 0.071,
       "tipoff_utc": "2026-11-07T00:00Z",
       "all_lines": [
        [
@@ -67,13 +33,47 @@
         -130
        ]
       ],
-      "mean": 23.5,
+      "mean": 23.09,
       "p_play": 1.0,
-      "minutes": 34.3,
+      "minutes": 34.2,
       "event_id": "401909288",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-06T15:08Z"
+      "logged_utc": "2026-11-06T19:27Z"
+     },
+     {
+      "game_date": "2026-11-06",
+      "player": "Damian Lillard",
+      "team": "POR",
+      "opp": "LAL",
+      "market": "pts",
+      "line": 21.5,
+      "book": "draftkings",
+      "price": -118,
+      "our_p": 0.697,
+      "market_p": 0.51,
+      "blend_p": 0.576,
+      "edge": 0.064,
+      "tipoff_utc": "2026-11-07T03:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        21.5,
+        -118
+       ],
+       [
+        "fanduel",
+        21.5,
+        -128
+       ]
+      ],
+      "mean": 18.08,
+      "p_play": 1.0,
+      "minutes": 30.6,
+      "event_id": "401909294",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-06T19:27Z"
      }
     ],
     "pra": [
@@ -86,10 +86,10 @@
       "line": 41.5,
       "book": "draftkings",
       "price": -117,
-      "our_p": 0.681,
+      "our_p": 0.697,
       "market_p": 0.505,
-      "blend_p": 0.567,
-      "edge": 0.051,
+      "blend_p": 0.572,
+      "edge": 0.061,
       "tipoff_utc": "2026-11-07T00:00Z",
       "all_lines": [
        [
@@ -103,13 +103,13 @@
         -122
        ]
       ],
-      "mean": 37.1,
+      "mean": 36.66,
       "p_play": 1.0,
-      "minutes": 34.3,
+      "minutes": 34.2,
       "event_id": "401909288",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-06T15:08Z"
+      "logged_utc": "2026-11-06T19:27Z"
      }
     ]
    }
