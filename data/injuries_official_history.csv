@@ -4292,3 +4292,26 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Wallace,Cason",cason wallace,Out,Injury/Illness-LeftShoulderSurgery,2026-11-05_06_15PM,2
 2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Williams,Jalen",jalen williams,Out,Injury/Illness-LeftAnkleSurgery,2026-11-05_06_15PM,2
 2026-11-05T18:15-05:00,2026-11-05T23:15+00:00,2026-11-06,20:00,OKC@MEM,OKC,"Williams,Jaylin",jaylin williams,Out,Injury/Illness-LowbackSpasms,2026-11-05_06_15PM,2
+2026-11-05T19:15-05:00,2026-11-06T00:15+00:00,2026-11-06,22:00,SA@SAC,SA,"Brown,Maliq",maliq brown,Out,GLeague-Two-Way,2026-11-05_07_15PM,2
+2026-11-05T19:15-05:00,2026-11-06T00:15+00:00,2026-11-06,22:00,SA@SAC,SA,"Gillespie,Ja'Kobi",jakobi gillespie,Out,GLeague-Two-Way,2026-11-05_07_15PM,2
+2026-11-05T19:15-05:00,2026-11-06T00:15+00:00,2026-11-06,22:00,SA@SAC,SA,"Harris,Tobias",tobias harris,Out,Injury/Illness-LeftCalfStrain,2026-11-05_07_15PM,2
+2026-11-05T19:15-05:00,2026-11-06T00:15+00:00,2026-11-06,22:00,SA@SAC,SA,"Quaintance,Jayden",jayden quaintance,Out,Injury/Illness-RightKneeSurgery,2026-11-05_07_15PM,2
+2026-11-05T19:30-05:00,2026-11-06T00:30+00:00,2026-11-06,22:00,SA@SAC,SAC,"Murray,Keegan",keegan murray,Out,Injury/Illness-LeftAnkleCapsulitis,2026-11-05_07_30PM,2
+2026-11-05T19:30-05:00,2026-11-06T00:30+00:00,2026-11-06,22:00,SA@SAC,SAC,"Pedulla,Sean",sean pedulla,Out,GLeague-Two-Way,2026-11-05_07_30PM,2
+2026-11-05T19:30-05:00,2026-11-06T00:30+00:00,2026-11-06,22:00,SA@SAC,SAC,"Raynaud,Maxime",maxime raynaud,Out,Injury/Illness-RightPatella,2026-11-05_07_30PM,2
+2026-11-05T19:30-05:00,2026-11-06T00:30+00:00,2026-11-06,22:00,SA@SAC,SAC,"Simmons,Ben",ben simmons,Out,Subluxation Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-05_07_30PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-05,21:00,ORL@PHX,PHX,"Timme,Drew",drew timme,Out,GLeague-Two-Way,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-05,22:00,MIA@GS,GS,"ButlerIII,Jimmy",jimmy butler,Out,Injury/Illness-RightACLRepair/ Surgery,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-05,22:00,MIA@GS,GS,"Moody,Moses",moses moody,Out,Injury/Illness-LeftPatellarTendon Repair/Surgery,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,POR,"Krejci,Vit",vit krejci,Out,Injury/Illness-LeftAnkleFracture,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,POR,"Morant,Ja",ja morant,Out,Injury/Illness-LeftHamstringStrain,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,POR,"Sharpe,Shaedon",shaedon sharpe,Out,Injury/Illness-RightMeniscus Surgery,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,POR,"Tonje,John",john tonje,Out,GLeague-Two-Way,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,LAL,"Carr,Cameron",cameron carr,Out,GLeague-OnAssignment,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,LAL,"James,Bronny",bronny james,Out,GLeague-OnAssignment,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,LAL,"Kessler,Walker",walker kessler,Available,Injury/Illness-LeftFingerSplint,2026-11-05_08_00PM,2
+2026-11-05T20:00-05:00,2026-11-06T01:00+00:00,2026-11-06,22:00,POR@LAL,LAL,"Mamukelashvili,Sandro",sandro mamukelashvili,Questionable,Injury/Illness-Illness,2026-11-05_08_00PM,2
+2026-11-05T20:15-05:00,2026-11-06T01:15+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Barnes,Scottie",scottie barnes,Questionable,Bruise Injury/Illness-LeftAdductor/Groin,2026-11-05_08_15PM,2
+2026-11-05T20:15-05:00,2026-11-06T01:15+00:00,2026-11-06,20:00,TOR@MIL,TOR,"Bittle,Nate",nate bittle,Out,Soreness/Tightness Injury/Illness-RightAvulsion,2026-11-05_08_15PM,2
+2026-11-05T20:30-05:00,2026-11-06T01:30+00:00,2026-11-06,19:30,PHI@CLE,CLE,"Allen,Jarrett",jarrett allen,Questionable,Injury/Illness-RightKneeContusion,2026-11-05_08_30PM,2
+2026-11-06T10:00-05:00,2026-11-06T15:00+00:00,2026-11-06,19:00,BOS@CHA,CHA,"Anderson,Christian",christian anderson,Available,-,2026-11-06_10_00AM,2
