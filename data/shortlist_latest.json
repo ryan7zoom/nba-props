@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-07T22:22Z",
+ "generated_utc": "2026-11-07T23:53Z",
  "top_n": 4,
  "locked_by_manual_run": true,
  "days": [
@@ -21,6 +21,8 @@
       "blend_p": 0.561,
       "edge": 0.063,
       "tipoff_utc": "2026-11-08T03:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-07T22:22Z",
       "all_lines": [
        [
         "draftkings",
@@ -35,11 +37,7 @@
       ],
       "mean": 23.88,
       "p_play": 1.0,
-      "minutes": 30.5,
-      "event_id": "401909944",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-07T22:22Z"
+      "locked": true
      }
     ],
     "pra": []
