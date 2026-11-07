@@ -1,5 +1,5 @@
 {
-  "run": "08/11/2026 01:46 GMT+8",
+  "run": "08/11/2026 06:22 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -15,18 +15,19 @@
     "CLE at CHA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "MEM at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "IND at DAL: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "DEN at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "DEN at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "SA at PHX: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 13,
-  "events_listed": 119,
+  "warning_count": 14,
+  "events_listed": 118,
   "events_upcoming": 20,
-  "games_with_lines": 7,
-  "players_with_lines": 81,
+  "games_with_lines": 6,
+  "players_with_lines": 69,
   "book_players_unmatched": 0,
   "unmatched_examples": [],
-  "requests_this_run": 14,
-  "games_reused_from_cache": 7,
-  "requests_left_today": 943,
+  "requests_this_run": 15,
+  "games_reused_from_cache": 6,
+  "requests_left_today": 910,
   "daily_limit": 1000,
   "history_rows_added": 0
 }
