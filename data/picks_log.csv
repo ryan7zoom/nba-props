@@ -10,4 +10,4 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-06,Jayson Tatum,BOS,CHA,pra,41.5,draftkings,-117,0.695,0.505,0.572,0.06,2026-11-07T00:00Z,1,2026-11-06T22:28Z,"[[""draftkings"", 41.5, -117], [""fanduel"", 41.5, -122]]",36.67,1.0
 2026-11-06,Damian Lillard,POR,LAL,pts,21.5,draftkings,-118,0.701,0.51,0.577,0.066,2026-11-07T03:00Z,1,2026-11-06T22:28Z,"[[""draftkings"", 21.5, -118], [""fanduel"", 21.5, -128]]",18.03,1.0
 2026-11-06,Jayson Tatum,BOS,CHA,pts,27.5,draftkings,-123,0.718,0.521,0.59,0.07,2026-11-07T00:00Z,1,2026-11-06T22:28Z,"[[""draftkings"", 27.5, -123], [""fanduel"", 27.5, -130]]",23.08,1.0
-2026-11-07,Victor Wembanyama,SA,POR,pts,27.5,draftkings,-112,0.681,0.498,0.562,0.064,2026-11-08T03:00Z,0,2026-11-07T14:08Z,"[[""draftkings"", 27.5, -112], [""fanduel"", 27.5, -114]]",23.76,1.0
+2026-11-07,Victor Wembanyama,SA,POR,pts,27.5,draftkings,-112,0.678,0.498,0.561,0.062,2026-11-08T03:00Z,0,2026-11-07T17:46Z,"[[""draftkings"", 27.5, -112], [""fanduel"", 27.5, -114]]",23.89,1.0
