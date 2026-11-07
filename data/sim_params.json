@@ -8,19 +8,19 @@
     "c": [
       0.995,
       0.9925,
-      1.0132
+      1.0129
     ],
     "phi": [
       2.4,
       1.095,
-      1.125
+      1.126
     ],
     "pi_pts": 0.01
   },
   "notes": {
     "pts_coupling": {
       "best_exponent": 0.16,
-      "deviance_gain": 0.00963,
+      "deviance_gain": 0.00975,
       "kept": true
     },
     "reb_coupling": {
@@ -30,16 +30,16 @@
     },
     "ast_coupling": {
       "best_exponent": 0.04,
-      "deviance_gain": 0.00024,
+      "deviance_gain": 0.00027,
       "kept": false
     },
     "pts_zero_share": {
       "best_share": 0.01,
-      "loglik_gain": 153.8,
+      "loglik_gain": 158.1,
       "kept": true
     }
   },
-  "fit_rows": 30471,
-  "fitted_through": "05/11/2026",
-  "fitted_at": "07/11/2026 06:28 GMT+8"
+  "fit_rows": 30662,
+  "fitted_through": "06/11/2026",
+  "fitted_at": "07/11/2026 22:07 GMT+8"
 }

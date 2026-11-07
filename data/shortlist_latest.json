@@ -1,117 +1,48 @@
 {
- "generated_utc": "2026-11-06T22:28Z",
+ "generated_utc": "2026-11-07T14:08Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-06",
+   "game_date": "2026-11-07",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-06",
-      "player": "Jayson Tatum",
-      "team": "BOS",
-      "opp": "CHA",
+      "game_date": "2026-11-07",
+      "player": "Victor Wembanyama",
+      "team": "SA",
+      "opp": "POR",
       "market": "pts",
       "line": 27.5,
       "book": "draftkings",
-      "price": -123,
-      "our_p": 0.718,
-      "market_p": 0.521,
-      "blend_p": 0.59,
-      "edge": 0.07,
-      "tipoff_utc": "2026-11-07T00:00Z",
+      "price": -112,
+      "our_p": 0.681,
+      "market_p": 0.498,
+      "blend_p": 0.562,
+      "edge": 0.064,
+      "tipoff_utc": "2026-11-08T03:00Z",
       "all_lines": [
        [
         "draftkings",
         27.5,
-        -123
+        -112
        ],
        [
         "fanduel",
         27.5,
-        -130
+        -114
        ]
       ],
-      "mean": 23.08,
+      "mean": 23.76,
       "p_play": 1.0,
-      "minutes": 34.2,
-      "event_id": "401909288",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-06T22:28Z"
-     },
-     {
-      "game_date": "2026-11-06",
-      "player": "Damian Lillard",
-      "team": "POR",
-      "opp": "LAL",
-      "market": "pts",
-      "line": 21.5,
-      "book": "draftkings",
-      "price": -118,
-      "our_p": 0.701,
-      "market_p": 0.51,
-      "blend_p": 0.577,
-      "edge": 0.066,
-      "tipoff_utc": "2026-11-07T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -118
-       ],
-       [
-        "fanduel",
-        21.5,
-        -128
-       ]
-      ],
-      "mean": 18.03,
-      "p_play": 1.0,
-      "minutes": 30.6,
-      "event_id": "401909294",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-06T22:28Z"
+      "minutes": 30.5,
+      "event_id": "401909944",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-07T14:08Z"
      }
     ],
-    "pra": [
-     {
-      "game_date": "2026-11-06",
-      "player": "Jayson Tatum",
-      "team": "BOS",
-      "opp": "CHA",
-      "market": "pra",
-      "line": 41.5,
-      "book": "draftkings",
-      "price": -117,
-      "our_p": 0.695,
-      "market_p": 0.505,
-      "blend_p": 0.572,
-      "edge": 0.06,
-      "tipoff_utc": "2026-11-07T00:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        41.5,
-        -117
-       ],
-       [
-        "fanduel",
-        41.5,
-        -122
-       ]
-      ],
-      "mean": 36.67,
-      "p_play": 1.0,
-      "minutes": 34.2,
-      "event_id": "401909288",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-06T22:28Z"
-     }
-    ]
+    "pra": []
    }
   }
  ],
