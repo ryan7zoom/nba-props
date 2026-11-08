@@ -1,47 +1,12 @@
 {
- "generated_utc": "2026-11-08T17:58Z",
+ "generated_utc": "2026-11-08T18:16Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-08",
    "markets": {
-    "pts": [
-     {
-      "game_date": "2026-11-08",
-      "player": "Terrence Shannon Jr.",
-      "team": "MIN",
-      "opp": "UTAH",
-      "market": "pts",
-      "line": 12.5,
-      "book": "draftkings",
-      "price": -129,
-      "our_p": 0.657,
-      "market_p": 0.531,
-      "blend_p": 0.575,
-      "edge": 0.021,
-      "tipoff_utc": "2026-11-09T00:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        12.5,
-        -129
-       ],
-       [
-        "fanduel",
-        12.5,
-        -130
-       ]
-      ],
-      "mean": 10.68,
-      "p_play": 1.0,
-      "minutes": 21.1,
-      "event_id": "401909947",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-08T17:58Z"
-     }
-    ],
+    "pts": [],
     "pra": [
      {
       "game_date": "2026-11-08",
@@ -52,10 +17,10 @@
       "line": 17.5,
       "book": "draftkings",
       "price": -112,
-      "our_p": 0.693,
+      "our_p": 0.687,
       "market_p": 0.494,
-      "blend_p": 0.564,
-      "edge": 0.067,
+      "blend_p": 0.561,
+      "edge": 0.063,
       "tipoff_utc": "2026-11-09T02:00Z",
       "all_lines": [
        [
@@ -69,47 +34,13 @@
         -122
        ]
       ],
-      "mean": 14.71,
+      "mean": 14.79,
       "p_play": 1.0,
       "minutes": 22.5,
       "event_id": "401909950",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-08T17:58Z"
-     },
-     {
-      "game_date": "2026-11-08",
-      "player": "Cade Cunningham",
-      "team": "DET",
-      "opp": "LAL",
-      "market": "pra",
-      "line": 39.5,
-      "book": "draftkings",
-      "price": -112,
-      "our_p": 0.682,
-      "market_p": 0.495,
-      "blend_p": 0.56,
-      "edge": 0.061,
-      "tipoff_utc": "2026-11-08T23:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        39.5,
-        -112
-       ],
-       [
-        "fanduel",
-        39.5,
-        -114
-       ]
-      ],
-      "mean": 35.2,
-      "p_play": 1.0,
-      "minutes": 33.2,
-      "event_id": "401909946",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-08T17:58Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-08T18:16Z"
      }
     ]
    }
