@@ -23,6 +23,19 @@ N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 10          # lowest rung = main line minus this (points 6, PRA 10); the search goes up from there
 FLOOR_RA = 3                      # bookie's lowest rung for rebounds and for assists
 LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.80, 0.74   # every leg is priced 1.25 to 1.50 (chance 67-80%); the builder aims at about 1.35
+# Your bookie's rung ladders (a leg can only sit on a rung that exists there). Points are irregular at the low end and then go up in 5s;
+# P+R, P+A and PRA go up in 5s; rebounds, assists and A+R go up in 2s (the 2-step ladders start at the lowest rung assumed above: 3 for reb/ast, 6 for A+R).
+LADDER = {
+    'pts': [10, 12, 15, 18, 20, 22, 25, 28, 30, 35] + list(range(40, 101, 5)),
+    'pr': list(range(5, 151, 5)), 'pa': list(range(5, 151, 5)), 'pra': list(range(5, 151, 5)),
+    'reb': list(range(3, 41, 2)), 'ast': list(range(3, 41, 2)), 'ar': list(range(6, 61, 2)),
+}
+# Chance range a player leg may have, per stat. Coarse ladders (points family, 5-step) get a wider price band than the finer 2-step ones:
+# points family priced 1.20 to 1.60, rebounds/assists/A+R priced about 1.22 to 1.55 (team and Under legs keep LEG_LO / LEG_HI = 1.25 to 1.50)
+BAND_COARSE, BAND_FINE = (0.625, 0.833), (0.645, 0.820)
+BAND = {'pts': BAND_COARSE, 'pr': BAND_COARSE, 'pa': BAND_COARSE, 'pra': BAND_COARSE, 'reb': BAND_FINE, 'ast': BAND_FINE, 'ar': BAND_FINE}
+RUNG_TIE = 0.02                    # two rungs of the same stat within this of each other (measured from the target) count as tied; the LOWER, safer rung wins
+STAT_TIE = 0.0                     # same idea when comparing different stats for one player (0 = strictly the closest to the target wins)
 TEAM_TARGETS = (0.74,)             # chance level tried for each team/game line
 MIN_LEG = 0.70                     # a main-line Under joins the pool only when at least this likely
 FLOOR = 0.30                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
@@ -421,14 +434,22 @@ def simulate_game(g, sm, st, c, players, lines, rng):
             if main < (MIN_MAIN_EST if est else MIN_MAIN)[stat]:
                 continue
             k_low = k_floor(stat, main, est, k_pts)               # lowest rung we assume the bookie could offer
-            # walk up from the lowest rung and keep the one whose chance lands closest to the target price (inside the 1.25-1.5 band)
-            pick = None
-            for k in range(k_low, int(math.floor(main)) + 1):
+            # walk up your bookie's ladder from the lowest rung and keep the one whose chance lands closest to the target price (inside this stat's band)
+            lo, hi = BAND[stat]
+            rungs = [r for r in LADDER[stat] if r <= int(math.floor(main))]
+            below = [r for r in rungs if r <= k_low]
+            ks = [r for r in rungs if r >= (below[-1] if below else rungs[0])] if rungs else []   # start one rung at or below the lowest assumed rung
+            opts = []
+            for k in ks:
                 pk = float((plays & (x >= k)).mean())
-                if pk < LEG_LO:
+                if pk < lo:
                     break
-                if pk <= LEG_HI and (pick is None or abs(pk - LEG_TARGET) < abs(pick[1] - LEG_TARGET)):
-                    pick = (k, pk)
+                if pk <= hi:
+                    opts.append((k, pk))
+            pick = None
+            if opts:
+                gap = min(abs(q - LEG_TARGET) for _, q in opts)
+                pick = next((k, q) for k, q in opts if abs(q - LEG_TARGET) <= gap + RUNG_TIE)   # rungs run low to high, so the lowest of the near-ties wins
             nm = STAT_NAME[stat]
             if pick is not None:
                 k_min = pick[0]
@@ -436,7 +457,9 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 cand = {'label': f"{pl['name']} {k_min}+ {nm}", 'family': f"pl_{pl['id']}", 'hit': hit, 'p': float(hit.mean()),
                         'note': ('line est. (no DK/FD line)' if est else f'main {main:g} ({books})'), 'kind': 'player',
                         'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main, 'pid': pl['id']}
-                if best is None or abs(cand['p'] - LEG_TARGET) < abs(best['p'] - LEG_TARGET):
+                if best is not None:
+                    d_c, d_b = abs(cand['p'] - LEG_TARGET), abs(best['p'] - LEG_TARGET)
+                if best is None or d_c < d_b - STAT_TIE or (STAT_TIE > 0 and abs(d_c - d_b) <= STAT_TIE and cand['p'] > best['p']):
                     best = cand
             if not est:
                 pu = float((plays & (x <= math.floor(main))).mean())   # Under needs the player to play too (conservative)
@@ -453,7 +476,10 @@ def pick_pool(cands, singles):
         if s['p'] >= MIN_LEG:
             cands.append({'label': s['label'], 'family': 'pl_u_' + s['player'], 'hit': s['hit'], 'p': s['p'],
                           'note': s['note'], 'kind': 'player_under'})
-    pool = [c for c in cands if LEG_LO <= c['p'] <= LEG_HI]
+    def in_band(c):
+        lo, hi = BAND[c['stat']] if c.get('stat') in BAND else (LEG_LO, LEG_HI)
+        return lo <= c['p'] <= hi
+    pool = [c for c in cands if in_band(c)]
     if not pool:
         return [], 0.0, []
     chosen, used = [], set()
