@@ -4486,3 +4486,20 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-07T18:15-05:00,2026-11-07T23:15+00:00,2026-11-07,19:30,BKN@ATL,BKN,"Clowney,Noah",noah clowney,Available,Injury/Illness-Illness,2026-11-07_06_15PM,2
 2026-11-07T18:30-05:00,2026-11-07T23:30+00:00,2026-11-07,20:00,WSH@OKC,WSH,"Davis,Anthony",anthony davis,Out,Injury/Illness-RightAnkleSprain,2026-11-07_06_30PM,2
 2026-11-07T18:45-05:00,2026-11-07T23:45+00:00,2026-11-07,20:30,ORL@GS,GS,"PaytonII,Gary",gary payton,Available,Repair/Surgery Injury/Illness-RightCalfTightness/ Soreness,2026-11-07_06_45PM,2
+2026-11-07T19:00-05:00,2026-11-08T00:00+00:00,2026-11-07,20:30,ORL@GS,GS,"Green,Draymond",draymond green,Available,Surgery Injury/Illness-RightElbow,2026-11-07_07_00PM,2
+2026-11-07T19:00-05:00,2026-11-08T00:00+00:00,2026-11-07,20:30,ORL@GS,GS,"Santos,Gui",gui santos,Available,Injury/Illness-LeftKneeTendinitis,2026-11-07_07_00PM,2
+2026-11-07T19:45-05:00,2026-11-08T00:45+00:00,2026-11-08,21:00,MIA@SAC,MIA,"Donaldson,Tre",tre donaldson,Out,GLeague-Two-Way,2026-11-07_07_45PM,2
+2026-11-07T19:45-05:00,2026-11-08T00:45+00:00,2026-11-08,21:00,MIA@SAC,MIA,"Goldin,Vladislav",vladislav goldin,Out,GLeague-Two-Way,2026-11-07_07_45PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-07,21:00,HOU@PHX,PHX,"Fleming,Rasheer",rasheer fleming,Available,Injury/Illness-LeftAnkleSprain,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-07,21:00,HOU@PHX,PHX,"Goodwin,Jordan",jordan goodwin,Out,Injury/Illness-RightCalfInjury Management,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-07,21:00,HOU@PHX,PHX,"Timme,Drew",drew timme,Out,GLeague-Two-Way,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-08,21:00,NO@LAC,LAC,"Beal,Bradley",bradley beal,Out,Injury/Illness-RightKneeInjury Management,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-08,21:00,NO@LAC,LAC,"Ingram,Brandon",brandon ingram,Out,Injury/Illness-RightHeelSurgery,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-08,21:00,NO@LAC,LAC,"Jackson,Isaiah",isaiah jackson,Out,Injury/Illness-LeftGroinSoreness,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-08,21:00,NO@LAC,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff Surgery,2026-11-07_08_00PM,2
+2026-11-07T20:00-05:00,2026-11-08T01:00+00:00,2026-11-08,21:00,NO@LAC,LAC,"Niederhauser,YanicKonan",yanickonan niederhauser,Out,Injury/Illness-RightLisfrancSurgery,2026-11-07_08_00PM,2
+2026-11-07T20:15-05:00,2026-11-08T01:15+00:00,2026-11-08,21:00,MIA@SAC,SAC,"Mogbo,Jonathan",jonathan mogbo,Out,GLeague-Two-Way,2026-11-07_08_15PM,2
+2026-11-07T20:15-05:00,2026-11-08T01:15+00:00,2026-11-08,21:00,MIA@SAC,SAC,"Murray,Keegan",keegan murray,Questionable,Injury/Illness-LeftAnkleCapsulitis,2026-11-07_08_15PM,2
+2026-11-07T20:15-05:00,2026-11-08T01:15+00:00,2026-11-08,21:00,MIA@SAC,SAC,"Pedulla,Sean",sean pedulla,Out,GLeague-Two-Way,2026-11-07_08_15PM,2
+2026-11-07T20:15-05:00,2026-11-08T01:15+00:00,2026-11-08,21:00,MIA@SAC,SAC,"Raynaud,Maxime",maxime raynaud,Out,Injury/Illness-RightPatella,2026-11-07_08_15PM,2
+2026-11-07T20:15-05:00,2026-11-08T01:15+00:00,2026-11-08,21:00,MIA@SAC,SAC,"Simmons,Ben",ben simmons,Out,Subluxation Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-07_08_15PM,2

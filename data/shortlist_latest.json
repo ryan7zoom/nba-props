@@ -1,46 +1,82 @@
 {
- "generated_utc": "2026-11-07T23:53Z",
+ "generated_utc": "2026-11-08T14:21Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-07",
+   "game_date": "2026-11-08",
    "markets": {
-    "pts": [
+    "pts": [],
+    "pra": [
      {
-      "game_date": "2026-11-07",
-      "player": "Victor Wembanyama",
-      "team": "SA",
-      "opp": "POR",
-      "market": "pts",
-      "line": 27.5,
+      "game_date": "2026-11-08",
+      "player": "Max Strus",
+      "team": "LAC",
+      "opp": "NO",
+      "market": "pra",
+      "line": 17.5,
       "book": "draftkings",
       "price": -112,
-      "our_p": 0.679,
-      "market_p": 0.498,
-      "blend_p": 0.561,
-      "edge": 0.063,
-      "tipoff_utc": "2026-11-08T03:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-07T22:22Z",
+      "our_p": 0.684,
+      "market_p": 0.494,
+      "blend_p": 0.56,
+      "edge": 0.061,
+      "tipoff_utc": "2026-11-09T02:00Z",
       "all_lines": [
        [
         "draftkings",
-        27.5,
+        17.5,
         -112
        ],
        [
         "fanduel",
-        27.5,
+        17.5,
+        -122
+       ]
+      ],
+      "mean": 14.79,
+      "p_play": 1.0,
+      "minutes": 22.5,
+      "event_id": "401909950",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-08T14:21Z"
+     },
+     {
+      "game_date": "2026-11-08",
+      "player": "Cade Cunningham",
+      "team": "DET",
+      "opp": "LAL",
+      "market": "pra",
+      "line": 39.5,
+      "book": "draftkings",
+      "price": -112,
+      "our_p": 0.681,
+      "market_p": 0.495,
+      "blend_p": 0.56,
+      "edge": 0.06,
+      "tipoff_utc": "2026-11-08T23:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        39.5,
+        -112
+       ],
+       [
+        "fanduel",
+        39.5,
         -114
        ]
       ],
-      "mean": 23.88,
+      "mean": 35.15,
       "p_play": 1.0,
-      "locked": true
+      "minutes": 33.2,
+      "event_id": "401909946",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-08T14:21Z"
      }
-    ],
-    "pra": []
+    ]
    }
   }
  ],

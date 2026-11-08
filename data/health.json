@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-11-07T23:52:40+00:00",
+  "run_utc": "2026-11-08T14:21:11+00:00",
   "mode": "daily",
   "ok": true,
   "errors": [],
@@ -7,14 +7,14 @@
   "warnings": [],
   "warning_count": 0,
   "this_run": {
-    "injury_rows": 91,
-    "schedule_rows": 22,
-    "new_games": 0,
-    "new_rows": 0
+    "injury_rows": 88,
+    "schedule_rows": 21,
+    "new_games": 7,
+    "new_rows": 180
   },
   "data": {
-    "games": 2989,
-    "player_rows": 81413,
-    "latest_game_date": "2026-11-06"
+    "games": 2996,
+    "player_rows": 81593,
+    "latest_game_date": "2026-11-07"
   }
 }
