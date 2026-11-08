@@ -1,12 +1,47 @@
 {
- "generated_utc": "2026-11-08T18:16Z",
+ "generated_utc": "2026-11-08T20:33Z",
  "top_n": 4,
  "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-08",
    "markets": {
-    "pts": [],
+    "pts": [
+     {
+      "game_date": "2026-11-08",
+      "player": "Terrence Shannon Jr.",
+      "team": "MIN",
+      "opp": "UTAH",
+      "market": "pts",
+      "line": 12.5,
+      "book": "draftkings",
+      "price": -129,
+      "our_p": 0.657,
+      "market_p": 0.531,
+      "blend_p": 0.575,
+      "edge": 0.021,
+      "tipoff_utc": "2026-11-09T00:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        12.5,
+        -129
+       ],
+       [
+        "fanduel",
+        12.5,
+        -130
+       ]
+      ],
+      "mean": 10.62,
+      "p_play": 1.0,
+      "minutes": 21.1,
+      "event_id": "401909947",
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-08T20:33Z"
+     }
+    ],
     "pra": [
      {
       "game_date": "2026-11-08",
@@ -22,6 +57,8 @@
       "blend_p": 0.561,
       "edge": 0.063,
       "tipoff_utc": "2026-11-09T02:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-08T18:16Z",
       "all_lines": [
        [
         "draftkings",
@@ -36,11 +73,7 @@
       ],
       "mean": 14.79,
       "p_play": 1.0,
-      "minutes": 22.5,
-      "event_id": "401909950",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-08T18:16Z"
+      "locked": true
      }
     ]
    }
