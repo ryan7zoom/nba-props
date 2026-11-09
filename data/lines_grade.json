@@ -1,105 +1,105 @@
 {
-  "graded_at": "09/11/2026 04:33 GMT+8",
-  "lines_seen": 4218,
-  "lines_graded": 3747,
-  "game_days": 8,
+  "graded_at": "10/11/2026 01:37 GMT+8",
+  "lines_seen": 4568,
+  "lines_graded": 4044,
+  "game_days": 9,
   "enough_data": true,
-  "over_win_rate": 0.446,
+  "over_win_rate": 0.447,
   "accuracy": {
-    "brier_ours": 0.2533,
-    "brier_market": 0.2493,
-    "brier_best_blend": 0.2485,
-    "logloss_ours": 0.7005,
-    "logloss_market": 0.6918,
-    "logloss_best_blend": 0.6901,
-    "best_weight_on_our_model": 0.3,
+    "brier_ours": 0.2521,
+    "brier_market": 0.2492,
+    "brier_best_blend": 0.2481,
+    "logloss_ours": 0.6981,
+    "logloss_market": 0.6916,
+    "logloss_best_blend": 0.6893,
+    "best_weight_on_our_model": 0.35,
     "note": "lower is better. weight 0 = trust the market only, 1 = trust our model only"
   },
   "bets_by_raw_edge": {
     "raw edge above 0%": {
       "all": {
-        "bets": 2785,
-        "win_rate": 0.539,
-        "return_per_unit": 0.011
+        "bets": 3018,
+        "win_rate": 0.543,
+        "return_per_unit": 0.019
       },
       "overs only": {
-        "bets": 749,
-        "win_rate": 0.459,
-        "return_per_unit": -0.136
+        "bets": 801,
+        "win_rate": 0.468,
+        "return_per_unit": -0.12
       },
       "unders only": {
-        "bets": 2036,
-        "win_rate": 0.568,
-        "return_per_unit": 0.065
+        "bets": 2217,
+        "win_rate": 0.57,
+        "return_per_unit": 0.069
       }
     },
     "raw edge above 5%": {
       "all": {
-        "bets": 2063,
-        "win_rate": 0.537,
-        "return_per_unit": 0.008
+        "bets": 2225,
+        "win_rate": 0.542,
+        "return_per_unit": 0.018
       },
       "overs only": {
-        "bets": 477,
-        "win_rate": 0.426,
-        "return_per_unit": -0.198
+        "bets": 505,
+        "win_rate": 0.438,
+        "return_per_unit": -0.176
       },
       "unders only": {
-        "bets": 1586,
-        "win_rate": 0.57,
-        "return_per_unit": 0.071
+        "bets": 1720,
+        "win_rate": 0.572,
+        "return_per_unit": 0.074
       }
     },
     "raw edge above 10%": {
       "all": {
-        "bets": 1403,
-        "win_rate": 0.539,
-        "return_per_unit": 0.013
+        "bets": 1505,
+        "win_rate": 0.545,
+        "return_per_unit": 0.025
       },
       "overs only": {
-        "bets": 258,
-        "win_rate": 0.438,
-        "return_per_unit": -0.175
+        "bets": 275,
+        "win_rate": 0.455,
+        "return_per_unit": -0.144
       },
       "unders only": {
-        "bets": 1145,
-        "win_rate": 0.562,
-        "return_per_unit": 0.056
+        "bets": 1230,
+        "win_rate": 0.565,
+        "return_per_unit": 0.062
       }
     },
     "raw edge above 20%": {
       "all": {
-        "bets": 606,
-        "win_rate": 0.513,
-        "return_per_unit": -0.03
+        "bets": 632,
+        "win_rate": 0.524,
+        "return_per_unit": -0.011
       },
       "overs only": {
-        "bets": 77,
-        "win_rate": 0.351,
-        "return_per_unit": -0.343
+        "bets": 80,
+        "win_rate": 0.362,
+        "return_per_unit": -0.319
       },
       "unders only": {
-        "bets": 529,
-        "win_rate": 0.537,
-        "return_per_unit": 0.015
+        "bets": 552,
+        "win_rate": 0.547,
+        "return_per_unit": 0.034
       }
     }
   },
   "bets_by_blended_edge": {
-    "blended edge above 3% (weight 0.3)": {
-      "bets": 395,
-      "win_rate": 0.509,
-      "return_per_unit": -0.037
+    "blended edge above 3% (weight 0.35)": {
+      "bets": 645,
+      "win_rate": 0.526,
+      "return_per_unit": -0.007
     }
   },
   "every_main_line_over": {
-    "bets": 3747,
-    "win_rate": 0.446,
-    "return_per_unit": -0.16
+    "bets": 4044,
+    "win_rate": 0.447,
+    "return_per_unit": -0.159
   },
   "every_main_line_under": {
-    "bets": 3747,
-    "win_rate": 0.554,
-    "return_per_unit": 0.037
+    "bets": 4044,
+    "win_rate": 0.553,
+    "return_per_unit": 0.036
   }
 }

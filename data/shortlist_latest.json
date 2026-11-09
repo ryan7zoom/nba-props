@@ -1,69 +1,31 @@
 {
- "generated_utc": "2026-11-08T20:33Z",
+ "generated_utc": "2026-11-09T17:37Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-08",
+   "game_date": "2026-11-09",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-08",
-      "player": "Terrence Shannon Jr.",
-      "team": "MIN",
-      "opp": "UTAH",
+      "game_date": "2026-11-09",
+      "player": "AJ Dybantsa",
+      "team": "WSH",
+      "opp": "DET",
       "market": "pts",
-      "line": 12.5,
-      "book": "draftkings",
-      "price": -129,
-      "our_p": 0.657,
-      "market_p": 0.531,
-      "blend_p": 0.575,
-      "edge": 0.021,
-      "tipoff_utc": "2026-11-09T00:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        12.5,
-        -129
-       ],
-       [
-        "fanduel",
-        12.5,
-        -130
-       ]
-      ],
-      "mean": 10.62,
-      "p_play": 1.0,
-      "minutes": 21.1,
-      "event_id": "401909947",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-08T20:33Z"
-     }
-    ],
-    "pra": [
-     {
-      "game_date": "2026-11-08",
-      "player": "Max Strus",
-      "team": "LAC",
-      "opp": "NO",
-      "market": "pra",
       "line": 17.5,
-      "book": "draftkings",
-      "price": -112,
-      "our_p": 0.687,
-      "market_p": 0.494,
-      "blend_p": 0.561,
-      "edge": 0.063,
-      "tipoff_utc": "2026-11-09T02:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-08T18:16Z",
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.669,
+      "market_p": 0.514,
+      "blend_p": 0.568,
+      "edge": 0.034,
+      "tipoff_utc": "2026-11-10T00:00Z",
       "all_lines": [
        [
         "draftkings",
         17.5,
-        -112
+        -125
        ],
        [
         "fanduel",
@@ -71,9 +33,154 @@
         -122
        ]
       ],
-      "mean": 14.79,
+      "mean": 15.1,
       "p_play": 1.0,
-      "locked": true
+      "minutes": 31.6,
+      "event_id": "401909954",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-09T17:37Z"
+     },
+     {
+      "game_date": "2026-11-09",
+      "player": "Aaron Wiggins",
+      "team": "ATL",
+      "opp": "LAL",
+      "market": "pts",
+      "line": 13.5,
+      "book": "draftkings",
+      "price": -126,
+      "our_p": 0.657,
+      "market_p": 0.526,
+      "blend_p": 0.572,
+      "edge": 0.025,
+      "tipoff_utc": "2026-11-10T00:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        13.5,
+        -126
+       ],
+       [
+        "fanduel",
+        13.5,
+        -132
+       ]
+      ],
+      "mean": 11.65,
+      "p_play": 1.0,
+      "minutes": 24.2,
+      "event_id": "401909952",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-09T17:37Z"
+     },
+     {
+      "game_date": "2026-11-09",
+      "player": "Gui Santos",
+      "team": "GS",
+      "opp": "NO",
+      "market": "pts",
+      "line": 8.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.645,
+      "market_p": 0.516,
+      "blend_p": 0.562,
+      "edge": 0.022,
+      "tipoff_utc": "2026-11-10T03:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        8.5,
+        -124
+       ],
+       [
+        "fanduel",
+        8.5,
+        -122
+       ]
+      ],
+      "mean": 7.36,
+      "p_play": 0.931,
+      "minutes": 18.7,
+      "event_id": "401909959",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-09T17:37Z"
+     }
+    ],
+    "pra": [
+     {
+      "game_date": "2026-11-09",
+      "player": "Sion James",
+      "team": "CHA",
+      "opp": "CLE",
+      "market": "pra",
+      "line": 14.5,
+      "book": "draftkings",
+      "price": -120,
+      "our_p": 0.658,
+      "market_p": 0.51,
+      "blend_p": 0.562,
+      "edge": 0.03,
+      "tipoff_utc": "2026-11-10T00:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        14.5,
+        -120
+       ],
+       [
+        "fanduel",
+        14.5,
+        -125
+       ]
+      ],
+      "mean": 12.72,
+      "p_play": 1.0,
+      "minutes": 24.5,
+      "event_id": "401909953",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-09T17:37Z"
+     }
+    ]
+   }
+  },
+  {
+   "game_date": "2026-11-10",
+   "markets": {
+    "pts": [],
+    "pra": [
+     {
+      "game_date": "2026-11-10",
+      "player": "Jayson Tatum",
+      "team": "BOS",
+      "opp": "PHI",
+      "market": "pra",
+      "line": 41.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.711,
+      "market_p": 0.514,
+      "blend_p": 0.583,
+      "edge": 0.061,
+      "tipoff_utc": "2026-11-11T01:00Z",
+      "all_lines": [
+       [
+        "fanduel",
+        41.5,
+        -122
+       ]
+      ],
+      "mean": 36.0,
+      "p_play": 1.0,
+      "minutes": 32.2,
+      "event_id": "401909961",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-09T17:37Z"
      }
     ]
    }
