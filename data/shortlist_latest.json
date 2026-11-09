@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-09T21:48Z",
+ "generated_utc": "2026-11-09T22:25Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-09",
@@ -21,6 +21,8 @@
       "blend_p": 0.572,
       "edge": 0.026,
       "tipoff_utc": "2026-11-10T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-09T21:48Z",
       "all_lines": [
        [
         "draftkings",
@@ -35,11 +37,7 @@
       ],
       "mean": 11.64,
       "p_play": 1.0,
-      "minutes": 24.2,
-      "event_id": "401909952",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-09T21:48Z"
+      "locked": true
      }
     ],
     "pra": [
@@ -57,6 +55,8 @@
       "blend_p": 0.561,
       "edge": 0.029,
       "tipoff_utc": "2026-11-10T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-09T21:48Z",
       "all_lines": [
        [
         "draftkings",
@@ -71,11 +71,7 @@
       ],
       "mean": 12.78,
       "p_play": 1.0,
-      "minutes": 24.5,
-      "event_id": "401909953",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-09T21:48Z"
+      "locked": true
      }
     ]
    }
@@ -84,37 +80,7 @@
    "game_date": "2026-11-10",
    "markets": {
     "pts": [],
-    "pra": [
-     {
-      "game_date": "2026-11-10",
-      "player": "Jayson Tatum",
-      "team": "BOS",
-      "opp": "PHI",
-      "market": "pra",
-      "line": 41.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.714,
-      "market_p": 0.514,
-      "blend_p": 0.584,
-      "edge": 0.063,
-      "tipoff_utc": "2026-11-11T01:00Z",
-      "all_lines": [
-       [
-        "fanduel",
-        41.5,
-        -122
-       ]
-      ],
-      "mean": 35.88,
-      "p_play": 1.0,
-      "minutes": 32.2,
-      "event_id": "401909961",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-09T21:48Z"
-     }
-    ]
+    "pra": []
    }
   }
  ],
