@@ -1,46 +1,12 @@
 {
- "generated_utc": "2026-11-09T17:37Z",
+ "generated_utc": "2026-11-09T21:48Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-09",
    "markets": {
     "pts": [
-     {
-      "game_date": "2026-11-09",
-      "player": "AJ Dybantsa",
-      "team": "WSH",
-      "opp": "DET",
-      "market": "pts",
-      "line": 17.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.669,
-      "market_p": 0.514,
-      "blend_p": 0.568,
-      "edge": 0.034,
-      "tipoff_utc": "2026-11-10T00:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        17.5,
-        -125
-       ],
-       [
-        "fanduel",
-        17.5,
-        -122
-       ]
-      ],
-      "mean": 15.1,
-      "p_play": 1.0,
-      "minutes": 31.6,
-      "event_id": "401909954",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-09T17:37Z"
-     },
      {
       "game_date": "2026-11-09",
       "player": "Aaron Wiggins",
@@ -53,7 +19,7 @@
       "our_p": 0.657,
       "market_p": 0.526,
       "blend_p": 0.572,
-      "edge": 0.025,
+      "edge": 0.026,
       "tipoff_utc": "2026-11-10T00:00Z",
       "all_lines": [
        [
@@ -67,47 +33,13 @@
         -132
        ]
       ],
-      "mean": 11.65,
+      "mean": 11.64,
       "p_play": 1.0,
       "minutes": 24.2,
       "event_id": "401909952",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-09T17:37Z"
-     },
-     {
-      "game_date": "2026-11-09",
-      "player": "Gui Santos",
-      "team": "GS",
-      "opp": "NO",
-      "market": "pts",
-      "line": 8.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.645,
-      "market_p": 0.516,
-      "blend_p": 0.562,
-      "edge": 0.022,
-      "tipoff_utc": "2026-11-10T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        8.5,
-        -124
-       ],
-       [
-        "fanduel",
-        8.5,
-        -122
-       ]
-      ],
-      "mean": 7.36,
-      "p_play": 0.931,
-      "minutes": 18.7,
-      "event_id": "401909959",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-09T17:37Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-09T21:48Z"
      }
     ],
     "pra": [
@@ -120,10 +52,10 @@
       "line": 14.5,
       "book": "draftkings",
       "price": -120,
-      "our_p": 0.658,
+      "our_p": 0.656,
       "market_p": 0.51,
-      "blend_p": 0.562,
-      "edge": 0.03,
+      "blend_p": 0.561,
+      "edge": 0.029,
       "tipoff_utc": "2026-11-10T00:00Z",
       "all_lines": [
        [
@@ -137,13 +69,13 @@
         -125
        ]
       ],
-      "mean": 12.72,
+      "mean": 12.78,
       "p_play": 1.0,
       "minutes": 24.5,
       "event_id": "401909953",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-09T17:37Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-09T21:48Z"
      }
     ]
    }
@@ -162,10 +94,10 @@
       "line": 41.5,
       "book": "fanduel",
       "price": -122,
-      "our_p": 0.711,
+      "our_p": 0.714,
       "market_p": 0.514,
-      "blend_p": 0.583,
-      "edge": 0.061,
+      "blend_p": 0.584,
+      "edge": 0.063,
       "tipoff_utc": "2026-11-11T01:00Z",
       "all_lines": [
        [
@@ -174,13 +106,13 @@
         -122
        ]
       ],
-      "mean": 36.0,
+      "mean": 35.88,
       "p_play": 1.0,
       "minutes": 32.2,
       "event_id": "401909961",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-09T17:37Z"
+      "logged_utc": "2026-11-09T21:48Z"
      }
     ]
    }
