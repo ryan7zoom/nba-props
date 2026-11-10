@@ -1,86 +1,180 @@
 {
- "generated_utc": "2026-11-09T22:25Z",
+ "generated_utc": "2026-11-10T15:40Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-09",
+   "game_date": "2026-11-10",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-09",
-      "player": "Aaron Wiggins",
-      "team": "ATL",
-      "opp": "LAL",
+      "game_date": "2026-11-10",
+      "player": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "opp": "POR",
       "market": "pts",
-      "line": 13.5,
-      "book": "draftkings",
-      "price": -126,
-      "our_p": 0.657,
-      "market_p": 0.526,
-      "blend_p": 0.572,
-      "edge": 0.026,
-      "tipoff_utc": "2026-11-10T00:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-09T21:48Z",
+      "line": 32.5,
+      "book": "fanduel",
+      "price": -118,
+      "our_p": 0.686,
+      "market_p": 0.506,
+      "blend_p": 0.569,
+      "edge": 0.051,
+      "tipoff_utc": "2026-11-11T04:00Z",
       "all_lines": [
        [
         "draftkings",
-        13.5,
-        -126
+        33.5,
+        -119
        ],
        [
         "fanduel",
-        13.5,
-        -132
+        32.5,
+        -118
        ]
       ],
-      "mean": 11.64,
+      "mean": 28.26,
       "p_play": 1.0,
-      "locked": true
+      "minutes": 33.3,
+      "event_id": "401909965",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T15:40Z"
+     },
+     {
+      "game_date": "2026-11-10",
+      "player": "Deni Avdija",
+      "team": "POR",
+      "opp": "OKC",
+      "market": "pts",
+      "line": 22.5,
+      "book": "draftkings",
+      "price": -117,
+      "our_p": 0.674,
+      "market_p": 0.508,
+      "blend_p": 0.566,
+      "edge": 0.05,
+      "tipoff_utc": "2026-11-11T04:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        22.5,
+        -117
+       ],
+       [
+        "fanduel",
+        22.5,
+        -122
+       ]
+      ],
+      "mean": 19.5,
+      "p_play": 1.0,
+      "minutes": 32.5,
+      "event_id": "401909965",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T15:40Z"
      }
     ],
     "pra": [
      {
-      "game_date": "2026-11-09",
-      "player": "Sion James",
-      "team": "CHA",
-      "opp": "CLE",
+      "game_date": "2026-11-10",
+      "player": "Jayson Tatum",
+      "team": "BOS",
+      "opp": "PHI",
       "market": "pra",
-      "line": 14.5,
+      "line": 41.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.713,
+      "market_p": 0.514,
+      "blend_p": 0.584,
+      "edge": 0.062,
+      "tipoff_utc": "2026-11-11T01:00Z",
+      "all_lines": [
+       [
+        "fanduel",
+        41.5,
+        -122
+       ]
+      ],
+      "mean": 35.87,
+      "p_play": 1.0,
+      "minutes": 32.2,
+      "event_id": "401909961",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T15:40Z"
+     },
+     {
+      "game_date": "2026-11-10",
+      "player": "Anthony Black",
+      "team": "ORL",
+      "opp": "SAC",
+      "market": "pra",
+      "line": 26.5,
       "book": "draftkings",
-      "price": -120,
-      "our_p": 0.656,
-      "market_p": 0.51,
-      "blend_p": 0.561,
-      "edge": 0.029,
-      "tipoff_utc": "2026-11-10T00:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-09T21:48Z",
+      "price": -124,
+      "our_p": 0.668,
+      "market_p": 0.518,
+      "blend_p": 0.571,
+      "edge": 0.031,
+      "tipoff_utc": "2026-11-11T03:00Z",
       "all_lines": [
        [
         "draftkings",
-        14.5,
-        -120
+        26.5,
+        -124
        ],
        [
         "fanduel",
-        14.5,
+        26.5,
+        -130
+       ]
+      ],
+      "mean": 23.56,
+      "p_play": 1.0,
+      "minutes": 32.3,
+      "event_id": "401909964",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T15:40Z"
+     },
+     {
+      "game_date": "2026-11-10",
+      "player": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "opp": "POR",
+      "market": "pra",
+      "line": 42.5,
+      "book": "fanduel",
+      "price": -125,
+      "our_p": 0.664,
+      "market_p": 0.519,
+      "blend_p": 0.57,
+      "edge": 0.026,
+      "tipoff_utc": "2026-11-11T04:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        43.5,
+        -124
+       ],
+       [
+        "fanduel",
+        42.5,
         -125
        ]
       ],
-      "mean": 12.78,
+      "mean": 38.2,
       "p_play": 1.0,
-      "locked": true
+      "minutes": 33.3,
+      "event_id": "401909965",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T15:40Z"
      }
     ]
-   }
-  },
-  {
-   "game_date": "2026-11-10",
-   "markets": {
-    "pts": [],
-    "pra": []
    }
   }
  ],
