@@ -15,8 +15,8 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-08,Terrence Shannon Jr.,MIN,UTAH,pts,12.5,draftkings,-129,0.657,0.531,0.575,0.021,2026-11-09T00:00Z,1,2026-11-08T20:33Z,"[[""draftkings"", 12.5, -129], [""fanduel"", 12.5, -130]]",10.62,1.0
 2026-11-09,Sion James,CHA,CLE,pra,14.5,draftkings,-120,0.656,0.51,0.561,0.029,2026-11-10T00:00Z,1,2026-11-09T21:48Z,"[[""draftkings"", 14.5, -120], [""fanduel"", 14.5, -125]]",12.78,1.0
 2026-11-09,Aaron Wiggins,ATL,LAL,pts,13.5,draftkings,-126,0.657,0.526,0.572,0.026,2026-11-10T00:00Z,1,2026-11-09T21:48Z,"[[""draftkings"", 13.5, -126], [""fanduel"", 13.5, -132]]",11.64,1.0
-2026-11-10,Anthony Black,ORL,SAC,pra,26.5,draftkings,-124,0.668,0.518,0.571,0.031,2026-11-11T03:00Z,0,2026-11-10T15:40Z,"[[""draftkings"", 26.5, -124], [""fanduel"", 26.5, -130]]",23.56,1.0
-2026-11-10,Jayson Tatum,BOS,PHI,pra,41.5,fanduel,-122,0.713,0.514,0.584,0.062,2026-11-11T01:00Z,0,2026-11-10T15:40Z,"[[""fanduel"", 41.5, -122]]",35.87,1.0
-2026-11-10,Shai Gilgeous-Alexander,OKC,POR,pra,42.5,fanduel,-125,0.664,0.519,0.57,0.026,2026-11-11T04:00Z,0,2026-11-10T15:40Z,"[[""draftkings"", 43.5, -124], [""fanduel"", 42.5, -125]]",38.2,1.0
-2026-11-10,Deni Avdija,POR,OKC,pts,22.5,draftkings,-117,0.674,0.508,0.566,0.05,2026-11-11T04:00Z,0,2026-11-10T15:40Z,"[[""draftkings"", 22.5, -117], [""fanduel"", 22.5, -122]]",19.5,1.0
-2026-11-10,Shai Gilgeous-Alexander,OKC,POR,pts,32.5,fanduel,-118,0.686,0.506,0.569,0.051,2026-11-11T04:00Z,0,2026-11-10T15:40Z,"[[""draftkings"", 33.5, -119], [""fanduel"", 32.5, -118]]",28.26,1.0
+2026-11-10,Anthony Black,ORL,SAC,pra,26.5,draftkings,-124,0.671,0.518,0.572,0.033,2026-11-11T03:00Z,0,2026-11-10T19:46Z,"[[""draftkings"", 26.5, -124], [""fanduel"", 26.5, -130]]",23.44,1.0
+2026-11-10,Jayson Tatum,BOS,PHI,pra,41.5,fanduel,-122,0.713,0.514,0.584,0.062,2026-11-11T01:00Z,0,2026-11-10T19:46Z,"[[""fanduel"", 41.5, -122]]",35.94,1.0
+2026-11-10,Shai Gilgeous-Alexander,OKC,POR,pra,42.5,fanduel,-125,0.665,0.519,0.57,0.026,2026-11-11T04:00Z,0,2026-11-10T19:46Z,"[[""draftkings"", 43.5, -124], [""fanduel"", 42.5, -125]]",38.23,1.0
+2026-11-10,Deni Avdija,POR,OKC,pts,22.5,draftkings,-117,0.678,0.508,0.568,0.053,2026-11-11T04:00Z,0,2026-11-10T19:46Z,"[[""draftkings"", 22.5, -117], [""fanduel"", 22.5, -122]]",19.5,1.0
+2026-11-10,Shai Gilgeous-Alexander,OKC,POR,pts,32.5,fanduel,-118,0.686,0.506,0.569,0.051,2026-11-11T04:00Z,0,2026-11-10T19:46Z,"[[""draftkings"", 33.5, -119], [""fanduel"", 32.5, -118]]",28.28,1.0

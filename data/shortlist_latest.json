@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-10T15:40Z",
+ "generated_utc": "2026-11-10T19:46Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -7,6 +7,40 @@
    "game_date": "2026-11-10",
    "markets": {
     "pts": [
+     {
+      "game_date": "2026-11-10",
+      "player": "Deni Avdija",
+      "team": "POR",
+      "opp": "OKC",
+      "market": "pts",
+      "line": 22.5,
+      "book": "draftkings",
+      "price": -117,
+      "our_p": 0.678,
+      "market_p": 0.508,
+      "blend_p": 0.568,
+      "edge": 0.053,
+      "tipoff_utc": "2026-11-11T04:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        22.5,
+        -117
+       ],
+       [
+        "fanduel",
+        22.5,
+        -122
+       ]
+      ],
+      "mean": 19.5,
+      "p_play": 1.0,
+      "minutes": 32.5,
+      "event_id": "401909965",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-10T19:46Z"
+     },
      {
       "game_date": "2026-11-10",
       "player": "Shai Gilgeous-Alexander",
@@ -33,47 +67,13 @@
         -118
        ]
       ],
-      "mean": 28.26,
+      "mean": 28.28,
       "p_play": 1.0,
       "minutes": 33.3,
       "event_id": "401909965",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-10T15:40Z"
-     },
-     {
-      "game_date": "2026-11-10",
-      "player": "Deni Avdija",
-      "team": "POR",
-      "opp": "OKC",
-      "market": "pts",
-      "line": 22.5,
-      "book": "draftkings",
-      "price": -117,
-      "our_p": 0.674,
-      "market_p": 0.508,
-      "blend_p": 0.566,
-      "edge": 0.05,
-      "tipoff_utc": "2026-11-11T04:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        22.5,
-        -117
-       ],
-       [
-        "fanduel",
-        22.5,
-        -122
-       ]
-      ],
-      "mean": 19.5,
-      "p_play": 1.0,
-      "minutes": 32.5,
-      "event_id": "401909965",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-10T15:40Z"
+      "logged_utc": "2026-11-10T19:46Z"
      }
     ],
     "pra": [
@@ -98,13 +98,13 @@
         -122
        ]
       ],
-      "mean": 35.87,
+      "mean": 35.94,
       "p_play": 1.0,
       "minutes": 32.2,
       "event_id": "401909961",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-10T15:40Z"
+      "logged_utc": "2026-11-10T19:46Z"
      },
      {
       "game_date": "2026-11-10",
@@ -115,10 +115,10 @@
       "line": 26.5,
       "book": "draftkings",
       "price": -124,
-      "our_p": 0.668,
+      "our_p": 0.671,
       "market_p": 0.518,
-      "blend_p": 0.571,
-      "edge": 0.031,
+      "blend_p": 0.572,
+      "edge": 0.033,
       "tipoff_utc": "2026-11-11T03:00Z",
       "all_lines": [
        [
@@ -132,13 +132,13 @@
         -130
        ]
       ],
-      "mean": 23.56,
+      "mean": 23.44,
       "p_play": 1.0,
       "minutes": 32.3,
       "event_id": "401909964",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-10T15:40Z"
+      "logged_utc": "2026-11-10T19:46Z"
      },
      {
       "game_date": "2026-11-10",
@@ -149,7 +149,7 @@
       "line": 42.5,
       "book": "fanduel",
       "price": -125,
-      "our_p": 0.664,
+      "our_p": 0.665,
       "market_p": 0.519,
       "blend_p": 0.57,
       "edge": 0.026,
@@ -166,13 +166,13 @@
         -125
        ]
       ],
-      "mean": 38.2,
+      "mean": 38.23,
       "p_play": 1.0,
       "minutes": 33.3,
       "event_id": "401909965",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-10T15:40Z"
+      "logged_utc": "2026-11-10T19:46Z"
      }
     ]
    }

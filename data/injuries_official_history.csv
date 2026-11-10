@@ -4724,3 +4724,21 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-09T20:45-05:00,2026-11-10T01:45+00:00,2026-11-09,22:00,NO@GS,GS,"Santos,Gui",gui santos,Available,Injury/Illness-LeftKneeTendinitis,2026-11-09_08_45PM,2
 2026-11-10T00:00-05:00,2026-11-10T05:00+00:00,2026-11-10,22:00,ORL@SAC,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-10_12_00AM,2
 2026-11-10T00:00-05:00,2026-11-10T05:00+00:00,2026-11-10,22:00,ORL@SAC,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleInjury,2026-11-10_12_00AM,2
+2026-11-10T11:15-05:00,2026-11-10T16:15+00:00,2026-11-10,19:30,MIL@NY,NY,"Hart,Josh",josh hart,Questionable,Injury/Illness-Illness,2026-11-10_11_15AM,2
+2026-11-10T11:45-05:00,2026-11-10T16:45+00:00,2026-11-10,20:00,BOS@PHI,BOS,"CenacJr.,Christopher",christopher cenac,Available,GLeague-OnAssignment,2026-11-10_11_45AM,2
+2026-11-10T11:45-05:00,2026-11-10T16:45+00:00,2026-11-10,20:00,BOS@PHI,BOS,"Mitchell,Dillon",dillon mitchell,Available,GLeague-Two-Way,2026-11-10_11_45AM,2
+2026-11-10T11:45-05:00,2026-11-10T16:45+00:00,2026-11-10,22:00,ORL@SAC,ORL,"Banchero,Paolo",paolo banchero,Out,PlateTear Injury/Illness-RightHighAnkle Sprain,2026-11-10_11_45AM,2
+2026-11-10T11:45-05:00,2026-11-10T16:45+00:00,2026-11-10,22:00,ORL@SAC,ORL,"daSilva,Tristan",tristan dasilva,Questionable,Injury/Illness-LeftCalfStrain,2026-11-10_11_45AM,2
+2026-11-10T11:45-05:00,2026-11-10T16:45+00:00,2026-11-10,22:00,ORL@SAC,ORL,"Isaac,Jonathan",jonathan isaac,Out,Injury/Illness-LeftKneeInjury,2026-11-10_11_45AM,2
+2026-11-10T12:15-05:00,2026-11-10T17:15+00:00,2026-11-10,19:30,MIL@NY,MIL,"Ware,Kel'el",kelel ware,Questionable,Injury/Illness-LeftAnkleSprain,2026-11-10_12_15PM,2
+2026-11-10T13:30-05:00,2026-11-10T18:30+00:00,2026-11-10,21:00,MIA@UTAH,UTAH,"Bufkin,Kobe",kobe bufkin,Questionable,GLeague-Two-Way,2026-11-10_01_30PM,2
+2026-11-10T13:30-05:00,2026-11-10T18:30+00:00,2026-11-10,21:00,MIA@UTAH,UTAH,"Ingram,Harrison",harrison ingram,Questionable,GLeague-Two-Way,2026-11-10_01_30PM,2
+2026-11-10T13:30-05:00,2026-11-10T18:30+00:00,2026-11-10,21:00,MIA@UTAH,UTAH,"Markkanen,Lauri",lauri markkanen,Out,Injury/Illness-RightWristSprain,2026-11-10_01_30PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-10,19:30,MIL@NY,NY,"Hart,Josh",josh hart,Doubtful,Injury/Illness-Illness,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-10,21:00,LAC@PHX,LAC,"Martinelli,Nick",nick martinelli,Out,GLeague-Two-Way,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-11,20:00,BKN@NO,NO,"Dia,Malik",malik dia,Doubtful,GLeague-Two-Way,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-11,20:00,BKN@NO,NO,"Missi,Yves",yves missi,Out,Injury/Illness-LeftKneeContusion/,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-11,20:00,BKN@NO,NO,"MurphyIII,Trey",trey murphy,Probable,BoneBruise Injury/Illness-BilateralPatellar Tendinopathy,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-11,20:00,BKN@NO,NO,"PierreJr.,Jaron",jaron pierre,Doubtful,GLeague-Two-Way,2026-11-10_02_15PM,2
+2026-11-10T14:15-05:00,2026-11-10T19:15+00:00,2026-11-11,20:00,BKN@NO,NO,"Watford,Trendon",trendon watford,Out,Injury/Illness-RightAnkleSprain,2026-11-10_02_15PM,2
+2026-11-10T14:45-05:00,2026-11-10T19:45+00:00,2026-11-10,11:00,OKC@POR,POR,"Kent,Jayson",jayson kent,Out,GLeague-Two-Way,2026-11-10_02_45PM,2
