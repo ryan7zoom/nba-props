@@ -1,18 +1,18 @@
 {
- "graded_utc": "2026-11-11T01:32Z",
- "bets": 16,
- "wins": 7,
- "losses": 9,
+ "graded_utc": "2026-11-11T15:20Z",
+ "bets": 22,
+ "wins": 10,
+ "losses": 12,
  "pushes": 0,
- "win_rate": 0.438,
+ "win_rate": 0.455,
  "win_rate_95ci": [
-  0.231,
-  0.668
+  0.269,
+  0.653
  ],
- "avg_decimal_price": 1.843,
- "break_even": 0.543,
- "units_won": -2.99,
- "return_per_bet": -0.187,
+ "avg_decimal_price": 1.839,
+ "break_even": 0.544,
+ "units_won": -3.53,
+ "return_per_bet": -0.16,
  "by_day": {
   "2026-11-04": {
    "w": 4,
@@ -37,11 +37,15 @@
   "2026-11-09": {
    "w": 0,
    "l": 2
+  },
+  "2026-11-10": {
+   "w": 3,
+   "l": 3
   }
  },
  "every_main_line_under_baseline": {
-  "bets": 1858,
-  "win_rate": 0.547
+  "bets": 1991,
+  "win_rate": 0.549
  },
  "bets_needed_note": "A 95% interval is about +/-6 points at 60 bets and +/-3 points at 250. Judge on 250+ bets, not 60.",
  "verdict": "too few bets to say anything"
