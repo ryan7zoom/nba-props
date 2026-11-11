@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-11T15:20Z",
+ "generated_utc": "2026-11-11T19:39Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -9,6 +9,35 @@
     "pts": [
      {
       "game_date": "2026-11-11",
+      "player": "Victor Wembanyama",
+      "team": "SA",
+      "opp": "CHI",
+      "market": "pts",
+      "line": 30.5,
+      "book": "fanduel",
+      "price": -114,
+      "our_p": 0.676,
+      "market_p": 0.5,
+      "blend_p": 0.562,
+      "edge": 0.055,
+      "tipoff_utc": "2026-11-12T01:00Z",
+      "all_lines": [
+       [
+        "fanduel",
+        30.5,
+        -114
+       ]
+      ],
+      "mean": 26.42,
+      "p_play": 1.0,
+      "minutes": 28.8,
+      "event_id": "401909969",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-11T19:39Z"
+     },
+     {
+      "game_date": "2026-11-11",
       "player": "Peyton Watson",
       "team": "CLE",
       "opp": "NY",
@@ -16,10 +45,10 @@
       "line": 12.5,
       "book": "draftkings",
       "price": -119,
-      "our_p": 0.683,
+      "our_p": 0.682,
       "market_p": 0.512,
       "blend_p": 0.572,
-      "edge": 0.053,
+      "edge": 0.052,
       "tipoff_utc": "2026-11-12T00:00Z",
       "all_lines": [
        [
@@ -39,36 +68,7 @@
       "event_id": "401909967",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
-     },
-     {
-      "game_date": "2026-11-11",
-      "player": "Victor Wembanyama",
-      "team": "SA",
-      "opp": "CHI",
-      "market": "pts",
-      "line": 30.5,
-      "book": "fanduel",
-      "price": -114,
-      "our_p": 0.674,
-      "market_p": 0.5,
-      "blend_p": 0.561,
-      "edge": 0.053,
-      "tipoff_utc": "2026-11-12T01:00Z",
-      "all_lines": [
-       [
-        "fanduel",
-        30.5,
-        -114
-       ]
-      ],
-      "mean": 26.42,
-      "p_play": 1.0,
-      "minutes": 28.8,
-      "event_id": "401909969",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
+      "logged_utc": "2026-11-11T19:39Z"
      },
      {
       "game_date": "2026-11-11",
@@ -79,7 +79,7 @@
       "line": 24.5,
       "book": "draftkings",
       "price": -121,
-      "our_p": 0.661,
+      "our_p": 0.662,
       "market_p": 0.517,
       "blend_p": 0.567,
       "edge": 0.036,
@@ -96,79 +96,16 @@
         -128
        ]
       ],
-      "mean": 21.54,
+      "mean": 21.51,
       "p_play": 1.0,
       "minutes": 31.4,
       "event_id": "401909967",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
-     },
-     {
-      "game_date": "2026-11-11",
-      "player": "Derrick White",
-      "team": "BOS",
-      "opp": "TOR",
-      "market": "pts",
-      "line": 13.5,
-      "book": "draftkings",
-      "price": -121,
-      "our_p": 0.658,
-      "market_p": 0.517,
-      "blend_p": 0.566,
-      "edge": 0.034,
-      "tipoff_utc": "2026-11-12T00:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        13.5,
-        -121
-       ],
-       [
-        "fanduel",
-        13.5,
-        -132
-       ]
-      ],
-      "mean": 11.7,
-      "p_play": 1.0,
-      "minutes": 27.9,
-      "event_id": "401909968",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
+      "logged_utc": "2026-11-11T19:39Z"
      }
     ],
     "pra": [
-     {
-      "game_date": "2026-11-11",
-      "player": "Stephen Curry",
-      "team": "GS",
-      "opp": "HOU",
-      "market": "pra",
-      "line": 35.5,
-      "book": "fanduel",
-      "price": -112,
-      "our_p": 0.691,
-      "market_p": 0.494,
-      "blend_p": 0.563,
-      "edge": 0.066,
-      "tipoff_utc": "2026-11-12T02:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        35.5,
-        -112
-       ]
-      ],
-      "mean": 30.73,
-      "p_play": 1.0,
-      "minutes": 28.7,
-      "event_id": "401909974",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
-     },
      {
       "game_date": "2026-11-11",
       "player": "Victor Wembanyama",
@@ -178,10 +115,10 @@
       "line": 45.5,
       "book": "fanduel",
       "price": -125,
-      "our_p": 0.663,
+      "our_p": 0.662,
       "market_p": 0.519,
-      "blend_p": 0.57,
-      "edge": 0.025,
+      "blend_p": 0.569,
+      "edge": 0.024,
       "tipoff_utc": "2026-11-12T01:00Z",
       "all_lines": [
        [
@@ -190,13 +127,13 @@
         -125
        ]
       ],
-      "mean": 40.72,
+      "mean": 40.71,
       "p_play": 1.0,
       "minutes": 28.8,
       "event_id": "401909969",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
+      "logged_utc": "2026-11-11T19:39Z"
      },
      {
       "game_date": "2026-11-11",
@@ -207,10 +144,10 @@
       "line": 21.5,
       "book": "fanduel",
       "price": -122,
-      "our_p": 0.654,
+      "our_p": 0.653,
       "market_p": 0.514,
       "blend_p": 0.563,
-      "edge": 0.025,
+      "edge": 0.024,
       "tipoff_utc": "2026-11-12T03:00Z",
       "all_lines": [
        [
@@ -219,13 +156,13 @@
         -122
        ]
       ],
-      "mean": 19.07,
+      "mean": 19.11,
       "p_play": 1.0,
       "minutes": 26.4,
       "event_id": "401909975",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-11T15:20Z"
+      "logged_utc": "2026-11-11T19:39Z"
      }
     ]
    }

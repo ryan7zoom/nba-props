@@ -4817,3 +4817,24 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-10T20:30-05:00,2026-11-11T01:30+00:00,2026-11-11,20:00,BKN@NO,NO,"MurphyIII,Trey",trey murphy,Probable,Injury/Illness-BilateralPatellar Tendinopathy,2026-11-10_08_30PM,2
 2026-11-11T00:00-05:00,2026-11-11T05:00+00:00,2026-11-11,20:00,BKN@NO,NO,"Missi,Yves",yves missi,Out,Injury/Illness-LeftKneeContusion/,2026-11-11_12_00AM,2
 2026-11-11T00:00-05:00,2026-11-11T05:00+00:00,2026-11-11,20:00,BKN@NO,NO,"MurphyIII,Trey",trey murphy,Probable,BoneBruise Injury/Illness-BilateralPatellar Tendinopathy,2026-11-11_12_00AM,2
+2026-11-11T11:00-05:00,2026-11-11T16:00+00:00,2026-11-11,20:00,BKN@NO,BKN,"BrownJr.,Mikel",mikel brown,Questionable,Injury/Illness-Illness,2026-11-11_11_00AM,2
+2026-11-11T11:00-05:00,2026-11-11T16:00+00:00,2026-11-11,20:00,BKN@NO,NO,"Missi,Yves",yves missi,Out,Injury/Illness-LeftKneeContusion/ BoneBruise,2026-11-11_11_00AM,2
+2026-11-11T11:00-05:00,2026-11-11T16:00+00:00,2026-11-11,20:00,BKN@NO,NO,"MurphyIII,Trey",trey murphy,Probable,Injury/Illness-BilateralPatellar Tendinopathy,2026-11-11_11_00AM,2
+2026-11-11T11:15-05:00,2026-11-11T16:15+00:00,2026-11-11,20:00,BKN@NO,BKN,"BrownJr.,Mikel",mikel brown,Out,Injury/Illness-Illness,2026-11-11_11_15AM,2
+2026-11-11T11:15-05:00,2026-11-11T16:15+00:00,2026-11-11,20:00,BKN@NO,NO,"Mathurin,Bennedict",bennedict mathurin,Out,Injury/Illness-RightThumbSprain,2026-11-11_11_15AM,2
+2026-11-11T11:15-05:00,2026-11-11T16:15+00:00,2026-11-11,20:00,BKN@NO,NO,"Missi,Yves",yves missi,Out,Injury/Illness-LeftKneeContusion/,2026-11-11_11_15AM,2
+2026-11-11T11:15-05:00,2026-11-11T16:15+00:00,2026-11-11,20:00,BKN@NO,NO,"MurphyIII,Trey",trey murphy,Doubtful,BoneBruise Injury/Illness-BilateralPatellar Tendinopathy,2026-11-11_11_15AM,2
+2026-11-11T12:45-05:00,2026-11-11T17:45+00:00,2026-11-11,19:00,BOS@TOR,TOR,"Jackson-Davis,Trayce",trayce jackson davis,Out,Injury/Illness-Illness,2026-11-11_12_45PM,2
+2026-11-11T12:45-05:00,2026-11-11T17:45+00:00,2026-11-11,20:00,BKN@NO,BKN,"Demin,Egor",egor demin,Available,Injury/Illness-RightBoneBruise,2026-11-11_12_45PM,2
+2026-11-11T13:00-05:00,2026-11-11T18:00+00:00,2026-11-11,19:00,BOS@TOR,BOS,"Carter,Devin",devin carter,Out,GLeague-Two-Way,2026-11-11_01_00PM,2
+2026-11-11T13:00-05:00,2026-11-11T18:00+00:00,2026-11-11,19:00,BOS@TOR,BOS,"George,Paul",paul george,Out,Injury/Illness-Illness,2026-11-11_01_00PM,2
+2026-11-11T13:00-05:00,2026-11-11T18:00+00:00,2026-11-11,19:00,BOS@TOR,BOS,"Williams,Amari",amari williams,Out,GLeague-Two-Way,2026-11-11_01_00PM,2
+2026-11-11T13:00-05:00,2026-11-11T18:00+00:00,2026-11-11,19:00,CLE@NY,NY,"Hart,Josh",josh hart,Probable,Injury/Illness-Illness,2026-11-11_01_00PM,2
+2026-11-11T13:00-05:00,2026-11-11T18:00+00:00,2026-11-11,19:00,CLE@NY,NY,"Towns,Karl-Anthony",karl anthony towns,Questionable,Injury/Illness-LeftSoreCalf,2026-11-11_01_00PM,2
+2026-11-11T13:15-05:00,2026-11-11T18:15+00:00,2026-11-11,20:00,SA@CHI,CHI,"Awaka,Tobe",tobe awaka,Out,Injury/Illness-LowBackTightness,2026-11-11_01_15PM,2
+2026-11-11T13:15-05:00,2026-11-11T18:15+00:00,2026-11-11,20:00,SA@CHI,CHI,"Wilson,Caleb",caleb wilson,Questionable,Injury/Illness-RightHipSoreness/ Tightness,2026-11-11_01_15PM,2
+2026-11-11T13:45-05:00,2026-11-11T18:45+00:00,2026-11-11,20:00,BKN@NO,NO,"PierreJr.,Jaron",jaron pierre,Probable,GLeague-Two-Way,2026-11-11_01_45PM,2
+2026-11-11T14:00-05:00,2026-11-11T19:00+00:00,2026-11-11,20:00,LAL@MIL,LAL,"Grimes,Quentin",quentin grimes,Out,Injury/Illness-RightFingerSprain,2026-11-11_02_00PM,2
+2026-11-11T14:00-05:00,2026-11-11T19:00+00:00,2026-11-11,20:00,LAL@MIL,MIL,"Herro,Tyler",tyler herro,Questionable,Injury/Illness-RightKneeContusion,2026-11-11_02_00PM,2
+2026-11-11T14:00-05:00,2026-11-11T19:00+00:00,2026-11-11,20:00,LAL@MIL,MIL,"Turner,Myles",myles turner,Out,Rest,2026-11-11_02_00PM,2
+2026-11-11T14:00-05:00,2026-11-11T19:00+00:00,2026-11-11,21:30,GS@HOU,GS,"Richard,Will",will richard,Probable,Injury/Illness-LeftThumbUCLTear,2026-11-11_02_00PM,2
