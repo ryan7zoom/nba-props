@@ -1,5 +1,5 @@
 {
-  "run": "13/11/2026 00:01 GMT+8",
+  "run": "13/11/2026 03:57 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -23,13 +23,11 @@
   "events_upcoming": 18,
   "games_with_lines": 4,
   "players_with_lines": 51,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "alexandre sarr"
-  ],
-  "requests_this_run": 19,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 958,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 15,
+  "games_reused_from_cache": 4,
+  "requests_left_today": 923,
   "daily_limit": 1000,
-  "history_rows_added": 181
+  "history_rows_added": 0
 }
