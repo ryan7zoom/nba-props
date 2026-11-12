@@ -1,8 +1,51 @@
 {
- "generated_utc": "2026-11-12T02:45Z",
+ "generated_utc": "2026-11-12T16:01Z",
  "top_n": 4,
- "locked_by_manual_run": true,
- "days": [],
+ "locked_by_manual_run": false,
+ "days": [
+  {
+   "game_date": "2026-11-12",
+   "markets": {
+    "pts": [
+     {
+      "game_date": "2026-11-12",
+      "player": "Cooper Flagg",
+      "team": "DAL",
+      "opp": "MIN",
+      "market": "pts",
+      "line": 24.5,
+      "book": "draftkings",
+      "price": -120,
+      "our_p": 0.679,
+      "market_p": 0.515,
+      "blend_p": 0.572,
+      "edge": 0.049,
+      "tipoff_utc": "2026-11-13T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        24.5,
+        -120
+       ],
+       [
+        "fanduel",
+        24.5,
+        -122
+       ]
+      ],
+      "mean": 21.18,
+      "p_play": 1.0,
+      "minutes": 33.4,
+      "event_id": "401909978",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-12T16:01Z"
+     }
+    ],
+    "pra": []
+   }
+  }
+ ],
  "rules": {
   "min_blend": 0.56,
   "min_edge": 0.02,
