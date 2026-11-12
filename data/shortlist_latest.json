@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-12T19:57Z",
+ "generated_utc": "2026-11-12T21:40Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-12",
@@ -37,9 +37,9 @@
       "p_play": 1.0,
       "minutes": 33.4,
       "event_id": "401909978",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-12T19:57Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-12T21:40Z"
      }
     ],
     "pra": []
