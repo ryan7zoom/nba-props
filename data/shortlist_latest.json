@@ -1,48 +1,77 @@
 {
- "generated_utc": "2026-11-12T21:40Z",
+ "generated_utc": "2026-11-13T15:27Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-12",
+   "game_date": "2026-11-13",
    "markets": {
-    "pts": [
+    "pts": [],
+    "pra": [
      {
-      "game_date": "2026-11-12",
-      "player": "Cooper Flagg",
-      "team": "DAL",
-      "opp": "MIN",
-      "market": "pts",
-      "line": 24.5,
+      "game_date": "2026-11-13",
+      "player": "Brayden Burries",
+      "team": "MIL",
+      "opp": "ORL",
+      "market": "pra",
+      "line": 20.5,
       "book": "draftkings",
-      "price": -120,
-      "our_p": 0.689,
-      "market_p": 0.515,
-      "blend_p": 0.575,
-      "edge": 0.055,
-      "tipoff_utc": "2026-11-13T01:00Z",
+      "price": -114,
+      "our_p": 0.681,
+      "market_p": 0.499,
+      "blend_p": 0.563,
+      "edge": 0.056,
+      "tipoff_utc": "2026-11-14T00:00Z",
       "all_lines": [
        [
         "draftkings",
-        24.5,
-        -120
+        20.5,
+        -114
        ],
        [
         "fanduel",
-        24.5,
+        20.5,
         -122
        ]
       ],
-      "mean": 21.1,
+      "mean": 17.55,
       "p_play": 1.0,
-      "minutes": 33.4,
-      "event_id": "401909978",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-12T21:40Z"
+      "minutes": 24.1,
+      "event_id": "401909297",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-13T15:27Z"
+     },
+     {
+      "game_date": "2026-11-13",
+      "player": "Keegan Murray",
+      "team": "SAC",
+      "opp": "POR",
+      "market": "pra",
+      "line": 16.5,
+      "book": "draftkings",
+      "price": -123,
+      "our_p": 0.653,
+      "market_p": 0.516,
+      "blend_p": 0.564,
+      "edge": 0.023,
+      "tipoff_utc": "2026-11-14T03:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        16.5,
+        -123
+       ]
+      ],
+      "mean": 14.52,
+      "p_play": 1.0,
+      "minutes": 24.7,
+      "event_id": "401909303",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-13T15:27Z"
      }
-    ],
-    "pra": []
+    ]
    }
   }
  ],
