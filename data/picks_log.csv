@@ -27,5 +27,4 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-11,Peyton Watson,CLE,NY,pts,12.5,draftkings,-119,0.683,0.512,0.572,0.053,2026-11-12T00:00Z,1,2026-11-11T23:07Z,"[[""draftkings"", 12.5, -119], [""fanduel"", 12.5, -125]]",10.39,1.0
 2026-11-11,Victor Wembanyama,SA,CHI,pts,30.5,fanduel,-114,0.676,0.5,0.562,0.054,2026-11-12T01:00Z,1,2026-11-11T23:07Z,"[[""fanduel"", 30.5, -114]]",26.46,1.0
 2026-11-12,Cooper Flagg,DAL,MIN,pts,24.5,draftkings,-120,0.689,0.515,0.575,0.055,2026-11-13T01:00Z,1,2026-11-12T21:40Z,"[[""draftkings"", 24.5, -120], [""fanduel"", 24.5, -122]]",21.1,1.0
-2026-11-13,Brayden Burries,MIL,ORL,pra,20.5,draftkings,-114,0.681,0.499,0.563,0.056,2026-11-14T00:00Z,0,2026-11-13T19:45Z,"[[""draftkings"", 20.5, -114], [""fanduel"", 20.5, -122]]",17.55,1.0
-2026-11-13,Keegan Murray,SAC,POR,pra,16.5,draftkings,-123,0.651,0.516,0.564,0.022,2026-11-14T03:00Z,0,2026-11-13T19:45Z,"[[""draftkings"", 16.5, -123]]",14.52,1.0
+2026-11-13,Brayden Burries,MIL,ORL,pra,20.5,draftkings,-114,0.683,0.499,0.564,0.058,2026-11-14T00:00Z,1,2026-11-13T22:47Z,"[[""draftkings"", 20.5, -114], [""fanduel"", 20.5, -122]]",17.56,1.0

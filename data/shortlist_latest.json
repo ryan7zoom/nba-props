@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-13T19:45Z",
+ "generated_utc": "2026-11-13T22:47Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-13",
@@ -17,10 +17,10 @@
       "line": 20.5,
       "book": "draftkings",
       "price": -114,
-      "our_p": 0.681,
+      "our_p": 0.683,
       "market_p": 0.499,
-      "blend_p": 0.563,
-      "edge": 0.056,
+      "blend_p": 0.564,
+      "edge": 0.058,
       "tipoff_utc": "2026-11-14T00:00Z",
       "all_lines": [
        [
@@ -34,42 +34,13 @@
         -122
        ]
       ],
-      "mean": 17.55,
+      "mean": 17.56,
       "p_play": 1.0,
       "minutes": 24.1,
       "event_id": "401909297",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-13T19:45Z"
-     },
-     {
-      "game_date": "2026-11-13",
-      "player": "Keegan Murray",
-      "team": "SAC",
-      "opp": "POR",
-      "market": "pra",
-      "line": 16.5,
-      "book": "draftkings",
-      "price": -123,
-      "our_p": 0.651,
-      "market_p": 0.516,
-      "blend_p": 0.564,
-      "edge": 0.022,
-      "tipoff_utc": "2026-11-14T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        16.5,
-        -123
-       ]
-      ],
-      "mean": 14.52,
-      "p_play": 1.0,
-      "minutes": 24.7,
-      "event_id": "401909303",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-13T19:45Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-13T22:47Z"
      }
     ]
    }
