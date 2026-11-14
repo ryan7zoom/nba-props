@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-14T14:14Z",
+ "generated_utc": "2026-11-14T18:07Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -10,6 +10,40 @@
     "pra": [
      {
       "game_date": "2026-11-14",
+      "player": "Egor Demin",
+      "team": "BKN",
+      "opp": "MEM",
+      "market": "pra",
+      "line": 16.5,
+      "book": "fanduel",
+      "price": -112,
+      "our_p": 0.69,
+      "market_p": 0.494,
+      "blend_p": 0.562,
+      "edge": 0.065,
+      "tipoff_utc": "2026-11-15T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        17.5,
+        -119
+       ],
+       [
+        "fanduel",
+        16.5,
+        -112
+       ]
+      ],
+      "mean": 13.74,
+      "p_play": 1.0,
+      "minutes": 21.3,
+      "event_id": "401909983",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-14T18:07Z"
+     },
+     {
+      "game_date": "2026-11-14",
       "player": "Michael Porter Jr.",
       "team": "BKN",
       "opp": "MEM",
@@ -17,10 +51,10 @@
       "line": 32.5,
       "book": "draftkings",
       "price": -120,
-      "our_p": 0.695,
+      "our_p": 0.692,
       "market_p": 0.511,
-      "blend_p": 0.576,
-      "edge": 0.055,
+      "blend_p": 0.575,
+      "edge": 0.053,
       "tipoff_utc": "2026-11-15T01:00Z",
       "all_lines": [
        [
@@ -34,13 +68,13 @@
         -125
        ]
       ],
-      "mean": 28.2,
+      "mean": 28.3,
       "p_play": 1.0,
       "minutes": 31.3,
       "event_id": "401909983",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-14T14:14Z"
+      "logged_utc": "2026-11-14T18:07Z"
      },
      {
       "game_date": "2026-11-14",
@@ -51,10 +85,10 @@
       "line": 27.5,
       "book": "draftkings",
       "price": -118,
-      "our_p": 0.683,
+      "our_p": 0.686,
       "market_p": 0.507,
-      "blend_p": 0.569,
-      "edge": 0.051,
+      "blend_p": 0.57,
+      "edge": 0.053,
       "tipoff_utc": "2026-11-15T01:00Z",
       "all_lines": [
        [
@@ -68,13 +102,13 @@
         -118
        ]
       ],
-      "mean": 24.09,
+      "mean": 24.08,
       "p_play": 1.0,
       "minutes": 32.7,
       "event_id": "401909984",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-14T14:14Z"
+      "logged_utc": "2026-11-14T18:07Z"
      }
     ]
    }

@@ -5089,3 +5089,23 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-13T20:45-05:00,2026-11-14T01:45+00:00,2026-11-13,21:30,GS@SA,SA,"Fox,De'Aaron",deaaron fox,Available,-,2026-11-13_08_45PM,2
 2026-11-13T20:45-05:00,2026-11-14T01:45+00:00,2026-11-13,21:30,GS@SA,SA,"Vassell,Devin",devin vassell,Available,-,2026-11-13_08_45PM,2
 2026-11-13T21:30-05:00,2026-11-14T02:30+00:00,2026-11-13,22:30,OKC@LAC,OKC,"Mitchell,Ajay",ajay mitchell,Out,Injury/Illness-LeftAnkleSprain,2026-11-13_09_30PM,2
+2026-11-14T12:15-05:00,2026-11-14T17:15+00:00,2026-11-14,20:00,BKN@MEM,BKN,"BrownJr.,Mikel",mikel brown,Probable,Injury/Illness-Illness,2026-11-14_12_15PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:00,DEN@NO,NO,"McGowens,Bryce",bryce mcgowens,Out,Injury/Illness-LeftElbowInfection,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:00,DEN@NO,NO,"Missi,Yves",yves missi,Probable,Injury/Illness-LeftKneeContusion/,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:00,DEN@NO,NO,"MurphyIII,Trey",trey murphy,Out,BoneBruise Injury/Illness-BilateralPatellar Tendinopathy,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:00,DEN@NO,NO,"Murray,Dejounte",dejounte murray,Out,Injury/Illness-LeftAnkleSprain,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:00,DEN@NO,NO,"Watford,Trendon",trendon watford,Out,Injury/Illness-RightAnkleSprain,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,19:30,DAL@CLE,DAL,"Christie,Max",max christie,Doubtful,Injury/Illness-LeftAnkleSprain,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Awaka,Tobe",tobe awaka,Out,Injury/Illness-DiscIrritation,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Claxton,Nic",nic claxton,Questionable,Injury/Illness-LeftHamstringInjury,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Powell,Norman",norman powell,Questionable,Management Injury/Illness-LowBackInjury Management,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Sellers,Jaylin",jaylin sellers,Out,GLeague-Two-Way,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Smith,Jalen",jalen smith,Questionable,Injury/Illness-LeftFingerSprain,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Swain,Dailyn",dailyn swain,Out,GLeague-OnAssignment,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,CHI@MIN,CHI,"Wilson,Caleb",caleb wilson,Out,Injury/Illness-RightMetacarpal Fracture,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,DET@MIA,DET,"Harkless,Elijah",elijah harkless,Available,GLeague-Two-Way,2026-11-14_12_45PM,2
+2026-11-14T12:45-05:00,2026-11-14T17:45+00:00,2026-11-14,20:00,DET@MIA,DET,"Jones,Isaac",isaac jones,Available,GLeague-Two-Way,2026-11-14_12_45PM,2
+2026-11-14T13:00-05:00,2026-11-14T18:00+00:00,2026-11-14,20:00,DET@MIA,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Probable,Injury/Illness-RightWristSprain,2026-11-14_01_00PM,2
+2026-11-14T13:00-05:00,2026-11-14T18:00+00:00,2026-11-14,20:00,DET@MIA,MIA,"Goldin,Vladislav",vladislav goldin,Out,GLeague-Two-Way,2026-11-14_01_00PM,2
+2026-11-14T13:00-05:00,2026-11-14T18:00+00:00,2026-11-14,20:00,DET@MIA,MIA,"Larsson,Pelle",pelle larsson,Doubtful,Injury/Illness-Illness,2026-11-14_01_00PM,2
+2026-11-14T13:00-05:00,2026-11-14T18:00+00:00,2026-11-14,20:00,DET@MIA,MIA,"Thompson,Klay",klay thompson,Probable,Injury/Illness-LeftAnkleSprain,2026-11-14_01_00PM,2
