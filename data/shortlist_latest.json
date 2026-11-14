@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-14T18:07Z",
+ "generated_utc": "2026-11-14T21:16Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-14",
@@ -17,10 +17,10 @@
       "line": 16.5,
       "book": "fanduel",
       "price": -112,
-      "our_p": 0.69,
+      "our_p": 0.685,
       "market_p": 0.494,
-      "blend_p": 0.562,
-      "edge": 0.065,
+      "blend_p": 0.561,
+      "edge": 0.061,
       "tipoff_utc": "2026-11-15T01:00Z",
       "all_lines": [
        [
@@ -34,13 +34,47 @@
         -112
        ]
       ],
-      "mean": 13.74,
+      "mean": 13.8,
       "p_play": 1.0,
       "minutes": 21.3,
       "event_id": "401909983",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-14T18:07Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-14T21:16Z"
+     },
+     {
+      "game_date": "2026-11-14",
+      "player": "Jaden McDaniels",
+      "team": "MIN",
+      "opp": "CHI",
+      "market": "pra",
+      "line": 27.5,
+      "book": "draftkings",
+      "price": -118,
+      "our_p": 0.688,
+      "market_p": 0.507,
+      "blend_p": 0.57,
+      "edge": 0.054,
+      "tipoff_utc": "2026-11-15T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        27.5,
+        -118
+       ],
+       [
+        "fanduel",
+        27.5,
+        -118
+       ]
+      ],
+      "mean": 23.96,
+      "p_play": 1.0,
+      "minutes": 32.7,
+      "event_id": "401909984",
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-14T21:16Z"
      },
      {
       "game_date": "2026-11-14",
@@ -51,10 +85,10 @@
       "line": 32.5,
       "book": "draftkings",
       "price": -120,
-      "our_p": 0.692,
+      "our_p": 0.69,
       "market_p": 0.511,
-      "blend_p": 0.575,
-      "edge": 0.053,
+      "blend_p": 0.574,
+      "edge": 0.052,
       "tipoff_utc": "2026-11-15T01:00Z",
       "all_lines": [
        [
@@ -68,47 +102,13 @@
         -125
        ]
       ],
-      "mean": 28.3,
+      "mean": 28.32,
       "p_play": 1.0,
       "minutes": 31.3,
       "event_id": "401909983",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-14T18:07Z"
-     },
-     {
-      "game_date": "2026-11-14",
-      "player": "Jaden McDaniels",
-      "team": "MIN",
-      "opp": "CHI",
-      "market": "pra",
-      "line": 27.5,
-      "book": "draftkings",
-      "price": -118,
-      "our_p": 0.686,
-      "market_p": 0.507,
-      "blend_p": 0.57,
-      "edge": 0.053,
-      "tipoff_utc": "2026-11-15T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        27.5,
-        -118
-       ],
-       [
-        "fanduel",
-        27.5,
-        -118
-       ]
-      ],
-      "mean": 24.08,
-      "p_play": 1.0,
-      "minutes": 32.7,
-      "event_id": "401909984",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-14T18:07Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-14T21:16Z"
      }
     ]
    }
