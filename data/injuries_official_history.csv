@@ -5071,3 +5071,21 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-13T17:15-05:00,2026-11-13T22:15+00:00,2026-11-14,20:00,CHI@MIN,MIN,"Beringer,Joan",joan beringer,Available,Injury/Illness-FaceMask,2026-11-13_05_15PM,2
 2026-11-13T17:15-05:00,2026-11-13T22:15+00:00,2026-11-14,20:00,CHI@MIN,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Injury/Illness-RightAchillesTendon,2026-11-13_05_15PM,2
 2026-11-13T17:15-05:00,2026-11-13T22:15+00:00,2026-11-14,20:00,CHI@MIN,MIN,"Edwards,Anthony",anthony edwards,Out,Repair/Surgery Injury/Illness-RightKnee Arthroscopy,2026-11-13_05_15PM,2
+2026-11-13T18:00-05:00,2026-11-13T23:00+00:00,2026-11-13,19:00,NY@IND,IND,"McConnell,T.J.",tj mcconnell,Available,Injury/Illness-RightHamstringStrain,2026-11-13_06_00PM,2
+2026-11-13T18:00-05:00,2026-11-13T23:00+00:00,2026-11-13,19:00,NY@IND,IND,"Nesmith,Aaron",aaron nesmith,Available,Injury/Illness-RightKneeSoreness,2026-11-13_06_00PM,2
+2026-11-13T18:00-05:00,2026-11-13T23:00+00:00,2026-11-13,20:00,CLE@MIA,MIA,"Larsson,Pelle",pelle larsson,Out,Injury/Illness-Illness,2026-11-13_06_00PM,2
+2026-11-13T18:00-05:00,2026-11-13T23:00+00:00,2026-11-13,20:00,CLE@MIA,MIA,"Thompson,Klay",klay thompson,Questionable,Injury/Illness-LeftAnkleSoreness,2026-11-13_06_00PM,2
+2026-11-13T18:15-05:00,2026-11-13T23:15+00:00,2026-11-13,20:00,CLE@MIA,MIA,"Thompson,Klay",klay thompson,Out,Injury/Illness-LeftAnkleSoreness,2026-11-13_06_15PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-13,20:00,ATL@CHI,ATL,"Dennis,RayJ",rayj dennis,Available,GLeague-Two-Way,2026-11-13_06_30PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-13,20:00,ATL@CHI,ATL,"Flemings,Kingston",kingston flemings,Available,Injury/Illness-LumbarSpasm,2026-11-13_06_30PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-14,19:00,DEN@NO,DEN,"HolmesII,DaRon",daron holmes,Out,GLeague-OnAssignment,2026-11-13_06_30PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-14,19:00,DEN@NO,DEN,"Nembhard,Ryan",ryan nembhard,Out,GLeague-Two-Way,2026-11-13_06_30PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-14,19:00,DEN@NO,DEN,"Strawther,Julian",julian strawther,Out,Injury/Illness-LeftKneeSprain,2026-11-13_06_30PM,2
+2026-11-13T18:30-05:00,2026-11-13T23:30+00:00,2026-11-14,19:00,DEN@NO,DEN,"Whitmore,Cam",cam whitmore,Out,GLeague-Two-Way,2026-11-13_06_30PM,2
+2026-11-13T18:45-05:00,2026-11-13T23:45+00:00,2026-11-13,20:00,MEM@NO,NO,"Mathurin,Bennedict",bennedict mathurin,Available,Injury/Illness-RightThumbSprain,2026-11-13_06_45PM,2
+2026-11-13T19:15-05:00,2026-11-14T00:15+00:00,2026-11-13,20:00,ATL@CHI,CHI,"Powell,Norman",norman powell,Available,-,2026-11-13_07_15PM,2
+2026-11-13T19:15-05:00,2026-11-14T00:15+00:00,2026-11-13,20:00,ATL@CHI,CHI,"Swain,Dailyn",dailyn swain,Out,Injury/Illness-RightDiscIrritation,2026-11-13_07_15PM,2
+2026-11-13T20:45-05:00,2026-11-14T01:45+00:00,2026-11-13,21:30,GS@SA,GS,"Bassey,Charles",charles bassey,Available,Injury/Illness-LeftToeSoreness,2026-11-13_08_45PM,2
+2026-11-13T20:45-05:00,2026-11-14T01:45+00:00,2026-11-13,21:30,GS@SA,SA,"Fox,De'Aaron",deaaron fox,Available,-,2026-11-13_08_45PM,2
+2026-11-13T20:45-05:00,2026-11-14T01:45+00:00,2026-11-13,21:30,GS@SA,SA,"Vassell,Devin",devin vassell,Available,-,2026-11-13_08_45PM,2
+2026-11-13T21:30-05:00,2026-11-14T02:30+00:00,2026-11-13,22:30,OKC@LAC,OKC,"Mitchell,Ajay",ajay mitchell,Out,Injury/Illness-LeftAnkleSprain,2026-11-13_09_30PM,2
