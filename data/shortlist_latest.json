@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-15T14:50Z",
+ "generated_utc": "2026-11-15T18:53Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -9,6 +9,40 @@
     "pts": [
      {
       "game_date": "2026-11-15",
+      "player": "Brayden Burries",
+      "team": "MIL",
+      "opp": "ATL",
+      "market": "pts",
+      "line": 11.5,
+      "book": "draftkings",
+      "price": -116,
+      "our_p": 0.682,
+      "market_p": 0.506,
+      "blend_p": 0.568,
+      "edge": 0.057,
+      "tipoff_utc": "2026-11-16T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        11.5,
+        -116
+       ],
+       [
+        "fanduel",
+        11.5,
+        -118
+       ]
+      ],
+      "mean": 9.45,
+      "p_play": 1.0,
+      "minutes": 22.8,
+      "event_id": "401909992",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-15T18:53Z"
+     },
+     {
+      "game_date": "2026-11-15",
       "player": "OG Anunoby",
       "team": "NY",
       "opp": "TOR",
@@ -16,10 +50,10 @@
       "line": 17.5,
       "book": "draftkings",
       "price": -118,
-      "our_p": 0.682,
+      "our_p": 0.683,
       "market_p": 0.51,
-      "blend_p": 0.57,
-      "edge": 0.054,
+      "blend_p": 0.571,
+      "edge": 0.055,
       "tipoff_utc": "2026-11-15T23:00Z",
       "all_lines": [
        [
@@ -33,13 +67,13 @@
         -138
        ]
       ],
-      "mean": 14.95,
+      "mean": 14.89,
       "p_play": 1.0,
       "minutes": 32.4,
       "event_id": "401909990",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-15T14:50Z"
+      "logged_utc": "2026-11-15T18:53Z"
      }
     ],
     "pra": []

@@ -1,5 +1,5 @@
 {
-  "run": "15/11/2026 22:50 GMT+8",
+  "run": "16/11/2026 02:53 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -13,20 +13,19 @@
     "PHX at DEN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "NY at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "DET at SA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "POR at MIN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "POR at MIN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "UTAH at LAC: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 11,
-  "events_listed": 98,
+  "warning_count": 12,
+  "events_listed": 96,
   "events_upcoming": 20,
-  "games_with_lines": 9,
-  "players_with_lines": 118,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "alexandre sarr"
-  ],
-  "requests_this_run": 21,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 984,
+  "games_with_lines": 8,
+  "players_with_lines": 105,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 13,
+  "games_reused_from_cache": 8,
+  "requests_left_today": 946,
   "daily_limit": 1000,
-  "history_rows_added": 413
+  "history_rows_added": 0
 }
