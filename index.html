@@ -18,6 +18,12 @@ h1{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .banner{border-radius:10px;padding:10px 13px;font-size:15.5px;margin:0 0 10px;background:var(--accent-soft);color:var(--ink)}
 .banner.warn{background:var(--warn-bg);color:var(--warn)}
 .banner.bad{background:var(--bad-bg);color:var(--bad)}
+.ctlw{margin:0 0 10px}
+.ctlw>summary{cursor:pointer;list-style:none;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:650}
+.ctlw>summary::-webkit-details-marker{display:none}
+.ctlw>summary::before{content:"\25B8  ";color:var(--accent)}
+.ctlw[open]>summary::before{content:"\25BE  "}
+.ctlw[open]>summary{margin-bottom:8px}
 .ctl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 10px;display:grid;gap:9px}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .lab{font-size:14.5px;color:var(--mute);min-width:110px;font-weight:600}
@@ -106,7 +112,7 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 <div class="top"><h1>NBA safe lines</h1><button class="chip" type="button" id="theme">Dark mode</button></div>
 <div class="banner" id="fresh">Loading predictions…</div>
 <div class="lnote" id="lnote"></div>
-<div class="ctl" id="ctlbox">
+<details class="ctlw" id="ctlbox"><summary id="ctls">Filters</summary><div class="ctl">
  <div class="row"><span class="lab">Show chances as</span><span id="fmt"></span></div>
  <div class="row"><span class="lab">Stat</span><span id="stat"></span></div>
  <div class="row"><span class="lab">Chance wanted</span><span id="conf"></span></div>
@@ -115,7 +121,7 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
  <div class="row"><span class="lab">Order</span><span id="ord"></span></div>
  <div class="row" id="gctl"><span class="lab">Games</span><span id="gbtn"></span></div>
  <input type="search" id="q" placeholder="Find a player or team" aria-label="Find a player or team">
-</div>
+</div></details>
 <div id="list"></div>
 </main>
 <script>
@@ -186,19 +192,24 @@ function legCtx(l,k){if(!l.id)return"";var st=l.stat||"pts",u=SU[st]||"pts",v=fu
 function bookPx(l,G){if(!LN||(l.stat!=="pts"&&l.stat!=="pra"))return"";var m=l.label.match(/^(.*) (\d+)\+ /);if(!m)return"";var nm=m[1],pt=+m[2]-0.5,best=null;
  [G.home,G.away].forEach(function(t){var e=LN[G.game_date+"|"+t+"|"+nm];if(!e||!e[l.stat])return;e[l.stat].m.concat(e[l.stat].a).forEach(function(r){if(r[1]===pt&&r[2]!=null&&(!best||dec(r[2])>best.d))best={d:dec(r[2]),b:r[0]}})});
  return best?'<span class="pw">'+bk(best.b)+' pays '+best.d.toFixed(2)+'</span>':""}
+function ttRow(name,T){var ov=T.rungs.filter(function(r){return r[1]>=0.6&&r[1]<=0.97}).map(function(r){return r[0].toFixed(1)+' <b>'+od(r[1])+'</b>'}),
+     un=T.rungs.filter(function(r){return r[2]>=0.6&&r[2]<=0.97}).map(function(r){return r[0].toFixed(1)+' <b>'+od(r[2])+'</b>'});
+ return '<details class="gp"><summary>'+name+' (main '+T.main.toFixed(1)+')</summary><div>Over: '+(ov.length?ov.join(' \u00b7 '):'none above 60%')+'</div><div>Under: '+(un.length?un.join(' \u00b7 '):'none above 60%')+'</div></details>'}
+function ttHtml(G){var h="";if(G.game_total)h+=ttRow("Game total",G.game_total);[G.away,G.home].forEach(function(t){var T=G.team_totals[t];if(T)h+=ttRow(t+" team total",T)});return h}
 function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder,p=G.proj,h='<div class="bd">';
  if(b.legs.length){var O=S.fmt==="odds";h+='<div class="bdh">Safest builder, all '+b.legs.length+' legs: <b>'+(O?'model odds '+od(b.all_hit):pct(b.all_hit)+' to hit')+'</b></div>';
   b.legs.forEach(function(l,i){var nt=l.note?(l.note.indexOf("line est")===0?'<span class="est">line est.</span>':l.note):"";h+='<div class="bl"><span>'+l.label+'</span><span class="lg"><span class="mo">'+(O?'<span class="ml">model odds</span>'+od(l.p):pct(l.p))+'</span>'+bookPx(l,G)+'<span class="pw">parlay without this leg '+od(b.without_leg[i])+'</span></span>'+(nt?'<small>'+nt+'</small>':'')+legCtx(l,k)+'</div>'});}
  else h+='<div class="bdh neg">No safe builder for this game yet</div>';
  h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+od(p.home_win):G.away+' win '+od(1-p.home_win))+'</div>';
  var ml=G.margin_lines.filter(function(m){return m.line<0});if(ml.length){h+='<div class="gp">'+ml.map(function(m){return m.team+(Math.abs(m.line)===0.5?' to win ':' wins by 6+ ').replace('6+',Math.ceil(Math.abs(m.line))+'+')+od(m.p)}).join(' \u00b7 ')+'</div>'}
+ if(G.team_totals){h+=ttHtml(G)}
  if(G.unders&&G.unders.length){h+='<div class="gp">Player Unders (main line only, singles): '+G.unders.map(function(u){return u.label+' '+od(u.p)}).join(' \u00b7 ')+'</div>'}
  return h+'</div>'}
 function matchupHtml(s){var m=String(s).match(/^(.+?) \u00b7 (.+?)(?: \((last \d+ games), of \d+\))?$/);
  if(!m)return'<div class="t m">Matchup</div><div>'+rk(s)+"</div>";
  return'<div class="t m">Matchup'+(m[3]?' <span class="src">'+m[3]+'</span>':"")+'</div><div class="mm">'+rk(m[1])+'</div><div class="mm">'+rk(m[2])+'</div>'}
 function injHtml(t){return t.split(" \u00b7 ").map(function(x){var q=x.match(/^([A-Za-z][A-Za-z\- ]{1,18}): (.+)$/);return q?'<div class="ij"><b class="is'+(/^Out$/i.test(q[1])?"":" q")+'">'+q[1]+'</b> '+q[2]+'</div>':'<div class="ij2">'+x+'</div>'}).join("")}
-function sbarUpdate(){var b=el("sbar");if(b)b.textContent="\u25B2 "+(S.stat==="pts"?"Points":"PRA")+" \u00b7 "+pct(S.conf)+" \u00b7 "+(S.day||"")+" \u00b7 plays "+pct(S.play)}
+function sbarUpdate(){var cs=el("ctls");if(cs)cs.textContent="Filters \u00b7 "+(S.stat==="pts"?"Points":"PRA")+" \u00b7 "+pct(S.conf)+" \u00b7 "+(S.day||"")+" \u00b7 plays "+pct(S.play);var b=el("sbar");if(b)b.textContent="\u25B2 "+(S.stat==="pts"?"Points":"PRA")+" \u00b7 "+pct(S.conf)+" \u00b7 "+(S.day||"")+" \u00b7 plays "+pct(S.play)}
 function days(){var s=[];D.players.forEach(function(p){if(s.indexOf(p.d)<0)s.push(p.d)});return s}
 function render(){
  var DY=days();if(!S.day)S.day=DY[0];
@@ -250,12 +261,6 @@ el("q").oninput=function(){S.q=this.value;render()};
 el("sbar").onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
 if(window.IntersectionObserver){new IntersectionObserver(function(es){el("sbar").style.display=es[0].isIntersecting?"none":"block"},{threshold:0}).observe(el("ctlbox"))}
 theme(T0);el("theme").onclick=function(){theme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")};
-/* NOT SHOWN ON THE PAGE (kept here so the code explains itself).
-Former subtitle: For every player: the Over line and the Under line that each reach the chance you pick.
-Former footer note: These chances are the model’s own, checked on last season’s games. Book lines come from DraftKings and FanDuel. The “market-adjusted edge” blends our chance with the book’s own odds with its margin removed (35% ours, 65% market) because the market knows lineups and roles we do not. That weight is provisional and will be measured from graded results. A big gap between ours and the market usually means missing news, not a bargain. Unders are only worth considering as singles at the book’s own line. The chance assumes the player plays; “plays 85%” shows how likely that is. The builder at the top of each game is built from one simulation of the whole game, so its all-legs chance already accounts for legs moving together (a close game keeps starters on the floor). Builder legs are starters only. For each starter the builder tries points, P+R, P+A and PRA (only stats that include points), starting at your bookie’s lowest rung (points 6 below the main line, PRA 10 below, combos the sum) and going up. It keeps the rung priced between 1.25 and 1.50, closest to about 1.35. Only points and PRA have DK/FD lines; every other stat is marked “line est.” and uses our own number, so check your bookie’s real rung and price. Picking the best of seven stats per player tends to choose the one where the model is most optimistic, so treat a big gap between model odds and your bookie’s price as a warning. Team and total legs are set at about 74% each and use our own team model, which has no bookmaker line to check against and is weaker than the bookies on who wins; the all-legs chance for a mix of legs has not been checked against results yet. The defense tag uses the opponent’s rank among 30 teams. The numbers above already include it, so it is a heads-up and not an extra adjustment; it is a small nudge next to game-to-game swings. Early in the season the ranks lean mostly on last season.
-Former builder footer (under each game builder): Model odds = 1 ÷ the model’s chance. A bookie price above them is a better deal than the model expects; below them is worse.
-Former note on estimated legs: " · check your bookie’s number"
-*/
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
 function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
 function loadCtx(){load(BASE+"team_context_latest.json").then(function(j){TC=j.games;render()}).catch(function(){TC=null})}
