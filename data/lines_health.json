@@ -1,5 +1,5 @@
 {
-  "run": "17/11/2026 01:07 GMT+8",
+  "run": "17/11/2026 03:58 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -17,17 +17,15 @@
     "ATL at OKC: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 12,
-  "events_listed": 87,
+  "events_listed": 88,
   "events_upcoming": 20,
   "games_with_lines": 8,
   "players_with_lines": 99,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "alexandre sarr"
-  ],
-  "requests_this_run": 17,
-  "games_reused_from_cache": 4,
-  "requests_left_today": 960,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 13,
+  "games_reused_from_cache": 8,
+  "requests_left_today": 922,
   "daily_limit": 1000,
-  "history_rows_added": 184
+  "history_rows_added": 0
 }

@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-11-16T17:06:37+00:00",
+  "run_utc": "2026-11-16T19:57:39+00:00",
   "mode": "daily",
   "ok": true,
   "errors": [],
@@ -7,7 +7,7 @@
   "warnings": [],
   "warning_count": 0,
   "this_run": {
-    "injury_rows": 102,
+    "injury_rows": 105,
     "schedule_rows": 25,
     "new_games": 0,
     "new_rows": 0
