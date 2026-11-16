@@ -22,7 +22,7 @@ FIT_SEASON, FIT_END = 2026, '2026-01-15'   # ESPN season_year 2026 = 2025-26
 N_SIM = 20000
 PTS_GAP, PRA_GAP = 6, 10          # lowest rung = main line minus this (points 6, PRA 10); the search goes up from there
 FLOOR_RA = 3                      # bookie's lowest rung for rebounds and for assists
-LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.80, 0.74   # every leg is priced 1.25 to 1.50 (chance 67-80%); the builder aims at about 1.35
+LEG_LO, LEG_HI = 0.556, 0.833   # every leg is priced 1.20 to 1.80 (chance 83.3% down to 55.6%); inside that window the builder takes the HIGHEST chance
 # Your bookie's rung ladders (a leg can only sit on a rung that exists there). Points are irregular at the low end and then go up in 5s;
 # P+R, P+A and PRA go up in 5s; rebounds, assists and A+R go up in 2s (the 2-step ladders start at the lowest rung assumed above: 3 for reb/ast, 6 for A+R).
 LADDER = {
@@ -30,13 +30,12 @@ LADDER = {
     'pr': list(range(5, 151, 5)), 'pa': list(range(5, 151, 5)), 'pra': list(range(5, 151, 5)),
 }
 # Chance range a player leg may have, per stat. Coarse ladders (points family, 5-step) get a wider price band than the finer 2-step ones:
-# points family priced 1.20 to 1.60, rebounds/assists/A+R priced about 1.22 to 1.55 (team and Under legs keep LEG_LO / LEG_HI = 1.25 to 1.50)
-BAND_COARSE, BAND_FINE = (0.625, 0.833), (0.645, 0.820)
-BAND = {'pts': BAND_COARSE, 'pr': BAND_COARSE, 'pa': BAND_COARSE, 'pra': BAND_COARSE, 'reb': BAND_FINE, 'ast': BAND_FINE, 'ar': BAND_FINE}
+PLAYER_HI = 0.80                  # player props start at odds 1.25 (chance 80%); team legs start at 1.20 (LEG_HI)
+BAND = {k: (LEG_LO, PLAYER_HI) for k in ('pts', 'pr', 'pa', 'pra')}
 RUNG_TIE = 0.02                    # two rungs of the same stat within this of each other (measured from the target) count as tied; the LOWER, safer rung wins
 STAT_TIE = 0.0                     # same idea when comparing different stats for one player (0 = strictly the closest to the target wins)
-TEAM_TARGETS = (0.74,)             # chance level tried for each team/game line
-MIN_LEG = 0.70                     # a main-line Under joins the pool only when at least this likely
+TEAM_TARGETS = (0.82,)             # spread / game-total / team-total pool legs: the line just inside the top of the window
+MIN_LEG = LEG_LO                     # a main-line Under joins the pool only when at least this likely
 FLOOR = 0.30                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
 MAX_LEGS = 3                       # 2 legs always (when two exist), a 3rd only above FLOOR
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
@@ -462,8 +461,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                     opts.append((k, pk))
             pick = None
             if opts:
-                gap = min(abs(q - LEG_TARGET) for _, q in opts)
-                pick = next((k, q) for k, q in opts if abs(q - LEG_TARGET) <= gap + RUNG_TIE)   # rungs run low to high, so the lowest of the near-ties wins
+                pick = max(opts, key=lambda kq: kq[1])   # highest chance of hitting inside the 1.20-1.80 window
             nm = STAT_NAME[stat]
             if pick is not None:
                 k_min = pick[0]
@@ -471,9 +469,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 cand = {'label': f"{pl['name']} {k_min}+ {nm}", 'family': f"pl_{pl['id']}", 'hit': hit, 'p': float(hit.mean()),
                         'note': ('line est. (no DK/FD line)' if est else f'main {main:g} ({books})'), 'kind': 'player',
                         'team': pl['team'], 'stat': stat, 'est': est, 'k': k_min, 'main': main, 'pid': pl['id']}
-                if best is not None:
-                    d_c, d_b = abs(cand['p'] - LEG_TARGET), abs(best['p'] - LEG_TARGET)
-                if best is None or d_c < d_b - STAT_TIE or (STAT_TIE > 0 and abs(d_c - d_b) <= STAT_TIE and cand['p'] > best['p']):
+                if best is None or cand['p'] > best['p']:
                     best = cand
             if not est:
                 pu = float((plays & (x <= math.floor(main))).mean())   # Under needs the player to play too (conservative)
@@ -481,19 +477,25 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                                 'hit': plays & (x <= math.floor(main)), 'player': pl['name']})
         if best:
             cands.append(best)
-    # full team-total table: every rung from main-TT_GAP to main+TT_GAP, both teams, Over and Under (shown on the page, not only the builder pick)
-    tt_table = {}
+    # team-total picks: for each team, the Over and the Under (any line from main-TT_GAP to main+TT_GAP, steps of 1) whose chance is closest to the target price
+    tt_table = []
     for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
         has = mk_t is not None and mk_m is not None
-        anc = (mk_t / 2 + sign * mk_m / 2) if has else mu
-        main_tt = math.floor(anc) + 0.5
-        rungs = [main_tt + d for d in range(-TT_GAP, TT_GAP + 1, TT_STEP)]
-        tt_table[tm] = {'main': main_tt, 'src': 'market' if has else 'our estimate',
-                        'rungs': [[float(x), round(float((P > x).mean()), 3), round(float((P < x).mean()), 3)] for x in rungs]}
-    gt_main = math.floor(anc_t) + 0.5
-    gt_table = {'main': gt_main, 'src': 'market' if mk_t is not None else 'our estimate',
-                'rungs': [[float(x), round(float((T > x).mean()), 3), round(float((T < x).mean()), 3)] for x in (gt_main + d for d in range(-TOT_GAP, TOT_GAP + 1))]}
-    return cands, singles, dict(gt=gt_table, tt=tt_table, M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
+        real = mk.get('home_tt' if sign == 1 else 'away_tt')     # the books' own team total, when the feed carries it
+        anc = real if real is not None else (mk_t / 2 + sign * mk_m / 2) if has else mu
+        main_tt = float(real) if real is not None else math.floor(anc) + 0.5
+        for side in ('over', 'under'):
+            if (side == 'over' and pace == 'slow') or (side == 'under' and pace == 'fast'):
+                continue
+            best = None
+            for d in range(-TT_GAP, TT_GAP + 1, TT_STEP):
+                x = math.floor(main_tt) + 0.5 + d      # always half-point lines
+                pr = float((P > x).mean()) if side == 'over' else float((P < x).mean())
+                if LEG_LO <= pr <= LEG_HI and (best is None or pr > best[1]):
+                    best = (x, pr)
+            if best:
+                tt_table.append({'team': tm, 'side': side, 'line': float(best[0]), 'p': round(best[1], 3), 'main': main_tt})
+    return cands, singles, dict(tt=tt_table, M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
 
 
 def pick_pool(cands, singles):
@@ -503,7 +505,7 @@ def pick_pool(cands, singles):
             cands.append({'label': s['label'], 'family': 'pl_u_' + s['player'], 'hit': s['hit'], 'p': s['p'],
                           'note': s['note'], 'kind': 'player_under'})
     def in_band(c):
-        lo, hi = BAND[c['stat']] if c.get('stat') in BAND else (LEG_LO, LEG_HI)
+        lo, hi = BAND[c['stat']] if c.get('stat') in BAND else (LEG_LO, PLAYER_HI) if c.get('kind') == 'player_under' else (LEG_LO, LEG_HI)
         return lo <= c['p'] <= hi
     pool = [c for c in cands if in_band(c)]
     if not pool:
@@ -517,7 +519,7 @@ def pick_pool(cands, singles):
             if c['family'] in used or (c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS):
                 continue
             pj = float((joint & c['hit']).mean())
-            score = -abs(c['p'] - LEG_TARGET) + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
+            score = c['p'] + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
             if best is None or score > best[0]:
                 best = (score, pj, c)
         if best is None or (best[1] < FLOOR and len(chosen) >= MIN_SHOW):
@@ -578,13 +580,13 @@ def project():
               'home': H, 'away': A,
               'proj': {'home_pts': round(sim['mu_t'] / 2 + sim['mu_m'] / 2, 1), 'away_pts': round(sim['mu_t'] / 2 - sim['mu_m'] / 2, 1),
                        'margin_home': round(sim['mu_m'], 1), 'total': round(sim['mu_t'], 1), 'pace': round(poss, 1), 'home_win': round(pH, 3),
-                       'read': sim['pace'], 'market': g['market'] and {k: v for k, v in g['market'].items() if k in ('total', 'home_spread', 'src')}},
+                       'read': sim['pace'], 'market': g['market'] and {k: v for k, v in g['market'].items() if k in ('total', 'home_spread', 'src', 'home_tt', 'away_tt')}},
               'margin_lines': [{'team': H, 'line': -L, 'p': round(float((M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)]
                               + [{'team': A, 'line': -L, 'p': round(float((-M > L).mean()), 3)} for L in (0.5, 5.5, 10.5)],
               'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind'], 'id': x.get('pid'), 'stat': x.get('stat')} for x in chosen],
                           'all_hit': round(joint, 3), 'without_leg': drop,
                           'players_in_play': len(players)},
-              'team_totals': sim['tt'], 'game_total': sim['gt'],
+              'team_totals': sim['tt'],
               'unders': sorted([{'label': s['label'], 'p': round(s['p'], 3), 'note': s['note']} for s in singles if s['p'] >= 0.58],
                                key=lambda z: -z['p'])[:6]}
         games.append(gd)
@@ -592,7 +594,7 @@ def project():
            'generated_epoch': int(time.time()),
            'sigma_margin': round(sm, 2), 'sigma_total': round(st, 2), 'total_scale': round(c, 4),
            'league_avg_total': round(lg_total, 1), 'games_with_market': sum(1 for x in games if x['proj']['market']),
-           'settings': {'floor': FLOOR, 'leg_lo': LEG_LO, 'leg_hi': LEG_HI, 'leg_target': LEG_TARGET, 'pts_gap': PTS_GAP, 'pra_gap': PRA_GAP},
+           'settings': {'floor': FLOOR, 'leg_lo': LEG_LO, 'leg_hi': LEG_HI, 'pts_gap': PTS_GAP, 'pra_gap': PRA_GAP},
            'games': games}
     with open(os.path.join(DATA, 'games_latest.json'), 'w') as f:
         json.dump(out, f, separators=(',', ':'))

@@ -27,6 +27,8 @@ DATA = Path("data")
 OUT = DATA / "game_lines_latest.json"
 HEALTH = DATA / "game_lines_health.json"
 GMARKETS = "h2h,spreads,totals"
+TMARKET = "team_totals"          # each team's own total, fetched in its own request so a plan without it cannot break the game lines
+TT_RANGE = (80.0, 150.0)
 TOTAL_RANGE = (195.0, 260.0)   # an NBA game total outside this is a misread (alternate or half-game line), so it is ignored
 
 
@@ -120,6 +122,43 @@ def parse_game(odds, home_name, away_name):
     return out
 
 
+def parse_team_totals(odds, home_name, away_name):
+    """-> {'home_tt': line, 'away_tt': line}: each team's main total (the line whose Over/Under is closest to 50/50).
+    One book is enough: DraftKings when it has the team, otherwise FanDuel."""
+    found = {}   # (book, team) -> line
+    for bk in odds.get("bookmakers") or []:
+        for m in bk.get("markets") or []:
+            if m.get("key") != "team_totals":
+                continue
+            by = {}
+            for o in m.get("outcomes") or []:
+                if not is_main(o, m):
+                    continue
+                team = o.get("description") or o.get("team") or o.get("participant")
+                side = str(o.get("name", "")).strip().lower()
+                try:
+                    pt, pr = float(o["point"]), int(round(float(o["price"])))
+                except Exception:
+                    continue
+                if team in (home_name, away_name) and side in ("over", "under"):
+                    by.setdefault((team, pt), {})[side] = pr
+            best = {}
+            for (team, pt), d in by.items():
+                if "over" in d and "under" in d and TT_RANGE[0] <= pt <= TT_RANGE[1]:
+                    gap = abs(fair_over(d["over"], d["under"]) - 0.5)
+                    if team not in best or gap < best[team][0]:
+                        best[team] = (gap, pt)
+            for team, (_g, pt) in best.items():
+                found[(bk.get("key"), team)] = pt
+    out = {}
+    for key, name in (("home_tt", home_name), ("away_tt", away_name)):
+        for book in ("draftkings", "fanduel"):
+            if (book, name) in found:
+                out[key] = found[(book, name)]
+                break
+    return out
+
+
 def run(key, now=None, api_fn=None):
     api_fn = api_fn or L.api
     now = now or datetime.now(timezone.utc)
@@ -143,6 +182,16 @@ def run(key, now=None, api_fn=None):
         if isinstance(odds, dict) and len(run.sample) < 2:
             run.sample.append({"game": f"{away} at {home}", "totals_rows [book, market line_type, outcome line_type, name, point, price]": sample(odds)})
         g = parse_game(odds if isinstance(odds, dict) else {}, e.get("home_team"), e.get("away_team"))
+        try:
+            tod = api_fn(f"/sports/{L.SPORT}/events/{e['id']}/odds", {"markets": TMARKET, "bookmakers": ",".join(L.BOOKS)}, key)
+            n_req += 1
+            tt = parse_team_totals(tod if isinstance(tod, dict) else {}, e.get("home_team"), e.get("away_team"))
+            if tt and g:
+                g.update(tt)
+            elif g:
+                warnings.append(f"{away} at {home}: no team total lines ({L.describe(tod) if isinstance(tod, dict) else 'bad answer'}); using game total and spread")
+        except Exception as ex:
+            warnings.append(f"{away} at {home}: team totals not fetched ({ex}); using game total and spread")
         if not g:
             warnings.append(f"{away} at {home}: no game lines (spread/total/moneyline) in the answer ({L.describe(odds) if isinstance(odds, dict) else 'bad answer'})")
             continue
