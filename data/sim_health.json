@@ -1,5 +1,5 @@
 {
-  "run": "17/11/2026 04:10 GMT+8",
+  "run": "17/11/2026 04:43 GMT+8",
   "ok": true,
   "errors": [],
   "error_count": 0,
@@ -16,9 +16,9 @@
   "data_through": "15/11/2026",
   "fit_rows": 32093,
   "defense_applied": true,
-  "seconds": 10,
+  "seconds": 8,
   "team_expected_minutes_total": {
-    "mean": 263.9,
+    "mean": 263.7,
     "min": 227.7,
     "max": 299.1
   }
