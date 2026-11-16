@@ -27,7 +27,7 @@ LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.80, 0.74   # every leg is priced 1.25 to 1.
 # P+R, P+A and PRA go up in 5s; rebounds, assists and A+R go up in 2s (the 2-step ladders start at the lowest rung assumed above: 3 for reb/ast, 6 for A+R).
 LADDER = {
     'pts': [10, 12, 15, 18, 20, 22, 25, 28, 30, 35] + list(range(40, 101, 5)),
-    'pr': list(range(5, 151)), 'pa': list(range(5, 151)), 'pra': list(range(5, 151, 5)),   # P+R / P+A go up in 1s (edit here to match your bookie)
+    'pr': list(range(5, 151, 5)), 'pa': list(range(5, 151, 5)), 'pra': list(range(5, 151, 5)),
 }
 # Chance range a player leg may have, per stat. Coarse ladders (points family, 5-step) get a wider price band than the finer 2-step ones:
 # points family priced 1.20 to 1.60, rebounds/assists/A+R priced about 1.22 to 1.55 (team and Under legs keep LEG_LO / LEG_HI = 1.25 to 1.50)
@@ -52,6 +52,7 @@ W_OURS = 0.35                     # share of OUR team model when a market total/
 PACE_BAND = 4                     # market-blended total this far below / above the league average = slow / fast game
 TT_OVER_GAP, TT_UNDER_GAP = 20, 20  # your bookie's team-total alternates reach 20 points below (Over) and 20 above (Under) the main team total
 MIN_MINUTES = 20                  # players projected under this many minutes are not used for legs
+TT_STEP = 1                       # team-total table: a rung every point, from main-20 to main+20 (your bookie goes up in 1s)
 TT_GAP = 20                       # same 20-point reach when there is no market team total (measured from our own projection)
 TOT_GAP = 10                      # your bookie's alternate GAME totals reach 10 points below (Over) and 10 above (Under) the main total
 SPREAD_GAP = 7                    # highest alternate spread = the team's own spread + 7
@@ -237,6 +238,18 @@ def backtest():
         tot.append({'over_line_vs_ours': off, 'ours': round(float(pr.mean()), 3),
                     'actual': round(float((chk.tot > chk.tt + off).mean()), 3)})
     out['total_over_reliability'] = tot
+    # single-team total (over a team's own points), offsets from our own team mean, -20 .. +20 like your bookie's ladder
+    sdt = ((sm ** 2 + st ** 2) / 4) ** .5
+    mh_ = chk.tt / 2 + chk.mu / 2
+    ma_ = chk.tt / 2 - chk.mu / 2
+    tm_rows = []
+    for off in range(-20, 21, 5):
+        pr = 1 - PhiV(np.full(len(chk) * 2, off) / sdt)
+        act = np.concatenate([(chk.ph > mh_ + off).values, (chk.pa > ma_ + off).values]).astype(float)
+        tm_rows.append({'over_line_vs_our_team_mean': off, 'ours': round(float(pr.mean()), 3), 'actual': round(float(act.mean()), 3)})
+    out['team_total_over_reliability'] = tm_rows
+    out['team_points_sd_used'] = round(float(sdt), 2)
+    out['team_points_sd_actual'] = round(float(np.concatenate([(chk.ph - mh_).values, (chk.pa - ma_).values]).std()), 2)
     with open(os.path.join(DATA, 'team_backtest.json'), 'w') as f:
         json.dump(out, f, indent=1)
     print(json.dumps(out, indent=1))
@@ -367,7 +380,7 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 hit = mg > -L
                 if hit.mean() >= tgt or L >= cap - 1e-9:
                     lab = f'{tm} +{L:g}' if L > 0 else f'{tm} {L:g}'
-                    add(lab, f'spread_{tm}', hit, ctx if hit.mean() >= tgt else ('highest alternate (our estimate of your bookie)' + (' \u00b7 ' + ctx if ctx else '')))
+                    add(lab, f'spread_{tm}', hit, ctx)
                     break
     # moneyline
     for tm, mg in ((H, M), (A, -M)):
@@ -468,7 +481,19 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                                 'hit': plays & (x <= math.floor(main)), 'player': pl['name']})
         if best:
             cands.append(best)
-    return cands, singles, dict(M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
+    # full team-total table: every rung from main-TT_GAP to main+TT_GAP, both teams, Over and Under (shown on the page, not only the builder pick)
+    tt_table = {}
+    for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
+        has = mk_t is not None and mk_m is not None
+        anc = (mk_t / 2 + sign * mk_m / 2) if has else mu
+        main_tt = math.floor(anc) + 0.5
+        rungs = [main_tt + d for d in range(-TT_GAP, TT_GAP + 1, TT_STEP)]
+        tt_table[tm] = {'main': main_tt, 'src': 'market' if has else 'our estimate',
+                        'rungs': [[float(x), round(float((P > x).mean()), 3), round(float((P < x).mean()), 3)] for x in rungs]}
+    gt_main = math.floor(anc_t) + 0.5
+    gt_table = {'main': gt_main, 'src': 'market' if mk_t is not None else 'our estimate',
+                'rungs': [[float(x), round(float((T > x).mean()), 3), round(float((T < x).mean()), 3)] for x in (gt_main + d for d in range(-TOT_GAP, TOT_GAP + 1))]}
+    return cands, singles, dict(gt=gt_table, tt=tt_table, M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
 
 
 def pick_pool(cands, singles):
@@ -559,6 +584,7 @@ def project():
               'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind'], 'id': x.get('pid'), 'stat': x.get('stat')} for x in chosen],
                           'all_hit': round(joint, 3), 'without_leg': drop,
                           'players_in_play': len(players)},
+              'team_totals': sim['tt'], 'game_total': sim['gt'],
               'unders': sorted([{'label': s['label'], 'p': round(s['p'], 3), 'note': s['note']} for s in singles if s['p'] >= 0.58],
                                key=lambda z: -z['p'])[:6]}
         games.append(gd)
