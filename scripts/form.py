@@ -1,4 +1,4 @@
-"""Recent form: each projected player's last five games (opponent, points, rebounds, assists, minutes).
+"""Recent form: each projected player's last five games (opponent, points, rebounds, assists, minutes, field goals made, field goals attempted).
 
 Reads data/player_games.csv (box scores) and data/projections_latest.json (who is playing next),
 writes data/form_latest.json for the page. Only games the player actually played are listed.
@@ -49,11 +49,11 @@ def run():
                 continue
             last_date = max(last_date, r["game_date_et"])
             games.setdefault(r["athlete_id"], []).append(
-                (r["game_date_et"], r["event_id"], r["opp"], int(r["home"] or 0), int(r["pts"] or 0), int(r["reb"] or 0), int(r["ast"] or 0), round(m)))
+                (r["game_date_et"], r["event_id"], r["opp"], int(r["home"] or 0), int(r["pts"] or 0), int(r["reb"] or 0), int(r["ast"] or 0), round(m), int(float(r["fgm"] or 0)), int(float(r["fga"] or 0))))
     out = {}
     for aid, rows in games.items():
         rows.sort(key=lambda x: (x[0], x[1]), reverse=True)
-        out[aid] = [[dmy(d), opp, home, pts, reb, ast, mn] for d, _e, opp, home, pts, reb, ast, mn in rows[:LAST_N]]
+        out[aid] = [[dmy(d), opp, home, pts, reb, ast, mn, fgm, fga] for d, _e, opp, home, pts, reb, ast, mn, fgm, fga in rows[:LAST_N]]
     missing = len(want - set(out))
     now = datetime.now(timezone.utc)
     DATA.mkdir(exist_ok=True)
