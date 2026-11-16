@@ -169,6 +169,98 @@ def calibrate(o):
     return c, sm, st
 
 
+# ------------------------------------------------------------------ recent form + injuries
+FORM_N = 10          # last 10 games
+FORM_COLS = ['own_form', 'opp_def_form', 'own_miss', 'opp_miss']
+USE_FORM = True      # switched on because the backtest (data/form_backtest.json) shows it predicts team points better
+
+
+def form_table(o, c):
+    """One row per team-game: how far the model was off (res), plus what was known BEFORE the game:
+    own_form = how much the team scored vs the model over its last 10, opp_def_form = how much the opponent allowed vs the model over its last 10,
+    own_miss / opp_miss = points per game of rotation players (15+ min) missing from the lineup."""
+    rows = []
+    for r in o.itertuples():
+        rows.append((r.event_id, r.date, r.sy, r.H, r.A, r.mh * c, r.ph))
+        rows.append((r.event_id, r.date, r.sy, r.A, r.H, r.ma * c, r.pa))
+    L = pd.DataFrame(rows, columns=['ev', 'date', 'sy', 'team', 'opp', 'pred', 'act']).sort_values(['date', 'ev']).reset_index(drop=True)
+    L['res'] = L.act - L.pred
+    L['own_form'] = L.groupby('team').res.transform(lambda x: x.shift(1).rolling(FORM_N, min_periods=5).mean())
+    d = L[['ev', 'date', 'opp', 'res']].rename(columns={'opp': 'team', 'res': 'allowed'}).sort_values(['date', 'ev'])
+    d['opp_def_form'] = d.groupby('team').allowed.transform(lambda x: x.shift(1).rolling(FORM_N, min_periods=5).mean())
+    L = L.merge(d[['ev', 'team', 'opp_def_form']].rename(columns={'team': 'opp'}), on=['ev', 'opp'], how='left')
+    pg = pd.read_csv(os.path.join(DATA, 'player_games.csv'), dtype={'athlete_id': str}, low_memory=False)
+    pg = pg[pg.season_type.isin([2, 3, 5]) & (pg.dnp == 0) & (pg['min'] > 0)].sort_values('game_date_et')
+    play_sets = pg.groupby(['event_id', 'team']).athlete_id.apply(set).to_dict()
+    miss = {}
+    for team, gt in L.groupby('team'):
+        tp = pg[pg.team == team]
+        byev = {e: g for e, g in tp.groupby('event_id')}
+        hist = []
+        for e in gt.sort_values(['date', 'ev']).ev:
+            recent = hist[-FORM_N:]
+            if len(recent) >= 5:
+                tot = {}
+                for gd_ in recent:
+                    for a, (pt, mn) in gd_.items():
+                        t = tot.setdefault(a, [0.0, 0.0])
+                        t[0] += pt
+                        t[1] += mn
+                ps = play_sets.get((e, team), set())
+                miss[(e, team)] = sum(v[0] / len(recent) for a, v in tot.items() if v[1] / len(recent) >= 15 and a not in ps)
+            g = byev.get(e)
+            hist.append({r.athlete_id: (r.pts, getattr(r, 'min')) for r in g.itertuples()} if g is not None else {})
+    L['own_miss'] = [miss.get((e, t), np.nan) for e, t in zip(L.ev, L.team)]
+    L['opp_miss'] = [miss.get((e, t), np.nan) for e, t in zip(L.ev, L.opp)]
+    return L, pg
+
+
+def fit_form(tr):
+    X = np.column_stack([np.ones(len(tr))] + [tr[k] for k in FORM_COLS])
+    return np.linalg.lstsq(X, tr.res.values, rcond=None)[0]
+
+
+def form_backtest(o, c):
+    """Does the adjustment predict a team's points better on games it has not seen? Fit before 15/01/2026, test after (plus this season)."""
+    L, _ = form_table(o, c)
+    L = L.dropna(subset=['own_form', 'opp_def_form', 'own_miss', 'opp_miss'])
+    tr = L[(L.sy < FIT_SEASON) | ((L.sy == FIT_SEASON) & (L.date < FIT_END))]
+    te = L[~L.index.isin(tr.index)]
+    b = fit_form(tr)
+    Xt = np.column_stack([np.ones(len(te))] + [te[k] for k in FORM_COLS])
+    e1 = te.res.values - Xt @ b
+    e0 = te.res.values
+    gain = e0 ** 2 - e1 ** 2
+    out = {'train_team_games': int(len(tr)), 'test_team_games': int(len(te)),
+           'rmse_without': round(float(np.sqrt((e0 ** 2).mean())), 3), 'rmse_with': round(float(np.sqrt((e1 ** 2).mean())), 3),
+           'squared_error_gain_t': round(float(gain.mean() / (gain.std() / np.sqrt(len(gain)))), 2),
+           'coefficients': dict(zip(['intercept'] + FORM_COLS, [round(float(x), 3) for x in b]))}
+    with open(os.path.join(DATA, 'form_backtest.json'), 'w') as f:
+        json.dump(out, f, indent=1)
+    print(json.dumps(out, indent=1))
+
+
+def live_form(L, pg, proj_players, team, opp):
+    """Features for an upcoming game: recent form from the table, and expected missing scoring from each rotation player's chance of playing."""
+    own_form = float(L[L.team == team].res.tail(FORM_N).mean()) if (L.team == team).any() else 0.0
+    opp_def = float(L[L.opp == opp].res.tail(FORM_N).mean()) if (L.opp == opp).any() else 0.0
+
+    def expected_miss(tm):
+        tp = pg[pg.team == tm]
+        evs = list(dict.fromkeys(tp.sort_values('game_date_et').event_id))[-FORM_N:]
+        if len(evs) < 5:
+            return 0.0
+        w = tp[tp.event_id.isin(evs)]
+        agg = w.groupby('athlete_id').agg(pts=('pts', 'sum'), mn=('min', 'sum'))
+        pp = {p['id']: p['p_play'] for p in proj_players if p['team'] == tm}
+        tot = 0.0
+        for a, r in agg.iterrows():
+            if r.mn / len(evs) >= 15:
+                tot += (1.0 - pp.get(a, 0.0)) * r.pts / len(evs)
+        return tot
+    return [own_form, opp_def, expected_miss(team), expected_miss(opp)]
+
+
 # ------------------------------------------------------------------ backtest
 def backtest():
     j = load_games()
@@ -249,6 +341,7 @@ def backtest():
     out['team_total_over_reliability'] = tm_rows
     out['team_points_sd_used'] = round(float(sdt), 2)
     out['team_points_sd_actual'] = round(float(np.concatenate([(chk.ph - mh_).values, (chk.pa - ma_).values]).std()), 2)
+    form_backtest(o, c)
     with open(os.path.join(DATA, 'team_backtest.json'), 'w') as f:
         json.dump(out, f, indent=1)
     print(json.dumps(out, indent=1))
@@ -399,23 +492,6 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                 if (T < xx).mean() <= tgt + 1e-9:
                     add(f'Game total under {xx:g}', 'total', T < xx, ctx)
                     break
-    # team totals
-    for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
-        anc = (mk_t / 2 + sign * mk_m / 2) if (mk_t is not None and mk_m is not None) else mu
-        o_gap, u_gap = (TT_OVER_GAP, TT_UNDER_GAP) if (mk_t is not None and mk_m is not None) else (TT_GAP, TT_GAP)
-        for tgt in TEAM_TARGETS:
-            if pace != 'slow':
-                lo = math.floor(anc - o_gap) + 0.5
-                for xx in np.arange(lo, mu + 30, 1.0):
-                    if (P > xx).mean() <= tgt + 1e-9:
-                        add(f'{tm} team total over {xx:g}', f'tt_{tm}', P > xx, ctx)
-                        break
-            if pace != 'fast':
-                hi = math.floor(anc + u_gap) + 0.5
-                for xx in np.arange(hi, mu - 30, -1.0):
-                    if (P < xx).mean() <= tgt + 1e-9:
-                        add(f'{tm} team total under {xx:g}', f'tt_{tm}', P < xx, ctx)
-                        break
     # players
     singles = []
     for pl in players:
@@ -477,25 +553,27 @@ def simulate_game(g, sm, st, c, players, lines, rng):
                                 'hit': plays & (x <= math.floor(main)), 'player': pl['name']})
         if best:
             cands.append(best)
-    # team-total picks: for each team, the Over and the Under (any line from main-TT_GAP to main+TT_GAP, steps of 1) whose chance is closest to the target price
-    tt_table = []
+    # team-total legs: for each team, the Over and the Under (any line from main-20 to main+20, steps of 1) with the HIGHEST chance inside the odds window.
+    # The main line is the DK/FD team total when the feed has it, otherwise our estimate.
     for tm, P, mu, sign in ((H, PH, mu_t / 2 + mu_m / 2, 1), (A, PA, mu_t / 2 - mu_m / 2, -1)):
         has = mk_t is not None and mk_m is not None
-        real = mk.get('home_tt' if sign == 1 else 'away_tt')     # the books' own team total, when the feed carries it
+        real = mk.get('home_tt' if sign == 1 else 'away_tt')
         anc = real if real is not None else (mk_t / 2 + sign * mk_m / 2) if has else mu
         main_tt = float(real) if real is not None else math.floor(anc) + 0.5
+        note = f'main {main_tt:g}' + ('' if real is not None else ' (estimated)') + (' \u00b7 ' + pace + ' game' if pace != 'normal' else '')
         for side in ('over', 'under'):
             if (side == 'over' and pace == 'slow') or (side == 'under' and pace == 'fast'):
                 continue
             best = None
             for d in range(-TT_GAP, TT_GAP + 1, TT_STEP):
                 x = math.floor(main_tt) + 0.5 + d      # always half-point lines
-                pr = float((P > x).mean()) if side == 'over' else float((P < x).mean())
+                hit = (P > x) if side == 'over' else (P < x)
+                pr = float(hit.mean())
                 if LEG_LO <= pr <= LEG_HI and (best is None or pr > best[1]):
-                    best = (x, pr)
+                    best = (x, pr, hit)
             if best:
-                tt_table.append({'team': tm, 'side': side, 'line': float(best[0]), 'p': round(best[1], 3), 'main': main_tt})
-    return cands, singles, dict(tt=tt_table, M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
+                add(f'{tm} team total {side} {best[0]:g}', f'tt_{tm}', best[2], note)
+    return cands, singles, dict( M=M, T=T, PH=PH, PA=PA, mu_t=mu_t, mu_m=mu_m, pace=pace, ctx=ctx)
 
 
 def pick_pool(cands, singles):
@@ -561,6 +639,10 @@ def project():
     except Exception:
         PCTX = {}
     gl = load_game_lines()
+    FB, FPG = (None, None)
+    if USE_FORM:
+        FL, FPG = form_table(o, c)
+        FB = fit_form(FL.dropna(subset=['own_form', 'opp_def_form', 'own_miss', 'opp_miss']))
     lg_total = float(j[j.sy == last].eval('pts_h + pts_a').mean())
     sched = pd.read_csv(os.path.join(DATA, 'schedule.csv'), dtype=str)
     sched = sched[(sched.state == 'pre') & (sched.season_type.isin(['2', '3', '5']))]
@@ -569,6 +651,11 @@ def project():
     for r in sched.itertuples():
         H, A = r.home, r.away
         mh, ma, poss, _, _ = R.predict(H, A, c)
+        pls = by_ev.get(r.event_id, [])
+        if FB is not None:
+            adj_h = float(FB[0] + np.dot(FB[1:], live_form(FL, FPG, pls, H, A)))
+            adj_a = float(FB[0] + np.dot(FB[1:], live_form(FL, FPG, pls, A, H)))
+            mh, ma = mh + adj_h, ma + adj_a
         g = {'event_id': r.event_id, 'home': H, 'away': A, 'mh': mh / c, 'ma': ma / c, 'lg_total': lg_total,
              'market': pick_market(gl, H, A, fmt_date(r.game_date_et))}
         players = by_ev.get(r.event_id, [])
@@ -586,7 +673,6 @@ def project():
               'builder': {'legs': [{'label': x['label'], 'p': round(x['p'], 3), 'note': x['note'], 'kind': x['kind'], 'id': x.get('pid'), 'stat': x.get('stat')} for x in chosen],
                           'all_hit': round(joint, 3), 'without_leg': drop,
                           'players_in_play': len(players)},
-              'team_totals': sim['tt'],
               'unders': sorted([{'label': s['label'], 'p': round(s['p'], 3), 'note': s['note']} for s in singles if s['p'] >= 0.58],
                                key=lambda z: -z['p'])[:6]}
         games.append(gd)
