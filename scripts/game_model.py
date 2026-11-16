@@ -37,8 +37,9 @@ STAT_TIE = 0.0                     # same idea when comparing different stats fo
 TEAM_TARGETS = (0.82,)             # spread / game-total / team-total pool legs: the line just inside the top of the window
 MIN_LEG = LEG_LO                     # a main-line Under joins the pool only when at least this likely
 FLOOR = 0.30                       # a third leg is only added while the all-legs chance stays above this (two legs are always built when the pool allows)
-MAX_LEGS = 3                       # 2 legs always (when two exist), a 3rd only above FLOOR
+MAX_LEGS = 5                       # most legs in one game's builder: 3 player props + up to 2 team totals
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
+MIN_PLAYER_LEGS = 3               # at least this many player props in every game's builder
 PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team leg (you mostly bet player props)
 MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line (with a DK/FD line) that can be a builder leg
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5, 'reb': 3.5, 'ast': 3.5, 'pr': 12.5, 'pa': 12.5, 'ar': 6.5}   # same, for stats with no DK/FD line (our own median is the anchor, flagged as an estimate)
@@ -588,24 +589,24 @@ def pick_pool(cands, singles):
     pool = [c for c in cands if in_band(c)]
     if not pool:
         return [], 0.0, []
+    # every game gets at least MIN_PLAYER_LEGS player props plus its team-total legs (one per team), highest chance first; 5 legs at most
+    def score(c):
+        return c['p'] + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
     chosen, used = [], set()
-    joint = np.ones(len(pool[0]['hit']), bool)
-    team_n = 0
-    while len(chosen) < MAX_LEGS:
-        best = None
-        for c in pool:
-            if c['family'] in used or (c['kind'] == 'team' and team_n >= MAX_TEAM_LEGS):
-                continue
-            pj = float((joint & c['hit']).mean())
-            score = c['p'] + (PLAYER_BONUS if c['kind'] != 'team' else 0.0)
-            if best is None or score > best[0]:
-                best = (score, pj, c)
-        if best is None or (best[1] < FLOOR and len(chosen) >= MIN_SHOW):
+    players_ = sorted([c for c in pool if c['kind'] == 'player'], key=score, reverse=True)
+    teams_ = sorted([c for c in pool if c['kind'] == 'team' and str(c['family']).startswith('tt_')], key=score, reverse=True)
+    for c in players_:
+        if sum(1 for x in chosen if x['kind'] != 'team') >= MIN_PLAYER_LEGS:
             break
-        chosen.append(best[2])
-        used.add(best[2]['family'])
-        team_n += 1 if best[2]['kind'] == 'team' else 0
-        joint = joint & best[2]['hit']
+        if c['family'] not in used:
+            chosen.append(c)
+            used.add(c['family'])
+    for c in teams_:
+        if sum(1 for x in chosen if x['kind'] == 'team') >= MAX_TEAM_LEGS or len(chosen) >= MAX_LEGS:
+            break
+        if c['family'] not in used:
+            chosen.append(c)
+            used.add(c['family'])
     if not chosen:
         return [], 0.0, []
     allhit = np.ones(len(chosen[0]['hit']), bool)
