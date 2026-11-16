@@ -1,80 +1,12 @@
 {
- "generated_utc": "2026-11-16T04:43Z",
+ "generated_utc": "2026-11-16T17:07Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-16",
    "markets": {
     "pts": [
-     {
-      "game_date": "2026-11-16",
-      "player": "LaMelo Ball",
-      "team": "MIN",
-      "opp": "POR",
-      "market": "pts",
-      "line": 21.5,
-      "book": "fanduel",
-      "price": -118,
-      "our_p": 0.673,
-      "market_p": 0.506,
-      "blend_p": 0.564,
-      "edge": 0.043,
-      "tipoff_utc": "2026-11-17T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -123
-       ],
-       [
-        "fanduel",
-        21.5,
-        -118
-       ]
-      ],
-      "mean": 18.5,
-      "p_play": 1.0,
-      "minutes": 28.3,
-      "event_id": "401909999",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
-     },
-     {
-      "game_date": "2026-11-16",
-      "player": "Rudy Gobert",
-      "team": "MIN",
-      "opp": "POR",
-      "market": "pts",
-      "line": 9.5,
-      "book": "draftkings",
-      "price": -121,
-      "our_p": 0.662,
-      "market_p": 0.517,
-      "blend_p": 0.567,
-      "edge": 0.036,
-      "tipoff_utc": "2026-11-17T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        9.5,
-        -121
-       ],
-       [
-        "fanduel",
-        9.5,
-        -122
-       ]
-      ],
-      "mean": 8.07,
-      "p_play": 1.0,
-      "minutes": 27.8,
-      "event_id": "401909999",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
-     },
      {
       "game_date": "2026-11-16",
       "player": "Aaron Gordon",
@@ -89,6 +21,8 @@
       "blend_p": 0.586,
       "edge": 0.03,
       "tipoff_utc": "2026-11-17T02:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
       "all_lines": [
        [
         "fanduel",
@@ -98,11 +32,7 @@
       ],
       "mean": 12.08,
       "p_play": 1.0,
-      "minutes": 29.1,
-      "event_id": "401910001",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
+      "locked": true
      },
      {
       "game_date": "2026-11-16",
@@ -118,6 +48,8 @@
       "blend_p": 0.58,
       "edge": 0.026,
       "tipoff_utc": "2026-11-17T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
       "all_lines": [
        [
         "fanduel",
@@ -127,42 +59,100 @@
       ],
       "mean": 23.05,
       "p_play": 1.0,
-      "minutes": 32.9,
-      "event_id": "401909994",
+      "locked": true
+     },
+     {
+      "game_date": "2026-11-16",
+      "player": "LaMelo Ball",
+      "team": "MIN",
+      "opp": "POR",
+      "market": "pts",
+      "line": 21.5,
+      "book": "fanduel",
+      "price": -118,
+      "our_p": 0.673,
+      "market_p": 0.506,
+      "blend_p": 0.564,
+      "edge": 0.043,
+      "tipoff_utc": "2026-11-17T01:00Z",
       "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
+      "logged_utc": "2026-11-16T04:43Z",
+      "all_lines": [
+       [
+        "draftkings",
+        21.5,
+        -123
+       ],
+       [
+        "fanduel",
+        21.5,
+        -118
+       ]
+      ],
+      "mean": 18.5,
+      "p_play": 1.0,
+      "locked": true
+     },
+     {
+      "game_date": "2026-11-16",
+      "player": "Rudy Gobert",
+      "team": "MIN",
+      "opp": "POR",
+      "market": "pts",
+      "line": 9.5,
+      "book": "draftkings",
+      "price": -121,
+      "our_p": 0.662,
+      "market_p": 0.517,
+      "blend_p": 0.567,
+      "edge": 0.036,
+      "tipoff_utc": "2026-11-17T01:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
+      "all_lines": [
+       [
+        "draftkings",
+        9.5,
+        -121
+       ],
+       [
+        "fanduel",
+        9.5,
+        -122
+       ]
+      ],
+      "mean": 8.07,
+      "p_play": 1.0,
+      "locked": true
      }
     ],
     "pra": [
      {
       "game_date": "2026-11-16",
-      "player": "Payton Pritchard",
-      "team": "BOS",
-      "opp": "ORL",
+      "player": "Dillon Brooks",
+      "team": "PHX",
+      "opp": "DEN",
       "market": "pra",
       "line": 21.5,
       "book": "fanduel",
-      "price": -114,
-      "our_p": 0.697,
-      "market_p": 0.5,
-      "blend_p": 0.569,
-      "edge": 0.068,
-      "tipoff_utc": "2026-11-17T00:00Z",
+      "price": -128,
+      "our_p": 0.665,
+      "market_p": 0.524,
+      "blend_p": 0.574,
+      "edge": 0.022,
+      "tipoff_utc": "2026-11-17T02:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
       "all_lines": [
        [
         "fanduel",
         21.5,
-        -114
+        -128
        ]
       ],
-      "mean": 18.19,
+      "mean": 18.76,
       "p_play": 1.0,
-      "minutes": 25.1,
-      "event_id": "401909994",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
+      "locked": true
      },
      {
       "game_date": "2026-11-16",
@@ -178,6 +168,8 @@
       "blend_p": 0.575,
       "edge": 0.025,
       "tipoff_utc": "2026-11-17T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
       "all_lines": [
        [
         "fanduel",
@@ -187,40 +179,34 @@
       ],
       "mean": 24.23,
       "p_play": 1.0,
-      "minutes": 28.7,
-      "event_id": "401909994",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
+      "locked": true
      },
      {
       "game_date": "2026-11-16",
-      "player": "Dillon Brooks",
-      "team": "PHX",
-      "opp": "DEN",
+      "player": "Payton Pritchard",
+      "team": "BOS",
+      "opp": "ORL",
       "market": "pra",
       "line": 21.5,
       "book": "fanduel",
-      "price": -128,
-      "our_p": 0.665,
-      "market_p": 0.524,
-      "blend_p": 0.574,
-      "edge": 0.022,
-      "tipoff_utc": "2026-11-17T02:00Z",
+      "price": -114,
+      "our_p": 0.697,
+      "market_p": 0.5,
+      "blend_p": 0.569,
+      "edge": 0.068,
+      "tipoff_utc": "2026-11-17T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-16T04:43Z",
       "all_lines": [
        [
         "fanduel",
         21.5,
-        -128
+        -114
        ]
       ],
-      "mean": 18.76,
+      "mean": 18.19,
       "p_play": 1.0,
-      "minutes": 27.6,
-      "event_id": "401910001",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-16T04:43Z"
+      "locked": true
      }
     ]
    }
