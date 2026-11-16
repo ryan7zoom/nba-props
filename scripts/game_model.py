@@ -27,8 +27,7 @@ LEG_LO, LEG_HI, LEG_TARGET = 0.67, 0.80, 0.74   # every leg is priced 1.25 to 1.
 # P+R, P+A and PRA go up in 5s; rebounds, assists and A+R go up in 2s (the 2-step ladders start at the lowest rung assumed above: 3 for reb/ast, 6 for A+R).
 LADDER = {
     'pts': [10, 12, 15, 18, 20, 22, 25, 28, 30, 35] + list(range(40, 101, 5)),
-    'pr': list(range(5, 151, 5)), 'pa': list(range(5, 151, 5)), 'pra': list(range(5, 151, 5)),
-    'reb': list(range(3, 41, 2)), 'ast': list(range(3, 41, 2)), 'ar': list(range(6, 61, 2)),
+    'pr': list(range(5, 151)), 'pa': list(range(5, 151)), 'pra': list(range(5, 151, 5)),   # P+R / P+A go up in 1s (edit here to match your bookie)
 }
 # Chance range a player leg may have, per stat. Coarse ladders (points family, 5-step) get a wider price band than the finer 2-step ones:
 # points family priced 1.20 to 1.60, rebounds/assists/A+R priced about 1.22 to 1.55 (team and Under legs keep LEG_LO / LEG_HI = 1.25 to 1.50)
@@ -45,7 +44,7 @@ PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team
 MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line (with a DK/FD line) that can be a builder leg
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5, 'reb': 3.5, 'ast': 3.5, 'pr': 12.5, 'pa': 12.5, 'ar': 6.5}   # same, for stats with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
-STATS = ('pts', 'reb', 'ast', 'pr', 'pa', 'ar', 'pra')   # player legs: every stat is tried, the rung closest to the target price wins
+STATS = ('pts', 'pr', 'pa', 'pra')   # player legs: only stats that include points (no rebounds / assists / A+R: too streaky); the rung closest to the target price wins
 STAT_NAME = {'pts': 'pts', 'reb': 'reb', 'ast': 'ast', 'pr': 'P+R', 'pa': 'P+A', 'ar': 'A+R', 'pra': 'PRA'}
 STARTERS_ONLY = True              # builder player legs: only players who started at least 3 of their last 5 games (needs data/player_context_latest.json)
 PCTX = {}
@@ -414,7 +413,9 @@ def simulate_game(g, sm, st, c, players, lines, rng):
         if STARTERS_ONLY and PCTX and not (PCTX.get(f"{pl['id']}|{pl['event_id']}") or {}).get('st'):
             continue
         zt = zH if pl['team'] == H else zA
-        plays = rng.random(n) < pp
+        # Leg chances are "given he plays" (bookies void / refund a leg if the player does not play, and p_play >= 0.9 here anyway).
+        # Multiplying by p_play used to shave up to 10% off every leg and made the model odds look too long next to the bookie's.
+        plays = np.ones(n, bool)
         e = rng.normal(0, 1, n)
         lrec = lines.get((pl['name'], pl['team'], pl['game_date']))
         if 'pts' not in pl:
