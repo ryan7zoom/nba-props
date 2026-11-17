@@ -1,5 +1,5 @@
 {
-  "run": "18/11/2026 00:56 GMT+8",
+  "run": "18/11/2026 04:57 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -26,9 +26,9 @@
   "players_with_lines": 67,
   "book_players_unmatched": 0,
   "unmatched_examples": [],
-  "requests_this_run": 21,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 992,
+  "requests_this_run": 16,
+  "games_reused_from_cache": 5,
+  "requests_left_today": 922,
   "daily_limit": 1000,
-  "history_rows_added": 234
+  "history_rows_added": 0
 }

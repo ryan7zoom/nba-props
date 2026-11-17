@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-17T16:57Z",
+ "generated_utc": "2026-11-17T20:58Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -9,74 +9,6 @@
     "pts": [
      {
       "game_date": "2026-11-17",
-      "player": "Scottie Barnes",
-      "team": "TOR",
-      "opp": "NY",
-      "market": "pts",
-      "line": 21.5,
-      "book": "draftkings",
-      "price": -110,
-      "our_p": 0.686,
-      "market_p": 0.494,
-      "blend_p": 0.561,
-      "edge": 0.071,
-      "tipoff_utc": "2026-11-18T00:30Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -110
-       ],
-       [
-        "fanduel",
-        21.5,
-        -112
-       ]
-      ],
-      "mean": 18.42,
-      "p_play": 1.0,
-      "minutes": 34.3,
-      "event_id": "401910002",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-17T16:57Z"
-     },
-     {
-      "game_date": "2026-11-17",
-      "player": "Deni Avdija",
-      "team": "POR",
-      "opp": "MIN",
-      "market": "pts",
-      "line": 24.5,
-      "book": "draftkings",
-      "price": -111,
-      "our_p": 0.681,
-      "market_p": 0.496,
-      "blend_p": 0.561,
-      "edge": 0.066,
-      "tipoff_utc": "2026-11-18T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        24.5,
-        -111
-       ],
-       [
-        "fanduel",
-        24.5,
-        -120
-       ]
-      ],
-      "mean": 21.15,
-      "p_play": 1.0,
-      "minutes": 32.8,
-      "event_id": "401910003",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-17T16:57Z"
-     },
-     {
-      "game_date": "2026-11-17",
       "player": "Naz Reid",
       "team": "CHA",
       "opp": "LAL",
@@ -84,10 +16,10 @@
       "line": 17.5,
       "book": "fanduel",
       "price": -122,
-      "our_p": 0.651,
+      "our_p": 0.65,
       "market_p": 0.514,
       "blend_p": 0.562,
-      "edge": 0.023,
+      "edge": 0.022,
       "tipoff_utc": "2026-11-18T04:00Z",
       "all_lines": [
        [
@@ -101,50 +33,16 @@
         -122
        ]
       ],
-      "mean": 15.36,
+      "mean": 15.38,
       "p_play": 1.0,
       "minutes": 30.5,
       "event_id": "401910005",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-17T16:57Z"
+      "logged_utc": "2026-11-17T20:58Z"
      }
     ],
     "pra": [
-     {
-      "game_date": "2026-11-17",
-      "player": "Scottie Barnes",
-      "team": "TOR",
-      "opp": "NY",
-      "market": "pra",
-      "line": 34.5,
-      "book": "fanduel",
-      "price": -118,
-      "our_p": 0.673,
-      "market_p": 0.506,
-      "blend_p": 0.564,
-      "edge": 0.043,
-      "tipoff_utc": "2026-11-18T00:30Z",
-      "all_lines": [
-       [
-        "draftkings",
-        34.5,
-        -119
-       ],
-       [
-        "fanduel",
-        34.5,
-        -118
-       ]
-      ],
-      "mean": 30.87,
-      "p_play": 1.0,
-      "minutes": 34.3,
-      "event_id": "401910002",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-17T16:57Z"
-     },
      {
       "game_date": "2026-11-17",
       "player": "Stephon Castle",
@@ -154,10 +52,10 @@
       "line": 27.5,
       "book": "draftkings",
       "price": -118,
-      "our_p": 0.671,
+      "our_p": 0.669,
       "market_p": 0.506,
-      "blend_p": 0.564,
-      "edge": 0.042,
+      "blend_p": 0.563,
+      "edge": 0.04,
       "tipoff_utc": "2026-11-18T01:00Z",
       "all_lines": [
        [
@@ -171,13 +69,13 @@
         -125
        ]
       ],
-      "mean": 24.22,
+      "mean": 24.31,
       "p_play": 1.0,
       "minutes": 29.2,
       "event_id": "401910004",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-17T16:57Z"
+      "logged_utc": "2026-11-17T20:58Z"
      }
     ]
    }
