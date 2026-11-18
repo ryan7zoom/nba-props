@@ -1,48 +1,8 @@
 {
- "generated_utc": "2026-11-18T03:14Z",
+ "generated_utc": "2026-11-18T16:31Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
-  {
-   "game_date": "2026-11-17",
-   "markets": {
-    "pts": [],
-    "pra": [
-     {
-      "game_date": "2026-11-17",
-      "player": "Stephon Castle",
-      "team": "SA",
-      "opp": "DET",
-      "market": "pra",
-      "line": 27.5,
-      "book": "draftkings",
-      "price": -118,
-      "our_p": 0.669,
-      "market_p": 0.506,
-      "blend_p": 0.563,
-      "edge": 0.04,
-      "tipoff_utc": "2026-11-18T01:00Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-17T20:58Z",
-      "all_lines": [
-       [
-        "draftkings",
-        27.5,
-        -118
-       ],
-       [
-        "fanduel",
-        27.5,
-        -125
-       ]
-      ],
-      "mean": 24.31,
-      "p_play": 1.0,
-      "locked": true
-     }
-    ]
-   }
-  },
   {
    "game_date": "2026-11-18",
    "markets": {
@@ -61,6 +21,8 @@
       "blend_p": 0.594,
       "edge": 0.051,
       "tipoff_utc": "2026-11-19T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-18T03:14Z",
       "all_lines": [
        [
         "fanduel",
@@ -70,11 +32,41 @@
       ],
       "mean": 9.8,
       "p_play": 1.0,
-      "minutes": 23.7,
-      "event_id": "401910009",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-18T03:14Z"
+      "locked": true
+     },
+     {
+      "game_date": "2026-11-18",
+      "player": "AJ Dybantsa",
+      "team": "WSH",
+      "opp": "TOR",
+      "market": "pts",
+      "line": 16.5,
+      "book": "draftkings",
+      "price": -125,
+      "our_p": 0.677,
+      "market_p": 0.524,
+      "blend_p": 0.577,
+      "edge": 0.039,
+      "tipoff_utc": "2026-11-19T00:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        16.5,
+        -125
+       ],
+       [
+        "fanduel",
+        16.5,
+        -125
+       ]
+      ],
+      "mean": 14.1,
+      "p_play": 1.0,
+      "minutes": 33.3,
+      "event_id": "401910012",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-18T16:31Z"
      }
     ],
     "pra": [
@@ -92,6 +84,8 @@
       "blend_p": 0.579,
       "edge": 0.054,
       "tipoff_utc": "2026-11-19T01:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-18T03:14Z",
       "all_lines": [
        [
         "fanduel",
@@ -101,11 +95,7 @@
       ],
       "mean": 11.84,
       "p_play": 1.0,
-      "minutes": 22.1,
-      "event_id": "401910014",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-18T03:14Z"
+      "locked": true
      },
      {
       "game_date": "2026-11-18",
@@ -121,6 +111,8 @@
       "blend_p": 0.578,
       "edge": 0.051,
       "tipoff_utc": "2026-11-19T00:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-18T03:14Z",
       "all_lines": [
        [
         "fanduel",
@@ -130,11 +122,75 @@
       ],
       "mean": 27.21,
       "p_play": 1.0,
-      "minutes": 29.3,
-      "event_id": "401910009",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-18T03:14Z"
+      "locked": true
+     },
+     {
+      "game_date": "2026-11-18",
+      "player": "Ivica Zubac",
+      "team": "IND",
+      "opp": "HOU",
+      "market": "pra",
+      "line": 23.5,
+      "book": "draftkings",
+      "price": -121,
+      "our_p": 0.661,
+      "market_p": 0.512,
+      "blend_p": 0.564,
+      "edge": 0.03,
+      "tipoff_utc": "2026-11-19T00:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        23.5,
+        -121
+       ],
+       [
+        "fanduel",
+        23.5,
+        -125
+       ]
+      ],
+      "mean": 20.66,
+      "p_play": 1.0,
+      "minutes": 24.3,
+      "event_id": "401910008",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-18T16:31Z"
+     },
+     {
+      "game_date": "2026-11-18",
+      "player": "Keyonte George",
+      "team": "UTAH",
+      "opp": "LAL",
+      "market": "pra",
+      "line": 34.5,
+      "book": "draftkings",
+      "price": -122,
+      "our_p": 0.649,
+      "market_p": 0.514,
+      "blend_p": 0.561,
+      "edge": 0.021,
+      "tipoff_utc": "2026-11-19T03:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        34.5,
+        -122
+       ],
+       [
+        "fanduel",
+        34.5,
+        -125
+       ]
+      ],
+      "mean": 31.37,
+      "p_play": 1.0,
+      "minutes": 34.0,
+      "event_id": "401910017",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-18T16:31Z"
      }
     ]
    }
