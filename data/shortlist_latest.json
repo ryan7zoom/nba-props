@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-18T16:31Z",
+ "generated_utc": "2026-11-18T20:35Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -43,10 +43,10 @@
       "line": 16.5,
       "book": "draftkings",
       "price": -125,
-      "our_p": 0.677,
+      "our_p": 0.673,
       "market_p": 0.524,
-      "blend_p": 0.577,
-      "edge": 0.039,
+      "blend_p": 0.576,
+      "edge": 0.037,
       "tipoff_utc": "2026-11-19T00:30Z",
       "all_lines": [
        [
@@ -60,13 +60,13 @@
         -125
        ]
       ],
-      "mean": 14.1,
+      "mean": 14.13,
       "p_play": 1.0,
       "minutes": 33.3,
       "event_id": "401910012",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-18T16:31Z"
+      "logged_utc": "2026-11-18T20:35Z"
      }
     ],
     "pra": [
@@ -126,6 +126,35 @@
      },
      {
       "game_date": "2026-11-18",
+      "player": "Aaron Wiggins",
+      "team": "ATL",
+      "opp": "OKC",
+      "market": "pra",
+      "line": 21.5,
+      "book": "fanduel",
+      "price": -112,
+      "our_p": 0.687,
+      "market_p": 0.494,
+      "blend_p": 0.562,
+      "edge": 0.063,
+      "tipoff_utc": "2026-11-19T01:00Z",
+      "all_lines": [
+       [
+        "fanduel",
+        21.5,
+        -112
+       ]
+      ],
+      "mean": 18.3,
+      "p_play": 1.0,
+      "minutes": 25.0,
+      "event_id": "401910014",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-18T20:35Z"
+     },
+     {
+      "game_date": "2026-11-18",
       "player": "Ivica Zubac",
       "team": "IND",
       "opp": "HOU",
@@ -136,7 +165,7 @@
       "our_p": 0.661,
       "market_p": 0.512,
       "blend_p": 0.564,
-      "edge": 0.03,
+      "edge": 0.031,
       "tipoff_utc": "2026-11-19T00:00Z",
       "all_lines": [
        [
@@ -150,47 +179,13 @@
         -125
        ]
       ],
-      "mean": 20.66,
+      "mean": 20.72,
       "p_play": 1.0,
       "minutes": 24.3,
       "event_id": "401910008",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-18T16:31Z"
-     },
-     {
-      "game_date": "2026-11-18",
-      "player": "Keyonte George",
-      "team": "UTAH",
-      "opp": "LAL",
-      "market": "pra",
-      "line": 34.5,
-      "book": "draftkings",
-      "price": -122,
-      "our_p": 0.649,
-      "market_p": 0.514,
-      "blend_p": 0.561,
-      "edge": 0.021,
-      "tipoff_utc": "2026-11-19T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        34.5,
-        -122
-       ],
-       [
-        "fanduel",
-        34.5,
-        -125
-       ]
-      ],
-      "mean": 31.37,
-      "p_play": 1.0,
-      "minutes": 34.0,
-      "event_id": "401910017",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-18T16:31Z"
+      "logged_utc": "2026-11-18T20:35Z"
      }
     ]
    }
