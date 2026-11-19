@@ -1,5 +1,5 @@
 {
-  "run": "20/11/2026 04:41 GMT+8",
+  "run": "20/11/2026 05:44 GMT+8",
   "games_with_lines": 4,
   "warnings": [
     "LAC at SA: no team total lines (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys []); using game total and spread",
@@ -49,7 +49,7 @@
           null,
           "Over",
           101.5,
-          -167
+          -166
         ],
         [
           "draftkings",
@@ -65,7 +65,7 @@
           null,
           "Over",
           102.5,
-          -143
+          -142
         ],
         [
           "draftkings",
@@ -73,7 +73,7 @@
           null,
           "Under",
           102.5,
-          115
+          114
         ],
         [
           "draftkings",
@@ -81,7 +81,7 @@
           null,
           "Over",
           105.5,
-          108
+          111
         ],
         [
           "draftkings",
@@ -89,7 +89,7 @@
           null,
           "Under",
           105.5,
-          -135
+          -138
         ],
         [
           "draftkings",
@@ -97,7 +97,7 @@
           null,
           "Over",
           106.5,
-          125
+          129
         ],
         [
           "draftkings",
@@ -105,7 +105,7 @@
           null,
           "Under",
           106.5,
-          -156
+          -160
         ],
         [
           "draftkings",
@@ -113,7 +113,7 @@
           null,
           "Over",
           107.5,
-          144
+          147
         ],
         [
           "draftkings",
@@ -121,7 +121,7 @@
           null,
           "Under",
           107.5,
-          -181
+          -185
         ],
         [
           "draftkings",
@@ -129,7 +129,7 @@
           null,
           "Over",
           108.5,
-          167
+          173
         ],
         [
           "draftkings",
@@ -137,7 +137,7 @@
           null,
           "Under",
           108.5,
-          -211
+          -220
         ]
       ]
     },
@@ -150,7 +150,7 @@
           null,
           "Over",
           100.5,
-          -460
+          -469
         ],
         [
           "draftkings",
@@ -158,7 +158,7 @@
           null,
           "Under",
           100.5,
-          332
+          337
         ],
         [
           "draftkings",
@@ -166,7 +166,7 @@
           null,
           "Over",
           101.5,
-          -385
+          -392
         ],
         [
           "draftkings",
@@ -174,7 +174,7 @@
           null,
           "Under",
           101.5,
-          286
+          290
         ],
         [
           "draftkings",
@@ -182,7 +182,7 @@
           null,
           "Over",
           102.5,
-          -320
+          -332
         ],
         [
           "draftkings",
@@ -190,7 +190,7 @@
           null,
           "Under",
           102.5,
-          244
+          252
         ],
         [
           "draftkings",
@@ -198,7 +198,7 @@
           null,
           "Over",
           103.5,
-          -270
+          -281
         ],
         [
           "draftkings",
@@ -206,7 +206,7 @@
           null,
           "Under",
           103.5,
-          209
+          217
         ],
         [
           "draftkings",
@@ -214,7 +214,7 @@
           null,
           "Over",
           104.5,
-          -231
+          -238
         ],
         [
           "draftkings",
@@ -222,7 +222,7 @@
           null,
           "Under",
           104.5,
-          182
+          187
         ],
         [
           "draftkings",
@@ -230,7 +230,7 @@
           null,
           "Over",
           105.5,
-          -198
+          -203
         ],
         [
           "draftkings",
@@ -238,7 +238,7 @@
           null,
           "Under",
           105.5,
-          157
+          161
         ],
         [
           "draftkings",
@@ -246,7 +246,7 @@
           null,
           "Over",
           106.5,
-          -170
+          -174
         ],
         [
           "draftkings",
@@ -254,7 +254,7 @@
           null,
           "Under",
           106.5,
-          136
+          139
         ]
       ]
     }

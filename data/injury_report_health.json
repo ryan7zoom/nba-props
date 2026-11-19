@@ -1,14 +1,14 @@
 {
-  "run_at": "19/11/2026 20:40 UTC",
+  "run_at": "19/11/2026 21:44 UTC",
   "mode": "fetch",
   "ok": true,
   "days": "17/11/2026 to 19/11/2026",
-  "slots_probed": 16,
-  "reports_found": 16,
+  "slots_probed": 4,
+  "reports_found": 4,
   "probe_errors": 0,
   "warnings": [],
   "errors": [],
-  "latest_report_et": "19/11/2026 15:30 ET",
-  "latest_rows": 39,
+  "latest_report_et": "19/11/2026 16:30 ET",
+  "latest_rows": 70,
   "latest_report_age_hours": 0.2
 }
