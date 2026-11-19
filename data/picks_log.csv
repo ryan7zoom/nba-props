@@ -48,5 +48,4 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-18,Tyler Herro,MIL,MIA,pra,31.5,fanduel,-122,0.696,0.514,0.578,0.051,2026-11-19T00:00Z,1,2026-11-18T03:14Z,"[[""fanduel"", 31.5, -122]]",27.21,1.0
 2026-11-18,AJ Dybantsa,WSH,TOR,pts,16.5,draftkings,-125,0.673,0.524,0.576,0.037,2026-11-19T00:30Z,1,2026-11-18T22:05Z,"[[""draftkings"", 16.5, -125], [""fanduel"", 16.5, -125]]",14.13,1.0
 2026-11-18,Brayden Burries,MIL,MIA,pts,12.5,fanduel,-130,0.717,0.528,0.594,0.051,2026-11-19T00:00Z,1,2026-11-18T03:14Z,"[[""fanduel"", 12.5, -130]]",9.8,1.0
-2026-11-19,Brandin Podziemski,GS,MEM,pts,16.5,draftkings,-123,0.647,0.52,0.564,0.023,2026-11-20T01:00Z,0,2026-11-19T16:39Z,"[[""draftkings"", 16.5, -123], [""fanduel"", 16.5, -136]]",14.57,1.0
-2026-11-19,Jaden McDaniels,MIN,NY,pts,16.5,draftkings,-118,0.661,0.51,0.563,0.041,2026-11-20T01:00Z,0,2026-11-19T16:39Z,"[[""draftkings"", 16.5, -118], [""fanduel"", 16.5, -125]]",14.33,1.0
+2026-11-19,Jaden McDaniels,MIN,NY,pts,16.5,draftkings,-118,0.661,0.51,0.563,0.041,2026-11-20T01:00Z,0,2026-11-19T20:41Z,"[[""draftkings"", 16.5, -118], [""fanduel"", 16.5, -125]]",14.34,1.0

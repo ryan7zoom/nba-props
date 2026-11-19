@@ -1,5 +1,5 @@
 {
- "generated_utc": "2026-11-19T16:39Z",
+ "generated_utc": "2026-11-19T20:41Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
@@ -33,47 +33,13 @@
         -125
        ]
       ],
-      "mean": 14.33,
+      "mean": 14.34,
       "p_play": 1.0,
       "minutes": 33.8,
       "event_id": "401910021",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-19T16:39Z"
-     },
-     {
-      "game_date": "2026-11-19",
-      "player": "Brandin Podziemski",
-      "team": "GS",
-      "opp": "MEM",
-      "market": "pts",
-      "line": 16.5,
-      "book": "draftkings",
-      "price": -123,
-      "our_p": 0.647,
-      "market_p": 0.52,
-      "blend_p": 0.564,
-      "edge": 0.023,
-      "tipoff_utc": "2026-11-20T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        16.5,
-        -123
-       ],
-       [
-        "fanduel",
-        16.5,
-        -136
-       ]
-      ],
-      "mean": 14.57,
-      "p_play": 1.0,
-      "minutes": 31.3,
-      "event_id": "401910019",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-19T16:39Z"
+      "logged_utc": "2026-11-19T20:41Z"
      }
     ],
     "pra": []

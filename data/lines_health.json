@@ -1,5 +1,5 @@
 {
-  "run": "20/11/2026 00:38 GMT+8",
+  "run": "20/11/2026 04:40 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -20,17 +20,15 @@
     "BOS at SAC: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 15,
-  "events_listed": 98,
+  "events_listed": 46,
   "events_upcoming": 19,
   "games_with_lines": 4,
   "players_with_lines": 46,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "ty jerome"
-  ],
-  "requests_this_run": 20,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 986,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 16,
+  "games_reused_from_cache": 4,
+  "requests_left_today": 936,
   "daily_limit": 1000,
-  "history_rows_added": 173
+  "history_rows_added": 0
 }
