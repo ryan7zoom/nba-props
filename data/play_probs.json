@@ -3,58 +3,58 @@
   "status_taken_minutes_before_tip": 120,
   "probs": {
     "Out": 0.0139,
-    "Doubtful": 0.037,
-    "Questionable": 0.5575,
-    "Probable": 0.9394,
-    "Available": 0.7669
+    "Doubtful": 0.0362,
+    "Questionable": 0.5582,
+    "Probable": 0.9408,
+    "Available": 0.7713
   },
-  "non_injury": 0.0515,
+  "non_injury": 0.0508,
   "non_injury_counts": {
-    "n": 932,
-    "played": 47
+    "n": 964,
+    "played": 48
   },
   "stats": {
     "Out": {
-      "n": 1807,
-      "played": 25,
+      "n": 1873,
+      "played": 26,
       "raw_rate": 0.014,
       "default": 0.02
     },
     "Doubtful": {
-      "n": 72,
+      "n": 74,
       "played": 1,
       "raw_rate": 0.014,
       "default": 0.12
     },
     "Questionable": {
-      "n": 432,
-      "played": 241,
-      "raw_rate": 0.558,
+      "n": 444,
+      "played": 248,
+      "raw_rate": 0.559,
       "default": 0.55
     },
     "Probable": {
-      "n": 145,
-      "played": 137,
-      "raw_rate": 0.945,
+      "n": 149,
+      "played": 141,
+      "raw_rate": 0.946,
       "default": 0.9
     },
     "Available": {
-      "n": 270,
-      "played": 203,
-      "raw_rate": 0.752,
+      "n": 280,
+      "played": 212,
+      "raw_rate": 0.757,
       "default": 0.97
     }
   },
   "questionable_by_reason": {
     "illness": {
-      "n": 396,
-      "played": 222,
-      "raw_rate": 0.561
+      "n": 405,
+      "played": 228,
+      "raw_rate": 0.563
     },
     "rest/management": {
-      "n": 34,
-      "played": 18,
-      "raw_rate": 0.529
+      "n": 37,
+      "played": 19,
+      "raw_rate": 0.514
     },
     "injury": {
       "n": 2,
@@ -62,6 +62,6 @@
       "raw_rate": 0.5
     }
   },
-  "players_with_status_but_no_box_score_day": 178,
-  "as_of": "18/11/2026 22:04 UTC"
+  "players_with_status_but_no_box_score_day": 75,
+  "as_of": "19/11/2026 16:37 UTC"
 }
