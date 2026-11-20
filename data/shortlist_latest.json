@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-20T20:25Z",
+ "generated_utc": "2026-11-20T22:14Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-20",
@@ -37,9 +37,9 @@
       "p_play": 1.0,
       "minutes": 29.8,
       "event_id": "401909311",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-20T20:25Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-20T22:14Z"
      },
      {
       "game_date": "2026-11-20",
@@ -71,9 +71,9 @@
       "p_play": 1.0,
       "minutes": 27.9,
       "event_id": "401909310",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-20T20:25Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-20T22:14Z"
      },
      {
       "game_date": "2026-11-20",
@@ -105,9 +105,9 @@
       "p_play": 1.0,
       "minutes": 31.6,
       "event_id": "401909306",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-20T20:25Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-20T22:14Z"
      }
     ],
     "pra": [
@@ -141,9 +141,9 @@
       "p_play": 1.0,
       "minutes": 31.4,
       "event_id": "401909310",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-20T20:25Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-20T22:14Z"
      }
     ]
    }
