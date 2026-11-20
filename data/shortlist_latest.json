@@ -1,45 +1,147 @@
 {
- "generated_utc": "2026-11-19T21:44Z",
+ "generated_utc": "2026-11-20T16:13Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-19",
+   "game_date": "2026-11-20",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-19",
-      "player": "Jaden McDaniels",
-      "team": "MIN",
-      "opp": "NY",
+      "game_date": "2026-11-20",
+      "player": "Darryn Peterson",
+      "team": "UTAH",
+      "opp": "PHX",
       "market": "pts",
-      "line": 16.5,
+      "line": 18.5,
       "book": "draftkings",
-      "price": -118,
-      "our_p": 0.661,
-      "market_p": 0.51,
-      "blend_p": 0.563,
-      "edge": 0.041,
-      "tipoff_utc": "2026-11-20T01:00Z",
+      "price": -119,
+      "our_p": 0.689,
+      "market_p": 0.511,
+      "blend_p": 0.574,
+      "edge": 0.055,
+      "tipoff_utc": "2026-11-21T02:30Z",
       "all_lines": [
        [
         "draftkings",
-        16.5,
-        -118
+        18.5,
+        -119
        ],
        [
         "fanduel",
-        16.5,
-        -125
+        18.5,
+        -130
        ]
       ],
-      "mean": 14.34,
+      "mean": 15.6,
       "p_play": 1.0,
-      "minutes": 33.8,
-      "event_id": "401910021",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-19T21:44Z"
+      "minutes": 29.8,
+      "event_id": "401909311",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-20T16:13Z"
+     },
+     {
+      "game_date": "2026-11-20",
+      "player": "Keyonte George",
+      "team": "UTAH",
+      "opp": "PHX",
+      "market": "pts",
+      "line": 23.5,
+      "book": "fanduel",
+      "price": -114,
+      "our_p": 0.672,
+      "market_p": 0.5,
+      "blend_p": 0.56,
+      "edge": 0.052,
+      "tipoff_utc": "2026-11-21T02:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        24.5,
+        -124
+       ],
+       [
+        "fanduel",
+        23.5,
+        -114
+       ]
+      ],
+      "mean": 20.49,
+      "p_play": 1.0,
+      "minutes": 34.6,
+      "event_id": "401909311",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-20T16:13Z"
+     },
+     {
+      "game_date": "2026-11-20",
+      "player": "Herbert Jones",
+      "team": "NO",
+      "opp": "OKC",
+      "market": "pts",
+      "line": 8.5,
+      "book": "draftkings",
+      "price": -121,
+      "our_p": 0.666,
+      "market_p": 0.517,
+      "blend_p": 0.569,
+      "edge": 0.039,
+      "tipoff_utc": "2026-11-21T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        8.5,
+        -121
+       ],
+       [
+        "fanduel",
+        8.5,
+        -122
+       ]
+      ],
+      "mean": 7.15,
+      "p_play": 1.0,
+      "minutes": 28.0,
+      "event_id": "401909310",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-20T16:13Z"
+     },
+     {
+      "game_date": "2026-11-20",
+      "player": "Norman Powell",
+      "team": "CHI",
+      "opp": "WSH",
+      "market": "pts",
+      "line": 23.5,
+      "book": "fanduel",
+      "price": -120,
+      "our_p": 0.659,
+      "market_p": 0.51,
+      "blend_p": 0.562,
+      "edge": 0.031,
+      "tipoff_utc": "2026-11-21T01:00Z",
+      "all_lines": [
+       [
+        "draftkings",
+        23.5,
+        -121
+       ],
+       [
+        "fanduel",
+        23.5,
+        -120
+       ]
+      ],
+      "mean": 20.67,
+      "p_play": 1.0,
+      "minutes": 29.3,
+      "event_id": "401909309",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-20T16:13Z"
      }
     ],
     "pra": []
