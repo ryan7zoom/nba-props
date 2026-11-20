@@ -1,5 +1,5 @@
 {
-  "run": "21/11/2026 00:13 GMT+8",
+  "run": "21/11/2026 04:24 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -20,16 +20,11 @@
   "events_upcoming": 20,
   "games_with_lines": 9,
   "players_with_lines": 114,
-  "book_players_unmatched": 4,
-  "unmatched_examples": [
-    "alexandre sarr",
-    "cam johnson",
-    "jaylin williams",
-    "nicolas claxton"
-  ],
-  "requests_this_run": 21,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 981,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 12,
+  "games_reused_from_cache": 9,
+  "requests_left_today": 925,
   "daily_limit": 1000,
-  "history_rows_added": 408
+  "history_rows_added": 0
 }
