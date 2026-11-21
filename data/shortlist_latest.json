@@ -1,149 +1,46 @@
 {
- "generated_utc": "2026-11-20T22:14Z",
+ "generated_utc": "2026-11-21T14:14Z",
  "top_n": 4,
  "locked_by_manual_run": true,
  "days": [
   {
-   "game_date": "2026-11-20",
+   "game_date": "2026-11-21",
    "markets": {
-    "pts": [
+    "pts": [],
+    "pra": [
      {
-      "game_date": "2026-11-20",
-      "player": "Darryn Peterson",
-      "team": "UTAH",
-      "opp": "PHX",
-      "market": "pts",
-      "line": 18.5,
+      "game_date": "2026-11-21",
+      "player": "Rui Hachimura",
+      "team": "LAC",
+      "opp": "DAL",
+      "market": "pra",
+      "line": 20.5,
       "book": "draftkings",
-      "price": -119,
-      "our_p": 0.692,
-      "market_p": 0.511,
-      "blend_p": 0.575,
-      "edge": 0.058,
-      "tipoff_utc": "2026-11-21T02:30Z",
+      "price": -123,
+      "our_p": 0.651,
+      "market_p": 0.516,
+      "blend_p": 0.564,
+      "edge": 0.022,
+      "tipoff_utc": "2026-11-22T01:00Z",
       "all_lines": [
        [
         "draftkings",
-        18.5,
-        -119
+        20.5,
+        -123
        ],
        [
         "fanduel",
-        18.5,
+        20.5,
         -130
        ]
       ],
-      "mean": 15.52,
+      "mean": 18.25,
       "p_play": 1.0,
-      "minutes": 29.8,
-      "event_id": "401909311",
+      "minutes": 28.9,
+      "event_id": "401910025",
       "frozen": "1",
       "locked": true,
-      "logged_utc": "2026-11-20T22:14Z"
-     },
-     {
-      "game_date": "2026-11-20",
-      "player": "Herbert Jones",
-      "team": "NO",
-      "opp": "OKC",
-      "market": "pts",
-      "line": 8.5,
-      "book": "draftkings",
-      "price": -121,
-      "our_p": 0.665,
-      "market_p": 0.517,
-      "blend_p": 0.569,
-      "edge": 0.039,
-      "tipoff_utc": "2026-11-21T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        8.5,
-        -121
-       ],
-       [
-        "fanduel",
-        8.5,
-        -122
-       ]
-      ],
-      "mean": 7.14,
-      "p_play": 1.0,
-      "minutes": 27.9,
-      "event_id": "401909310",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-20T22:14Z"
-     },
-     {
-      "game_date": "2026-11-20",
-      "player": "Michael Porter Jr.",
-      "team": "BKN",
-      "opp": "ORL",
-      "market": "pts",
-      "line": 20.5,
-      "book": "draftkings",
-      "price": -121,
-      "our_p": 0.643,
-      "market_p": 0.517,
-      "blend_p": 0.561,
-      "edge": 0.025,
-      "tipoff_utc": "2026-11-21T00:30Z",
-      "all_lines": [
-       [
-        "draftkings",
-        20.5,
-        -121
-       ],
-       [
-        "fanduel",
-        20.5,
-        -125
-       ]
-      ],
-      "mean": 18.28,
-      "p_play": 1.0,
-      "minutes": 31.6,
-      "event_id": "401909306",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-20T22:14Z"
-     }
-    ],
-    "pra": [
-     {
-      "game_date": "2026-11-20",
-      "player": "Jeremiah Fears",
-      "team": "NO",
-      "opp": "OKC",
-      "market": "pra",
-      "line": 27.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.649,
-      "market_p": 0.514,
-      "blend_p": 0.562,
-      "edge": 0.022,
-      "tipoff_utc": "2026-11-21T01:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        27.5,
-        -125
-       ],
-       [
-        "fanduel",
-        27.5,
-        -122
-       ]
-      ],
-      "mean": 24.72,
-      "p_play": 1.0,
-      "minutes": 31.4,
-      "event_id": "401909310",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-20T22:14Z"
+      "logged_utc": "2026-11-21T14:14Z"
      }
     ]
    }
