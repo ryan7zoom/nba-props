@@ -54,3 +54,4 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-20,Herbert Jones,NO,OKC,pts,8.5,draftkings,-121,0.665,0.517,0.569,0.039,2026-11-21T01:00Z,1,2026-11-20T22:14Z,"[[""draftkings"", 8.5, -121], [""fanduel"", 8.5, -122]]",7.14,1.0
 2026-11-20,Michael Porter Jr.,BKN,ORL,pts,20.5,draftkings,-121,0.643,0.517,0.561,0.025,2026-11-21T00:30Z,1,2026-11-20T22:14Z,"[[""draftkings"", 20.5, -121], [""fanduel"", 20.5, -125]]",18.28,1.0
 2026-11-21,Rui Hachimura,LAC,DAL,pra,20.5,draftkings,-123,0.651,0.516,0.564,0.022,2026-11-22T01:00Z,1,2026-11-21T14:14Z,"[[""draftkings"", 20.5, -123], [""fanduel"", 20.5, -130]]",18.25,1.0
+2026-11-21,Paul George,BOS,SAC,pts,22.5,draftkings,-114,0.699,0.502,0.571,0.072,2026-11-22T03:00Z,0,2026-11-21T19:19Z,"[[""draftkings"", 22.5, -114], [""fanduel"", 22.5, -130]]",18.73,1.0
