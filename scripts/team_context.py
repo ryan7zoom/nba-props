@@ -113,7 +113,8 @@ def main():
             fmt = lambda xs: ", ".join(f"{n} ({p:.0f} pts, {m:.0f} min)" for n, p, m in sorted(xs, key=lambda x: -x[1]))
             parts = [f"{k}: {fmt(v)}" for k, v in inj.items() if v]
             gone = sum(p for n, p, m in inj["Out"] + inj["Doubtful"] if m >= 15)
-            card[("home" if home else "away")] = {"team": team, "lines": [
+            l5 = [[g["date"][5:].replace("-", "/"), g["opp"], 1 if g["home"] else 0, round(g["pts"]), round(g["opp_pts"])] for g in season[team][-5:]]
+            card[("home" if home else "away")] = {"team": team, "l5": l5, "lines": [
                 f"Last {L['n']} games: {L['w']}-{L['l']} · scored {L['ppg']:.1f} points a game, allowed {L['opp_ppg']:.1f}"
                 + (f" (only {L['n']} games played so far)" if L["n"] < N else ""),
                 f"Speed: {L['pace']:.1f} possessions a game (a possession = one trip down the court) = {speed(L['pace'])} (league average {avg_pace:.1f})",
