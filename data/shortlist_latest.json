@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-21T14:14Z",
+ "generated_utc": "2026-11-21T15:26Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-21",
@@ -22,6 +22,8 @@
       "blend_p": 0.564,
       "edge": 0.022,
       "tipoff_utc": "2026-11-22T01:00Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-21T14:14Z",
       "all_lines": [
        [
         "draftkings",
@@ -36,11 +38,7 @@
       ],
       "mean": 18.25,
       "p_play": 1.0,
-      "minutes": 28.9,
-      "event_id": "401910025",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-21T14:14Z"
+      "locked": true
      }
     ]
    }
