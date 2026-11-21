@@ -1,15 +1,15 @@
 {
-  "graded_at": "22/11/2026 03:19 GMT+8",
-  "lines_seen": 8193,
-  "lines_graded": 7541,
-  "game_days": 21,
+  "graded_at": "22/11/2026 05:49 GMT+8",
+  "lines_seen": 8218,
+  "lines_graded": 7588,
+  "game_days": 22,
   "enough_data": true,
-  "over_win_rate": 0.467,
+  "over_win_rate": 0.468,
   "accuracy": {
-    "brier_ours": 0.2533,
+    "brier_ours": 0.2532,
     "brier_market": 0.2496,
     "brier_best_blend": 0.2488,
-    "logloss_ours": 0.7003,
+    "logloss_ours": 0.7002,
     "logloss_market": 0.6923,
     "logloss_best_blend": 0.6908,
     "best_weight_on_our_model": 0.3,
@@ -18,88 +18,88 @@
   "bets_by_raw_edge": {
     "raw edge above 0%": {
       "all": {
-        "bets": 5510,
-        "win_rate": 0.527,
-        "return_per_unit": -0.01
+        "bets": 5550,
+        "win_rate": 0.528,
+        "return_per_unit": -0.009
       },
       "overs only": {
-        "bets": 1362,
-        "win_rate": 0.468,
-        "return_per_unit": -0.119
+        "bets": 1383,
+        "win_rate": 0.473,
+        "return_per_unit": -0.11
       },
       "unders only": {
-        "bets": 4148,
-        "win_rate": 0.547,
+        "bets": 4167,
+        "win_rate": 0.546,
         "return_per_unit": 0.025
       }
     },
     "raw edge above 5%": {
       "all": {
-        "bets": 4035,
+        "bets": 4066,
         "win_rate": 0.529,
-        "return_per_unit": -0.007
+        "return_per_unit": -0.005
       },
       "overs only": {
-        "bets": 844,
-        "win_rate": 0.443,
-        "return_per_unit": -0.165
+        "bets": 862,
+        "win_rate": 0.45,
+        "return_per_unit": -0.152
       },
       "unders only": {
-        "bets": 3191,
+        "bets": 3204,
         "win_rate": 0.551,
-        "return_per_unit": 0.035
+        "return_per_unit": 0.034
       }
     },
     "raw edge above 10%": {
       "all": {
-        "bets": 2693,
-        "win_rate": 0.536,
-        "return_per_unit": 0.008
+        "bets": 2721,
+        "win_rate": 0.537,
+        "return_per_unit": 0.009
       },
       "overs only": {
-        "bets": 442,
-        "win_rate": 0.459,
-        "return_per_unit": -0.133
+        "bets": 460,
+        "win_rate": 0.472,
+        "return_per_unit": -0.109
       },
       "unders only": {
-        "bets": 2251,
-        "win_rate": 0.551,
-        "return_per_unit": 0.036
+        "bets": 2261,
+        "win_rate": 0.55,
+        "return_per_unit": 0.033
       }
     },
     "raw edge above 20%": {
       "all": {
-        "bets": 1027,
-        "win_rate": 0.537,
-        "return_per_unit": 0.013
+        "bets": 1047,
+        "win_rate": 0.538,
+        "return_per_unit": 0.016
       },
       "overs only": {
-        "bets": 132,
-        "win_rate": 0.424,
-        "return_per_unit": -0.198
+        "bets": 148,
+        "win_rate": 0.459,
+        "return_per_unit": -0.131
       },
       "unders only": {
-        "bets": 895,
-        "win_rate": 0.553,
-        "return_per_unit": 0.045
+        "bets": 899,
+        "win_rate": 0.551,
+        "return_per_unit": 0.04
       }
     }
   },
   "bets_by_blended_edge": {
     "blended edge above 3% (weight 0.3)": {
-      "bets": 624,
-      "win_rate": 0.54,
-      "return_per_unit": 0.022
+      "bets": 643,
+      "win_rate": 0.541,
+      "return_per_unit": 0.024
     }
   },
   "every_main_line_over": {
-    "bets": 7541,
-    "win_rate": 0.467,
-    "return_per_unit": -0.122
+    "bets": 7588,
+    "win_rate": 0.468,
+    "return_per_unit": -0.12
   },
   "every_main_line_under": {
-    "bets": 7541,
-    "win_rate": 0.533,
-    "return_per_unit": -0.002
+    "bets": 7588,
+    "win_rate": 0.532,
+    "return_per_unit": -0.003
   }
 }

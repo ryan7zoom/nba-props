@@ -1,47 +1,12 @@
 {
- "generated_utc": "2026-11-21T19:19Z",
+ "generated_utc": "2026-11-21T21:49Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-21",
    "markets": {
-    "pts": [
-     {
-      "game_date": "2026-11-21",
-      "player": "Paul George",
-      "team": "BOS",
-      "opp": "SAC",
-      "market": "pts",
-      "line": 22.5,
-      "book": "draftkings",
-      "price": -114,
-      "our_p": 0.699,
-      "market_p": 0.502,
-      "blend_p": 0.571,
-      "edge": 0.072,
-      "tipoff_utc": "2026-11-22T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        22.5,
-        -114
-       ],
-       [
-        "fanduel",
-        22.5,
-        -130
-       ]
-      ],
-      "mean": 18.73,
-      "p_play": 1.0,
-      "minutes": 29.1,
-      "event_id": "401910028",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-21T19:19Z"
-     }
-    ],
+    "pts": [],
     "pra": [
      {
       "game_date": "2026-11-21",

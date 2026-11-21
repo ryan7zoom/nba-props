@@ -5878,3 +5878,22 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-21T13:30-05:00,2026-11-21T18:30+00:00,2026-11-21,20:00,MEM@MIN,MIN,"Evans,Isaiah",isaiah evans,Questionable,Injury/Illness-Illness,2026-11-21_01_30PM,2
 2026-11-21T14:00-05:00,2026-11-21T19:00+00:00,2026-11-21,20:00,MEM@MIN,MEM,"Jerome,Ty",ty jerome,Available,Fracture Injury/Illness-RightHip,2026-11-21_02_00PM,2
 2026-11-21T14:15-05:00,2026-11-21T19:15+00:00,2026-11-21,20:00,LAC@DAL,DAL,"Washington,P.J.",pj washington,Doubtful,Injury/Illness-Illness,2026-11-21_02_15PM,2
+2026-11-21T15:30-05:00,2026-11-21T20:30+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Questionable,Injury/Illness-RightGrointendinitis,2026-11-21_03_30PM,2
+2026-11-21T15:30-05:00,2026-11-21T20:30+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Gardner,Myron",myron gardner,Probable,Injury/Illness-RightHamstring Tightness/Soreness,2026-11-21_03_30PM,2
+2026-11-21T15:30-05:00,2026-11-21T20:30+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Goldin,Vladislav",vladislav goldin,Out,GLeague-Two-Way,2026-11-21_03_30PM,2
+2026-11-21T15:30-05:00,2026-11-21T20:30+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Johnson,Keshad",keshad johnson,Out,GLeague-Two-Way,2026-11-21_03_30PM,2
+2026-11-21T15:45-05:00,2026-11-21T20:45+00:00,2026-11-21,22:00,BOS@SAC,BOS,"Robinson,Mitchell",mitchell robinson,Out,Injury/Illness-Illness,2026-11-21_03_45PM,2
+2026-11-21T15:45-05:00,2026-11-21T20:45+00:00,2026-11-21,22:00,BOS@SAC,BOS,"Tatum,Jayson",jayson tatum,Out,Rest,2026-11-21_03_45PM,2
+2026-11-21T15:45-05:00,2026-11-21T20:45+00:00,2026-11-21,22:00,BOS@SAC,BOS,"White,Derrick",derrick white,Out,Injury/Illness-LeftACJoint Contusion,2026-11-21_03_45PM,2
+2026-11-21T16:00-05:00,2026-11-21T21:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle,2026-11-21_04_00PM,2
+2026-11-21T16:00-05:00,2026-11-21T21:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-21_04_00PM,2
+2026-11-21T16:00-05:00,2026-11-21T21:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleinjury,2026-11-21_04_00PM,2
+2026-11-21T16:00-05:00,2026-11-21T21:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Penda,Noah",noah penda,Out,recovery Injury/Illness-RightPartiallytorn hamstring,2026-11-21_04_00PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Achiuwa,Precious",precious achiuwa,Questionable,Injury/Illness-LeftLowerLeg Contusion,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Mogbo,Jonathan",jonathan mogbo,Out,GLeague-Two-Way,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Pedulla,Sean",sean pedulla,Out,GLeague-Two-Way,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Raynaud,Maxime",maxime raynaud,Out,Injury/Illness-RightPatella,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Simmons,Ben",ben simmons,Out,Subluxation Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleinjury recovery,2026-11-21_04_15PM,2
+2026-11-21T16:15-05:00,2026-11-21T21:15+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Penda,Noah",noah penda,Out,Injury/Illness-RightPartiallytorn hamstring,2026-11-21_04_15PM,2
+2026-11-21T16:45-05:00,2026-11-21T21:45+00:00,2026-11-21,19:30,POR@NY,NY,"Anunoby,OG",og anunoby,Out,Injury/Illness-LeftCalfTightness,2026-11-21_04_45PM,2
