@@ -5967,3 +5967,31 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-21T19:00-05:00,2026-11-22T00:00+00:00,2026-11-22,19:00,DAL@UTAH,UTAH,"Nurkic,Jusuf",jusuf nurkic,Out,Injury/Illness-Right2ndPlantar PlateTear,2026-11-21_07_00PM,2
 2026-11-21T19:30-05:00,2026-11-22T00:30+00:00,2026-11-21,20:00,NO@SA,NO,"Williamson,Zion",zion williamson,Out,Injury/Illness-LeftThighContusion,2026-11-21_07_30PM,2
 2026-11-21T20:30-05:00,2026-11-22T01:30+00:00,2026-11-21,22:00,BOS@SAC,SAC,"Achiuwa,Precious",precious achiuwa,Available,Injury/Illness-LeftLowerLeg Contusion,2026-11-21_08_30PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Claxton,Nic",nic claxton,Questionable,Injury/Illness-Illness,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Robinson,Orlando",orlando robinson,Available,-,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Smith,Jalen",jalen smith,Probable,Injury/Illness-GastrointestinalIllness,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury Management,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Injury/Illness-LeftAnkleinjury,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Penda,Noah",noah penda,Out,recovery Injury/Illness-RightPartiallytorn hamstring,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Ayton,Deandre",deandre ayton,Questionable,Injury/Illness-Illness,2026-11-22_12_15PM,2
+2026-11-22T12:15-05:00,2026-11-22T17:15+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Beekman,Reece",reece beekman,Out,Injury/Illness-RightACJointSprain/ Separation,2026-11-22_12_15PM,2
+2026-11-22T13:00-05:00,2026-11-22T18:00+00:00,2026-11-22,20:00,IND@NY,NY,"Anunoby,OG",og anunoby,Out,Injury/Illness-LeftCalfTightness,2026-11-22_01_00PM,2
+2026-11-22T13:00-05:00,2026-11-22T18:00+00:00,2026-11-22,20:00,IND@NY,NY,"Clarkson,Jordan",jordan clarkson,Out,Injury/Illness-RightPlantarFasciitis,2026-11-22_01_00PM,2
+2026-11-22T13:00-05:00,2026-11-22T18:00+00:00,2026-11-22,20:00,IND@NY,NY,"Towns,Karl-Anthony",karl anthony towns,Questionable,Injury/Illness-Illness,2026-11-22_01_00PM,2
+2026-11-22T13:15-05:00,2026-11-22T18:15+00:00,2026-11-22,15:30,DET@ATL,ATL,"Castro,Rafael",rafael castro,Out,GLeague-Two-Way,2026-11-22_01_15PM,2
+2026-11-22T13:15-05:00,2026-11-22T18:15+00:00,2026-11-22,15:30,DET@ATL,ATL,"Dennis,RayJ",rayj dennis,Available,GLeague-Two-Way,2026-11-22_01_15PM,2
+2026-11-22T13:15-05:00,2026-11-22T18:15+00:00,2026-11-22,15:30,DET@ATL,ATL,"Wilson,Jalen",jalen wilson,Out,GLeague-Two-Way,2026-11-22_01_15PM,2
+2026-11-22T13:15-05:00,2026-11-22T18:15+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Carrington,Bub",bub carrington,Questionable,Injury/Illness-Illness,2026-11-22_01_15PM,2
+2026-11-22T13:45-05:00,2026-11-22T18:45+00:00,2026-11-22,15:30,DET@ATL,DET,"HollandII,Ronald",ronald holland,Available,Injury/Illness-LeftKneeContusion/ BoneBruise,2026-11-22_01_45PM,2
+2026-11-22T13:45-05:00,2026-11-22T18:45+00:00,2026-11-22,15:30,DET@ATL,DET,"Jones,Isaac",isaac jones,Out,GLeague-Two-Way,2026-11-22_01_45PM,2
+2026-11-22T13:45-05:00,2026-11-22T18:45+00:00,2026-11-22,15:30,DET@ATL,ATL,"Flemings,Kingston",kingston flemings,Available,Injury/Illness-LumbarStrain,2026-11-22_01_45PM,2
+2026-11-22T13:45-05:00,2026-11-22T18:45+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Powell,Norman",norman powell,Out,Injury/Illness-RightHamstringStrain,2026-11-22_01_45PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"Biberovic,Tarik",tarik biberovic,Out,Injury/Illness-RightHeelBursitis,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"ClaytonJr.,Walter",walter clayton,Questionable,Injury/Illness-LeftPatellarTendinitis,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"deLarrea,Sergio",sergio delarrea,Out,Injury/Illness-RightKneeSprain,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"Lawal,Tobi",tobi lawal,Out,Injury/Illness-RightGroinStrain,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"LivelyII,Dereck",dereck lively,Out,Injury/Illness-RightFootSurgery,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"Martin,Caleb",caleb martin,Available,Injury/Illness-RightThumbSplint,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"Washington,P.J.",pj washington,Doubtful,Injury/Illness-Illness,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-22_02_00PM,2
+2026-11-22T14:00-05:00,2026-11-22T19:00+00:00,2026-11-22,19:00,ORL@WSH,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleinjury,2026-11-22_02_00PM,2
