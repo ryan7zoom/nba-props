@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-22T19:44Z",
+ "generated_utc": "2026-11-22T21:26Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-22",
@@ -16,10 +16,10 @@
       "line": 20.5,
       "book": "draftkings",
       "price": -120,
-      "our_p": 0.71,
+      "our_p": 0.702,
       "market_p": 0.515,
-      "blend_p": 0.583,
-      "edge": 0.068,
+      "blend_p": 0.58,
+      "edge": 0.064,
       "tipoff_utc": "2026-11-23T01:30Z",
       "all_lines": [
        [
@@ -33,50 +33,16 @@
         -136
        ]
       ],
-      "mean": 17.05,
+      "mean": 17.12,
       "p_play": 1.0,
       "minutes": 31.7,
       "event_id": "401910035",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-22T19:44Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-22T21:26Z"
      }
     ],
     "pra": [
-     {
-      "game_date": "2026-11-22",
-      "player": "Yaxel Lendeborg",
-      "team": "GS",
-      "opp": "BOS",
-      "market": "pra",
-      "line": 31.5,
-      "book": "draftkings",
-      "price": -114,
-      "our_p": 0.687,
-      "market_p": 0.498,
-      "blend_p": 0.564,
-      "edge": 0.059,
-      "tipoff_utc": "2026-11-23T01:30Z",
-      "all_lines": [
-       [
-        "draftkings",
-        31.5,
-        -114
-       ],
-       [
-        "fanduel",
-        31.5,
-        -120
-       ]
-      ],
-      "mean": 27.64,
-      "p_play": 1.0,
-      "minutes": 31.7,
-      "event_id": "401910035",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-22T19:44Z"
-     },
      {
       "game_date": "2026-11-22",
       "player": "Bam Adebayo",
@@ -86,9 +52,9 @@
       "line": 32.5,
       "book": "draftkings",
       "price": -117,
-      "our_p": 0.691,
+      "our_p": 0.692,
       "market_p": 0.505,
-      "blend_p": 0.57,
+      "blend_p": 0.571,
       "edge": 0.058,
       "tipoff_utc": "2026-11-22T23:00Z",
       "all_lines": [
@@ -103,13 +69,47 @@
         -125
        ]
       ],
-      "mean": 28.33,
+      "mean": 28.19,
       "p_play": 1.0,
       "minutes": 29.9,
       "event_id": "401910030",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-22T19:44Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-22T21:26Z"
+     },
+     {
+      "game_date": "2026-11-22",
+      "player": "Yaxel Lendeborg",
+      "team": "GS",
+      "opp": "BOS",
+      "market": "pra",
+      "line": 31.5,
+      "book": "draftkings",
+      "price": -114,
+      "our_p": 0.678,
+      "market_p": 0.498,
+      "blend_p": 0.561,
+      "edge": 0.053,
+      "tipoff_utc": "2026-11-23T01:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        31.5,
+        -114
+       ],
+       [
+        "fanduel",
+        31.5,
+        -120
+       ]
+      ],
+      "mean": 27.7,
+      "p_play": 1.0,
+      "minutes": 31.7,
+      "event_id": "401910035",
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-22T21:26Z"
      }
     ]
    }
