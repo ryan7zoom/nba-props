@@ -1,5 +1,5 @@
 {
-  "run": "24/11/2026 03:17 GMT+8",
+  "run": "24/11/2026 06:01 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -19,13 +19,11 @@
   "events_upcoming": 20,
   "games_with_lines": 10,
   "players_with_lines": 119,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "brandon ingram"
-  ],
-  "requests_this_run": 21,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 980,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 11,
+  "games_reused_from_cache": 10,
+  "requests_left_today": 923,
   "daily_limit": 1000,
-  "history_rows_added": 433
+  "history_rows_added": 0
 }

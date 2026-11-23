@@ -6124,3 +6124,26 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"PierreJr.,Jaron",jaron pierre,Available,GLeague-Two-Way,2026-11-23_01_30PM,2
 2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"Reese,Julian",julian reese,Out,GLeague-Two-Way,2026-11-23_01_30PM,2
 2026-11-23T14:00-05:00,2026-11-23T19:00+00:00,2026-11-23,20:00,PHX@NO,PHX,"Dunn,Ryan",ryan dunn,Available,Injury/Illness-RightQuadSoreness,2026-11-23_02_00PM,2
+2026-11-23T16:00-05:00,2026-11-23T21:00+00:00,2026-11-23,22:00,UTAH@LAL,UTAH,"Hayes,Jaxson",jaxson hayes,Out,Injury/Illness-LeftKneeStrain,2026-11-23_04_00PM,2
+2026-11-23T16:00-05:00,2026-11-23T21:00+00:00,2026-11-23,22:00,UTAH@LAL,UTAH,"JacksonJr.,Jaren",jaren jackson,Out,Injury/Illness-RightMCLTear,2026-11-23_04_00PM,2
+2026-11-23T16:00-05:00,2026-11-23T21:00+00:00,2026-11-23,22:00,UTAH@LAL,UTAH,"Markkanen,Lauri",lauri markkanen,Out,Injury/Illness-RightHandFracture,2026-11-23_04_00PM,2
+2026-11-23T16:00-05:00,2026-11-23T21:00+00:00,2026-11-23,22:00,UTAH@LAL,UTAH,"Nurkic,Jusuf",jusuf nurkic,Out,Injury/Illness-Right2ndPlantar PlateTear,2026-11-23_04_00PM,2
+2026-11-23T16:15-05:00,2026-11-23T21:15+00:00,2026-11-24,20:00,BOS@WSH,BOS,"Mitchell,Dillon",dillon mitchell,Out,GLeague-Two-Way,2026-11-23_04_15PM,2
+2026-11-23T16:15-05:00,2026-11-23T21:15+00:00,2026-11-24,20:00,BOS@WSH,BOS,"Robinson,Mitchell",mitchell robinson,Out,Injury/Illness-Illness,2026-11-23_04_15PM,2
+2026-11-23T16:15-05:00,2026-11-23T21:15+00:00,2026-11-24,20:00,BOS@WSH,BOS,"Williams,Amari",amari williams,Out,GLeague-Two-Way,2026-11-23_04_15PM,2
+2026-11-23T16:30-05:00,2026-11-23T21:30+00:00,2026-11-24,19:00,DET@ORL,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle,2026-11-23_04_30PM,2
+2026-11-23T16:30-05:00,2026-11-23T21:30+00:00,2026-11-24,19:00,DET@ORL,ORL,"Isaac,Jonathan",jonathan isaac,Out,Sprain Injury/Illness-LeftKneeInjury,2026-11-23_04_30PM,2
+2026-11-23T16:30-05:00,2026-11-23T21:30+00:00,2026-11-24,19:00,DET@ORL,ORL,"Nelson,Izaiyah",izaiyah nelson,Out,Management Injury/Illness-LeftAnkleinjury,2026-11-23_04_30PM,2
+2026-11-23T16:30-05:00,2026-11-23T21:30+00:00,2026-11-24,19:00,DET@ORL,ORL,"Penda,Noah",noah penda,Out,recovery Injury/Illness-RightPartiallytorn hamstring,2026-11-23_04_30PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Cunningham,Cade",cade cunningham,Probable,Injury/Illness-RightKneeSoreness,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Duren,Jalen",jalen duren,Out,Injury/Illness-RightHamstringStrain,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Jones,Isaac",isaac jones,Questionable,GLeague-Two-Way,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Okorie,Ebuka",ebuka okorie,Out,Injury/Illness-LeftObliqueStrain,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Onyenso,Ugonna",ugonna onyenso,Out,GLeague-Two-Way,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Prince,Taurean",taurean prince,Out,Injury/Illness-RightKnee Arthroscopy,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,19:00,DET@ORL,DET,"Robinson,Duncan",duncan robinson,Out,Injury/Illness-LeftQuadricepsStrain,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Beekman,Reece",reece beekman,Out,Injury/Illness-RightACJointSprain/ Separation,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Champagnie,Justin",justin champagnie,Out,Injury/Illness-RightFootSurgery,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Okpara,Felix",felix okpara,Questionable,GLeague-Two-Way,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Vukcevic,Tristan",tristan vukcevic,Out,Injury/Illness-LeftHipImpingement,2026-11-23_05_00PM,2
+2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Watkins,Jamir",jamir watkins,Out,Injury/Illness-LeftACLRepair/ Surgery,2026-11-23_05_00PM,2
