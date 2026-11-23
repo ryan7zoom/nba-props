@@ -1,26 +1,26 @@
 {
   "settings": {
     "delta": [
-      0.16,
+      0.18,
       0.0,
       0.0
     ],
     "c": [
-      0.9936,
-      0.9912,
-      1.0122
+      0.9924,
+      0.9913,
+      1.0124
     ],
     "phi": [
-      2.4,
-      1.095,
-      1.124
+      2.5,
+      1.094,
+      1.125
     ],
-    "pi_pts": 0.015
+    "pi_pts": 0.01
   },
   "notes": {
     "pts_coupling": {
-      "best_exponent": 0.16,
-      "deviance_gain": 0.00979,
+      "best_exponent": 0.18,
+      "deviance_gain": 0.00994,
       "kept": true
     },
     "reb_coupling": {
@@ -30,16 +30,16 @@
     },
     "ast_coupling": {
       "best_exponent": 0.04,
-      "deviance_gain": 0.00027,
+      "deviance_gain": 0.00028,
       "kept": false
     },
     "pts_zero_share": {
-      "best_share": 0.015,
-      "loglik_gain": 175.9,
+      "best_share": 0.01,
+      "loglik_gain": 173.0,
       "kept": true
     }
   },
-  "fit_rows": 33040,
-  "fitted_through": "21/11/2026",
-  "fitted_at": "23/11/2026 05:25 GMT+8"
+  "fit_rows": 33189,
+  "fitted_through": "22/11/2026",
+  "fitted_at": "24/11/2026 03:17 GMT+8"
 }

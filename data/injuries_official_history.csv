@@ -6025,3 +6025,102 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-22T16:15-05:00,2026-11-22T21:15+00:00,2026-11-23,19:30,MIL@TOR,TOR,"Murray-Boyles,Collin",collin murray boyles,Probable,Management ConcussionProtocol,2026-11-22_04_15PM,2
 2026-11-22T16:15-05:00,2026-11-22T21:15+00:00,2026-11-23,20:30,LAC@HOU,HOU,"Copeland,Quadir",quadir copeland,Out,GLeague-Two-Way,2026-11-22_04_15PM,2
 2026-11-22T16:15-05:00,2026-11-22T21:15+00:00,2026-11-23,20:30,LAC@HOU,HOU,"Phillips,Julian",julian phillips,Out,GLeague-Two-Way,2026-11-22_04_15PM,2
+2026-11-22T16:30-05:00,2026-11-22T21:30+00:00,2026-11-22,18:00,OKC@MIA,OKC,"Gilgeous-Alexander,Shai",shai gilgeous alexander,Out,Injury/Illness-LowBackContusion/,2026-11-22_04_30PM,2
+2026-11-22T16:30-05:00,2026-11-22T21:30+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Gardner,Myron",myron gardner,Available,Injury/Illness-RightHamstring Tightness/Soreness,2026-11-22_04_30PM,2
+2026-11-22T16:30-05:00,2026-11-22T21:30+00:00,2026-11-23,19:30,MIL@TOR,MIL,"Dieng,Ousmane",ousmane dieng,Questionable,Injury/Illness-LeftFingerFracture,2026-11-22_04_30PM,2
+2026-11-22T16:30-05:00,2026-11-22T21:30+00:00,2026-11-23,19:30,MIL@TOR,MIL,"Jones,Kam",kam jones,Out,GLeague-Two-Way,2026-11-22_04_30PM,2
+2026-11-22T16:30-05:00,2026-11-22T21:30+00:00,2026-11-23,19:30,MIL@TOR,MIL,"Markovic,Bogoljub",bogoljub markovic,Out,GLeague-OnAssignment,2026-11-22_04_30PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,19:00,POR@PHI,POR,"Krejci,Vit",vit krejci,Out,Injury/Illness-LeftAnkleFracture,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,19:00,POR@PHI,POR,"Morant,Ja",ja morant,Out,Injury/Illness-LeftHamstringStrain,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,19:00,POR@PHI,POR,"Sharpe,Shaedon",shaedon sharpe,Out,Injury/Illness-RightMeniscus,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,19:00,POR@PHI,POR,"Youngblood,Chris",chris youngblood,Out,Surgery Injury/Illness-RightHeelContusion/ BoneBruise,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"Austin,Zack",zack austin,Out,GLeague-Two-Way,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"Diop,Khalifa",khalifa diop,Out,GLeague-OnAssignment,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"Mobley,Evan",evan mobley,Out,Injury/Illness-LeftGreatToeSprain,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"Tomlin,Nae'Qwan",naeqwan tomlin,Out,Injury/Illness-LowBackStress,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"Tyson,Jaylon",jaylon tyson,Probable,Reaction Injury/Illness-RightAnkleInjury Management,2026-11-22_04_45PM,2
+2026-11-22T16:45-05:00,2026-11-22T21:45+00:00,2026-11-23,20:00,CLE@CHI,CLE,"UdehJr.,Ernest",ernest udeh,Out,GLeague-Two-Way,2026-11-22_04_45PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-22,18:00,OKC@MIA,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Out,Injury/Illness-RightGrointendinitis,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Sellers,Jaylin",jaylin sellers,Available,-,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Smith,Jalen",jalen smith,Available,-,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-22,19:00,DEN@CHI,CHI,"Williams,Patrick",patrick williams,Available,-,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,MEM,"Boozer,Cameron",cameron boozer,Out,Injury/Illness-RightAnkleSprain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,MEM,"Grant,Jerami",jerami grant,Out,Injury/Illness-LeftCalfStrain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,MEM,"Jackson,GG",gg jackson,Out,Injury/Illness-Left5thMetatarsal,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,MEM,"PippenJr.,Scotty",scotty pippen,Out,Fracture Injury/Illness-LumbarDisc Herniation,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,MEM,"Saunders,Richie",richie saunders,Out,Injury/Illness-RightKneeSurgery,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Ajayi,Michael",michael ajayi,Out,GLeague-Two-Way,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Allen,Grayson",grayson allen,Out,ConcussionProtocol,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Boswell,Kylan",kylan boswell,Out,GLeague-Two-Way,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Knueppel,Kon",kon knueppel,Out,Injury/Illness-LeftHamstringStrain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Miller,Brandon",brandon miller,Probable,Injury/Illness-RightKneeContusion /BoneBruise,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Schroder,Dennis",dennis schroder,Out,Injury/Illness-LeftHamstringStrain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Williams,Grant",grant williams,Out,Injury/Illness-RightHamstringInjury Management,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,POR@PHI,PHI,"Bona,Adem",adem bona,Probable,Injury/Illness-CervicalSpineSprain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,POR@PHI,PHI,"Brown,Jaylen",jaylen brown,Probable,Injury/Illness-LeftHamstringStrain,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,POR@PHI,PHI,"Hukporti,Ariel",ariel hukporti,Out,Injury/Illness-RightAchillesTendon,2026-11-22_05_00PM,2
+2026-11-22T17:00-05:00,2026-11-22T22:00+00:00,2026-11-23,19:00,POR@PHI,PHI,"Wade,Dean",dean wade,Probable,Rupture/Tear Injury/Illness-LeftHamstringInjury Management,2026-11-22_05_00PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-22,18:00,OKC@MIA,OKC,"Mara,Aday",aday mara,Out,Injury/Illness-RightShinContusion,2026-11-22_05_30PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Beringer,Joan",joan beringer,Available,Injury/Illness-FaceMask,2026-11-22_05_30PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Clark,Jaylen",jaylen clark,Out,Injury/Illness-RightHamstringStrain,2026-11-22_05_30PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-23,19:30,BKN@MIN,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Injury/Illness-RightAchillesTendon,2026-11-22_05_30PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Edwards,Anthony",anthony edwards,Out,Repair/Surgery Injury/Illness-RightKnee Arthroscopy,2026-11-22_05_30PM,2
+2026-11-22T17:30-05:00,2026-11-22T22:30+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Zikarsky,Rocco",rocco zikarsky,Out,GLeague-Two-Way,2026-11-22_05_30PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"ClaytonJr.,Walter",walter clayton,Available,Injury/Illness-LeftPatellarTendinitis,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-22,19:00,DAL@UTAH,DAL,"Washington,P.J.",pj washington,Out,Injury/Illness-Illness,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Ayton,Deandre",deandre ayton,Available,Injury/Illness-Illness,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Carrington,Bub",bub carrington,Available,Injury/Illness-Illness,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-22,19:00,ORL@WSH,WSH,"Okpara,Felix",felix okpara,Out,GLeague-Two-Way,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-23,20:30,LAC@HOU,LAC,"Beal,Bradley",bradley beal,Out,Injury/Illness-RightKneeInjury Management,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-23,20:30,LAC@HOU,LAC,"Christie,Cam",cam christie,Out,GLeague-Two-Way,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-23,20:30,LAC@HOU,LAC,"Martinelli,Nick",nick martinelli,Out,GLeague-Two-Way,2026-11-22_06_00PM,2
+2026-11-22T18:00-05:00,2026-11-22T23:00+00:00,2026-11-23,20:30,LAC@HOU,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff Surgery,2026-11-22_06_00PM,2
+2026-11-22T18:15-05:00,2026-11-22T23:15+00:00,2026-11-23,20:00,PHX@NO,PHX,"Dunn,Ryan",ryan dunn,Questionable,Injury/Illness-RightQuadSoreness,2026-11-22_06_15PM,2
+2026-11-22T18:15-05:00,2026-11-22T23:15+00:00,2026-11-23,20:00,PHX@NO,PHX,"Williams,Mark",mark williams,Out,Injury/Illness-LeftShoulderSurgery,2026-11-22_06_15PM,2
+2026-11-22T18:30-05:00,2026-11-22T23:30+00:00,2026-11-23,22:00,SA@SAC,SAC,"Mogbo,Jonathan",jonathan mogbo,Out,GLeague-Two-Way,2026-11-22_06_30PM,2
+2026-11-22T18:30-05:00,2026-11-22T23:30+00:00,2026-11-23,22:00,SA@SAC,SAC,"Pedulla,Sean",sean pedulla,Out,GLeague-Two-Way,2026-11-22_06_30PM,2
+2026-11-22T18:30-05:00,2026-11-22T23:30+00:00,2026-11-23,22:00,SA@SAC,SAC,"Raynaud,Maxime",maxime raynaud,Out,Injury/Illness-RightPatella,2026-11-22_06_30PM,2
+2026-11-22T18:30-05:00,2026-11-22T23:30+00:00,2026-11-23,22:00,SA@SAC,SAC,"Simmons,Ben",ben simmons,Out,Subluxation Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-22_06_30PM,2
+2026-11-22T19:00-05:00,2026-11-23T00:00+00:00,2026-11-22,20:00,IND@NY,NY,"McBride,Miles",miles mcbride,Out,Injury/Illness-LeftLeftAdductor Tightness,2026-11-22_07_00PM,2
+2026-11-22T19:30-05:00,2026-11-23T00:30+00:00,2026-11-22,20:00,IND@NY,IND,"Siakam,Pascal",pascal siakam,Available,Injury/Illness-LeftHipSoreness/ Tightness,2026-11-22_07_30PM,2
+2026-11-22T19:30-05:00,2026-11-23T00:30+00:00,2026-11-22,20:00,IND@NY,NY,"Towns,Karl-Anthony",karl anthony towns,Available,Injury/Illness-Illness,2026-11-22_07_30PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"Fox,De'Aaron",deaaron fox,Questionable,Injury/Illness-RightShinContusion,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"Harper,Dylan",dylan harper,Out,Injury/Illness-LeftHipExternal RotatorStrain,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"Harris,Tobias",tobias harris,Out,Injury/Illness-LeftCalfStrain,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"McLaughlin,Jordan",jordan mclaughlin,Questionable,Injury/Illness-LeftShoulder Contusion,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"Quaintance,Jayden",jayden quaintance,Out,Injury/Illness-RightKneeSurgery,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,SA@SAC,SA,"Wembanyama,Victor",victor wembanyama,Questionable,Injury/Illness-BilateralLowBack Tightness,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,UTAH@LAL,LAL,"Grimes,Quentin",quentin grimes,Available,Injury/Illness-RightFingerSplint,2026-11-22_08_15PM,2
+2026-11-22T20:15-05:00,2026-11-23T01:15+00:00,2026-11-23,22:00,UTAH@LAL,LAL,"Reaves,Austin",austin reaves,Out,Injury/Illness-LeftHeelContusion/ BoneBruise,2026-11-22_08_15PM,2
+2026-11-23T00:00-05:00,2026-11-23T05:00+00:00,2026-11-23,19:30,BKN@MIN,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-23_12_00AM,2
+2026-11-23T00:00-05:00,2026-11-23T05:00+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Edwards,Anthony",anthony edwards,Out,Injury/Illness-RightKnee Arthroscopy,2026-11-23_12_00AM,2
+2026-11-23T11:45-05:00,2026-11-23T16:45+00:00,2026-11-23,19:00,POR@PHI,PHI,"Embiid,Joel",joel embiid,Questionable,Injury/Illness-Illness,2026-11-23_11_45AM,2
+2026-11-23T11:45-05:00,2026-11-23T16:45+00:00,2026-11-23,19:30,BKN@MIN,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Injury/Illness-RightAchillesTendon,2026-11-23_11_45AM,2
+2026-11-23T11:45-05:00,2026-11-23T16:45+00:00,2026-11-23,19:30,BKN@MIN,MIN,"Edwards,Anthony",anthony edwards,Out,Repair/Surgery Injury/Illness-RightKnee Arthroscopy,2026-11-23_11_45AM,2
+2026-11-23T12:30-05:00,2026-11-23T17:30+00:00,2026-11-23,19:30,BKN@MIN,BKN,"Nelson,Grant",grant nelson,Available,Injury/Illness-RightAnkleSprain,2026-11-23_12_30PM,2
+2026-11-23T12:45-05:00,2026-11-23T17:45+00:00,2026-11-23,19:30,MIL@TOR,TOR,"Bradley,Jaden",jaden bradley,Questionable,Injury/Illness-RightAnkleSprain,2026-11-23_12_45PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,MIL@TOR,MIL,"Dieng,Ousmane",ousmane dieng,Available,-,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"Furphy,Johnny",johnny furphy,Out,Injury/Illness-RightACLRepair/ Surgery,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"Haliburton,Tyrese",tyrese haliburton,Out,Injury/Illness-LeftHamstringStrain,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"McConnell,T.J.",tj mcconnell,Out,Injury/Illness-LeftHamstring Soreness,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"Nesmith,Aaron",aaron nesmith,Out,Injury/Illness-RightFootSoreness,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"Sheppard,Ben",ben sheppard,Out,Injury/Illness-LeftMeniscusSurgery,2026-11-23_01_15PM,2
+2026-11-23T13:15-05:00,2026-11-23T18:15+00:00,2026-11-23,19:30,OKC@IND,IND,"Siakam,Pascal",pascal siakam,Questionable,Injury/Illness-LeftHipInjury Management,2026-11-23_01_15PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Caruso,Alex",alex caruso,Out,Injury/Illness-RightHip,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Holmgren,Chet",chet holmgren,Out,Impingement Injury/Illness-RightKnee/Injury Recovery,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Mara,Aday",aday mara,Out,Injury/Illness-RightShinContusion,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Sorber,Thomas",thomas sorber,Out,Injury/Illness-RightKneeSurgery,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Topic,Nikola",nikola topic,Out,Injury/Illness-LeftHipStrain,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Wallace,Cason",cason wallace,Out,Injury/Illness-LeftShoulderSurgery,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Williams,Jalen",jalen williams,Out,Injury/Illness-LeftAnkleSurgery,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,19:30,OKC@IND,OKC,"Williams,Jaylin",jaylin williams,Out,Injury/Illness-LowBackSpasms,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Claxton,Nic",nic claxton,Questionable,Injury/Illness-Illness,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Powell,Norman",norman powell,Out,Injury/Illness-RightHamstringStrain,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Smith,Jalen",jalen smith,Probable,Injury/Illness-GastrointestinalIllness,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Wilson,Caleb",caleb wilson,Out,Injury/Illness-RightMetacarpal Fracture,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"Dia,Malik",malik dia,Available,GLeague-Two-Way,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"McGowens,Bryce",bryce mcgowens,Available,Injury/Illness-LeftElbowInfection,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"MurphyIII,Trey",trey murphy,Available,Injury/Illness-BilateralPatellar Tendinopathy,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"PierreJr.,Jaron",jaron pierre,Available,GLeague-Two-Way,2026-11-23_01_30PM,2
+2026-11-23T13:30-05:00,2026-11-23T18:30+00:00,2026-11-23,20:00,PHX@NO,NO,"Reese,Julian",julian reese,Out,GLeague-Two-Way,2026-11-23_01_30PM,2
+2026-11-23T14:00-05:00,2026-11-23T19:00+00:00,2026-11-23,20:00,PHX@NO,PHX,"Dunn,Ryan",ryan dunn,Available,Injury/Illness-RightQuadSoreness,2026-11-23_02_00PM,2

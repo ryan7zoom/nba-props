@@ -1,117 +1,116 @@
 {
- "generated_utc": "2026-11-22T21:26Z",
+ "generated_utc": "2026-11-23T19:18Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-22",
+   "game_date": "2026-11-23",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-22",
-      "player": "Yaxel Lendeborg",
-      "team": "GS",
-      "opp": "BOS",
+      "game_date": "2026-11-23",
+      "player": "Darryn Peterson",
+      "team": "UTAH",
+      "opp": "LAL",
       "market": "pts",
-      "line": 20.5,
+      "line": 18.5,
       "book": "draftkings",
-      "price": -120,
-      "our_p": 0.702,
-      "market_p": 0.515,
-      "blend_p": 0.58,
+      "price": -115,
+      "our_p": 0.69,
+      "market_p": 0.504,
+      "blend_p": 0.569,
       "edge": 0.064,
-      "tipoff_utc": "2026-11-23T01:30Z",
+      "tipoff_utc": "2026-11-24T03:00Z",
       "all_lines": [
        [
         "draftkings",
-        20.5,
+        18.5,
+        -115
+       ],
+       [
+        "fanduel",
+        18.5,
+        -120
+       ]
+      ],
+      "mean": 15.54,
+      "p_play": 1.0,
+      "minutes": 28.7,
+      "event_id": "401910044",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-23T19:18Z"
+     },
+     {
+      "game_date": "2026-11-23",
+      "player": "Collin Murray-Boyles",
+      "team": "TOR",
+      "opp": "MIL",
+      "market": "pts",
+      "line": 12.5,
+      "book": "draftkings",
+      "price": -121,
+      "our_p": 0.657,
+      "market_p": 0.517,
+      "blend_p": 0.566,
+      "edge": 0.033,
+      "tipoff_utc": "2026-11-24T00:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        12.5,
+        -121
+       ],
+       [
+        "fanduel",
+        12.5,
+        -138
+       ]
+      ],
+      "mean": 10.76,
+      "p_play": 0.943,
+      "minutes": 24.3,
+      "event_id": "401910039",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-23T19:18Z"
+     },
+     {
+      "game_date": "2026-11-23",
+      "player": "Terrence Shannon Jr.",
+      "team": "MIN",
+      "opp": "BKN",
+      "market": "pts",
+      "line": 13.5,
+      "book": "draftkings",
+      "price": -120,
+      "our_p": 0.654,
+      "market_p": 0.515,
+      "blend_p": 0.563,
+      "edge": 0.033,
+      "tipoff_utc": "2026-11-24T00:30Z",
+      "all_lines": [
+       [
+        "draftkings",
+        13.5,
         -120
        ],
        [
         "fanduel",
-        20.5,
-        -136
-       ]
-      ],
-      "mean": 17.12,
-      "p_play": 1.0,
-      "minutes": 31.7,
-      "event_id": "401910035",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-22T21:26Z"
-     }
-    ],
-    "pra": [
-     {
-      "game_date": "2026-11-22",
-      "player": "Bam Adebayo",
-      "team": "MIA",
-      "opp": "OKC",
-      "market": "pra",
-      "line": 32.5,
-      "book": "draftkings",
-      "price": -117,
-      "our_p": 0.692,
-      "market_p": 0.505,
-      "blend_p": 0.571,
-      "edge": 0.058,
-      "tipoff_utc": "2026-11-22T23:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        32.5,
-        -117
-       ],
-       [
-        "fanduel",
-        33.5,
+        13.5,
         -125
        ]
       ],
-      "mean": 28.19,
+      "mean": 11.63,
       "p_play": 1.0,
-      "minutes": 29.9,
-      "event_id": "401910030",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-22T21:26Z"
-     },
-     {
-      "game_date": "2026-11-22",
-      "player": "Yaxel Lendeborg",
-      "team": "GS",
-      "opp": "BOS",
-      "market": "pra",
-      "line": 31.5,
-      "book": "draftkings",
-      "price": -114,
-      "our_p": 0.678,
-      "market_p": 0.498,
-      "blend_p": 0.561,
-      "edge": 0.053,
-      "tipoff_utc": "2026-11-23T01:30Z",
-      "all_lines": [
-       [
-        "draftkings",
-        31.5,
-        -114
-       ],
-       [
-        "fanduel",
-        31.5,
-        -120
-       ]
-      ],
-      "mean": 27.7,
-      "p_play": 1.0,
-      "minutes": 31.7,
-      "event_id": "401910035",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-22T21:26Z"
+      "minutes": 22.8,
+      "event_id": "401910040",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-23T19:18Z"
      }
-    ]
+    ],
+    "pra": []
    }
   }
  ],
