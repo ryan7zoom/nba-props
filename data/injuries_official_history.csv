@@ -6147,3 +6147,25 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Okpara,Felix",felix okpara,Questionable,GLeague-Two-Way,2026-11-23_05_00PM,2
 2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Vukcevic,Tristan",tristan vukcevic,Out,Injury/Illness-LeftHipImpingement,2026-11-23_05_00PM,2
 2026-11-23T17:00-05:00,2026-11-23T22:00+00:00,2026-11-24,20:00,BOS@WSH,WSH,"Watkins,Jamir",jamir watkins,Out,Injury/Illness-LeftACLRepair/ Surgery,2026-11-23_05_00PM,2
+2026-11-23T17:15-05:00,2026-11-23T22:15+00:00,2026-11-23,19:00,MEM@CHA,CHA,"Miller,Brandon",brandon miller,Available,Injury/Illness-RightKneeContusion /BoneBruise,2026-11-23_05_15PM,2
+2026-11-23T17:15-05:00,2026-11-23T22:15+00:00,2026-11-24,19:00,DET@ORL,ORL,"Banchero,Paolo",paolo banchero,Out,Injury/Illness-RightHighAnkle Sprain,2026-11-23_05_15PM,2
+2026-11-23T17:15-05:00,2026-11-23T22:15+00:00,2026-11-24,19:00,DET@ORL,ORL,"Castleton,Colin",colin castleton,Out,GLeague-Two-Way,2026-11-23_05_15PM,2
+2026-11-23T17:15-05:00,2026-11-23T22:15+00:00,2026-11-24,19:00,DET@ORL,ORL,"Isaac,Jonathan",jonathan isaac,Out,Injury/Illness-LeftKneeInjury,2026-11-23_05_15PM,2
+2026-11-23T17:45-05:00,2026-11-23T22:45+00:00,2026-11-23,19:00,POR@PHI,PHI,"Embiid,Joel",joel embiid,Out,Injury/Illness-Illness,2026-11-23_05_45PM,2
+2026-11-23T18:00-05:00,2026-11-23T23:00+00:00,2026-11-23,19:30,MIL@TOR,TOR,"Bradley,Jaden",jaden bradley,Probable,Injury/Illness-RightAnkleSprain,2026-11-23_06_00PM,2
+2026-11-23T18:00-05:00,2026-11-23T23:00+00:00,2026-11-23,19:30,MIL@TOR,TOR,"Murray-Boyles,Collin",collin murray boyles,Available,Management ConcussionProtocol,2026-11-23_06_00PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-23,19:00,POR@PHI,PHI,"Bona,Adem",adem bona,Available,Injury/Illness-CervicalSpineSprain,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-23,19:00,POR@PHI,PHI,"Brown,Jaylen",jaylen brown,Available,Injury/Illness-LeftHamstringStrain,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-23,19:30,MIL@TOR,TOR,"Bradley,Jaden",jaden bradley,Available,Injury/Illness-RightAnkleSprain,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"Biberovic,Tarik",tarik biberovic,Out,Injury/Illness-RightHeelBursitis,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"deLarrea,Sergio",sergio delarrea,Out,Injury/Illness-RightKneeSprain,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"Lawal,Tobi",tobi lawal,Out,Injury/Illness-RightGroinStrain,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"LivelyII,Dereck",dereck lively,Out,Injury/Illness-RightFootSurgery,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"Martin,Caleb",caleb martin,Available,Injury/Illness-RightThumbSplint,2026-11-23_06_15PM,2
+2026-11-23T18:15-05:00,2026-11-23T23:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"Washington,P.J.",pj washington,Questionable,Injury/Illness-Illness,2026-11-23_06_15PM,2
+2026-11-23T18:30-05:00,2026-11-23T23:30+00:00,2026-11-23,19:00,POR@PHI,PHI,"Wade,Dean",dean wade,Available,Rupture/Tear Injury/Illness-LeftHamstringInjury Management,2026-11-23_06_30PM,2
+2026-11-23T18:45-05:00,2026-11-23T23:45+00:00,2026-11-23,19:30,OKC@IND,IND,"Siakam,Pascal",pascal siakam,Available,Injury/Illness-LeftHipInjury Management,2026-11-23_06_45PM,2
+2026-11-23T18:45-05:00,2026-11-23T23:45+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Claxton,Nic",nic claxton,Available,-,2026-11-23_06_45PM,2
+2026-11-23T18:45-05:00,2026-11-23T23:45+00:00,2026-11-23,20:00,CLE@CHI,CHI,"Smith,Jalen",jalen smith,Available,-,2026-11-23_06_45PM,2
+2026-11-23T18:45-05:00,2026-11-23T23:45+00:00,2026-11-23,20:00,PHX@NO,PHX,"Spencer,Pat",pat spencer,Out,GLeague-Two-Way,2026-11-23_06_45PM,2
+2026-11-23T18:45-05:00,2026-11-23T23:45+00:00,2026-11-23,20:00,PHX@NO,PHX,"Timme,Drew",drew timme,Out,GLeague-Two-Way,2026-11-23_06_45PM,2

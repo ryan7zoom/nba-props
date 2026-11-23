@@ -1,5 +1,5 @@
 {
-  "run": "24/11/2026 06:01 GMT+8",
+  "run": "24/11/2026 07:56 GMT+8",
   "games_with_lines": 10,
   "warnings": [
     "MEM at CHA: no team total lines (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys []); using game total and spread",
@@ -36,7 +36,7 @@
           null,
           "Over",
           100.5,
-          -210
+          -227
         ],
         [
           "draftkings",
@@ -44,7 +44,7 @@
           null,
           "Under",
           100.5,
-          166
+          179
         ],
         [
           "draftkings",
@@ -52,7 +52,7 @@
           null,
           "Over",
           101.5,
-          -181
+          -197
         ],
         [
           "draftkings",
@@ -60,7 +60,7 @@
           null,
           "Under",
           101.5,
-          144
+          156
         ],
         [
           "draftkings",
@@ -68,7 +68,7 @@
           null,
           "Over",
           101.5,
-          -269
+          -297
         ],
         [
           "draftkings",
@@ -76,7 +76,7 @@
           null,
           "Under",
           101.5,
-          208
+          228
         ],
         [
           "draftkings",
@@ -84,7 +84,7 @@
           null,
           "Over",
           102.5,
-          -156
+          -170
         ],
         [
           "draftkings",
@@ -92,7 +92,7 @@
           null,
           "Under",
           102.5,
-          125
+          136
         ],
         [
           "draftkings",
@@ -100,7 +100,7 @@
           null,
           "Over",
           102.5,
-          -229
+          -254
         ],
         [
           "draftkings",
@@ -108,7 +108,7 @@
           null,
           "Under",
           102.5,
-          180
+          198
         ],
         [
           "draftkings",
@@ -116,7 +116,7 @@
           null,
           "Over",
           103.5,
-          -134
+          -147
         ],
         [
           "draftkings",
@@ -124,7 +124,7 @@
           null,
           "Under",
           103.5,
-          108
+          118
         ],
         [
           "draftkings",
@@ -132,7 +132,7 @@
           null,
           "Over",
           103.5,
-          -195
+          -216
         ],
         [
           "draftkings",
@@ -140,7 +140,7 @@
           null,
           "Under",
           103.5,
-          155
+          170
         ]
       ]
     },
@@ -153,7 +153,7 @@
           null,
           "Over",
           105.5,
-          -458
+          -555
         ],
         [
           "draftkings",
@@ -161,7 +161,23 @@
           null,
           "Under",
           105.5,
-          331
+          386
+        ],
+        [
+          "draftkings",
+          "alternate",
+          null,
+          "Over",
+          105.5,
+          -534
+        ],
+        [
+          "draftkings",
+          "alternate",
+          null,
+          "Under",
+          105.5,
+          375
         ],
         [
           "draftkings",
@@ -169,7 +185,7 @@
           null,
           "Over",
           106.5,
-          -562
+          -463
         ],
         [
           "draftkings",
@@ -177,7 +193,7 @@
           null,
           "Under",
           106.5,
-          390
+          334
         ],
         [
           "draftkings",
@@ -185,7 +201,7 @@
           null,
           "Over",
           106.5,
-          -386
+          -467
         ],
         [
           "draftkings",
@@ -193,7 +209,7 @@
           null,
           "Under",
           106.5,
-          287
+          336
         ],
         [
           "draftkings",
@@ -201,7 +217,7 @@
           null,
           "Over",
           107.5,
-          -475
+          -390
         ],
         [
           "draftkings",
@@ -209,7 +225,7 @@
           null,
           "Under",
           107.5,
-          341
+          289
         ],
         [
           "draftkings",
@@ -217,7 +233,7 @@
           null,
           "Over",
           107.5,
-          -327
+          -395
         ],
         [
           "draftkings",
@@ -225,7 +241,7 @@
           null,
           "Under",
           107.5,
-          248
+          292
         ],
         [
           "draftkings",
@@ -233,7 +249,7 @@
           null,
           "Over",
           108.5,
-          -400
+          -324
         ],
         [
           "draftkings",
@@ -241,23 +257,7 @@
           null,
           "Under",
           108.5,
-          296
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Over",
-          108.5,
-          -280
-        ],
-        [
-          "draftkings",
-          "alternate",
-          null,
-          "Under",
-          108.5,
-          216
+          246
         ]
       ]
     }
