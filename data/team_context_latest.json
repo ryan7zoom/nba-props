@@ -1,814 +1,6 @@
 {
- "generated": "2026-11-23T23:56Z",
+ "generated": "2026-11-24T02:48Z",
  "games": {
-  "401910036": {
-   "home": {
-    "team": "CHA",
-    "l5": [
-     [
-      "11/09",
-      "CLE",
-      1,
-      124,
-      112
-     ],
-     [
-      "11/12",
-      "PHX",
-      0,
-      96,
-      101
-     ],
-     [
-      "11/15",
-      "LAC",
-      0,
-      105,
-      113
-     ],
-     [
-      "11/17",
-      "LAL",
-      0,
-      114,
-      118
-     ],
-     [
-      "11/20",
-      "ATL",
-      0,
-      97,
-      111
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 1-9 \u00b7 scored 99.4 points a game, allowed 111.6",
-     "Speed: 97.3 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 102.2 points per 100 possessions = 30th best of 30 (league average 112.9)",
-     "Defense: lets in 114.7 points per 100 possessions = 18th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 14th of 30. Scored 9.8 per 100 below what those defenses usually allow; allowed 1.9 per 100 more than those offenses usually score",
-     "Home 3-4 (point margin -14.6 per 100 possessions) \u00b7 Road 1-7 (point margin -7.4 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): Out: Grayson Allen (14 pts, 27 min), Kon Knueppel (13 pts, 28 min), Dennis Schroder (10 pts, 30 min), Grant Williams (8 pts, 21 min) \u00b7 about 45 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "MEM",
-    "l5": [
-     [
-      "11/14",
-      "BKN",
-      1,
-      129,
-      110
-     ],
-     [
-      "11/16",
-      "WSH",
-      0,
-      136,
-      120
-     ],
-     [
-      "11/18",
-      "CLE",
-      0,
-      124,
-      121
-     ],
-     [
-      "11/19",
-      "GS",
-      1,
-      126,
-      98
-     ],
-     [
-      "11/21",
-      "MIN",
-      0,
-      95,
-      104
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 6-4 \u00b7 scored 118.8 points a game, allowed 112.4",
-     "Speed: 100.2 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 118.6 points per 100 possessions = 3rd best of 30 (league average 112.9)",
-     "Defense: lets in 112.2 points per 100 possessions = 13th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 17th, offenses 17th of 30. Scored 6.1 per 100 above what those defenses usually allow; allowed 0.5 per 100 more than those offenses usually score",
-     "Home 4-4 (point margin +7.0 per 100 possessions) \u00b7 Road 8-1 (point margin +10.7 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Cameron Boozer (16 pts, 31 min), Jerami Grant (12 pts, 21 min), Scotty Pippen (10 pts, 20 min), Gg Jackson (7 pts, 15 min) \u00b7 about 38 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "MEM offense 3rd vs CHA defense 18th \u00b7 CHA offense 30th vs MEM defense 13th (last 10 games, of 30)"
-  },
-  "401910037": {
-   "home": {
-    "team": "PHI",
-    "l5": [
-     [
-      "11/12",
-      "TOR",
-      1,
-      123,
-      112
-     ],
-     [
-      "11/15",
-      "IND",
-      1,
-      131,
-      124
-     ],
-     [
-      "11/16",
-      "BKN",
-      0,
-      135,
-      123
-     ],
-     [
-      "11/18",
-      "ORL",
-      0,
-      121,
-      116
-     ],
-     [
-      "11/21",
-      "MIL",
-      1,
-      132,
-      129
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 8-2 \u00b7 scored 120.3 points a game, allowed 118.0",
-     "Speed: 100.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 119.6 points per 100 possessions = 1st best of 30 (league average 112.9)",
-     "Defense: lets in 117.3 points per 100 possessions = 25th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 18th of 30. Scored 6.1 per 100 above what those defenses usually allow; allowed 6.4 per 100 more than those offenses usually score",
-     "Home 7-2 (point margin +3.2 per 100 possessions) \u00b7 Road 7-1 (point margin +2.6 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Joel Embiid (20 pts, 31 min) \u00b7 about 20 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "POR",
-    "l5": [
-     [
-      "11/13",
-      "SAC",
-      0,
-      120,
-      107
-     ],
-     [
-      "11/16",
-      "MIN",
-      0,
-      98,
-      106
-     ],
-     [
-      "11/17",
-      "MIN",
-      0,
-      105,
-      106
-     ],
-     [
-      "11/19",
-      "MIL",
-      0,
-      124,
-      114
-     ],
-     [
-      "11/21",
-      "NY",
-      0,
-      96,
-      97
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 5-5 \u00b7 scored 113.7 points a game, allowed 110.9",
-     "Speed: 101.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 111.9 points per 100 possessions = 17th best of 30 (league average 112.9)",
-     "Defense: lets in 109.1 points per 100 possessions = 7th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 11th, offenses 15th of 30. Scored 2.4 per 100 above what those defenses usually allow; allowed 2.9 per 100 less than those offenses usually score",
-     "Home 3-2 (point margin +5.5 per 100 possessions) \u00b7 Road 7-4 (point margin +5.8 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Ja Morant (16 pts, 26 min), Shaedon Sharpe (9 pts, 17 min) \u00b7 about 24 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "POR offense 17th vs PHI defense 25th \u00b7 PHI offense 1st vs POR defense 7th (last 10 games, of 30)"
-  },
-  "401910038": {
-   "home": {
-    "team": "IND",
-    "l5": [
-     [
-      "11/13",
-      "NY",
-      1,
-      106,
-      104
-     ],
-     [
-      "11/15",
-      "PHI",
-      0,
-      124,
-      131
-     ],
-     [
-      "11/18",
-      "HOU",
-      1,
-      104,
-      119
-     ],
-     [
-      "11/20",
-      "CLE",
-      0,
-      119,
-      128
-     ],
-     [
-      "11/22",
-      "NY",
-      0,
-      106,
-      113
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 3-7 \u00b7 scored 110.8 points a game, allowed 114.6",
-     "Speed: 102.2 possessions a game (a possession = one trip down the court) = fast (league average 100.1)",
-     "Offense: 108.5 points per 100 possessions = 25th best of 30 (league average 112.9)",
-     "Defense: lets in 112.2 points per 100 possessions = 12th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 11th of 30. Scored 2.3 per 100 below what those defenses usually allow; allowed 2.0 per 100 less than those offenses usually score",
-     "Home 2-6 (point margin -5.6 per 100 possessions) \u00b7 Road 3-6 (point margin -2.1 per 100 possessions) (this season) \u00b7 played yesterday (back-to-back)",
-     "Injury list (official report): Out: Tyrese Haliburton (16 pts, 31 min), Aaron Nesmith (10 pts, 30 min), Ben Sheppard (7 pts, 19 min), Johnny Furphy (5 pts, 21 min) \u00b7 about 38 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "OKC",
-    "l5": [
-     [
-      "11/13",
-      "LAC",
-      0,
-      112,
-      113
-     ],
-     [
-      "11/15",
-      "SAC",
-      0,
-      125,
-      103
-     ],
-     [
-      "11/18",
-      "ATL",
-      1,
-      112,
-      117
-     ],
-     [
-      "11/20",
-      "NO",
-      1,
-      126,
-      120
-     ],
-     [
-      "11/22",
-      "MIA",
-      0,
-      113,
-      123
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 5-5 \u00b7 scored 116.5 points a game, allowed 110.5",
-     "Speed: 102.0 possessions a game (a possession = one trip down the court) = fast (league average 100.1)",
-     "Offense: 114.2 points per 100 possessions = 12th best of 30 (league average 112.9)",
-     "Defense: lets in 108.3 points per 100 possessions = 6th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 18th, offenses 15th of 30. Scored 1.3 per 100 above what those defenses usually allow; allowed 4.2 per 100 less than those offenses usually score",
-     "Home 6-1 (point margin +10.9 per 100 possessions) \u00b7 Road 4-6 (point margin -1.6 per 100 possessions) (this season) \u00b7 played yesterday (back-to-back)",
-     "Injury list (official report): Out: Jalen Williams (14 pts, 25 min), Aday Mara (12 pts, 25 min), Chet Holmgren (11 pts, 30 min), Cason Wallace (10 pts, 24 min), Alex Caruso (7 pts, 19 min), Jaylin Williams (5 pts, 20 min) \u00b7 about 59 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "OKC offense 12th vs IND defense 12th \u00b7 IND offense 25th vs OKC defense 6th (last 10 games, of 30)"
-  },
-  "401910039": {
-   "home": {
-    "team": "TOR",
-    "l5": [
-     [
-      "11/12",
-      "PHI",
-      0,
-      112,
-      123
-     ],
-     [
-      "11/15",
-      "NY",
-      1,
-      108,
-      112
-     ],
-     [
-      "11/17",
-      "NY",
-      1,
-      102,
-      111
-     ],
-     [
-      "11/18",
-      "WSH",
-      1,
-      99,
-      103
-     ],
-     [
-      "11/20",
-      "DET",
-      0,
-      105,
-      102
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 3-7 \u00b7 scored 107.6 points a game, allowed 112.0",
-     "Speed: 96.6 possessions a game (a possession = one trip down the court) = very slow (league average 100.1)",
-     "Offense: 111.4 points per 100 possessions = 19th best of 30 (league average 112.9)",
-     "Defense: lets in 115.9 points per 100 possessions = 22nd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 14th, offenses 14th of 30. Scored 0.3 per 100 above what those defenses usually allow; allowed 3.2 per 100 more than those offenses usually score",
-     "Home 2-6 (point margin +3.6 per 100 possessions) \u00b7 Road 4-4 (point margin -3.1 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): Out: Rj Barrett (20 pts, 35 min), Kawhi Leonard (20 pts, 26 min) \u00b7 about 40 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "MIL",
-    "l5": [
-     [
-      "11/13",
-      "ORL",
-      0,
-      99,
-      107
-     ],
-     [
-      "11/15",
-      "ATL",
-      1,
-      106,
-      113
-     ],
-     [
-      "11/18",
-      "MIA",
-      0,
-      130,
-      137
-     ],
-     [
-      "11/19",
-      "POR",
-      1,
-      114,
-      124
-     ],
-     [
-      "11/21",
-      "PHI",
-      0,
-      129,
-      132
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 0-10 \u00b7 scored 108.1 points a game, allowed 120.0",
-     "Speed: 99.9 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 108.2 points per 100 possessions = 26th best of 30 (league average 112.9)",
-     "Defense: lets in 120.2 points per 100 possessions = 29th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 10th, offenses 12th of 30. Scored 1.2 per 100 below what those defenses usually allow; allowed 6.7 per 100 more than those offenses usually score",
-     "Home 1-8 (point margin -12.8 per 100 possessions) \u00b7 Road 0-8 (point margin -11.4 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): no rotation player listed"
-    ]
-   },
-   "matchup": "MIL offense 26th vs TOR defense 22nd \u00b7 TOR offense 19th vs MIL defense 29th (last 10 games, of 30)"
-  },
-  "401910040": {
-   "home": {
-    "team": "MIN",
-    "l5": [
-     [
-      "11/14",
-      "CHI",
-      1,
-      106,
-      117
-     ],
-     [
-      "11/16",
-      "POR",
-      1,
-      106,
-      98
-     ],
-     [
-      "11/17",
-      "POR",
-      1,
-      106,
-      105
-     ],
-     [
-      "11/19",
-      "NY",
-      1,
-      99,
-      102
-     ],
-     [
-      "11/21",
-      "MEM",
-      1,
-      104,
-      95
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 8-2 \u00b7 scored 111.3 points a game, allowed 102.7",
-     "Speed: 101.3 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 109.9 points per 100 possessions = 22nd best of 30 (league average 112.9)",
-     "Defense: lets in 101.4 points per 100 possessions = 1st best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 15th of 30. Scored 2.6 per 100 below what those defenses usually allow; allowed 11.0 per 100 less than those offenses usually score",
-     "Home 8-3 (point margin +10.1 per 100 possessions) \u00b7 Road 4-2 (point margin +8.2 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Anthony Edwards (24 pts, 33 min), Donte Divincenzo (10 pts, 25 min), Jaylen Clark (5 pts, 16 min) \u00b7 about 40 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "BKN",
-    "l5": [
-     [
-      "11/11",
-      "NO",
-      0,
-      145,
-      111
-     ],
-     [
-      "11/14",
-      "MEM",
-      0,
-      110,
-      129
-     ],
-     [
-      "11/16",
-      "PHI",
-      1,
-      123,
-      135
-     ],
-     [
-      "11/18",
-      "CHI",
-      1,
-      107,
-      137
-     ],
-     [
-      "11/20",
-      "ORL",
-      1,
-      111,
-      113
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 3-7 \u00b7 scored 111.2 points a game, allowed 117.6",
-     "Speed: 99.0 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 112.3 points per 100 possessions = 15th best of 30 (league average 112.9)",
-     "Defense: lets in 118.8 points per 100 possessions = 28th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 18th of 30. Scored 0.2 per 100 above what those defenses usually allow; allowed 8.0 per 100 more than those offenses usually score",
-     "Home 1-6 (point margin -11.8 per 100 possessions) \u00b7 Road 2-6 (point margin -4.3 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): Out: Nolan Traore (14 pts, 24 min), Ben Saraf (10 pts, 23 min), Drake Powell (5 pts, 16 min), Chaney Johnson (3 pts, 14 min) \u00b7 about 29 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "BKN offense 15th vs MIN defense 1st \u00b7 MIN offense 22nd vs BKN defense 28th (last 10 games, of 30)"
-  },
-  "401910041": {
-   "home": {
-    "team": "CHI",
-    "l5": [
-     [
-      "11/14",
-      "MIN",
-      0,
-      117,
-      106
-     ],
-     [
-      "11/16",
-      "CLE",
-      0,
-      115,
-      126
-     ],
-     [
-      "11/18",
-      "BKN",
-      0,
-      137,
-      107
-     ],
-     [
-      "11/20",
-      "WSH",
-      1,
-      94,
-      98
-     ],
-     [
-      "11/22",
-      "DEN",
-      1,
-      145,
-      151
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 3-7 \u00b7 scored 118.5 points a game, allowed 121.7",
-     "Speed: 104.9 possessions a game (a possession = one trip down the court) = very fast (league average 100.1)",
-     "Offense: 113.0 points per 100 possessions = 14th best of 30 (league average 112.9)",
-     "Defense: lets in 116.0 points per 100 possessions = 23rd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 13th of 30. Scored 2.6 per 100 above what those defenses usually allow; allowed 2.9 per 100 more than those offenses usually score",
-     "Home 1-6 (point margin -3.1 per 100 possessions) \u00b7 Road 3-6 (point margin -10.8 per 100 possessions) (this season) \u00b7 played yesterday (back-to-back)",
-     "Injury list (official report): Out: Norman Powell (21 pts, 30 min), Caleb Wilson (19 pts, 31 min) \u00b7 about 40 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "CLE",
-    "l5": [
-     [
-      "11/13",
-      "MIA",
-      0,
-      121,
-      133
-     ],
-     [
-      "11/14",
-      "DAL",
-      1,
-      127,
-      117
-     ],
-     [
-      "11/16",
-      "CHI",
-      1,
-      126,
-      115
-     ],
-     [
-      "11/18",
-      "MEM",
-      1,
-      121,
-      124
-     ],
-     [
-      "11/20",
-      "IND",
-      1,
-      128,
-      119
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 5-5 \u00b7 scored 118.2 points a game, allowed 116.7",
-     "Speed: 100.5 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 117.6 points per 100 possessions = 8th best of 30 (league average 112.9)",
-     "Defense: lets in 116.1 points per 100 possessions = 24th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 13th, offenses 15th of 30. Scored 6.5 per 100 above what those defenses usually allow; allowed 4.4 per 100 more than those offenses usually score",
-     "Home 7-3 (point margin +4.9 per 100 possessions) \u00b7 Road 2-5 (point margin -1.4 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): Out: Evan Mobley (16 pts, 32 min) \u00b7 about 16 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "CLE offense 8th vs CHI defense 23rd \u00b7 CHI offense 14th vs CLE defense 24th (last 10 games, of 30)"
-  },
-  "401910042": {
-   "home": {
-    "team": "NO",
-    "l5": [
-     [
-      "11/14",
-      "DEN",
-      1,
-      108,
-      116
-     ],
-     [
-      "11/16",
-      "GS",
-      1,
-      115,
-      94
-     ],
-     [
-      "11/18",
-      "DET",
-      1,
-      109,
-      122
-     ],
-     [
-      "11/20",
-      "OKC",
-      0,
-      120,
-      126
-     ],
-     [
-      "11/21",
-      "SA",
-      0,
-      91,
-      114
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 1-9 \u00b7 scored 108.4 points a game, allowed 125.1",
-     "Speed: 100.2 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 108.2 points per 100 possessions = 27th best of 30 (league average 112.9)",
-     "Defense: lets in 124.8 points per 100 possessions = 30th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 13th, offenses 14th of 30. Scored 2.3 per 100 below what those defenses usually allow; allowed 11.9 per 100 more than those offenses usually score",
-     "Home 4-7 (point margin -4.0 per 100 possessions) \u00b7 Road 1-6 (point margin -14.1 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Dejounte Murray (12 pts, 30 min), Trendon Watford (7 pts, 18 min), Bennedict Mathurin (5 pts, 15 min) \u00b7 about 24 points a night of rotation scoring is out"
-    ]
-   },
-   "away": {
-    "team": "PHX",
-    "l5": [
-     [
-      "11/12",
-      "CHA",
-      1,
-      101,
-      96
-     ],
-     [
-      "11/15",
-      "LAL",
-      1,
-      123,
-      131
-     ],
-     [
-      "11/16",
-      "DEN",
-      0,
-      117,
-      105
-     ],
-     [
-      "11/18",
-      "SAC",
-      0,
-      128,
-      107
-     ],
-     [
-      "11/20",
-      "UTAH",
-      0,
-      111,
-      101
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 7-3 \u00b7 scored 114.7 points a game, allowed 110.7",
-     "Speed: 99.9 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 114.8 points per 100 possessions = 11th best of 30 (league average 112.9)",
-     "Defense: lets in 110.8 points per 100 possessions = 9th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 2.3 per 100 above what those defenses usually allow; allowed 1.0 per 100 less than those offenses usually score",
-     "Home 5-4 (point margin -0.1 per 100 possessions) \u00b7 Road 3-3 (point margin -2.0 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): Out: Mark Williams (9 pts, 21 min) \u00b7 about 9 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "PHX offense 11th vs NO defense 30th \u00b7 NO offense 27th vs PHX defense 9th (last 10 games, of 30)"
-  },
-  "401910043": {
-   "home": {
-    "team": "HOU",
-    "l5": [
-     [
-      "11/13",
-      "UTAH",
-      1,
-      125,
-      118
-     ],
-     [
-      "11/15",
-      "WSH",
-      0,
-      147,
-      119
-     ],
-     [
-      "11/16",
-      "MIA",
-      0,
-      110,
-      128
-     ],
-     [
-      "11/18",
-      "IND",
-      0,
-      119,
-      104
-     ],
-     [
-      "11/20",
-      "DEN",
-      0,
-      124,
-      133
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 6-4 \u00b7 scored 116.5 points a game, allowed 112.2",
-     "Speed: 97.7 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 119.2 points per 100 possessions = 2nd best of 30 (league average 112.9)",
-     "Defense: lets in 114.8 points per 100 possessions = 19th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 17th, offenses 14th of 30. Scored 7.4 per 100 above what those defenses usually allow; allowed 2.4 per 100 more than those offenses usually score",
-     "Home 7-1 (point margin +10.1 per 100 possessions) \u00b7 Road 5-4 (point margin +5.6 per 100 possessions) (this season) \u00b7 2 days rest",
-     "Injury list (official report): no rotation player listed"
-    ]
-   },
-   "away": {
-    "team": "LAC",
-    "l5": [
-     [
-      "11/13",
-      "OKC",
-      1,
-      113,
-      112
-     ],
-     [
-      "11/15",
-      "CHA",
-      1,
-      113,
-      105
-     ],
-     [
-      "11/17",
-      "UTAH",
-      1,
-      107,
-      132
-     ],
-     [
-      "11/19",
-      "SA",
-      0,
-      112,
-      124
-     ],
-     [
-      "11/21",
-      "DAL",
-      0,
-      100,
-      110
-     ]
-    ],
-    "lines": [
-     "Last 10 games: 3-7 \u00b7 scored 114.0 points a game, allowed 120.5",
-     "Speed: 101.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 112.2 points per 100 possessions = 16th best of 30 (league average 112.9)",
-     "Defense: lets in 118.6 points per 100 possessions = 26th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 0.0 per 100 above what those defenses usually allow; allowed 7.5 per 100 more than those offenses usually score",
-     "Home 4-4 (point margin +0.1 per 100 possessions) \u00b7 Road 0-7 (point margin -13.7 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Jordan Miller (11 pts, 24 min), Bradley Beal (8 pts, 20 min) \u00b7 about 19 points a night of rotation scoring is out"
-    ]
-   },
-   "matchup": "LAC offense 16th vs HOU defense 19th \u00b7 HOU offense 2nd vs LAC defense 26th (last 10 games, of 30)"
-  },
   "401910044": {
    "home": {
     "team": "LAL",
@@ -852,9 +44,9 @@
     "lines": [
      "Last 10 games: 9-1 \u00b7 scored 119.8 points a game, allowed 113.0",
      "Speed: 101.7 possessions a game (a possession = one trip down the court) = fast (league average 100.1)",
-     "Offense: 117.8 points per 100 possessions = 7th best of 30 (league average 112.9)",
+     "Offense: 117.8 points per 100 possessions = 7th best of 30 (league average 113.1)",
      "Defense: lets in 111.1 points per 100 possessions = 10th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 20th of 30. Scored 4.2 per 100 above what those defenses usually allow; allowed 1.6 per 100 more than those offenses usually score",
+     "Opponents faced: defenses averaged 19th, offenses 20th of 30. Scored 4.1 per 100 above what those defenses usually allow; allowed 1.4 per 100 more than those offenses usually score",
      "Home 7-2 (point margin +5.4 per 100 possessions) \u00b7 Road 7-1 (point margin +6.8 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (official report): Out: Austin Reaves (24 pts, 35 min) \u00b7 about 24 points a night of rotation scoring is out"
     ]
@@ -901,7 +93,7 @@
     "lines": [
      "Last 10 games: 2-8 \u00b7 scored 109.3 points a game, allowed 113.1",
      "Speed: 99.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 109.7 points per 100 possessions = 24th best of 30 (league average 112.9)",
+     "Offense: 109.7 points per 100 possessions = 24th best of 30 (league average 113.1)",
      "Defense: lets in 113.6 points per 100 possessions = 16th best of 30 (lower is better)",
      "Opponents faced: defenses averaged 14th, offenses 12th of 30. Scored 1.4 per 100 below what those defenses usually allow; allowed 0.1 per 100 less than those offenses usually score",
      "Home 1-9 (point margin -8.1 per 100 possessions) \u00b7 Road 2-6 (point margin -5.6 per 100 possessions) (this season) \u00b7 played yesterday (back-to-back)",
@@ -952,10 +144,10 @@
     ],
     "lines": [
      "Last 10 games: 2-8 \u00b7 scored 105.3 points a game, allowed 113.6",
-     "Speed: 98.6 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 106.8 points per 100 possessions = 29th best of 30 (league average 112.9)",
-     "Defense: lets in 115.2 points per 100 possessions = 21st best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 10th of 30. Scored 3.6 per 100 below what those defenses usually allow; allowed 1.0 per 100 more than those offenses usually score",
+     "Speed: 98.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
+     "Offense: 106.8 points per 100 possessions = 29th best of 30 (league average 113.1)",
+     "Defense: lets in 115.2 points per 100 possessions = 20th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 11th, offenses 10th of 30. Scored 3.6 per 100 below what those defenses usually allow; allowed 0.9 per 100 more than those offenses usually score",
      "Home 1-9 (point margin -11.5 per 100 possessions) \u00b7 Road 1-5 (point margin -13.3 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Maxime Raynaud (17 pts, 33 min), Jonathan Mogbo (3 pts, 14 min) \u00b7 about 17 points a night of rotation scoring is out"
     ]
@@ -1002,14 +194,14 @@
     "lines": [
      "Last 10 games: 9-1 \u00b7 scored 117.1 points a game, allowed 103.3",
      "Speed: 98.8 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 118.6 points per 100 possessions = 4th best of 30 (league average 112.9)",
+     "Offense: 118.6 points per 100 possessions = 4th best of 30 (league average 113.1)",
      "Defense: lets in 104.6 points per 100 possessions = 3rd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 19th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 5.9 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 19th, offenses 19th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 6.0 per 100 less than those offenses usually score",
      "Home 7-3 (point margin +10.4 per 100 possessions) \u00b7 Road 7-0 (point margin +14.0 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (official report): Out: Dylan Harper (19 pts, 31 min) \u00b7 Questionable: Victor Wembanyama (33 pts, 30 min) \u00b7 about 19 points a night of rotation scoring is out"
+     "Injury list (official report): Out: Victor Wembanyama (33 pts, 30 min), Dylan Harper (19 pts, 31 min) \u00b7 about 52 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "SA offense 4th vs SAC defense 21st \u00b7 SAC offense 29th vs SA defense 3rd (last 10 games, of 30)"
+   "matchup": "SA offense 4th vs SAC defense 20th \u00b7 SAC offense 29th vs SA defense 3rd (last 10 games, of 30)"
   },
   "401909314": {
    "home": {
@@ -1054,9 +246,9 @@
     "lines": [
      "Last 10 games: 5-5 \u00b7 scored 109.4 points a game, allowed 110.6",
      "Speed: 98.5 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 111.1 points per 100 possessions = 21st best of 30 (league average 112.9)",
-     "Defense: lets in 112.3 points per 100 possessions = 14th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 20th of 30. Scored 2.8 per 100 below what those defenses usually allow; allowed 2.2 per 100 more than those offenses usually score",
+     "Offense: 111.1 points per 100 possessions = 21st best of 30 (league average 113.1)",
+     "Defense: lets in 112.3 points per 100 possessions = 13th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 20th, offenses 21st of 30. Scored 2.9 per 100 below what those defenses usually allow; allowed 2.3 per 100 more than those offenses usually score",
      "Home 1-5 (point margin -7.8 per 100 possessions) \u00b7 Road 6-4 (point margin -2.0 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Paolo Banchero (25 pts, 38 min) \u00b7 about 25 points a night of rotation scoring is out"
     ]
@@ -1103,14 +295,14 @@
     "lines": [
      "Last 10 games: 5-5 \u00b7 scored 115.5 points a game, allowed 112.6",
      "Speed: 99.8 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 115.8 points per 100 possessions = 9th best of 30 (league average 112.9)",
-     "Defense: lets in 112.8 points per 100 possessions = 15th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 15th of 30. Scored 3.6 per 100 above what those defenses usually allow; allowed 1.0 per 100 more than those offenses usually score",
+     "Offense: 115.8 points per 100 possessions = 9th best of 30 (league average 113.1)",
+     "Defense: lets in 112.8 points per 100 possessions = 14th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 16th, offenses 15th of 30. Scored 3.4 per 100 above what those defenses usually allow; allowed 1.0 per 100 more than those offenses usually score",
      "Home 3-3 (point margin +2.2 per 100 possessions) \u00b7 Road 7-3 (point margin +6.3 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Duncan Robinson (17 pts, 31 min), Jalen Duren (12 pts, 30 min) \u00b7 about 29 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "DET offense 9th vs ORL defense 14th \u00b7 ORL offense 21st vs DET defense 15th (last 10 games, of 30)"
+   "matchup": "DET offense 9th vs ORL defense 13th \u00b7 ORL offense 21st vs DET defense 14th (last 10 games, of 30)"
   },
   "401909315": {
    "home": {
@@ -1155,9 +347,9 @@
     "lines": [
      "Last 10 games: 3-7 \u00b7 scored 111.5 points a game, allowed 120.5",
      "Speed: 101.5 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 109.9 points per 100 possessions = 23rd best of 30 (league average 112.9)",
-     "Defense: lets in 118.8 points per 100 possessions = 27th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 14th of 30. Scored 1.1 per 100 below what those defenses usually allow; allowed 6.0 per 100 more than those offenses usually score",
+     "Offense: 109.9 points per 100 possessions = 23rd best of 30 (league average 113.1)",
+     "Defense: lets in 118.8 points per 100 possessions = 26th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 12th, offenses 14th of 30. Scored 1.2 per 100 below what those defenses usually allow; allowed 6.0 per 100 more than those offenses usually score",
      "Home 3-5 (point margin -3.0 per 100 possessions) \u00b7 Road 4-6 (point margin -6.6 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Tristan Vukcevic (14 pts, 17 min), Jamir Watkins (11 pts, 25 min), Justin Champagnie (10 pts, 22 min) \u00b7 about 35 points a night of rotation scoring is out"
     ]
@@ -1204,14 +396,14 @@
     "lines": [
      "Last 10 games: 6-4 \u00b7 scored 108.6 points a game, allowed 97.2",
      "Speed: 95.6 possessions a game (a possession = one trip down the court) = very slow (league average 100.1)",
-     "Offense: 113.5 points per 100 possessions = 13th best of 30 (league average 112.9)",
+     "Offense: 113.5 points per 100 possessions = 13th best of 30 (league average 113.1)",
      "Defense: lets in 101.6 points per 100 possessions = 2nd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 20th, offenses 20th of 30. Scored 0.9 per 100 below what those defenses usually allow; allowed 8.1 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 20th, offenses 20th of 30. Scored 1.0 per 100 below what those defenses usually allow; allowed 8.1 per 100 less than those offenses usually score",
      "Home 6-1 (point margin +12.4 per 100 possessions) \u00b7 Road 5-5 (point margin +7.0 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Mitchell Robinson (5 pts, 16 min) \u00b7 about 5 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "BOS offense 13th vs WSH defense 27th \u00b7 WSH offense 23rd vs BOS defense 2nd (last 10 games, of 30)"
+   "matchup": "BOS offense 13th vs WSH defense 26th \u00b7 WSH offense 23rd vs BOS defense 2nd (last 10 games, of 30)"
   },
   "401909316": {
    "home": {
@@ -1256,11 +448,11 @@
     "lines": [
      "Last 10 games: 7-3 \u00b7 scored 118.5 points a game, allowed 115.2",
      "Speed: 100.1 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 118.4 points per 100 possessions = 5th best of 30 (league average 112.9)",
-     "Defense: lets in 115.1 points per 100 possessions = 20th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 11th of 30. Scored 6.3 per 100 above what those defenses usually allow; allowed 1.1 per 100 more than those offenses usually score",
+     "Offense: 118.4 points per 100 possessions = 5th best of 30 (league average 113.1)",
+     "Defense: lets in 115.1 points per 100 possessions = 19th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 15th, offenses 11th of 30. Scored 6.3 per 100 above what those defenses usually allow; allowed 1.0 per 100 more than those offenses usually score",
      "Home 4-3 (point margin -0.3 per 100 possessions) \u00b7 Road 6-2 (point margin +3.6 per 100 possessions) (this season) \u00b7 1 day rest",
-     "Injury list (ESPN list (no official report yet)): Out: Julian Strawther (11 pts, 19 min) \u00b7 about 11 points a night of rotation scoring is out"
+     "Injury list (none yet): no rotation player listed"
     ]
    },
    "away": {
@@ -1305,26 +497,19 @@
     "lines": [
      "Last 10 games: 6-4 \u00b7 scored 112.5 points a game, allowed 112.6",
      "Speed: 100.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 111.8 points per 100 possessions = 18th best of 30 (league average 112.9)",
+     "Offense: 111.8 points per 100 possessions = 18th best of 30 (league average 113.1)",
      "Defense: lets in 111.9 points per 100 possessions = 11th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 18th of 30. Scored 0.8 per 100 above what those defenses usually allow; allowed 0.8 per 100 more than those offenses usually score",
+     "Opponents faced: defenses averaged 14th, offenses 18th of 30. Scored 0.8 per 100 above what those defenses usually allow; allowed 0.8 per 100 more than those offenses usually score",
      "Home 7-2 (point margin +9.1 per 100 possessions) \u00b7 Road 3-5 (point margin -10.2 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (official report): Out: Dereck Lively (4 pts, 17 min) \u00b7 about 4 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "DAL offense 18th vs DEN defense 20th \u00b7 DEN offense 5th vs DAL defense 11th (last 10 games, of 30)"
+   "matchup": "DAL offense 18th vs DEN defense 19th \u00b7 DEN offense 5th vs DAL defense 11th (last 10 games, of 30)"
   },
   "401909317": {
    "home": {
     "team": "PHI",
     "l5": [
-     [
-      "11/12",
-      "TOR",
-      1,
-      123,
-      112
-     ],
      [
       "11/15",
       "IND",
@@ -1352,15 +537,22 @@
       1,
       132,
       129
+     ],
+     [
+      "11/23",
+      "POR",
+      1,
+      111,
+      128
      ]
     ],
     "lines": [
-     "Last 10 games: 8-2 \u00b7 scored 120.3 points a game, allowed 118.0",
-     "Speed: 100.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 119.6 points per 100 possessions = 1st best of 30 (league average 112.9)",
-     "Defense: lets in 117.3 points per 100 possessions = 25th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 18th of 30. Scored 6.1 per 100 above what those defenses usually allow; allowed 6.4 per 100 more than those offenses usually score",
-     "Home 7-2 (point margin +3.2 per 100 possessions) \u00b7 Road 7-1 (point margin +2.6 per 100 possessions) (this season) \u00b7 3 days rest",
+     "Last 10 games: 7-3 \u00b7 scored 118.8 points a game, allowed 120.1",
+     "Speed: 100.0 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
+     "Offense: 118.8 points per 100 possessions = 3rd best of 30 (league average 113.1)",
+     "Defense: lets in 120.1 points per 100 possessions = 28th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 17th, offenses 17th of 30. Scored 6.0 per 100 above what those defenses usually allow; allowed 8.6 per 100 more than those offenses usually score",
+     "Home 7-3 (point margin +1.2 per 100 possessions) \u00b7 Road 7-1 (point margin +2.6 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (ESPN list (no official report yet)): Out: Joel Embiid (20 pts, 31 min) \u00b7 about 20 points a night of rotation scoring is out"
     ]
    },
@@ -1406,26 +598,19 @@
     "lines": [
      "Last 10 games: 8-2 \u00b7 scored 122.1 points a game, allowed 118.2",
      "Speed: 103.4 possessions a game (a possession = one trip down the court) = very fast (league average 100.1)",
-     "Offense: 118.0 points per 100 possessions = 6th best of 30 (league average 112.9)",
+     "Offense: 118.0 points per 100 possessions = 6th best of 30 (league average 113.1)",
      "Defense: lets in 114.3 points per 100 possessions = 17th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 18th, offenses 16th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 2.4 per 100 more than those offenses usually score",
+     "Opponents faced: defenses averaged 17th, offenses 16th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 2.4 per 100 more than those offenses usually score",
      "Home 6-3 (point margin +4.4 per 100 possessions) \u00b7 Road 4-3 (point margin -2.9 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (ESPN list (no official report yet)): Questionable: Giannis Antetokounmpo (28 pts, 32 min)"
     ]
    },
-   "matchup": "MIA offense 6th vs PHI defense 25th \u00b7 PHI offense 1st vs MIA defense 17th (last 10 games, of 30)"
+   "matchup": "MIA offense 6th vs PHI defense 28th \u00b7 PHI offense 3rd vs MIA defense 17th (last 10 games, of 30)"
   },
   "401909318": {
    "home": {
     "team": "CHA",
     "l5": [
-     [
-      "11/09",
-      "CLE",
-      1,
-      124,
-      112
-     ],
      [
       "11/12",
       "PHX",
@@ -1453,16 +638,23 @@
       0,
       97,
       111
+     ],
+     [
+      "11/23",
+      "MEM",
+      1,
+      111,
+      117
      ]
     ],
     "lines": [
-     "Last 10 games: 1-9 \u00b7 scored 99.4 points a game, allowed 111.6",
-     "Speed: 97.3 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 102.2 points per 100 possessions = 30th best of 30 (league average 112.9)",
-     "Defense: lets in 114.7 points per 100 possessions = 18th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 14th of 30. Scored 9.8 per 100 below what those defenses usually allow; allowed 1.9 per 100 more than those offenses usually score",
-     "Home 3-4 (point margin -14.6 per 100 possessions) \u00b7 Road 1-7 (point margin -7.4 per 100 possessions) (this season) \u00b7 4 days rest",
-     "Injury list (ESPN list (no official report yet)): Out: Grayson Allen (14 pts, 27 min), Kon Knueppel (13 pts, 28 min), Dennis Schroder (10 pts, 30 min), Grant Williams (8 pts, 21 min) \u00b7 about 45 points a night of rotation scoring is out"
+     "Last 10 games: 1-9 \u00b7 scored 102.6 points a game, allowed 113.8",
+     "Speed: 97.4 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
+     "Offense: 105.3 points per 100 possessions = 30th best of 30 (league average 113.1)",
+     "Defense: lets in 116.8 points per 100 possessions = 24th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 14th, offenses 12th of 30. Scored 6.3 per 100 below what those defenses usually allow; allowed 3.0 per 100 more than those offenses usually score",
+     "Home 3-5 (point margin -13.6 per 100 possessions) \u00b7 Road 1-7 (point margin -7.4 per 100 possessions) (this season) \u00b7 1 day rest",
+     "Injury list (ESPN list (no official report yet)): Out: Grayson Allen (14 pts, 27 min), Kon Knueppel (13 pts, 28 min), Dennis Schroder (10 pts, 30 min), Grant Williams (8 pts, 21 min) \u00b7 Questionable: Ryan Kalkbrenner (5 pts, 18 min) \u00b7 about 45 points a night of rotation scoring is out"
     ]
    },
    "away": {
@@ -1507,14 +699,14 @@
     "lines": [
      "Last 10 games: 3-7 \u00b7 scored 118.5 points a game, allowed 121.7",
      "Speed: 104.9 possessions a game (a possession = one trip down the court) = very fast (league average 100.1)",
-     "Offense: 113.0 points per 100 possessions = 14th best of 30 (league average 112.9)",
-     "Defense: lets in 116.0 points per 100 possessions = 23rd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 13th of 30. Scored 2.6 per 100 above what those defenses usually allow; allowed 2.9 per 100 more than those offenses usually score",
+     "Offense: 113.0 points per 100 possessions = 14th best of 30 (league average 113.1)",
+     "Defense: lets in 116.0 points per 100 possessions = 22nd best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 13th, offenses 13th of 30. Scored 2.4 per 100 above what those defenses usually allow; allowed 2.9 per 100 more than those offenses usually score",
      "Home 1-6 (point margin -3.1 per 100 possessions) \u00b7 Road 3-6 (point margin -10.8 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Norman Powell (21 pts, 30 min), Caleb Wilson (19 pts, 31 min) \u00b7 about 40 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "CHI offense 14th vs CHA defense 18th \u00b7 CHA offense 30th vs CHI defense 23rd (last 10 games, of 30)"
+   "matchup": "CHI offense 14th vs CHA defense 24th \u00b7 CHA offense 30th vs CHI defense 22nd (last 10 games, of 30)"
   },
   "401909319": {
    "home": {
@@ -1559,9 +751,9 @@
     "lines": [
      "Last 10 games: 8-2 \u00b7 scored 110.7 points a game, allowed 101.9",
      "Speed: 95.9 possessions a game (a possession = one trip down the court) = very slow (league average 100.1)",
-     "Offense: 115.4 points per 100 possessions = 10th best of 30 (league average 112.9)",
+     "Offense: 115.4 points per 100 possessions = 10th best of 30 (league average 113.1)",
      "Defense: lets in 106.2 points per 100 possessions = 4th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 17th, offenses 16th of 30. Scored 2.9 per 100 above what those defenses usually allow; allowed 5.6 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 2.9 per 100 above what those defenses usually allow; allowed 5.7 per 100 less than those offenses usually score",
      "Home 6-3 (point margin +8.4 per 100 possessions) \u00b7 Road 5-3 (point margin +3.0 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (ESPN list (no official report yet)): Questionable: Og Anunoby (16 pts, 34 min), Miles Mcbride (7 pts, 16 min)"
     ]
@@ -1608,14 +800,14 @@
     "lines": [
      "Last 10 games: 5-5 \u00b7 scored 118.2 points a game, allowed 116.7",
      "Speed: 100.5 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 117.6 points per 100 possessions = 8th best of 30 (league average 112.9)",
-     "Defense: lets in 116.1 points per 100 possessions = 24th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 13th, offenses 15th of 30. Scored 6.5 per 100 above what those defenses usually allow; allowed 4.4 per 100 more than those offenses usually score",
+     "Offense: 117.6 points per 100 possessions = 8th best of 30 (league average 113.1)",
+     "Defense: lets in 116.1 points per 100 possessions = 23rd best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 13th, offenses 15th of 30. Scored 6.3 per 100 above what those defenses usually allow; allowed 4.3 per 100 more than those offenses usually score",
      "Home 7-3 (point margin +4.9 per 100 possessions) \u00b7 Road 2-5 (point margin -1.4 per 100 possessions) (this season) \u00b7 4 days rest",
-     "Injury list (ESPN list (no official report yet)): Out: Evan Mobley (16 pts, 32 min), Jaylon Tyson (8 pts, 20 min) \u00b7 about 24 points a night of rotation scoring is out"
+     "Injury list (ESPN list (no official report yet)): Out: Evan Mobley (16 pts, 32 min) \u00b7 about 16 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "CLE offense 8th vs NY defense 4th \u00b7 NY offense 10th vs CLE defense 24th (last 10 games, of 30)"
+   "matchup": "CLE offense 8th vs NY defense 4th \u00b7 NY offense 10th vs CLE defense 23rd (last 10 games, of 30)"
   },
   "401909320": {
    "home": {
@@ -1660,9 +852,9 @@
     "lines": [
      "Last 10 games: 5-5 \u00b7 scored 116.5 points a game, allowed 110.5",
      "Speed: 102.0 possessions a game (a possession = one trip down the court) = fast (league average 100.1)",
-     "Offense: 114.2 points per 100 possessions = 12th best of 30 (league average 112.9)",
+     "Offense: 114.2 points per 100 possessions = 12th best of 30 (league average 113.1)",
      "Defense: lets in 108.3 points per 100 possessions = 6th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 18th, offenses 15th of 30. Scored 1.3 per 100 above what those defenses usually allow; allowed 4.2 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 18th, offenses 15th of 30. Scored 1.2 per 100 above what those defenses usually allow; allowed 4.4 per 100 less than those offenses usually score",
      "Home 6-1 (point margin +10.9 per 100 possessions) \u00b7 Road 4-6 (point margin -1.6 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Jalen Williams (14 pts, 25 min), Aday Mara (12 pts, 25 min), Chet Holmgren (11 pts, 30 min), Cason Wallace (10 pts, 24 min), Alex Caruso (7 pts, 19 min), Jaylin Williams (5 pts, 20 min) \u00b7 about 59 points a night of rotation scoring is out"
     ]
@@ -1709,9 +901,9 @@
     "lines": [
      "Last 10 games: 8-2 \u00b7 scored 111.3 points a game, allowed 102.7",
      "Speed: 101.3 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 109.9 points per 100 possessions = 22nd best of 30 (league average 112.9)",
+     "Offense: 109.9 points per 100 possessions = 22nd best of 30 (league average 113.1)",
      "Defense: lets in 101.4 points per 100 possessions = 1st best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 15th of 30. Scored 2.6 per 100 below what those defenses usually allow; allowed 11.0 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 16th, offenses 14th of 30. Scored 2.6 per 100 below what those defenses usually allow; allowed 11.2 per 100 less than those offenses usually score",
      "Home 8-3 (point margin +10.1 per 100 possessions) \u00b7 Road 4-2 (point margin +8.2 per 100 possessions) (this season) \u00b7 3 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Anthony Edwards (24 pts, 33 min), Donte Divincenzo (10 pts, 25 min), Jaylen Clark (5 pts, 16 min) \u00b7 about 40 points a night of rotation scoring is out"
     ]
@@ -1722,13 +914,6 @@
    "home": {
     "team": "MEM",
     "l5": [
-     [
-      "11/14",
-      "BKN",
-      1,
-      129,
-      110
-     ],
      [
       "11/16",
       "WSH",
@@ -1756,15 +941,22 @@
       0,
       95,
       104
+     ],
+     [
+      "11/23",
+      "CHA",
+      0,
+      117,
+      111
      ]
     ],
     "lines": [
-     "Last 10 games: 6-4 \u00b7 scored 118.8 points a game, allowed 112.4",
-     "Speed: 100.2 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 118.6 points per 100 possessions = 3rd best of 30 (league average 112.9)",
-     "Defense: lets in 112.2 points per 100 possessions = 13th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 17th, offenses 17th of 30. Scored 6.1 per 100 above what those defenses usually allow; allowed 0.5 per 100 more than those offenses usually score",
-     "Home 4-4 (point margin +7.0 per 100 possessions) \u00b7 Road 8-1 (point margin +10.7 per 100 possessions) (this season) \u00b7 3 days rest",
+     "Last 10 games: 7-3 \u00b7 scored 120.2 points a game, allowed 112.8",
+     "Speed: 99.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
+     "Offense: 120.7 points per 100 possessions = 1st best of 30 (league average 113.1)",
+     "Defense: lets in 113.2 points per 100 possessions = 15th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 17th, offenses 17th of 30. Scored 8.1 per 100 above what those defenses usually allow; allowed 2.2 per 100 more than those offenses usually score",
+     "Home 4-4 (point margin +7.0 per 100 possessions) \u00b7 Road 9-1 (point margin +10.3 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (ESPN list (no official report yet)): Out: Cameron Boozer (16 pts, 31 min), Jerami Grant (12 pts, 21 min), Scotty Pippen (10 pts, 20 min), Gg Jackson (7 pts, 15 min) \u00b7 about 38 points a night of rotation scoring is out"
     ]
    },
@@ -1809,15 +1001,15 @@
     ],
     "lines": [
      "Last 10 games: 3-7 \u00b7 scored 114.0 points a game, allowed 120.5",
-     "Speed: 101.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 112.2 points per 100 possessions = 16th best of 30 (league average 112.9)",
-     "Defense: lets in 118.6 points per 100 possessions = 26th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 0.0 per 100 above what those defenses usually allow; allowed 7.5 per 100 more than those offenses usually score",
+     "Speed: 101.6 possessions a game (a possession = one trip down the court) = fast (league average 100.1)",
+     "Offense: 112.2 points per 100 possessions = 17th best of 30 (league average 113.1)",
+     "Defense: lets in 118.6 points per 100 possessions = 25th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 0.0 per 100 below what those defenses usually allow; allowed 7.4 per 100 more than those offenses usually score",
      "Home 4-4 (point margin +0.1 per 100 possessions) \u00b7 Road 0-7 (point margin -13.7 per 100 possessions) (this season) \u00b7 3 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Jordan Miller (11 pts, 24 min), Bradley Beal (8 pts, 20 min) \u00b7 about 19 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "LAC offense 16th vs MEM defense 13th \u00b7 MEM offense 3rd vs LAC defense 26th (last 10 games, of 30)"
+   "matchup": "LAC offense 17th vs MEM defense 15th \u00b7 MEM offense 1st vs LAC defense 25th (last 10 games, of 30)"
   },
   "401909322": {
    "home": {
@@ -1862,9 +1054,9 @@
     "lines": [
      "Last 10 games: 0-10 \u00b7 scored 108.1 points a game, allowed 120.0",
      "Speed: 99.9 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 108.2 points per 100 possessions = 26th best of 30 (league average 112.9)",
+     "Offense: 108.2 points per 100 possessions = 26th best of 30 (league average 113.1)",
      "Defense: lets in 120.2 points per 100 possessions = 29th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 10th, offenses 12th of 30. Scored 1.2 per 100 below what those defenses usually allow; allowed 6.7 per 100 more than those offenses usually score",
+     "Opponents faced: defenses averaged 10th, offenses 12th of 30. Scored 1.4 per 100 below what those defenses usually allow; allowed 6.6 per 100 more than those offenses usually score",
      "Home 1-8 (point margin -12.8 per 100 possessions) \u00b7 Road 0-8 (point margin -11.4 per 100 possessions) (this season) \u00b7 3 days rest",
      "Injury list (none yet): no rotation player listed"
     ]
@@ -1911,14 +1103,14 @@
     "lines": [
      "Last 10 games: 3-7 \u00b7 scored 111.2 points a game, allowed 117.6",
      "Speed: 99.0 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 112.3 points per 100 possessions = 15th best of 30 (league average 112.9)",
-     "Defense: lets in 118.8 points per 100 possessions = 28th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 15th, offenses 18th of 30. Scored 0.2 per 100 above what those defenses usually allow; allowed 8.0 per 100 more than those offenses usually score",
+     "Offense: 112.3 points per 100 possessions = 15th best of 30 (league average 113.1)",
+     "Defense: lets in 118.8 points per 100 possessions = 27th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 15th, offenses 18th of 30. Scored 0.0 per 100 below what those defenses usually allow; allowed 7.9 per 100 more than those offenses usually score",
      "Home 1-6 (point margin -11.8 per 100 possessions) \u00b7 Road 2-6 (point margin -4.3 per 100 possessions) (this season) \u00b7 4 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Nolan Traore (14 pts, 24 min) \u00b7 about 14 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "BKN offense 15th vs MIL defense 29th \u00b7 MIL offense 26th vs BKN defense 28th (last 10 games, of 30)"
+   "matchup": "BKN offense 15th vs MIL defense 29th \u00b7 MIL offense 26th vs BKN defense 27th (last 10 games, of 30)"
   },
   "401909323": {
    "home": {
@@ -1963,9 +1155,9 @@
     "lines": [
      "Last 10 games: 6-4 \u00b7 scored 116.5 points a game, allowed 112.2",
      "Speed: 97.7 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 119.2 points per 100 possessions = 2nd best of 30 (league average 112.9)",
-     "Defense: lets in 114.8 points per 100 possessions = 19th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 17th, offenses 14th of 30. Scored 7.4 per 100 above what those defenses usually allow; allowed 2.4 per 100 more than those offenses usually score",
+     "Offense: 119.2 points per 100 possessions = 2nd best of 30 (league average 113.1)",
+     "Defense: lets in 114.8 points per 100 possessions = 18th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 16th, offenses 14th of 30. Scored 7.4 per 100 above what those defenses usually allow; allowed 2.4 per 100 more than those offenses usually score",
      "Home 7-1 (point margin +10.1 per 100 possessions) \u00b7 Road 5-4 (point margin +5.6 per 100 possessions) (this season) \u00b7 4 days rest",
      "Injury list (none yet): no rotation player listed"
     ]
@@ -2012,14 +1204,14 @@
     "lines": [
      "Last 10 games: 7-3 \u00b7 scored 114.7 points a game, allowed 110.7",
      "Speed: 99.9 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 114.8 points per 100 possessions = 11th best of 30 (league average 112.9)",
+     "Offense: 114.8 points per 100 possessions = 11th best of 30 (league average 113.1)",
      "Defense: lets in 110.8 points per 100 possessions = 9th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 2.3 per 100 above what those defenses usually allow; allowed 1.0 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 16th, offenses 16th of 30. Scored 2.2 per 100 above what those defenses usually allow; allowed 1.1 per 100 less than those offenses usually score",
      "Home 5-4 (point margin -0.1 per 100 possessions) \u00b7 Road 3-3 (point margin -2.0 per 100 possessions) (this season) \u00b7 4 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Mark Williams (9 pts, 21 min) \u00b7 about 9 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "PHX offense 11th vs HOU defense 19th \u00b7 HOU offense 2nd vs PHX defense 9th (last 10 games, of 30)"
+   "matchup": "PHX offense 11th vs HOU defense 18th \u00b7 HOU offense 2nd vs PHX defense 9th (last 10 games, of 30)"
   },
   "401909324": {
    "home": {
@@ -2064,9 +1256,9 @@
     "lines": [
      "Last 10 games: 5-5 \u00b7 scored 106.7 points a game, allowed 110.1",
      "Speed: 99.5 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 107.2 points per 100 possessions = 28th best of 30 (league average 112.9)",
+     "Offense: 107.2 points per 100 possessions = 28th best of 30 (league average 113.1)",
      "Defense: lets in 110.7 points per 100 possessions = 8th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 16th, offenses 12th of 30. Scored 4.8 per 100 below what those defenses usually allow; allowed 3.2 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 16th, offenses 12th of 30. Scored 4.9 per 100 below what those defenses usually allow; allowed 3.3 per 100 less than those offenses usually score",
      "Home 7-1 (point margin +13.6 per 100 possessions) \u00b7 Road 2-7 (point margin -13.5 per 100 possessions) (this season) \u00b7 2 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Stephen Curry (28 pts, 29 min), Jimmy Butler (21 pts, 30 min), Kristaps Porzingis (17 pts, 26 min), Moses Moody (16 pts, 29 min), Brandon Williams (10 pts, 16 min) \u00b7 about 92 points a night of rotation scoring is out"
     ]
@@ -2112,27 +1304,20 @@
     ],
     "lines": [
      "Last 10 games: 2-8 \u00b7 scored 105.3 points a game, allowed 113.6",
-     "Speed: 98.6 possessions a game (a possession = one trip down the court) = slow (league average 100.1)",
-     "Offense: 106.8 points per 100 possessions = 29th best of 30 (league average 112.9)",
-     "Defense: lets in 115.2 points per 100 possessions = 21st best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 12th, offenses 10th of 30. Scored 3.6 per 100 below what those defenses usually allow; allowed 1.0 per 100 more than those offenses usually score",
+     "Speed: 98.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
+     "Offense: 106.8 points per 100 possessions = 29th best of 30 (league average 113.1)",
+     "Defense: lets in 115.2 points per 100 possessions = 20th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 11th, offenses 10th of 30. Scored 3.6 per 100 below what those defenses usually allow; allowed 0.9 per 100 more than those offenses usually score",
      "Home 1-9 (point margin -11.5 per 100 possessions) \u00b7 Road 1-5 (point margin -13.3 per 100 possessions) (this season) \u00b7 3 days rest",
      "Injury list (ESPN list (no official report yet)): Out: Maxime Raynaud (17 pts, 33 min) \u00b7 about 17 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "SAC offense 29th vs GS defense 8th \u00b7 GS offense 28th vs SAC defense 21st (last 10 games, of 30)"
+   "matchup": "SAC offense 29th vs GS defense 8th \u00b7 GS offense 28th vs SAC defense 20th (last 10 games, of 30)"
   },
   "401909325": {
    "home": {
     "team": "POR",
     "l5": [
-     [
-      "11/13",
-      "SAC",
-      0,
-      120,
-      107
-     ],
      [
       "11/16",
       "MIN",
@@ -2160,15 +1345,22 @@
       0,
       96,
       97
+     ],
+     [
+      "11/23",
+      "PHI",
+      0,
+      128,
+      111
      ]
     ],
     "lines": [
-     "Last 10 games: 5-5 \u00b7 scored 113.7 points a game, allowed 110.9",
-     "Speed: 101.6 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 111.9 points per 100 possessions = 17th best of 30 (league average 112.9)",
-     "Defense: lets in 109.1 points per 100 possessions = 7th best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 11th, offenses 15th of 30. Scored 2.4 per 100 above what those defenses usually allow; allowed 2.9 per 100 less than those offenses usually score",
-     "Home 3-2 (point margin +5.5 per 100 possessions) \u00b7 Road 7-4 (point margin +5.8 per 100 possessions) (this season) \u00b7 3 days rest",
+     "Last 10 games: 5-5 \u00b7 scored 113.3 points a game, allowed 110.1",
+     "Speed: 101.0 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
+     "Offense: 112.2 points per 100 possessions = 16th best of 30 (league average 113.1)",
+     "Defense: lets in 109.0 points per 100 possessions = 7th best of 30 (lower is better)",
+     "Opponents faced: defenses averaged 10th, offenses 15th of 30. Scored 2.9 per 100 above what those defenses usually allow; allowed 3.0 per 100 less than those offenses usually score",
+     "Home 3-2 (point margin +5.5 per 100 possessions) \u00b7 Road 8-4 (point margin +6.7 per 100 possessions) (this season) \u00b7 1 day rest",
      "Injury list (ESPN list (no official report yet)): Out: Ja Morant (16 pts, 26 min), Shaedon Sharpe (9 pts, 17 min) \u00b7 about 24 points a night of rotation scoring is out"
     ]
    },
@@ -2214,14 +1406,14 @@
     "lines": [
      "Last 10 games: 9-1 \u00b7 scored 117.1 points a game, allowed 103.3",
      "Speed: 98.8 possessions a game (a possession = one trip down the court) = average (league average 100.1)",
-     "Offense: 118.6 points per 100 possessions = 4th best of 30 (league average 112.9)",
+     "Offense: 118.6 points per 100 possessions = 4th best of 30 (league average 113.1)",
      "Defense: lets in 104.6 points per 100 possessions = 3rd best of 30 (lower is better)",
-     "Opponents faced: defenses averaged 19th, offenses 19th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 5.9 per 100 less than those offenses usually score",
+     "Opponents faced: defenses averaged 19th, offenses 19th of 30. Scored 4.8 per 100 above what those defenses usually allow; allowed 6.0 per 100 less than those offenses usually score",
      "Home 7-3 (point margin +10.4 per 100 possessions) \u00b7 Road 7-0 (point margin +14.0 per 100 possessions) (this season) \u00b7 3 days rest",
-     "Injury list (ESPN list (no official report yet)): Out: Dylan Harper (19 pts, 31 min) \u00b7 Questionable: Victor Wembanyama (33 pts, 30 min), De Aaron Fox (10 pts, 27 min) \u00b7 about 19 points a night of rotation scoring is out"
+     "Injury list (ESPN list (no official report yet)): Out: Victor Wembanyama (33 pts, 30 min), Dylan Harper (19 pts, 31 min), De Aaron Fox (10 pts, 27 min) \u00b7 about 62 points a night of rotation scoring is out"
     ]
    },
-   "matchup": "SA offense 4th vs POR defense 7th \u00b7 POR offense 17th vs SA defense 3rd (last 10 games, of 30)"
+   "matchup": "SA offense 4th vs POR defense 7th \u00b7 POR offense 16th vs SA defense 3rd (last 10 games, of 30)"
   }
  }
 }

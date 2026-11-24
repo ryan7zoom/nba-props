@@ -1,7 +1,7 @@
 {
- "generated_utc": "2026-11-23T23:56Z",
+ "generated_utc": "2026-11-24T02:49Z",
  "top_n": 4,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-23",
@@ -85,6 +85,8 @@
       "blend_p": 0.582,
       "edge": 0.071,
       "tipoff_utc": "2026-11-24T01:30Z",
+      "frozen": "1",
+      "logged_utc": "2026-11-23T23:56Z",
       "all_lines": [
        [
         "draftkings",
@@ -99,11 +101,7 @@
       ],
       "mean": 17.74,
       "p_play": 1.0,
-      "minutes": 30.0,
-      "event_id": "401910043",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-23T23:56Z"
+      "locked": true
      },
      {
       "game_date": "2026-11-23",
@@ -114,10 +112,10 @@
       "line": 18.5,
       "book": "draftkings",
       "price": -115,
-      "our_p": 0.665,
+      "our_p": 0.673,
       "market_p": 0.504,
-      "blend_p": 0.561,
-      "edge": 0.048,
+      "blend_p": 0.563,
+      "edge": 0.053,
       "tipoff_utc": "2026-11-24T03:00Z",
       "all_lines": [
        [
@@ -131,13 +129,13 @@
         -120
        ]
       ],
-      "mean": 16.01,
+      "mean": 15.89,
       "p_play": 1.0,
       "minutes": 28.8,
       "event_id": "401910044",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-23T23:56Z"
+      "frozen": "1",
+      "locked": true,
+      "logged_utc": "2026-11-24T02:49Z"
      }
     ],
     "pra": []

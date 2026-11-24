@@ -1,5 +1,5 @@
 {
- "graded_utc": "2026-11-23T23:56Z",
+ "graded_utc": "2026-11-24T02:49Z",
  "bets": 57,
  "wins": 28,
  "losses": 29,
@@ -92,8 +92,8 @@
   }
  },
  "every_main_line_under_baseline": {
-  "bets": 3880,
-  "win_rate": 0.531
+  "bets": 3926,
+  "win_rate": 0.53
  },
  "bets_needed_note": "A 95% interval is about +/-6 points at 60 bets and +/-3 points at 250. Judge on 250+ bets, not 60.",
  "verdict": "too few bets to say anything"
