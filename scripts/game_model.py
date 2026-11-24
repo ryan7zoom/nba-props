@@ -41,7 +41,10 @@ MAX_LEGS = 5                       # most legs in one game's builder: 3 player p
 MAX_TEAM_LEGS = 2                  # spread / total / team-total legs are one bet said three ways, so keep at most this many
 MIN_PLAYER_LEGS = 3               # at least this many player props in every game's builder
 PLAYER_BONUS = 0.03                # a player leg wins a near-tie against a team leg (you mostly bet player props)
-MIN_MAIN = {'pts': 9.5, 'pra': 18.5}       # SMALLEST main line (with a DK/FD line) that can be a builder leg
+MIN_MAIN = {'pts': 9.5, 'pra': 18.5, 'reb': 3.5, 'ast': 3.5, 'pr': 12.5, 'pa': 12.5, 'ar': 6.5}
+                                  # SMALLEST main line (with a DK/FD line) that can be a builder leg. Every stat in
+                                  # STATS needs an entry here: once the feed prices P+R / P+A / A+R, `est` is False
+                                  # for them and this table is the one consulted.
 MIN_MAIN_EST = {'pts': 9.5, 'pra': 24.5, 'reb': 3.5, 'ast': 3.5, 'pr': 12.5, 'pa': 12.5, 'ar': 6.5}   # same, for stats with no DK/FD line (our own median is the anchor, flagged as an estimate)
 BOOK = {'draftkings': 'DK', 'fanduel': 'FD'}
 STATS = ('pts', 'pr', 'pa', 'pra')   # player legs: only stats that include points (no rebounds / assists / A+R: too streaky); the rung closest to the target price wins
@@ -521,7 +524,8 @@ def simulate_game(g, sm, st, c, players, lines, rng):
             u = ndtr(z)
             x = cdf_draw(pl[stat]['cdf'], u)
             main, est, books = anchor(pl, lrec, stat)
-            if main < (MIN_MAIN_EST if est else MIN_MAIN)[stat]:
+            floor = (MIN_MAIN_EST if est else MIN_MAIN).get(stat, MIN_MAIN_EST.get(stat, 0.0))
+            if main < floor:
                 continue
             k_low = k_floor(stat, main, est, k_pts)               # lowest rung we assume the bookie could offer
             # walk up your bookie's ladder from the lowest rung and keep the one whose chance lands closest to the target price (inside this stat's band)
