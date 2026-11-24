@@ -1,144 +1,202 @@
 {
- "generated_utc": "2026-11-24T02:49Z",
+ "generated_utc": "2026-11-24T18:57Z",
  "top_n": 4,
- "locked_by_manual_run": true,
+ "locked_by_manual_run": false,
  "days": [
   {
-   "game_date": "2026-11-23",
+   "game_date": "2026-11-24",
    "markets": {
     "pts": [
      {
-      "game_date": "2026-11-23",
-      "player": "Collin Murray-Boyles",
-      "team": "TOR",
-      "opp": "MIL",
+      "game_date": "2026-11-24",
+      "player": "Cooper Flagg",
+      "team": "DAL",
+      "opp": "DEN",
       "market": "pts",
-      "line": 12.5,
+      "line": 24.5,
       "book": "draftkings",
-      "price": -121,
-      "our_p": 0.657,
-      "market_p": 0.517,
-      "blend_p": 0.566,
-      "edge": 0.033,
-      "tipoff_utc": "2026-11-24T00:30Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-23T22:01Z",
-      "all_lines": [
-       [
-        "draftkings",
-        12.5,
-        -121
-       ],
-       [
-        "fanduel",
-        12.5,
-        -138
-       ]
-      ],
-      "mean": 10.76,
-      "p_play": 0.943,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-23",
-      "player": "Terrence Shannon Jr.",
-      "team": "MIN",
-      "opp": "BKN",
-      "market": "pts",
-      "line": 13.5,
-      "book": "draftkings",
-      "price": -120,
+      "price": -118,
       "our_p": 0.654,
-      "market_p": 0.515,
-      "blend_p": 0.563,
-      "edge": 0.033,
-      "tipoff_utc": "2026-11-24T00:30Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-23T22:01Z",
+      "market_p": 0.51,
+      "blend_p": 0.561,
+      "edge": 0.036,
+      "tipoff_utc": "2026-11-25T03:00Z",
       "all_lines": [
        [
         "draftkings",
-        13.5,
-        -120
+        24.5,
+        -118
        ],
        [
         "fanduel",
-        13.5,
-        -125
-       ]
-      ],
-      "mean": 11.63,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-23",
-      "player": "Alperen Sengun",
-      "team": "HOU",
-      "opp": "LAC",
-      "market": "pts",
-      "line": 21.5,
-      "book": "draftkings",
-      "price": -119,
-      "our_p": 0.712,
-      "market_p": 0.512,
-      "blend_p": 0.582,
-      "edge": 0.071,
-      "tipoff_utc": "2026-11-24T01:30Z",
-      "frozen": "1",
-      "logged_utc": "2026-11-23T23:56Z",
-      "all_lines": [
-       [
-        "draftkings",
-        21.5,
-        -119
-       ],
-       [
-        "fanduel",
-        21.5,
-        -128
-       ]
-      ],
-      "mean": 17.74,
-      "p_play": 1.0,
-      "locked": true
-     },
-     {
-      "game_date": "2026-11-23",
-      "player": "Darryn Peterson",
-      "team": "UTAH",
-      "opp": "LAL",
-      "market": "pts",
-      "line": 18.5,
-      "book": "draftkings",
-      "price": -115,
-      "our_p": 0.673,
-      "market_p": 0.504,
-      "blend_p": 0.563,
-      "edge": 0.053,
-      "tipoff_utc": "2026-11-24T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        18.5,
-        -115
-       ],
-       [
-        "fanduel",
-        18.5,
+        24.5,
         -120
        ]
       ],
-      "mean": 15.89,
+      "mean": 21.83,
       "p_play": 1.0,
-      "minutes": 28.8,
-      "event_id": "401910044",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-24T02:49Z"
+      "minutes": 32.9,
+      "event_id": "401909316",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
      }
     ],
     "pra": []
+   }
+  },
+  {
+   "game_date": "2026-11-25",
+   "markets": {
+    "pts": [
+     {
+      "game_date": "2026-11-25",
+      "player": "Jaden McDaniels",
+      "team": "MIN",
+      "opp": "OKC",
+      "market": "pts",
+      "line": 17.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.671,
+      "market_p": 0.512,
+      "blend_p": 0.568,
+      "edge": 0.033,
+      "tipoff_utc": "2026-11-26T00:30Z",
+      "all_lines": [
+       [
+        "fanduel",
+        17.5,
+        -122
+       ]
+      ],
+      "mean": 15.12,
+      "p_play": 1.0,
+      "minutes": 34.4,
+      "event_id": "401909320",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
+     }
+    ],
+    "pra": [
+     {
+      "game_date": "2026-11-25",
+      "player": "Alperen Sengun",
+      "team": "HOU",
+      "opp": "PHX",
+      "market": "pra",
+      "line": 36.5,
+      "book": "fanduel",
+      "price": -114,
+      "our_p": 0.677,
+      "market_p": 0.5,
+      "blend_p": 0.562,
+      "edge": 0.055,
+      "tipoff_utc": "2026-11-26T01:30Z",
+      "all_lines": [
+       [
+        "fanduel",
+        36.5,
+        -114
+       ]
+      ],
+      "mean": 32.36,
+      "p_play": 1.0,
+      "minutes": 30.5,
+      "event_id": "401909323",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
+     },
+     {
+      "game_date": "2026-11-25",
+      "player": "Ajay Mitchell",
+      "team": "OKC",
+      "opp": "MIN",
+      "market": "pra",
+      "line": 25.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.678,
+      "market_p": 0.514,
+      "blend_p": 0.571,
+      "edge": 0.04,
+      "tipoff_utc": "2026-11-26T00:30Z",
+      "all_lines": [
+       [
+        "fanduel",
+        25.5,
+        -122
+       ]
+      ],
+      "mean": 22.28,
+      "p_play": 1.0,
+      "minutes": 29.1,
+      "event_id": "401909320",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
+     },
+     {
+      "game_date": "2026-11-25",
+      "player": "Ayo Dosunmu",
+      "team": "MIN",
+      "opp": "OKC",
+      "market": "pra",
+      "line": 26.5,
+      "book": "fanduel",
+      "price": -125,
+      "our_p": 0.67,
+      "market_p": 0.519,
+      "blend_p": 0.572,
+      "edge": 0.03,
+      "tipoff_utc": "2026-11-26T00:30Z",
+      "all_lines": [
+       [
+        "fanduel",
+        26.5,
+        -125
+       ]
+      ],
+      "mean": 23.46,
+      "p_play": 1.0,
+      "minutes": 31.8,
+      "event_id": "401909320",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
+     },
+     {
+      "game_date": "2026-11-25",
+      "player": "Jalen Brunson",
+      "team": "NY",
+      "opp": "CLE",
+      "market": "pra",
+      "line": 38.5,
+      "book": "fanduel",
+      "price": -122,
+      "our_p": 0.654,
+      "market_p": 0.514,
+      "blend_p": 0.563,
+      "edge": 0.025,
+      "tipoff_utc": "2026-11-26T00:30Z",
+      "all_lines": [
+       [
+        "fanduel",
+        38.5,
+        -122
+       ]
+      ],
+      "mean": 34.9,
+      "p_play": 1.0,
+      "minutes": 34.1,
+      "event_id": "401909319",
+      "frozen": "0",
+      "locked": false,
+      "logged_utc": "2026-11-24T18:57Z"
+     }
+    ]
    }
   }
  ],
