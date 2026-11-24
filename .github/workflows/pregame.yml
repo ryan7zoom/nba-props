@@ -1,0 +1,107 @@
+name: Pre-game refresh
+
+# Two hours before a slate tips off. The morning run cannot know tonight's news: the official injury report lands
+# mid-afternoon and starting lineups are confirmed about 30 minutes before tip. This run re-reads both, re-prices the
+# games (lines.py --refresh ignores the morning cache), rebuilds the projections and the safety ladder, and leaves
+# the picks ready to read with a coffee rather than at 7pm.
+#
+# Tip-offs are 19:00-22:30 US Eastern = 23:00-02:30 UTC, so:
+#   21:05 UTC = 17:05 ET  -> about 2 hours before the 7pm games
+#   23:20 UTC = 19:20 ET  -> about 2 hours before the 9pm games
+#   00:20 UTC = 20:20 ET  -> about 2 hours before the late west-coast games
+# A manual run also locks the next slate into data/picks_log.csv, exactly like the daily workflow.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 21 * * *"
+    - cron: "20 23 * * *"
+    - cron: "20 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-writes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install packages
+        run: pip install numpy pandas pdfplumber
+
+      - name: Latest scores, schedule and injuries
+        run: python scripts/update_data.py --mode daily
+      - name: Official injury report
+        if: always()
+        run: python scripts/injury_report.py --mode fetch
+      - name: Play probabilities and calibration
+        if: always()
+        run: python scripts/calibrate.py
+
+      - name: Rates
+        if: always()
+        run: python scripts/baseline_rates.py --mode estimate
+      - name: Minutes
+        if: always()
+        run: python scripts/minutes_model.py --mode project
+      - name: Distributions
+        if: always()
+        run: python scripts/simulate_props.py --mode project
+      - name: Absence adjustment
+        if: always()
+        run: python scripts/absence_adjust.py
+
+      - name: Fresh book lines (ignore the morning cache)
+        if: always()
+        env:
+          PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
+        run: python scripts/lines.py --refresh
+      - name: Game lines
+        if: always()
+        env:
+          PROPLINE_API_KEY: ${{ secrets.PROPLINE_API_KEY }}
+        run: python scripts/game_lines.py
+
+      - name: Grade what has finished
+        if: always()
+        run: python scripts/grade_lines.py
+      - name: Refit the calibration on the latest closing lines
+        if: always()
+        run: python scripts/calibrate.py
+      - name: Safety ladder
+        if: always()
+        run: python scripts/alt_lines.py
+      - name: Team totals
+        if: always()
+        run: python scripts/team_totals.py
+
+      - name: Game model and builders
+        if: always()
+        run: python scripts/game_model.py project
+      - name: Picks
+        if: always()
+        run: python scripts/shortlist.py ${{ github.event_name == 'workflow_dispatch' && '--lock' || '' }}
+      - name: Record
+        if: always()
+        run: python scripts/shortlist.py --grade
+
+      - name: Commit data
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Pre-game refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
