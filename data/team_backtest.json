@@ -1,0 +1,155 @@
+{
+ "run": "25/11/2026 06:07 GMT+8",
+ "check_games": 711,
+ "sigma_margin_fit": 14.07,
+ "sigma_total_fit": 19.3,
+ "margin_rmse_check": 15.2,
+ "total_rmse_check": 18.79,
+ "total_bias_check": -0.87,
+ "baseline_margin_rmse_check": 15.25,
+ "win_brier": 0.1969,
+ "win_reliability": [
+  {
+   "range": "0.00-0.20",
+   "n": 10,
+   "ours": 0.166,
+   "actual": 0.0
+  },
+  {
+   "range": "0.20-0.35",
+   "n": 78,
+   "ours": 0.291,
+   "actual": 0.128
+  },
+  {
+   "range": "0.35-0.50",
+   "n": 188,
+   "ours": 0.43,
+   "actual": 0.372
+  },
+  {
+   "range": "0.50-0.65",
+   "n": 206,
+   "ours": 0.58,
+   "actual": 0.626
+  },
+  {
+   "range": "0.65-0.80",
+   "n": 174,
+   "ours": 0.721,
+   "actual": 0.793
+  },
+  {
+   "range": "0.80-1.00",
+   "n": 55,
+   "ours": 0.844,
+   "actual": 0.855
+  }
+ ],
+ "team_plus_line_reliability": [
+  {
+   "chance_wanted": 0.8,
+   "legs": 2718,
+   "ours": 0.801,
+   "actual": 0.78
+  },
+  {
+   "chance_wanted": 0.88,
+   "legs": 3882,
+   "ours": 0.881,
+   "actual": 0.873
+  },
+  {
+   "chance_wanted": 0.94,
+   "legs": 5921,
+   "ours": 0.941,
+   "actual": 0.926
+  }
+ ],
+ "total_over_reliability": [
+  {
+   "over_line_vs_ours": -15,
+   "ours": 0.782,
+   "actual": 0.781
+  },
+  {
+   "over_line_vs_ours": -10,
+   "ours": 0.698,
+   "actual": 0.684
+  },
+  {
+   "over_line_vs_ours": -5,
+   "ours": 0.602,
+   "actual": 0.56
+  },
+  {
+   "over_line_vs_ours": 0,
+   "ours": 0.5,
+   "actual": 0.459
+  },
+  {
+   "over_line_vs_ours": 5,
+   "ours": 0.398,
+   "actual": 0.366
+  },
+  {
+   "over_line_vs_ours": 10,
+   "ours": 0.302,
+   "actual": 0.28
+  },
+  {
+   "over_line_vs_ours": 15,
+   "ours": 0.218,
+   "actual": 0.198
+  }
+ ],
+ "team_total_over_reliability": [
+  {
+   "over_line_vs_our_team_mean": -20,
+   "ours": 0.953,
+   "actual": 0.949
+  },
+  {
+   "over_line_vs_our_team_mean": -15,
+   "ours": 0.895,
+   "actual": 0.878
+  },
+  {
+   "over_line_vs_our_team_mean": -10,
+   "ours": 0.799,
+   "actual": 0.8
+  },
+  {
+   "over_line_vs_our_team_mean": -5,
+   "ours": 0.662,
+   "actual": 0.656
+  },
+  {
+   "over_line_vs_our_team_mean": 0,
+   "ours": 0.5,
+   "actual": 0.486
+  },
+  {
+   "over_line_vs_our_team_mean": 5,
+   "ours": 0.338,
+   "actual": 0.317
+  },
+  {
+   "over_line_vs_our_team_mean": 10,
+   "ours": 0.201,
+   "actual": 0.199
+  },
+  {
+   "over_line_vs_our_team_mean": 15,
+   "ours": 0.105,
+   "actual": 0.108
+  },
+  {
+   "over_line_vs_our_team_mean": 20,
+   "ours": 0.047,
+   "actual": 0.043
+  }
+ ],
+ "team_points_sd_used": 11.94,
+ "team_points_sd_actual": 12.08
+}

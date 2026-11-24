@@ -1,5 +1,5 @@
 {
- "graded_utc": "2026-11-24T22:33Z",
+ "graded_utc": "2026-11-24T22:20Z",
  "bets": 61,
  "wins": 31,
  "losses": 30,
@@ -93,6 +93,20 @@
   "2026-11-23": {
    "w": 3,
    "l": 1
+  }
+ },
+ "by_list": {
+  "value": {
+   "w": 31,
+   "l": 30,
+   "units": -3.88
+  }
+ },
+ "by_side": {
+  "u": {
+   "w": 31,
+   "l": 30,
+   "units": -3.88
   }
  },
  "every_main_line_under_baseline": {

@@ -1,146 +1,277 @@
 {
- "generated_utc": "2026-11-24T22:33Z",
- "top_n": 4,
- "locked_by_manual_run": true,
+ "generated_utc": "2026-11-24T22:20Z",
+ "generated": "25/11/2026 06:20 GMT+8",
+ "top_n": 5,
+ "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-24",
-   "markets": {
-    "pts": [],
-    "pra": []
-   }
+   "value": [
+    {
+     "game_date": "2026-11-24",
+     "team": "DAL",
+     "opp": "DEN",
+     "player": "Zaccharie Risacher",
+     "athlete_id": "5211175",
+     "market": "pts",
+     "line": 7.5,
+     "side": "o",
+     "book": "fanduel",
+     "price": -112,
+     "our_p": 0.5523,
+     "raw_p": 0.6546,
+     "market_p": 0.4939,
+     "dec": 1.893,
+     "edge": 0.0455,
+     "mean": 10.57,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-25T03:00Z",
+     "event_id": "401909316",
+     "blend_p": 0.5523,
+     "all_lines": [
+      [
+       7.5,
+       -118,
+       -112
+      ],
+      [
+       8.5,
+       -115,
+       -111
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-24",
+     "team": "DAL",
+     "opp": "DEN",
+     "player": "Cooper Flagg",
+     "athlete_id": "5041939",
+     "market": "pts",
+     "line": 24.5,
+     "side": "u",
+     "book": "draftkings",
+     "price": -118,
+     "our_p": 0.5623,
+     "raw_p": 0.6538,
+     "market_p": 0.5104,
+     "dec": 1.847,
+     "edge": 0.0388,
+     "mean": 21.83,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-25T03:00Z",
+     "event_id": "401909316",
+     "blend_p": 0.5623,
+     "all_lines": [
+      [
+       24.5,
+       -118,
+       -108
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-24",
+     "team": "BOS",
+     "opp": "WSH",
+     "player": "Sam Hauser",
+     "athlete_id": "4065804",
+     "market": "pts",
+     "line": 6.5,
+     "side": "o",
+     "book": "draftkings",
+     "price": -114,
+     "our_p": 0.5516,
+     "raw_p": 0.6393,
+     "market_p": 0.5021,
+     "dec": 1.877,
+     "edge": 0.0354,
+     "mean": 9.07,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-25T01:00Z",
+     "event_id": "401909315",
+     "blend_p": 0.5516,
+     "all_lines": [
+      [
+       6.5,
+       -112,
+       -114
+      ],
+      [
+       7.5,
+       -128,
+       -104
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    }
+   ],
+   "safe": []
   },
   {
    "game_date": "2026-11-25",
-   "markets": {
-    "pts": [
-     {
-      "game_date": "2026-11-25",
-      "player": "Jaden McDaniels",
-      "team": "MIN",
-      "opp": "OKC",
-      "market": "pts",
-      "line": 17.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.663,
-      "market_p": 0.512,
-      "blend_p": 0.565,
-      "edge": 0.028,
-      "tipoff_utc": "2026-11-26T00:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        17.5,
-        -122
-       ]
-      ],
-      "mean": 15.26,
-      "p_play": 1.0,
-      "minutes": 34.4,
-      "event_id": "401909320",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-24T22:33Z"
-     }
-    ],
-    "pra": [
-     {
-      "game_date": "2026-11-25",
-      "player": "Alperen Sengun",
-      "team": "HOU",
-      "opp": "PHX",
-      "market": "pra",
-      "line": 36.5,
-      "book": "fanduel",
-      "price": -114,
-      "our_p": 0.688,
-      "market_p": 0.5,
-      "blend_p": 0.566,
-      "edge": 0.062,
-      "tipoff_utc": "2026-11-26T01:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        36.5,
-        -114
-       ]
-      ],
-      "mean": 32.16,
-      "p_play": 1.0,
-      "minutes": 30.5,
-      "event_id": "401909323",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-24T22:33Z"
-     },
-     {
-      "game_date": "2026-11-25",
-      "player": "Ajay Mitchell",
-      "team": "OKC",
-      "opp": "MIN",
-      "market": "pra",
-      "line": 25.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.674,
-      "market_p": 0.514,
-      "blend_p": 0.57,
-      "edge": 0.038,
-      "tipoff_utc": "2026-11-26T00:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        25.5,
-        -122
-       ]
-      ],
-      "mean": 22.3,
-      "p_play": 1.0,
-      "minutes": 29.1,
-      "event_id": "401909320",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-24T22:33Z"
-     },
-     {
-      "game_date": "2026-11-25",
-      "player": "Ayo Dosunmu",
-      "team": "MIN",
-      "opp": "OKC",
-      "market": "pra",
-      "line": 26.5,
-      "book": "fanduel",
-      "price": -125,
-      "our_p": 0.667,
-      "market_p": 0.519,
-      "blend_p": 0.571,
-      "edge": 0.028,
-      "tipoff_utc": "2026-11-26T00:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        26.5,
-        -125
-       ]
-      ],
-      "mean": 23.49,
-      "p_play": 1.0,
-      "minutes": 31.8,
-      "event_id": "401909320",
-      "frozen": "1",
-      "locked": true,
-      "logged_utc": "2026-11-24T22:33Z"
-     }
-    ]
-   }
+   "value": [
+    {
+     "game_date": "2026-11-25",
+     "team": "OKC",
+     "opp": "MIN",
+     "player": "Ajay Mitchell",
+     "athlete_id": "4900671",
+     "market": "pts",
+     "line": 17.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -114,
+     "our_p": 0.5616,
+     "raw_p": 0.669,
+     "market_p": 0.5,
+     "dec": 1.877,
+     "edge": 0.0542,
+     "mean": 15.06,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-26T00:30Z",
+     "event_id": "401909320",
+     "blend_p": 0.5616,
+     "all_lines": [
+      [
+       17.5,
+       -114,
+       -114
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-25",
+     "team": "HOU",
+     "opp": "PHX",
+     "player": "Alperen Sengun",
+     "athlete_id": "4871144",
+     "market": "pts",
+     "line": 20.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -112,
+     "our_p": 0.5553,
+     "raw_p": 0.6624,
+     "market_p": 0.4939,
+     "dec": 1.893,
+     "edge": 0.0511,
+     "mean": 17.91,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-26T01:30Z",
+     "event_id": "401909323",
+     "blend_p": 0.5553,
+     "all_lines": [
+      [
+       20.5,
+       -112,
+       -118
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-25",
+     "team": "MIN",
+     "opp": "OKC",
+     "player": "Jaden McDaniels",
+     "athlete_id": "4431671",
+     "market": "pts",
+     "line": 17.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -122,
+     "our_p": 0.5698,
+     "raw_p": 0.6708,
+     "market_p": 0.512,
+     "dec": 1.82,
+     "edge": 0.0368,
+     "mean": 15.12,
+     "p_play": 1.0,
+     "p_appear": 0.882,
+     "tipoff_utc": "2026-11-26T00:30Z",
+     "event_id": "401909320",
+     "blend_p": 0.5698,
+     "all_lines": [
+      [
+       17.5,
+       -122,
+       -110
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-24T22:20Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "points"
+    }
+   ],
+   "safe": []
   }
  ],
+ "calibration": {
+  "mode": "recalibrated + market blend",
+  "rows": 4093,
+  "fitted_at": "25/11/2026 06:19 GMT+8"
+ },
  "rules": {
-  "min_blend": 0.56,
-  "min_edge": 0.02,
-  "max_gap": 0.2,
-  "model_weight": 0.35,
-  "line_used": "lowest main line across DK/FD"
+  "min_edge": 0.03,
+  "min_price_dec": 1.75,
+  "min_chance": 0.55,
+  "max_gap": 0.35,
+  "min_play": 0.7,
+  "min_minutes": 14.0,
+  "safe_level": 0.88,
+  "unders_only": false,
+  "markets": [
+   "pts",
+   "pra",
+   "reb",
+   "ast",
+   "pr",
+   "pa",
+   "ar"
+  ],
+  "line_used": "every line the feed prices, main and alternate; best price per line"
  }
 }

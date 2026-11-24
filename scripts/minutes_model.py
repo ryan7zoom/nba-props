@@ -41,6 +41,8 @@ BACKTEST = DATA / "minutes_backtest.json"
 PROJECTION = DATA / "minutes_projection.csv"
 OFFICIAL = DATA / "injuries_official_latest.csv"
 PLAY_PROBS = DATA / "play_probs.json"
+APPEAR = DATA / "appear_rates.json"          # measured chance a player NOT on the report still appears
+DEFAULT_APPEAR = 0.85
 
 NBA = {
     "ATL", "BOS", "BKN", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GS", "HOU",
@@ -77,6 +79,27 @@ def log(msg):
 
 def ordinal(d):
     return datetime.fromisoformat(d).toordinal()
+
+
+def load_appear():
+    """Chance of appearing for a player with no injury status on file, by his recent minutes.
+
+    Written by scripts/calibrate.py. Before this, "no status on file" was treated as a 100% chance of playing,
+    which is wrong by a measured margin: 88% for a 20+ minute player, 81% for 14-20, 64% for 8-14, 42% below that.
+    It is reported next to p_play (which stays the news-based number the other steps already use) rather than
+    replacing it, so nothing downstream changes behaviour silently.
+    """
+    try:
+        return json.loads(APPEAR.read_text(encoding="utf-8"))
+    except Exception:
+        return {"buckets": [{"min_recent_minutes": 0.0, "appearance_rate": DEFAULT_APPEAR}]}
+
+
+def appear_of(mpg, table):
+    for b in table.get("buckets", []):
+        if mpg >= b.get("min_recent_minutes", 0.0):
+            return float(b.get("appearance_rate", DEFAULT_APPEAR))
+    return DEFAULT_APPEAR
 
 
 # ---------- loading ----------
@@ -478,6 +501,7 @@ def run_project(rows, names):
         p_non_injury = pp.get("non_injury", DEFAULT_NON_INJURY)
         probs_source = pp.get("source", "defaults")
     names_by_id = {r["aid"]: r["name"] for r in rows}
+    APPEAR_TABLE = load_appear()
     sy_now = rows[-1]["sy"]
     # residual shapes by predicted-minutes bin, as 41 evenly spaced quantile points
     tr_res = np.array([t["y"] for t in usable]) - tr_pred
@@ -528,6 +552,8 @@ def run_project(rows, names):
                     p_play[a] = p_non_injury       # G League / two-way assignment, not a health question
                 else:
                     p_play[a] = play_probs.get(stt, 1.0) if stt else 1.0
+            # chance of actually appearing: the news number when there is news, the measured prior otherwise
+            p_appear = {a: (p_play[a] if status[a] else appear_of(mpg[a], APPEAR_TABLE)) for a in cands}
             sure_out = [a for a in cands if p_play[a] <= 0.03]
             unsure = sorted((a for a in cands if 0.03 < p_play[a] < 0.97), key=lambda a: -mpg[a])
             branch = unsure[:MAX_UNCERTAIN]
@@ -580,7 +606,9 @@ def run_project(rows, names):
                 row = {"_iso": g["game_date_et"], "game_date_et": dmy(g["game_date_et"]), "event_id": g["event_id"], "team": team,
                        "opp": opp, "home": home, "athlete_id": a, "player": names_by_id.get(a, ""),
                        "status": status[a], "reason": reason_of[a], "status_source": source[a], "p_play": round(pp_a, 3),
-                       "proj_min": round(mean, 1), "exp_min": round(pp_a * mean, 1)}
+                       "p_appear": round(p_appear[a], 3),
+                       "proj_min": round(mean, 1), "exp_min": round(pp_a * mean, 1),
+                       "exp_min_appear": round(p_appear[a] * mean, 1)}
                 for lvl, nm in zip(QLEVELS, ("p05", "p10", "p25", "p50", "p75", "p90", "p95")):
                     row[nm] = round(qv[lvl], 1)
                 f = base[a]
@@ -605,6 +633,15 @@ def run_project(rows, names):
             w.writerows(out)
         log(f"  mean rotation minutes out per projected player-game: "
             f"{np.mean([r['team_rotation_min_out'] for r in out]):.1f}")
+        team_exp = {}
+        for r in out:
+            team_exp[(r["event_id"], r["team"])] = team_exp.get((r["event_id"], r["team"]), 0.0) \
+                + r["exp_min_appear"]
+        if team_exp:
+            vals = list(team_exp.values())
+            log(f"  expected minutes per team (240 available): mean {np.mean(vals):.0f}, "
+                f"min {np.min(vals):.0f}, max {np.max(vals):.0f}"
+                + ("  <-- roster still too optimistic" if np.max(vals) > 255 else ""))
     log(f"\nProjected {len(out)} player-games across {len(games)} upcoming games "
         f"(as of {dmy(today_et)} ET); {stats['low_history']} flagged low-history. "
         f"Status source: official={stats['src_official']}, official-but-not-listed={stats['src_official_not_listed']}, "

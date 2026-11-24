@@ -125,7 +125,7 @@ input[type=search]{font:inherit;font-size:16px;width:100%;padding:10px 12px;bord
 <div id="list"></div>
 </main>
 <script>
-var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,TC=null,PC=null,FM=null,GM=null,GMETA=null,HASALT=false;var S={fmt:"odds",stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
+var D={players:[],gen:"",epoch:0,thru:""};var LN=null,LNMETA=null,TC=null,PC=null,FM=null,GM=null,GMETA=null,HASALT=false,TT=null;var S={fmt:"odds",stat:"pts",conf:0.85,day:null,play:0.9,ord:"game",q:"",open:{}};
 var CONFS=[0.7,0.75,0.8,0.85,0.9,0.95],PLAYS=[0.5,0.8,0.9,0.97];
 var MW=0.35,BET_MIN=0.03,BIG_GAP=0.12;
 var SU={pts:"pts",reb:"reb",ast:"ast",pr:"P+R",pa:"P+A",ar:"A+R",pra:"PRA"};
@@ -203,8 +203,23 @@ function gameBlock(k){if(!GM)return"";var G=GM[k];if(!G)return"";var b=G.builder
  else h+='<div class="bdh neg">No safe builder for this game yet</div>';
  h+='<div class="gp">Projected <b>'+G.away+' '+p.away_pts.toFixed(0)+' \u2013 '+G.home+' '+p.home_pts.toFixed(0)+'</b> \u00b7 total <b>'+p.total.toFixed(0)+'</b> \u00b7 '+(p.home_win>=0.5?G.home+' win '+od(p.home_win):G.away+' win '+od(1-p.home_win))+'</div>';
  h+=teamL5(G,k);
+ h+=ttBlock(k);
  if(G.unders&&G.unders.length){h+='<div class="gp">Player Unders (main line only, singles): '+G.unders.map(function(u){return u.label+' '+od(u.p)}).join(' \u00b7 ')+'</div>'}
  return h+'</div>'}
+function ttBlock(k){if(!TT||!TT[k])return"";var g=TT[k],L=g.ladder||[];if(!L.length)return"";
+ var o=null,u=null;L.forEach(function(r){if(r.side==="over"){if(!o||Math.abs(r.p_over-0.90)<Math.abs(o.p_over-0.90))o=r}
+  else{if(!u||Math.abs(r.p_under-0.90)<Math.abs(u.p_under-0.90))u=r}});
+ var h='<div class="gp">Total <b>'+g.blended_total.toFixed(1)+'</b>';
+ if(g.market_total!=null)h+=' \u00b7 market '+g.market_total;
+ if(g.bottom_up_total!=null)h+=' \u00b7 from the player projections '+g.bottom_up_total.toFixed(1);
+ h+='</div>';
+ if(o||u){h+='<div class="gp m">Safest total lines: ';
+  if(o)h+='Over '+o.line+' ('+pct(o.p_over)+', needs '+o.min.toFixed(2)+')';
+  if(o&&u)h+=' \u00b7 ';
+  if(u)h+='Under '+u.line+' ('+pct(u.p_under)+', needs '+u.min.toFixed(2)+')';
+  h+='</div>'}
+ if(g.flag)h+='<div class="gp">'+g.flag+'</div>';
+ return h}
 function matchupHtml(s){var m=String(s).match(/^(.+?) \u00b7 (.+?)(?: \((last \d+ games), of \d+\))?$/);
  if(!m)return'<div class="t m">Matchup</div><div>'+rk(s)+"</div>";
  return'<div class="t m">Matchup'+(m[3]?' <span class="src">'+m[3]+'</span>':"")+'</div><div class="mm">'+rk(m[1])+'</div><div class="mm">'+rk(m[2])+'</div>'}
@@ -235,6 +250,7 @@ el("sbar").onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
 if(window.IntersectionObserver){new IntersectionObserver(function(es){el("sbar").style.display=es[0].isIntersecting?"none":"block"},{threshold:0}).observe(el("ctlbox"))}
 theme(T0);el("theme").onclick=function(){theme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark")};
 var BASE="https://raw.githubusercontent.com/ryan7zoom/nba-props/main/data/";
+function loadTT(){load(BASE+"team_totals_latest.json").then(function(j){TT={};j.games.forEach(function(g){TT[g.event_id]=g});render()}).catch(function(){TT=null})}
 function loadGames(){load(BASE+"games_latest.json").then(function(j){GM={};j.games.forEach(function(g){GM[g.event_id]=g});GMETA=j;render()}).catch(function(){GM=null})}
 function loadCtx(){load(BASE+"team_context_latest.json").then(function(j){TC=j.games;render()}).catch(function(){TC=null})}
 function loadPC(){load(BASE+"player_context_latest.json").then(function(j){PC=j.players;render()}).catch(function(){PC=null})}
@@ -250,7 +266,7 @@ function fail(msg){var b=el("fresh");b.className="banner bad";b.textContent="Cou
 function conv(j){return {gen:j.generated,epoch:j.generated_epoch,thru:j.data_through,players:j.players.map(function(p){return {id:p.id,n:p.name,t:p.team,o:p.opp,h:p.home,d:p.game_date,e:p.event_id,pp:p.p_play,st:p.status,mn:p.minutes.mean,pm:p.pts.mean,pc:p.pts.cdf,rm:p.pra.mean,rc:p.pra.cdf,p10:p.pts.p10,p90:p.pts.p90,r10:p.pra.p10,r90:p.pra.p90,lh:p.flags.low_history,dr:p.defense_rank||null,dp:p.defense_pct||null,dpra:p.defense_pra_pct,de:!!p.defense_early}})}}
 load(BASE+"projections_latest.json").catch(function(){return load("data/projections_latest.json")}).then(function(j){
  D=conv(j);fresh();render();
- loadLines();loadForm();loadGames();loadCtx();loadPC();
+ loadLines();loadForm();loadGames();loadCtx();loadPC();loadTT();
  load(BASE+"sim_health.json").then(function(h){if(!h.ok||h.warning_count){var b=el("fresh");b.className="banner bad";b.textContent+=" Health check: "+(h.errors.concat(h.warnings).join("; ")||"see data/sim_health.json")}}).catch(function(){})
 }).catch(function(e){fail(e.message)});
 </script>

@@ -1,0 +1,180 @@
+{
+  "fitted_at": "25/11/2026 06:19 GMT+8",
+  "rows": 4093,
+  "skipped_integer_lines": 0,
+  "skipped_no_result": 361,
+  "holdout": {
+    "split_date": "2026-11-15",
+    "train_rows": 2587,
+    "test_rows": 1506,
+    "scores": {
+      "raw model": {
+        "logloss": 0.7053,
+        "brier": 0.25581,
+        "rows": 1506
+      },
+      "market blend only": {
+        "logloss": 0.69617,
+        "brier": 0.25149,
+        "rows": 1506
+      },
+      "recalibrated": {
+        "logloss": 0.69477,
+        "brier": 0.2508,
+        "rows": 1506
+      },
+      "recalibrated + market blend": {
+        "logloss": 0.69317,
+        "brier": 0.25001,
+        "rows": 1506
+      }
+    },
+    "chosen": "recalibrated + market blend",
+    "note": "log-loss on the held-out days; a richer correction must win by 0.15% to be used"
+  },
+  "calibration": {
+    "mode": "recalibrated + market blend",
+    "rows": 4093,
+    "global": {
+      "knots": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.3641,
+          0.4664
+        ],
+        [
+          0.4384,
+          0.4694
+        ],
+        [
+          0.4993,
+          0.4841
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "w": 0.375
+    },
+    "by_market": {
+      "pts": {
+        "knots": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.3645,
+            0.4568
+          ],
+          [
+            0.4385,
+            0.4669
+          ],
+          [
+            0.4986,
+            0.4914
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "w": 0.375,
+        "rows": 2269,
+        "reliability": [
+          {
+            "our_probability": 0.3645,
+            "actual_frequency": 0.4568,
+            "rows": 486
+          },
+          {
+            "our_probability": 0.4385,
+            "actual_frequency": 0.4669,
+            "rows": 816
+          },
+          {
+            "our_probability": 0.4986,
+            "actual_frequency": 0.5034,
+            "rows": 445
+          },
+          {
+            "our_probability": 0.5551,
+            "actual_frequency": 0.4768,
+            "rows": 367
+          }
+        ]
+      },
+      "pra": {
+        "knots": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.3636,
+            0.4721
+          ],
+          [
+            0.5567,
+            0.4881
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "w": 0.375,
+        "rows": 1824,
+        "reliability": [
+          {
+            "our_probability": 0.3636,
+            "actual_frequency": 0.4778,
+            "rows": 406
+          },
+          {
+            "our_probability": 0.4383,
+            "actual_frequency": 0.4727,
+            "rows": 622
+          },
+          {
+            "our_probability": 0.5001,
+            "actual_frequency": 0.4647,
+            "rows": 368
+          },
+          {
+            "our_probability": 0.5567,
+            "actual_frequency": 0.4881,
+            "rows": 295
+          }
+        ]
+      }
+    }
+  },
+  "reliability": [
+    {
+      "our_probability": 0.3641,
+      "actual_frequency": 0.4664,
+      "rows": 892
+    },
+    {
+      "our_probability": 0.4384,
+      "actual_frequency": 0.4694,
+      "rows": 1438
+    },
+    {
+      "our_probability": 0.4993,
+      "actual_frequency": 0.4859,
+      "rows": 813
+    },
+    {
+      "our_probability": 0.5558,
+      "actual_frequency": 0.4819,
+      "rows": 662
+    }
+  ]
+}

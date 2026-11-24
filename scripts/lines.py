@@ -39,7 +39,12 @@ CACHE = DATA / "lines_cache.json"
 
 BASE = "https://api.prop-line.com/v1"
 SPORT = "basketball_nba"
-MARKETS = {"player_points": "pts", "player_points_rebounds_assists": "pra"}
+MARKETS = {"player_points": "pts", "player_points_rebounds_assists": "pra",
+           "player_rebounds": "reb", "player_assists": "ast",
+           "player_points_rebounds": "pr", "player_points_assists": "pa",
+           "player_rebounds_assists": "ar"}
+CLASSIC = ("player_points", "player_points_rebounds_assists")   # what the feed certainly supports
+MARKET_KEYS = tuple(MARKETS.values())
 BOOKS = ["draftkings", "fanduel"]
 MAX_EVENTS = 20
 MIN_PLAYERS_TO_CACHE = 8       # a game's lines are kept (and not asked for again) once at least this many players have lines
@@ -169,7 +174,7 @@ def describe(odds):
 # ---------- history, for grading our numbers against real results ----------
 
 HISTORY_COLS = ["fetched_utc", "game_date", "team", "opp", "player", "market", "book", "line", "over_price", "under_price",
-                "our_p_over", "our_p_under", "our_mean", "our_median", "p_play"]
+                "our_p_over", "our_p_under", "our_mean", "our_median", "p_play", "p_appear"]
 
 
 def _cdf(c, k):
@@ -189,13 +194,23 @@ def append_history(now, players, proj_by_key):
             if not pr:
                 continue
             iso = datetime.strptime(p["d"], "%d/%m/%Y").strftime("%Y-%m-%d")
-            for mk in ("pts", "pra"):
+            for mk in MARKET_KEYS:
+                if mk not in p or mk not in pr or "cdf" not in pr[mk]:
+                    continue
                 c = pr[mk]["cdf"]
                 for book, point, over, under in p[mk]["m"]:
                     fl = math.floor(point)
-                    p_under = _cdf(c, fl) if point != fl else _cdf(c, fl - 1)
+                    # push-consistent on whole-number lines: both sides are "given it does not push"
+                    if point != fl:
+                        p_under, p_over = _cdf(c, fl), 1.0 - _cdf(c, fl)
+                    else:
+                        push = _cdf(c, fl) - _cdf(c, fl - 1)
+                        if push >= 1.0:
+                            continue
+                        p_under, p_over = _cdf(c, fl - 1) / (1 - push), (1.0 - _cdf(c, fl)) / (1 - push)
                     w.writerow([now.strftime("%Y-%m-%dT%H:%M:%SZ"), iso, p["t"], pr["opp"], p["n"], mk, book, point, over, under,
-                                round(1.0 - _cdf(c, fl), 4), round(p_under, 4), pr[mk]["mean"], pr[mk]["p50"], pr["p_play"]])
+                                round(p_over, 4), round(p_under, 4), pr[mk]["mean"], pr[mk]["p50"],
+                                pr.get("p_play", 1.0), pr.get("p_appear", pr.get("p_play", 1.0))])
                     n += 1
     return n
 
@@ -279,6 +294,12 @@ def run(key, now=None, api_fn=None, refresh=False):
         requests += 1
         found = parse_odds(odds if isinstance(odds, dict) else {})
         if not found:
+            # the plan may not carry the extra markets; keep the project working with the two it did before
+            warnings.append(f"{away} at {home}: nothing for the full market list, retrying points + PRA only")
+            odds = api_fn(f"/sports/{SPORT}/events/{e['id']}/odds", {"markets": ",".join(CLASSIC), "bookmakers": ",".join(BOOKS)}, key)
+            requests += 1
+            found = parse_odds(odds if isinstance(odds, dict) else {})
+        if not found:
             warnings.append(f"{away} at {home}: no player lines posted yet ({describe(odds) if isinstance(odds, dict) else 'bad answer'})")
             continue
         games_matched += 1
@@ -288,7 +309,8 @@ def run(key, now=None, api_fn=None, refresh=False):
             p = ours.get(pn)
             if p is None:
                 continue
-            ent = out_players.setdefault((game_date, p["team"], p["name"]), {"n": p["name"], "t": p["team"], "d": game_date, "pts": {"m": [], "a": []}, "pra": {"m": [], "a": []}})
+            ent = out_players.setdefault((game_date, p["team"], p["name"]), {"n": p["name"], "t": p["team"], "d": game_date})
+            ent.setdefault(mk, {"m": [], "a": []})
             ent[mk]["m" if rec["type"] == "main" else "a"].append([book, point, rec["o"], rec["u"]])
         keys_game = set(out_players) - before
         fresh_keys |= keys_game
@@ -307,9 +329,10 @@ def run(key, now=None, api_fn=None, refresh=False):
         warnings.append(f"only {matched_players} of {book_players} book players matched our players ({share:.0%})")
     players = list(out_players.values())
     for p in players:
-        for mk in ("pts", "pra"):
-            p[mk]["m"].sort(key=lambda r: (r[0], r[1]))
-            p[mk]["a"].sort(key=lambda r: (r[0], r[1]))
+        for mk in MARKET_KEYS:
+            if mk in p:
+                p[mk]["m"].sort(key=lambda r: (r[0], r[1]))
+                p[mk]["a"].sort(key=lambda r: (r[0], r[1]))
     DATA.mkdir(exist_ok=True)
     save_cache(new_cache)
     OUT.write_text(json.dumps({
@@ -321,6 +344,7 @@ def run(key, now=None, api_fn=None, refresh=False):
               "requests_this_run": requests, "games_reused_from_cache": games_cached, "requests_left_today": QUOTA["remaining"], "daily_limit": QUOTA["limit"]}
     proj_by_key = {(p["game_date"], p["team"], p["name"]): p for p in proj["players"]}
     health["history_rows_added"] = append_history(now, [out_players[k] for k in fresh_keys], proj_by_key)
+    health["markets_priced"] = {mk: sum(1 for p in players if p.get(mk, {}).get("m")) for mk in MARKET_KEYS}
     HEALTH.write_text(json.dumps(health, indent=2), encoding="utf-8")
     log(f"Lines for {len(players)} players in {games_matched} games ({requests} requests, {games_cached} games reused from cache; {QUOTA['remaining']} left today). Wrote {OUT}")
     for w in warnings:

@@ -704,11 +704,13 @@ def run_project(rows):
         for i, r in enumerate(chunk):
             rec = {"game_date_et": r["game_date_et"], "event_id": r["event_id"], "team": r["team"], "opp": r["opp"], "home": int(r["home"]),
                    "athlete_id": r["athlete_id"], "player": r["player"], "status": r["status"], "status_source": r["status_source"],
-                   "p_play": float(r["p_play"]), "proj_min": float(r["proj_min"]),
+                   "p_play": float(r["p_play"]), "p_appear": float(r.get("p_appear") or r["p_play"]),
+                   "proj_min": float(r["proj_min"]),
                    "min_p10": float(r["p10"]), "min_p90": float(r["p90"])}
             js = {"id": r["athlete_id"], "name": r["player"], "team": r["team"], "opp": r["opp"], "home": int(r["home"]),
                   "game_date": r["game_date_et"], "event_id": r["event_id"], "status": r["status"], "status_source": r["status_source"],
-                  "p_play": float(r["p_play"]), "minutes": {"mean": float(r["proj_min"]), "p10": float(r["p10"]), "p90": float(r["p90"])}}
+                  "p_play": float(r["p_play"]), "p_appear": float(r.get("p_appear") or r["p_play"]),
+                  "minutes": {"mean": float(r["proj_min"]), "p10": float(r["p10"]), "p90": float(r["p90"])}}
             for s in ("pts", "pra"):
                 x = d[s][i]
                 qs = np.quantile(x, [0.10, 0.25, 0.50, 0.75, 0.90])
