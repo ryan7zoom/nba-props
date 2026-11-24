@@ -1,47 +1,12 @@
 {
- "generated_utc": "2026-11-24T18:57Z",
+ "generated_utc": "2026-11-24T22:29Z",
  "top_n": 4,
  "locked_by_manual_run": false,
  "days": [
   {
    "game_date": "2026-11-24",
    "markets": {
-    "pts": [
-     {
-      "game_date": "2026-11-24",
-      "player": "Cooper Flagg",
-      "team": "DAL",
-      "opp": "DEN",
-      "market": "pts",
-      "line": 24.5,
-      "book": "draftkings",
-      "price": -118,
-      "our_p": 0.654,
-      "market_p": 0.51,
-      "blend_p": 0.561,
-      "edge": 0.036,
-      "tipoff_utc": "2026-11-25T03:00Z",
-      "all_lines": [
-       [
-        "draftkings",
-        24.5,
-        -118
-       ],
-       [
-        "fanduel",
-        24.5,
-        -120
-       ]
-      ],
-      "mean": 21.83,
-      "p_play": 1.0,
-      "minutes": 32.9,
-      "event_id": "401909316",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
-     }
-    ],
+    "pts": [],
     "pra": []
    }
   },
@@ -58,10 +23,10 @@
       "line": 17.5,
       "book": "fanduel",
       "price": -122,
-      "our_p": 0.671,
+      "our_p": 0.663,
       "market_p": 0.512,
-      "blend_p": 0.568,
-      "edge": 0.033,
+      "blend_p": 0.565,
+      "edge": 0.028,
       "tipoff_utc": "2026-11-26T00:30Z",
       "all_lines": [
        [
@@ -70,13 +35,13 @@
         -122
        ]
       ],
-      "mean": 15.12,
+      "mean": 15.26,
       "p_play": 1.0,
       "minutes": 34.4,
       "event_id": "401909320",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
+      "logged_utc": "2026-11-24T22:29Z"
      }
     ],
     "pra": [
@@ -89,10 +54,10 @@
       "line": 36.5,
       "book": "fanduel",
       "price": -114,
-      "our_p": 0.677,
+      "our_p": 0.688,
       "market_p": 0.5,
-      "blend_p": 0.562,
-      "edge": 0.055,
+      "blend_p": 0.566,
+      "edge": 0.062,
       "tipoff_utc": "2026-11-26T01:30Z",
       "all_lines": [
        [
@@ -101,13 +66,13 @@
         -114
        ]
       ],
-      "mean": 32.36,
+      "mean": 32.16,
       "p_play": 1.0,
       "minutes": 30.5,
       "event_id": "401909323",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
+      "logged_utc": "2026-11-24T22:29Z"
      },
      {
       "game_date": "2026-11-25",
@@ -118,10 +83,10 @@
       "line": 25.5,
       "book": "fanduel",
       "price": -122,
-      "our_p": 0.678,
+      "our_p": 0.674,
       "market_p": 0.514,
-      "blend_p": 0.571,
-      "edge": 0.04,
+      "blend_p": 0.57,
+      "edge": 0.038,
       "tipoff_utc": "2026-11-26T00:30Z",
       "all_lines": [
        [
@@ -130,13 +95,13 @@
         -122
        ]
       ],
-      "mean": 22.28,
+      "mean": 22.3,
       "p_play": 1.0,
       "minutes": 29.1,
       "event_id": "401909320",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
+      "logged_utc": "2026-11-24T22:29Z"
      },
      {
       "game_date": "2026-11-25",
@@ -147,10 +112,10 @@
       "line": 26.5,
       "book": "fanduel",
       "price": -125,
-      "our_p": 0.67,
+      "our_p": 0.667,
       "market_p": 0.519,
-      "blend_p": 0.572,
-      "edge": 0.03,
+      "blend_p": 0.571,
+      "edge": 0.028,
       "tipoff_utc": "2026-11-26T00:30Z",
       "all_lines": [
        [
@@ -159,42 +124,13 @@
         -125
        ]
       ],
-      "mean": 23.46,
+      "mean": 23.49,
       "p_play": 1.0,
       "minutes": 31.8,
       "event_id": "401909320",
       "frozen": "0",
       "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
-     },
-     {
-      "game_date": "2026-11-25",
-      "player": "Jalen Brunson",
-      "team": "NY",
-      "opp": "CLE",
-      "market": "pra",
-      "line": 38.5,
-      "book": "fanduel",
-      "price": -122,
-      "our_p": 0.654,
-      "market_p": 0.514,
-      "blend_p": 0.563,
-      "edge": 0.025,
-      "tipoff_utc": "2026-11-26T00:30Z",
-      "all_lines": [
-       [
-        "fanduel",
-        38.5,
-        -122
-       ]
-      ],
-      "mean": 34.9,
-      "p_play": 1.0,
-      "minutes": 34.1,
-      "event_id": "401909319",
-      "frozen": "0",
-      "locked": false,
-      "logged_utc": "2026-11-24T18:57Z"
+      "logged_utc": "2026-11-24T22:29Z"
      }
     ]
    }
