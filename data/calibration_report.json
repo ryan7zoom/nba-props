@@ -1,8 +1,8 @@
 {
-  "fitted_at": "25/11/2026 06:19 GMT+8",
+  "fitted_at": "25/11/2026 06:46 GMT+8",
   "rows": 4093,
   "skipped_integer_lines": 0,
-  "skipped_no_result": 361,
+  "skipped_no_result": 690,
   "holdout": {
     "split_date": "2026-11-15",
     "train_rows": 2587,

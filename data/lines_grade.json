@@ -1,12 +1,12 @@
 {
-  "graded_at": "25/11/2026 06:40 GMT+8",
+  "graded_at": "25/11/2026 06:46 GMT+8",
   "rows_in_history": null,
   "player_market_days": 4093,
   "lines_graded": 4093,
   "game_days": 24,
   "enough_data": true,
   "skipped_integer_lines": 0,
-  "skipped_no_result": 361,
+  "skipped_no_result": 690,
   "over_win_rate": 0.473,
   "accuracy": {
     "brier_ours": 0.2539,

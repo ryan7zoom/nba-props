@@ -62,10 +62,12 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-23,Darryn Peterson,UTAH,LAL,pts,18.5,draftkings,-115,0.673,0.504,0.563,0.053,2026-11-24T03:00Z,1,2026-11-24T02:49Z,"[[""draftkings"", 18.5, -115], [""fanduel"", 18.5, -120]]",15.89,1.0,,,,,,
 2026-11-23,Terrence Shannon Jr.,MIN,BKN,pts,13.5,draftkings,-120,0.654,0.515,0.563,0.033,2026-11-24T00:30Z,1,2026-11-23T22:01Z,"[[""draftkings"", 13.5, -120], [""fanduel"", 13.5, -125]]",11.63,1.0,,,,,,
 2026-11-24,Cooper Flagg,DAL,DEN,pts,24.5,draftkings,-118,0.5596,0.5104,0.5596,0.0339,2026-11-25T03:00Z,1,2026-11-24T22:40Z,"[[24.5, -118, -108]]",21.85,1.0,u,value,,,recalibrated + market blend,0.882
+2026-11-24,Franz Wagner,ORL,DET,ar,13.5,draftkings,-123,0.5689,0.5245,0.5689,0.0314,2026-11-25T00:00Z,1,2026-11-24T22:46Z,"[[13.5, -123, 100]]",12.14,1.0,u,value,,,recalibrated + market blend,0.882
+2026-11-24,Isaiah Joe,DET,ORL,pts,11.5,draftkings,-122,0.5736,0.5176,0.5736,0.0438,2026-11-25T00:00Z,1,2026-11-24T22:46Z,"[[10.5, 100, -128], [11.5, -122, -105]]",9.51,1.0,u,value,,,recalibrated + market blend,0.882
 2026-11-24,Sam Hauser,BOS,WSH,pts,6.5,draftkings,-114,0.5516,0.5021,0.5516,0.0354,2026-11-25T01:00Z,1,2026-11-24T22:40Z,"[[6.5, -112, -114], [7.5, -128, -104]]",9.07,1.0,o,value,,,recalibrated + market blend,0.882
 2026-11-24,Zaccharie Risacher,DAL,DEN,pts,7.5,fanduel,-112,0.5518,0.4939,0.5518,0.0445,2026-11-25T03:00Z,1,2026-11-24T22:40Z,"[[7.5, -118, -112], [8.5, -115, -111]]",10.53,1.0,o,value,,,recalibrated + market blend,0.882
 2026-11-25,Ajay Mitchell,OKC,MIN,pra,25.5,fanduel,-122,0.674,0.514,0.57,0.038,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 25.5, -122]]",22.3,1.0,,,,,,
 2026-11-25,Alperen Sengun,HOU,PHX,pra,36.5,fanduel,-114,0.688,0.5,0.566,0.062,2026-11-26T01:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 36.5, -114]]",32.16,1.0,,,,,,
 2026-11-25,Ayo Dosunmu,MIN,OKC,pra,26.5,fanduel,-125,0.667,0.519,0.571,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 26.5, -125]]",23.49,1.0,,,,,,
 2026-11-25,Jaden McDaniels,MIN,OKC,pts,17.5,fanduel,-122,0.663,0.512,0.565,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 17.5, -122]]",15.26,1.0,,,,,,
-2026-11-25,Jaylen Brown,PHI,MIA,pts,20.5,fanduel,-108,0.5575,0.4858,0.5575,0.0737,2026-11-25T22:00Z,0,2026-11-24T22:40Z,"[[20.5, -122, -108]]",25.39,1.0,o,value,,,recalibrated + market blend,0.882
+2026-11-25,Peyton Watson,CLE,NY,pts,11.5,fanduel,-118,0.5599,0.5061,0.5599,0.0343,2026-11-26T00:30Z,0,2026-11-24T22:46Z,"[[11.5, -118, -112]]",9.97,1.0,u,value,,,recalibrated + market blend,0.882

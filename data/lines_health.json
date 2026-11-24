@@ -1,5 +1,5 @@
 {
-  "run": "25/11/2026 06:40 GMT+8",
+  "run": "25/11/2026 06:46 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -18,21 +18,24 @@
   "events_listed": 60,
   "events_upcoming": 12,
   "games_with_lines": 7,
-  "players_with_lines": 74,
-  "book_players_unmatched": 0,
-  "unmatched_examples": [],
-  "requests_this_run": 11,
-  "games_reused_from_cache": 7,
-  "requests_left_today": 853,
+  "players_with_lines": 78,
+  "book_players_unmatched": 2,
+  "unmatched_examples": [
+    "alexandre sarr",
+    "cam johnson"
+  ],
+  "requests_this_run": 18,
+  "games_reused_from_cache": 0,
+  "requests_left_today": 818,
   "daily_limit": 1000,
-  "history_rows_added": 0,
+  "history_rows_added": 660,
   "markets_priced": {
-    "pts": 74,
-    "pra": 61,
-    "reb": 0,
-    "ast": 0,
-    "pr": 0,
-    "pa": 0,
-    "ar": 0
+    "pts": 78,
+    "pra": 63,
+    "reb": 71,
+    "ast": 57,
+    "pr": 70,
+    "pa": 61,
+    "ar": 60
   }
 }
