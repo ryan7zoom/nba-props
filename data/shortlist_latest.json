@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-24T22:46Z",
- "generated": "25/11/2026 06:46 GMT+8",
+ "generated_utc": "2026-11-24T22:55Z",
+ "generated": "25/11/2026 06:55 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": true,
  "days": [
@@ -31,6 +31,79 @@
       ]
      ],
      "mean": 21.85,
+     "p_play": 1.0,
+     "side": "u",
+     "list": "value",
+     "level": null,
+     "source": "",
+     "calibration": "recalibrated + market blend",
+     "p_appear": 0.882,
+     "locked": true,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-24",
+     "player": "Franz Wagner",
+     "team": "ORL",
+     "opp": "DET",
+     "market": "ar",
+     "line": 13.5,
+     "book": "draftkings",
+     "price": -123,
+     "our_p": 0.5689,
+     "market_p": 0.5245,
+     "blend_p": 0.5689,
+     "edge": 0.0314,
+     "tipoff_utc": "2026-11-25T00:00Z",
+     "frozen": "1",
+     "logged_utc": "2026-11-24T22:46Z",
+     "all_lines": [
+      [
+       13.5,
+       -123,
+       100
+      ]
+     ],
+     "mean": 12.14,
+     "p_play": 1.0,
+     "side": "u",
+     "list": "value",
+     "level": null,
+     "source": "",
+     "calibration": "recalibrated + market blend",
+     "p_appear": 0.882,
+     "locked": true,
+     "market_label": "A+R"
+    },
+    {
+     "game_date": "2026-11-24",
+     "player": "Isaiah Joe",
+     "team": "DET",
+     "opp": "ORL",
+     "market": "pts",
+     "line": 11.5,
+     "book": "draftkings",
+     "price": -122,
+     "our_p": 0.5736,
+     "market_p": 0.5176,
+     "blend_p": 0.5736,
+     "edge": 0.0438,
+     "tipoff_utc": "2026-11-25T00:00Z",
+     "frozen": "1",
+     "logged_utc": "2026-11-24T22:46Z",
+     "all_lines": [
+      [
+       10.5,
+       100,
+       -128
+      ],
+      [
+       11.5,
+       -122,
+       -105
+      ]
+     ],
+     "mean": 9.51,
      "p_play": 1.0,
      "side": "u",
      "list": "value",
@@ -118,85 +191,6 @@
      "p_appear": 0.882,
      "locked": true,
      "market_label": "points"
-    },
-    {
-     "game_date": "2026-11-24",
-     "team": "DET",
-     "opp": "ORL",
-     "player": "Isaiah Joe",
-     "athlete_id": "4395702",
-     "market": "pts",
-     "line": 11.5,
-     "side": "u",
-     "book": "draftkings",
-     "price": -122,
-     "our_p": 0.5736,
-     "raw_p": 0.6717,
-     "market_p": 0.5176,
-     "dec": 1.82,
-     "edge": 0.0438,
-     "mean": 9.51,
-     "p_play": 1.0,
-     "p_appear": 0.882,
-     "tipoff_utc": "2026-11-25T00:00Z",
-     "event_id": "401909314",
-     "blend_p": 0.5736,
-     "all_lines": [
-      [
-       10.5,
-       100,
-       -128
-      ],
-      [
-       11.5,
-       -122,
-       -105
-      ]
-     ],
-     "list": "value",
-     "frozen": "1",
-     "locked": true,
-     "logged_utc": "2026-11-24T22:46Z",
-     "calibration": "recalibrated + market blend",
-     "level": null,
-     "market_label": "points"
-    },
-    {
-     "game_date": "2026-11-24",
-     "team": "ORL",
-     "opp": "DET",
-     "player": "Franz Wagner",
-     "athlete_id": "4566434",
-     "market": "ar",
-     "line": 13.5,
-     "side": "u",
-     "book": "draftkings",
-     "price": -123,
-     "our_p": 0.5689,
-     "raw_p": 0.6533,
-     "market_p": 0.5245,
-     "dec": 1.813,
-     "edge": 0.0314,
-     "mean": 12.14,
-     "p_play": 1.0,
-     "p_appear": 0.882,
-     "tipoff_utc": "2026-11-25T00:00Z",
-     "event_id": "401909314",
-     "blend_p": 0.5689,
-     "all_lines": [
-      [
-       13.5,
-       -123,
-       100
-      ]
-     ],
-     "list": "value",
-     "frozen": "1",
-     "locked": true,
-     "logged_utc": "2026-11-24T22:46Z",
-     "calibration": "recalibrated + market blend",
-     "level": null,
-     "market_label": "A+R"
     }
    ],
    "safe": []
@@ -372,7 +366,7 @@
      "list": "value",
      "frozen": "0",
      "locked": false,
-     "logged_utc": "2026-11-24T22:46Z",
+     "logged_utc": "2026-11-24T22:55Z",
      "calibration": "recalibrated + market blend",
      "level": null,
      "market_label": "points"
@@ -384,7 +378,7 @@
  "calibration": {
   "mode": "recalibrated + market blend",
   "rows": 4093,
-  "fitted_at": "25/11/2026 06:46 GMT+8"
+  "fitted_at": "25/11/2026 06:55 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,

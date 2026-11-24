@@ -70,4 +70,4 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-25,Alperen Sengun,HOU,PHX,pra,36.5,fanduel,-114,0.688,0.5,0.566,0.062,2026-11-26T01:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 36.5, -114]]",32.16,1.0,,,,,,
 2026-11-25,Ayo Dosunmu,MIN,OKC,pra,26.5,fanduel,-125,0.667,0.519,0.571,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 26.5, -125]]",23.49,1.0,,,,,,
 2026-11-25,Jaden McDaniels,MIN,OKC,pts,17.5,fanduel,-122,0.663,0.512,0.565,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 17.5, -122]]",15.26,1.0,,,,,,
-2026-11-25,Peyton Watson,CLE,NY,pts,11.5,fanduel,-118,0.5599,0.5061,0.5599,0.0343,2026-11-26T00:30Z,0,2026-11-24T22:46Z,"[[11.5, -118, -112]]",9.97,1.0,u,value,,,recalibrated + market blend,0.882
+2026-11-25,Peyton Watson,CLE,NY,pts,11.5,fanduel,-118,0.5599,0.5061,0.5599,0.0343,2026-11-26T00:30Z,0,2026-11-24T22:55Z,"[[11.5, -118, -112]]",9.97,1.0,u,value,,,recalibrated + market blend,0.882
