@@ -6259,3 +6259,16 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-24T20:15-05:00,2026-11-25T01:15+00:00,2026-11-25,22:00,SA@POR,POR,"Sharpe,Shaedon",shaedon sharpe,Out,Injury/Illness-RightMeniscus,2026-11-24_08_15PM,2
 2026-11-24T20:15-05:00,2026-11-25T01:15+00:00,2026-11-25,22:00,SA@POR,POR,"Youngblood,Chris",chris youngblood,Out,Surgery Injury/Illness-RightHeelContusion/ BoneBruise,2026-11-24_08_15PM,2
 2026-11-24T21:15-05:00,2026-11-25T02:15+00:00,2026-11-24,22:00,DAL@DEN,DAL,"Washington,P.J.",pj washington,Available,Injury/Illness-Illness,2026-11-24_09_15PM,2
+2026-11-25T11:30-05:00,2026-11-25T16:30+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff Surgery,2026-11-25_11_30AM,2
+2026-11-25T11:30-05:00,2026-11-25T16:30+00:00,2026-11-25,20:00,LAC@MEM,MEM,"Boozer,Cameron",cameron boozer,Out,Injury/Illness-RightMedialAnkle Sprain,2026-11-25_11_30AM,2
+2026-11-25T11:30-05:00,2026-11-25T16:30+00:00,2026-11-25,,,CHI,,orlando robinson,Removed,,2026-11-25_11_30AM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:00,CHI@CHA,CHA,"Allen,Grayson",grayson allen,Out,ConcussionProtocol,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:00,CHI@CHA,CHA,"Kalkbrenner,Ryan",ryan kalkbrenner,Out,Injury/Illness-LeftHipSoreness/ Tightness,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,CLE@NY,NY,"Brunson,Jalen",jalen brunson,Questionable,Injury/Illness-Illness,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,CLE@NY,NY,"Hart,Josh",josh hart,Probable,Injury/Illness-RightShoulderSprain,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,CLE@NY,NY,"McBride,Miles",miles mcbride,Out,Injury/Illness-LeftAdductor,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,CLE@NY,NY,"Towns,Karl-Anthony",karl anthony towns,Probable,Tightness Injury/Illness-RightKnee Inflammation,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,MIN@OKC,MIN,"DiVincenzo,Donte",donte divincenzo,Out,Injury/Illness-RightAchillesTendon Repair/Surgery,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,MIN@OKC,MIN,"Edwards,Anthony",anthony edwards,Out,Injury/Illness-RightKnee Arthroscopy,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff,2026-11-25_12_45PM,2
+2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,20:00,LAC@MEM,MEM,"Boozer,Cameron",cameron boozer,Out,Surgery Injury/Illness-RightMedialAnkle Sprain,2026-11-25_12_45PM,2

@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-25T08:50Z",
- "generated": "25/11/2026 16:50 GMT+8",
+ "generated_utc": "2026-11-25T18:01Z",
+ "generated": "26/11/2026 02:01 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": false,
  "days": [
@@ -154,17 +154,17 @@
      "side": "o",
      "book": "fanduel",
      "price": -110,
-     "our_p": 0.5509,
-     "raw_p": 0.6783,
+     "our_p": 0.5507,
+     "raw_p": 0.6778,
      "market_p": 0.4968,
      "dec": 1.909,
-     "edge": 0.0516,
-     "mean": 4.75,
+     "edge": 0.0514,
+     "mean": 4.76,
      "p_play": 1.0,
      "p_appear": 0.883,
      "tipoff_utc": "2026-11-25T22:00Z",
      "event_id": "401909317",
-     "blend_p": 0.5509,
+     "blend_p": 0.5507,
      "all_lines": [
       [
        3.5,
@@ -175,7 +175,7 @@
      "list": "value",
      "frozen": "0",
      "locked": false,
-     "logged_utc": "2026-11-25T08:50Z",
+     "logged_utc": "2026-11-25T18:01Z",
      "calibration": "recalibrated + market blend",
      "level": null,
      "market_label": "assists"
@@ -187,7 +187,7 @@
  "calibration": {
   "mode": "recalibrated + market blend",
   "rows": 4312,
-  "fitted_at": "25/11/2026 16:50 GMT+8"
+  "fitted_at": "26/11/2026 02:01 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
