@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-24T22:55Z",
- "generated": "25/11/2026 06:55 GMT+8",
+ "generated_utc": "2026-11-25T02:34Z",
+ "generated": "25/11/2026 10:34 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": true,
  "days": [
@@ -333,43 +333,6 @@
      "p_appear": null,
      "locked": true,
      "market_label": "points"
-    },
-    {
-     "game_date": "2026-11-25",
-     "team": "CLE",
-     "opp": "NY",
-     "player": "Peyton Watson",
-     "athlete_id": "4576087",
-     "market": "pts",
-     "line": 11.5,
-     "side": "u",
-     "book": "fanduel",
-     "price": -118,
-     "our_p": 0.5599,
-     "raw_p": 0.6545,
-     "market_p": 0.5061,
-     "dec": 1.847,
-     "edge": 0.0343,
-     "mean": 9.97,
-     "p_play": 1.0,
-     "p_appear": 0.882,
-     "tipoff_utc": "2026-11-26T00:30Z",
-     "event_id": "401909319",
-     "blend_p": 0.5599,
-     "all_lines": [
-      [
-       11.5,
-       -118,
-       -112
-      ]
-     ],
-     "list": "value",
-     "frozen": "0",
-     "locked": false,
-     "logged_utc": "2026-11-24T22:55Z",
-     "calibration": "recalibrated + market blend",
-     "level": null,
-     "market_label": "points"
     }
    ],
    "safe": []
@@ -377,8 +340,8 @@
  ],
  "calibration": {
   "mode": "recalibrated + market blend",
-  "rows": 4093,
-  "fitted_at": "25/11/2026 06:55 GMT+8"
+  "rows": 4166,
+  "fitted_at": "25/11/2026 10:33 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,

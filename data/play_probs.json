@@ -2,20 +2,20 @@
   "source": "history",
   "status_taken_minutes_before_tip": 120,
   "probs": {
-    "Out": 0.013,
+    "Out": 0.0129,
     "Doubtful": 0.0351,
     "Questionable": 0.5671,
-    "Probable": 0.9454,
+    "Probable": 0.9402,
     "Available": 0.7627
   },
-  "non_injury": 0.0478,
+  "non_injury": 0.0476,
   "non_injury_counts": {
-    "n": 1048,
+    "n": 1051,
     "played": 49
   },
   "stats": {
     "Out": {
-      "n": 2091,
+      "n": 2099,
       "played": 27,
       "raw_rate": 0.013,
       "default": 0.02
@@ -33,9 +33,9 @@
       "default": 0.55
     },
     "Probable": {
-      "n": 163,
+      "n": 164,
       "played": 155,
-      "raw_rate": 0.951,
+      "raw_rate": 0.945,
       "default": 0.9
     },
     "Available": {
@@ -62,6 +62,6 @@
       "raw_rate": 0.5
     }
   },
-  "players_with_status_but_no_box_score_day": 115,
-  "as_of": "24/11/2026 22:54 UTC"
+  "players_with_status_but_no_box_score_day": 143,
+  "as_of": "25/11/2026 02:33 UTC"
 }

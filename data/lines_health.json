@@ -1,5 +1,5 @@
 {
-  "run": "25/11/2026 06:55 GMT+8",
+  "run": "25/11/2026 10:33 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -15,27 +15,24 @@
     "SA at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
   "warning_count": 10,
-  "events_listed": 60,
-  "events_upcoming": 12,
-  "games_with_lines": 7,
-  "players_with_lines": 78,
-  "book_players_unmatched": 2,
-  "unmatched_examples": [
-    "alexandre sarr",
-    "cam johnson"
-  ],
-  "requests_this_run": 18,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 784,
+  "events_listed": 59,
+  "events_upcoming": 10,
+  "games_with_lines": 5,
+  "players_with_lines": 51,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 11,
+  "games_reused_from_cache": 5,
+  "requests_left_today": 995,
   "daily_limit": 1000,
-  "history_rows_added": 660,
+  "history_rows_added": 0,
   "markets_priced": {
-    "pts": 78,
-    "pra": 63,
-    "reb": 71,
-    "ast": 57,
-    "pr": 70,
-    "pa": 61,
-    "ar": 60
+    "pts": 51,
+    "pra": 42,
+    "reb": 47,
+    "ast": 38,
+    "pr": 46,
+    "pa": 40,
+    "ar": 39
   }
 }
