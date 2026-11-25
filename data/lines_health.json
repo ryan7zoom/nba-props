@@ -1,5 +1,5 @@
 {
-  "run": "26/11/2026 05:44 GMT+8",
+  "run": "26/11/2026 06:25 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -28,23 +28,23 @@
   ],
   "warning_count": 22,
   "events_listed": 67,
-  "events_upcoming": 20,
-  "games_with_lines": 9,
-  "players_with_lines": 109,
+  "events_upcoming": 19,
+  "games_with_lines": 8,
+  "players_with_lines": 100,
   "book_players_unmatched": 0,
   "unmatched_examples": [],
   "requests_this_run": 23,
-  "games_reused_from_cache": 9,
-  "requests_left_today": 825,
+  "games_reused_from_cache": 8,
+  "requests_left_today": 770,
   "daily_limit": 1000,
   "history_rows_added": 0,
   "markets_priced": {
-    "pts": 109,
-    "pra": 87,
-    "reb": 101,
-    "ast": 82,
-    "pr": 100,
-    "pa": 85,
-    "ar": 84
+    "pts": 100,
+    "pra": 79,
+    "reb": 93,
+    "ast": 74,
+    "pr": 92,
+    "pa": 77,
+    "ar": 76
   }
 }

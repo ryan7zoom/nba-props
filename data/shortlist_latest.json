@@ -1,8 +1,8 @@
 {
- "generated_utc": "2026-11-25T21:44Z",
- "generated": "26/11/2026 05:44 GMT+8",
+ "generated_utc": "2026-11-25T22:26Z",
+ "generated": "26/11/2026 06:26 GMT+8",
  "top_n": 5,
- "locked_by_manual_run": false,
+ "locked_by_manual_run": true,
  "days": [
   {
    "game_date": "2026-11-25",
@@ -145,26 +145,20 @@
     },
     {
      "game_date": "2026-11-25",
+     "player": "VJ Edgecombe",
      "team": "PHI",
      "opp": "MIA",
-     "player": "VJ Edgecombe",
-     "athlete_id": "5124612",
      "market": "ast",
      "line": 3.5,
-     "side": "o",
      "book": "fanduel",
      "price": -110,
      "our_p": 0.5507,
-     "raw_p": 0.6778,
      "market_p": 0.4968,
-     "dec": 1.909,
-     "edge": 0.0514,
-     "mean": 4.75,
-     "p_play": 1.0,
-     "p_appear": 0.883,
-     "tipoff_utc": "2026-11-25T22:00Z",
-     "event_id": "401909317",
      "blend_p": 0.5507,
+     "edge": 0.0514,
+     "tipoff_utc": "2026-11-25T22:00Z",
+     "frozen": "1",
+     "logged_utc": "2026-11-25T21:44Z",
      "all_lines": [
       [
        3.5,
@@ -172,12 +166,15 @@
        -110
       ]
      ],
+     "mean": 4.75,
+     "p_play": 1.0,
+     "side": "o",
      "list": "value",
-     "frozen": "0",
-     "locked": false,
-     "logged_utc": "2026-11-25T21:44Z",
-     "calibration": "recalibrated + market blend",
      "level": null,
+     "source": "",
+     "calibration": "recalibrated + market blend",
+     "p_appear": 0.883,
+     "locked": true,
      "market_label": "assists"
     }
    ],
@@ -187,7 +184,7 @@
  "calibration": {
   "mode": "recalibrated + market blend",
   "rows": 4312,
-  "fitted_at": "26/11/2026 05:44 GMT+8"
+  "fitted_at": "26/11/2026 06:25 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
