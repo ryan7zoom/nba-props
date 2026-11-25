@@ -20,12 +20,12 @@
   "notes": {
     "pts_coupling": {
       "best_exponent": 0.18,
-      "deviance_gain": 0.01002,
+      "deviance_gain": 0.01005,
       "kept": true
     },
     "reb_coupling": {
       "best_exponent": 0.04,
-      "deviance_gain": 0.00029,
+      "deviance_gain": 0.00028,
       "kept": false
     },
     "ast_coupling": {
@@ -35,11 +35,11 @@
     },
     "pts_zero_share": {
       "best_share": 0.01,
-      "loglik_gain": 172.5,
+      "loglik_gain": 172.9,
       "kept": true
     }
   },
-  "fit_rows": 33432,
+  "fit_rows": 33456,
   "fitted_through": "24/11/2026",
-  "fitted_at": "25/11/2026 10:33 GMT+8"
+  "fitted_at": "25/11/2026 13:28 GMT+8"
 }

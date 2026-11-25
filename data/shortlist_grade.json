@@ -1,18 +1,18 @@
 {
- "graded_utc": "2026-11-25T02:34Z",
- "bets": 63,
+ "graded_utc": "2026-11-25T05:28Z",
+ "bets": 64,
  "wins": 31,
- "losses": 32,
+ "losses": 33,
  "pushes": 0,
- "win_rate": 0.492,
+ "win_rate": 0.484,
  "win_rate_95ci": [
-  0.373,
-  0.612
+  0.366,
+  0.604
  ],
- "avg_decimal_price": 1.836,
- "break_even": 0.545,
- "units_won": -5.88,
- "return_per_bet": -0.093,
+ "avg_decimal_price": 1.837,
+ "break_even": 0.544,
+ "units_won": -6.88,
+ "return_per_bet": -0.107,
  "by_day": {
   "2026-11-04": {
    "w": 4,
@@ -96,17 +96,22 @@
   },
   "2026-11-24": {
    "w": 0,
-   "l": 2
+   "l": 3
   }
  },
  "by_list": {
   "value": {
    "w": 31,
-   "l": 32,
-   "units": -5.88
+   "l": 33,
+   "units": -6.88
   }
  },
  "by_side": {
+  "o": {
+   "w": 0,
+   "l": 1,
+   "units": -1.0
+  },
   "u": {
    "w": 31,
    "l": 32,
@@ -114,8 +119,8 @@
   }
  },
  "every_main_line_under_baseline": {
-  "bets": 4166,
-  "win_rate": 0.526
+  "bets": 4243,
+  "win_rate": 0.523
  },
  "bets_needed_note": "A 95% interval is about +/-6 points at 60 bets and +/-3 points at 250. Judge on 250+ bets, not 60.",
  "verdict": "undecided: the interval still covers break-even, keep logging"
