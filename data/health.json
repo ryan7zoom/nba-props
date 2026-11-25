@@ -1,5 +1,5 @@
 {
-  "run_utc": "2026-11-25T05:28:07+00:00",
+  "run_utc": "2026-11-25T08:50:11+00:00",
   "mode": "daily",
   "ok": true,
   "errors": [],
@@ -10,11 +10,11 @@
     "injury_rows": 93,
     "schedule_rows": 20,
     "new_games": 1,
-    "new_rows": 26
+    "new_rows": 28
   },
   "data": {
-    "games": 3117,
-    "player_rows": 84738,
+    "games": 3118,
+    "player_rows": 84766,
     "latest_game_date": "2026-11-24"
   }
 }

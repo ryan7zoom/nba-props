@@ -1,5 +1,5 @@
 {
-  "run": "25/11/2026 13:28 GMT+8",
+  "run": "25/11/2026 16:50 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [],
@@ -7,23 +7,23 @@
   "events_listed": 56,
   "events_upcoming": 9,
   "games_with_lines": 9,
-  "players_with_lines": 91,
+  "players_with_lines": 109,
   "book_players_unmatched": 1,
   "unmatched_examples": [
     "brandon ingram"
   ],
   "requests_this_run": 10,
   "games_reused_from_cache": 0,
-  "requests_left_today": 959,
+  "requests_left_today": 929,
   "daily_limit": 1000,
-  "history_rows_added": 702,
+  "history_rows_added": 884,
   "markets_priced": {
-    "pts": 91,
-    "pra": 78,
-    "reb": 85,
-    "ast": 73,
-    "pr": 84,
-    "pa": 76,
-    "ar": 75
+    "pts": 109,
+    "pra": 87,
+    "reb": 101,
+    "ast": 82,
+    "pr": 100,
+    "pa": 85,
+    "ar": 84
   }
 }
