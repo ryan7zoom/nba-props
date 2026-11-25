@@ -6272,3 +6272,11 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,19:30,MIN@OKC,MIN,"Edwards,Anthony",anthony edwards,Out,Injury/Illness-RightKnee Arthroscopy,2026-11-25_12_45PM,2
 2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff,2026-11-25_12_45PM,2
 2026-11-25T12:45-05:00,2026-11-25T17:45+00:00,2026-11-25,20:00,LAC@MEM,MEM,"Boozer,Cameron",cameron boozer,Out,Surgery Injury/Illness-RightMedialAnkle Sprain,2026-11-25_12_45PM,2
+2026-11-25T13:30-05:00,2026-11-25T18:30+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Miller,Jordan",jordan miller,Out,Injury/Illness-LeftRotatorCuff Surgery,2026-11-25_01_30PM,2
+2026-11-25T13:30-05:00,2026-11-25T18:30+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Pickett,Jalen",jalen pickett,Questionable,GLeague-Two-Way,2026-11-25_01_30PM,2
+2026-11-25T13:30-05:00,2026-11-25T18:30+00:00,2026-11-25,20:00,LAC@MEM,MEM,"Boozer,Cameron",cameron boozer,Out,Injury/Illness-RightMedialAnkle Sprain,2026-11-25_01_30PM,2
+2026-11-25T15:15-05:00,2026-11-25T20:15+00:00,2026-11-25,17:00,MIA@PHI,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Probable,Injury/Illness-RightGroinTendinitis,2026-11-25_03_15PM,2
+2026-11-25T15:15-05:00,2026-11-25T20:15+00:00,2026-11-25,17:00,MIA@PHI,PHI,"Embiid,Joel",joel embiid,Out,Injury/Illness-Illness,2026-11-25_03_15PM,2
+2026-11-25T15:45-05:00,2026-11-25T20:45+00:00,2026-11-25,22:00,SAC@GS,SAC,"LaVine,Zach",zach lavine,Questionable,Injury/Illness-RightKneeSoreness,2026-11-25_03_45PM,2
+2026-11-25T16:15-05:00,2026-11-25T21:15+00:00,2026-11-25,17:00,MIA@PHI,MIA,"Antetokounmpo,Giannis",giannis antetokounmpo,Available,Injury/Illness-RightGroinTendinitis,2026-11-25_04_15PM,2
+2026-11-25T16:30-05:00,2026-11-25T21:30+00:00,2026-11-25,19:30,CLE@NY,NY,"Brunson,Jalen",jalen brunson,Probable,Injury/Illness-Illness,2026-11-25_04_30PM,2
