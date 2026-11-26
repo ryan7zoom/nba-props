@@ -1,8 +1,8 @@
 {
   "mode": "recalibrated + market blend",
-  "fitted_at": "26/11/2026 06:25 GMT+8",
-  "rows": 4312,
-  "game_days": 25,
+  "fitted_at": "26/11/2026 11:30 GMT+8",
+  "rows": 4749,
+  "game_days": 26,
   "global": {
     "knots": [
       [
@@ -11,22 +11,22 @@
       ],
       [
         0.3641,
-        0.4653
+        0.4611
       ],
       [
-        0.4384,
-        0.4681
+        0.4388,
+        0.4644
       ],
       [
-        0.4993,
-        0.4972
+        0.4991,
+        0.4953
       ],
       [
         1.0,
         1.0
       ]
     ],
-    "w": 0.3
+    "w": 0.325
   },
   "by_market": {
     "pts": {
@@ -36,44 +36,44 @@
           0.0
         ],
         [
-          0.3647,
-          0.4553
+          0.3648,
+          0.4565
         ],
         [
-          0.4386,
-          0.4673
+          0.4387,
+          0.4642
         ],
         [
           0.4986,
-          0.494
+          0.4948
         ],
         [
           1.0,
           1.0
         ]
       ],
-      "w": 0.3,
-      "rows": 2308,
+      "w": 0.325,
+      "rows": 2379,
       "reliability": [
         {
-          "our_probability": 0.3647,
-          "actual_frequency": 0.4553,
-          "rows": 492
+          "our_probability": 0.3648,
+          "actual_frequency": 0.4565,
+          "rows": 506
         },
         {
-          "our_probability": 0.4386,
-          "actual_frequency": 0.4673,
-          "rows": 826
+          "our_probability": 0.4387,
+          "actual_frequency": 0.4642,
+          "rows": 851
         },
         {
           "our_probability": 0.4986,
-          "actual_frequency": 0.5119,
-          "rows": 461
+          "actual_frequency": 0.5117,
+          "rows": 469
         },
         {
-          "our_probability": 0.5553,
-          "actual_frequency": 0.4718,
-          "rows": 373
+          "our_probability": 0.5551,
+          "actual_frequency": 0.4745,
+          "rows": 392
         }
       ]
     },
@@ -84,40 +84,40 @@
           0.0
         ],
         [
-          0.3636,
-          0.4734
+          0.3635,
+          0.4718
         ],
         [
-          0.5565,
-          0.4935
+          0.5568,
+          0.4953
         ],
         [
           1.0,
           1.0
         ]
       ],
-      "w": 0.3,
-      "rows": 1852,
+      "w": 0.325,
+      "rows": 1912,
       "reliability": [
         {
-          "our_probability": 0.3636,
-          "actual_frequency": 0.4768,
-          "rows": 409
+          "our_probability": 0.3635,
+          "actual_frequency": 0.4787,
+          "rows": 422
         },
         {
-          "our_probability": 0.4382,
-          "actual_frequency": 0.4746,
-          "rows": 630
+          "our_probability": 0.4384,
+          "actual_frequency": 0.4708,
+          "rows": 650
         },
         {
           "our_probability": 0.5002,
-          "actual_frequency": 0.4677,
-          "rows": 372
+          "actual_frequency": 0.466,
+          "rows": 382
         },
         {
-          "our_probability": 0.5565,
-          "actual_frequency": 0.4935,
-          "rows": 308
+          "our_probability": 0.5568,
+          "actual_frequency": 0.4953,
+          "rows": 321
         }
       ]
     }
@@ -125,23 +125,23 @@
   "reliability": [
     {
       "our_probability": 0.3641,
-      "actual_frequency": 0.4653,
-      "rows": 909
+      "actual_frequency": 0.4611,
+      "rows": 978
     },
     {
-      "our_probability": 0.4384,
-      "actual_frequency": 0.4681,
-      "rows": 1487
+      "our_probability": 0.4388,
+      "actual_frequency": 0.4644,
+      "rows": 1630
     },
     {
-      "our_probability": 0.4993,
-      "actual_frequency": 0.504,
-      "rows": 875
+      "our_probability": 0.4991,
+      "actual_frequency": 0.4984,
+      "rows": 959
     },
     {
-      "our_probability": 0.5561,
-      "actual_frequency": 0.4891,
-      "rows": 734
+      "our_probability": 0.5562,
+      "actual_frequency": 0.4917,
+      "rows": 840
     }
   ],
   "note": "p_used = w * map(p_model) + (1-w) * market_fair, where map() is a monotone correction learned on real closing lines and market_fair is the bookmaker's de-vigged price at the SAME line. Where the book posts no price for a line, only map(p_model) is used."

@@ -1,24 +1,25 @@
 {
-  "run": "26/11/2026 06:25 GMT+8",
+  "run": "26/11/2026 11:30 GMT+8",
   "ok": true,
   "errors": [],
   "error_count": 0,
-  "warnings": [],
-  "warning_count": 0,
-  "player_games": 506,
-  "games": 19,
+  "warnings": [
+    "defense effects are older than the box scores (to 24/11/2026, games to 25/11/2026)"
+  ],
+  "warning_count": 1,
+  "player_games": 301,
+  "games": 11,
   "game_dates": [
-    "25/11/2026",
     "27/11/2026"
   ],
   "past_rows_skipped": 0,
-  "data_through": "24/11/2026",
-  "fit_rows": 33480,
+  "data_through": "25/11/2026",
+  "fit_rows": 33608,
   "defense_applied": true,
-  "seconds": 10,
+  "seconds": 6,
   "team_expected_minutes_total": {
-    "mean": 262.6,
-    "min": 223.6,
+    "mean": 265.9,
+    "min": 237.7,
     "max": 308.1
   }
 }

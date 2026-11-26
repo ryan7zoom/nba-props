@@ -6282,3 +6282,14 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-25T16:30-05:00,2026-11-25T21:30+00:00,2026-11-25,19:30,CLE@NY,NY,"Brunson,Jalen",jalen brunson,Probable,Injury/Illness-Illness,2026-11-25_04_30PM,2
 2026-11-25T17:00-05:00,2026-11-25T22:00+00:00,2026-11-25,19:00,CHI@CHA,CHI,"Smith,Jalen",jalen smith,Out,Injury/Illness-GastrointestinalIllness,2026-11-25_05_00PM,2
 2026-11-25T17:15-05:00,2026-11-25T22:15+00:00,2026-11-25,19:00,CHI@CHA,CHA,"James,Sion",sion james,Available,Injury/Illness-LeftThighSoreness,2026-11-25_05_15PM,2
+2026-11-25T17:30-05:00,2026-11-25T22:30+00:00,2026-11-25,22:00,SAC@GS,SAC,"LaVine,Zach",zach lavine,Out,Injury/Illness-RightKneeSoreness,2026-11-25_05_30PM,2
+2026-11-25T18:45-05:00,2026-11-25T23:45+00:00,2026-11-25,20:00,LAC@MEM,LAC,"Pickett,Jalen",jalen pickett,Out,GLeague-Two-Way,2026-11-25_06_45PM,2
+2026-11-25T19:00-05:00,2026-11-26T00:00+00:00,2026-11-25,19:30,CLE@NY,NY,"Brunson,Jalen",jalen brunson,Available,Injury/Illness-Illness,2026-11-25_07_00PM,2
+2026-11-25T19:00-05:00,2026-11-26T00:00+00:00,2026-11-25,19:30,CLE@NY,NY,"Hart,Josh",josh hart,Available,Injury/Illness-RightShoulderSprain,2026-11-25_07_00PM,2
+2026-11-25T19:00-05:00,2026-11-26T00:00+00:00,2026-11-25,19:30,CLE@NY,NY,"Towns,Karl-Anthony",karl anthony towns,Available,Tightness Injury/Illness-RightKnee Inflammation,2026-11-25_07_00PM,2
+2026-11-25T19:15-05:00,2026-11-26T00:15+00:00,2026-11-25,20:30,PHX@HOU,PHX,"Spencer,Pat",pat spencer,Out,GLeague-Two-Way,2026-11-25_07_15PM,2
+2026-11-25T19:15-05:00,2026-11-26T00:15+00:00,2026-11-25,20:30,PHX@HOU,PHX,"Timme,Drew",drew timme,Out,GLeague-Two-Way,2026-11-25_07_15PM,2
+2026-11-25T20:30-05:00,2026-11-26T01:30+00:00,2026-11-25,22:00,SAC@GS,GS,"Lendeborg,Yaxel",yaxel lendeborg,Available,Injury/Illness-Illness,2026-11-25_08_30PM,2
+2026-11-25T21:15-05:00,2026-11-26T02:15+00:00,2026-11-25,22:00,SAC@GS,GS,"Williams,Brandon",brandon williams,Available,Injury/Illness-LeftHamstringStrain,2026-11-25_09_15PM,2
+2026-11-25T21:15-05:00,2026-11-26T02:15+00:00,2026-11-25,22:00,SA@POR,SA,"Fox,De'Aaron",deaaron fox,Out,Injury/Illness-RightShinContusion,2026-11-25_09_15PM,2
+2026-11-25T21:15-05:00,2026-11-26T02:15+00:00,2026-11-25,22:00,SA@POR,SA,"Wembanyama,Victor",victor wembanyama,Available,-,2026-11-25_09_15PM,2

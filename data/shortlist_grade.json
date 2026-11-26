@@ -1,17 +1,17 @@
 {
- "graded_utc": "2026-11-25T22:26Z",
- "bets": 66,
- "wins": 33,
- "losses": 33,
+ "graded_utc": "2026-11-26T03:30Z",
+ "bets": 70,
+ "wins": 35,
+ "losses": 35,
  "pushes": 0,
  "win_rate": 0.5,
  "win_rate_95ci": [
-  0.383,
-  0.617
+  0.386,
+  0.614
  ],
  "avg_decimal_price": 1.838,
  "break_even": 0.544,
- "units_won": -5.13,
+ "units_won": -5.43,
  "return_per_bet": -0.078,
  "by_day": {
   "2026-11-04": {
@@ -97,29 +97,33 @@
   "2026-11-24": {
    "w": 2,
    "l": 3
+  },
+  "2026-11-25": {
+   "w": 2,
+   "l": 2
   }
  },
  "by_list": {
   "value": {
-   "w": 33,
-   "l": 33,
-   "units": -5.13
+   "w": 35,
+   "l": 35,
+   "units": -5.43
   }
  },
  "by_side": {
   "o": {
-   "w": 1,
+   "w": 2,
    "l": 1,
-   "units": -0.11
+   "units": 0.8
   },
   "u": {
-   "w": 32,
-   "l": 32,
-   "units": -5.03
+   "w": 33,
+   "l": 34,
+   "units": -6.23
   }
  },
  "every_main_line_under_baseline": {
-  "bets": 4312,
+  "bets": 4749,
   "win_rate": 0.523
  },
  "bets_needed_note": "A 95% interval is about +/-6 points at 60 bets and +/-3 points at 250. Judge on 250+ bets, not 60.",
