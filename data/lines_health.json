@@ -1,12 +1,8 @@
 {
-  "run": "26/11/2026 11:30 GMT+8",
-  "ok": false,
-  "errors": [
-    "no game had readable player lines (see warnings)"
-  ],
+  "run": "26/11/2026 13:07 GMT+8",
+  "ok": true,
+  "errors": [],
   "warnings": [
-    "MIA at NY: nothing for the full market list, retrying points + PRA only",
-    "MIA at NY: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "PHI at IND: nothing for the full market list, retrying points + PRA only",
     "PHI at IND: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "BKN at TOR: nothing for the full market list, retrying points + PRA only",
@@ -24,29 +20,30 @@
     "DEN at UTAH: nothing for the full market list, retrying points + PRA only",
     "DEN at UTAH: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "GS at POR: nothing for the full market list, retrying points + PRA only",
-    "GS at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "LAL at SA: nothing for the full market list, retrying points + PRA only",
-    "LAL at SA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "GS at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 22,
+  "warning_count": 18,
   "events_listed": 62,
   "events_upcoming": 11,
-  "games_with_lines": 0,
-  "players_with_lines": 0,
-  "book_players_unmatched": 0,
-  "unmatched_examples": [],
-  "requests_this_run": 23,
+  "games_with_lines": 2,
+  "players_with_lines": 20,
+  "book_players_unmatched": 2,
+  "unmatched_examples": [
+    "austin reaves",
+    "de aaron fox"
+  ],
+  "requests_this_run": 21,
   "games_reused_from_cache": 0,
-  "requests_left_today": 978,
+  "requests_left_today": 950,
   "daily_limit": 1000,
-  "history_rows_added": 0,
+  "history_rows_added": 130,
   "markets_priced": {
-    "pts": 0,
-    "pra": 0,
-    "reb": 0,
-    "ast": 0,
-    "pr": 0,
-    "pa": 0,
-    "ar": 0
+    "pts": 20,
+    "pra": 18,
+    "reb": 19,
+    "ast": 18,
+    "pr": 19,
+    "pa": 18,
+    "ar": 18
   }
 }
