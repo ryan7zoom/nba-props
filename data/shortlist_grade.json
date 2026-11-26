@@ -1,5 +1,5 @@
 {
- "graded_utc": "2026-11-26T05:07Z",
+ "graded_utc": "2026-11-26T08:37Z",
  "bets": 71,
  "wins": 35,
  "losses": 36,
@@ -123,8 +123,8 @@
   }
  },
  "every_main_line_under_baseline": {
-  "bets": 4836,
-  "win_rate": 0.52
+  "bets": 4936,
+  "win_rate": 0.517
  },
  "bets_needed_note": "A 95% interval is about +/-6 points at 60 bets and +/-3 points at 250. Judge on 250+ bets, not 60.",
  "verdict": "undecided: the interval still covers break-even, keep logging"

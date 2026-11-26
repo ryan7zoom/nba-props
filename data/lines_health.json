@@ -1,5 +1,5 @@
 {
-  "run": "26/11/2026 13:07 GMT+8",
+  "run": "26/11/2026 16:36 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -9,8 +9,6 @@
     "BKN at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "MIL at DET: nothing for the full market list, retrying points + PRA only",
     "MIL at DET: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "ATL at BOS: nothing for the full market list, retrying points + PRA only",
-    "ATL at BOS: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "MEM at MIN: nothing for the full market list, retrying points + PRA only",
     "MEM at MIN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "DAL at PHX: nothing for the full market list, retrying points + PRA only",
@@ -22,28 +20,27 @@
     "GS at POR: nothing for the full market list, retrying points + PRA only",
     "GS at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 18,
-  "events_listed": 62,
+  "warning_count": 16,
+  "events_listed": 60,
   "events_upcoming": 11,
-  "games_with_lines": 2,
-  "players_with_lines": 20,
-  "book_players_unmatched": 2,
+  "games_with_lines": 3,
+  "players_with_lines": 35,
+  "book_players_unmatched": 1,
   "unmatched_examples": [
-    "austin reaves",
-    "de aaron fox"
+    "austin reaves"
   ],
-  "requests_this_run": 21,
+  "requests_this_run": 20,
   "games_reused_from_cache": 0,
-  "requests_left_today": 950,
+  "requests_left_today": 890,
   "daily_limit": 1000,
-  "history_rows_added": 130,
+  "history_rows_added": 218,
   "markets_priced": {
-    "pts": 20,
-    "pra": 18,
-    "reb": 19,
-    "ast": 18,
-    "pr": 19,
-    "pa": 18,
-    "ar": 18
+    "pts": 35,
+    "pra": 29,
+    "reb": 34,
+    "ast": 28,
+    "pr": 34,
+    "pa": 29,
+    "ar": 29
   }
 }
