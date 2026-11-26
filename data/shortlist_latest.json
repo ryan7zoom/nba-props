@@ -1,19 +1,13 @@
 {
- "generated_utc": "2026-11-26T08:37Z",
- "generated": "26/11/2026 16:37 GMT+8",
+ "generated_utc": "2026-11-26T17:46Z",
+ "generated": "27/11/2026 01:46 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": false,
- "days": [
-  {
-   "game_date": "2026-11-27",
-   "value": [],
-   "safe": []
-  }
- ],
+ "days": [],
  "calibration": {
   "mode": "recalibrated + market blend",
   "rows": 4936,
-  "fitted_at": "26/11/2026 16:36 GMT+8"
+  "fitted_at": "27/11/2026 01:46 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
