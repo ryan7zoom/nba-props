@@ -1,13 +1,57 @@
 {
- "generated_utc": "2026-11-26T17:46Z",
- "generated": "27/11/2026 01:46 GMT+8",
+ "generated_utc": "2026-11-26T21:36Z",
+ "generated": "27/11/2026 05:36 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": false,
- "days": [],
+ "days": [
+  {
+   "game_date": "2026-11-27",
+   "value": [
+    {
+     "game_date": "2026-11-27",
+     "team": "LAL",
+     "opp": "SA",
+     "player": "Quentin Grimes",
+     "athlete_id": "4397014",
+     "market": "ar",
+     "line": 5.5,
+     "side": "o",
+     "book": "fanduel",
+     "price": -132,
+     "our_p": 0.5864,
+     "raw_p": 0.7127,
+     "market_p": 0.5323,
+     "dec": 1.758,
+     "edge": 0.0307,
+     "mean": 7.39,
+     "p_play": 1.0,
+     "p_appear": 0.885,
+     "tipoff_utc": "2026-11-28T02:30Z",
+     "event_id": "401909333",
+     "blend_p": 0.5864,
+     "all_lines": [
+      [
+       5.5,
+       100,
+       -132
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-26T21:36Z",
+     "calibration": "recalibrated + market blend",
+     "level": null,
+     "market_label": "A+R"
+    }
+   ],
+   "safe": []
+  }
+ ],
  "calibration": {
   "mode": "recalibrated + market blend",
   "rows": 4936,
-  "fitted_at": "27/11/2026 01:46 GMT+8"
+  "fitted_at": "27/11/2026 05:36 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
