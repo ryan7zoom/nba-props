@@ -1,5 +1,5 @@
 {
-  "run_at": "27/11/2026 19:18 UTC",
+  "run_at": "27/11/2026 21:20 UTC",
   "mode": "fetch",
   "ok": true,
   "days": "25/11/2026 to 27/11/2026",
@@ -8,7 +8,7 @@
   "probe_errors": 0,
   "warnings": [],
   "errors": [],
-  "latest_report_et": "27/11/2026 14:15 ET",
-  "latest_rows": 117,
+  "latest_report_et": "27/11/2026 16:15 ET",
+  "latest_rows": 130,
   "latest_report_age_hours": 0.1
 }
