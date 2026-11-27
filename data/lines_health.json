@@ -1,5 +1,5 @@
 {
-  "run": "27/11/2026 13:05 GMT+8",
+  "run": "27/11/2026 16:47 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -12,29 +12,31 @@
     "OKC at MIL: nothing for the full market list, retrying points + PRA only",
     "OKC at MIL: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "PHI at HOU: nothing for the full market list, retrying points + PRA only",
-    "PHI at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "PHI at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "MIA at CLE: nothing for the full market list, retrying points + PRA only",
+    "MIA at CLE: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 10,
+  "warning_count": 12,
   "events_listed": 60,
-  "events_upcoming": 16,
+  "events_upcoming": 17,
   "games_with_lines": 11,
-  "players_with_lines": 132,
+  "players_with_lines": 138,
   "book_players_unmatched": 1,
   "unmatched_examples": [
     "cam johnson"
   ],
-  "requests_this_run": 22,
+  "requests_this_run": 24,
   "games_reused_from_cache": 0,
-  "requests_left_today": 923,
+  "requests_left_today": 866,
   "daily_limit": 1000,
-  "history_rows_added": 1661,
+  "history_rows_added": 1718,
   "markets_priced": {
-    "pts": 132,
-    "pra": 127,
-    "reb": 128,
-    "ast": 123,
-    "pr": 131,
-    "pa": 125,
-    "ar": 124
+    "pts": 137,
+    "pra": 130,
+    "reb": 133,
+    "ast": 126,
+    "pr": 135,
+    "pa": 128,
+    "ar": 127
   }
 }

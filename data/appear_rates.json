@@ -31,5 +31,5 @@
   ],
   "team_games_measured": 911,
   "note": "Chance a player who is NOT on the official injury report still appears. Used by minutes_model.py when no status is on file; before this, 1.0 was assumed.",
-  "fitted_utc": "2026-11-27T13:05:47+08:00"
+  "fitted_utc": "2026-11-27T16:47:46+08:00"
 }
