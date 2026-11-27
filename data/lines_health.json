@@ -1,16 +1,8 @@
 {
-  "run": "27/11/2026 05:35 GMT+8",
+  "run": "27/11/2026 11:37 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
-    "BKN at TOR: nothing for the full market list, retrying points + PRA only",
-    "BKN at TOR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "MEM at MIN: nothing for the full market list, retrying points + PRA only",
-    "MEM at MIN: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "NO at LAC: nothing for the full market list, retrying points + PRA only",
-    "NO at LAC: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
-    "GS at POR: nothing for the full market list, retrying points + PRA only",
-    "GS at POR: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "ORL at WSH: nothing for the full market list, retrying points + PRA only",
     "ORL at WSH: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "BKN at CHA: nothing for the full market list, retrying points + PRA only",
@@ -22,27 +14,27 @@
     "PHI at HOU: nothing for the full market list, retrying points + PRA only",
     "PHI at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 18,
+  "warning_count": 10,
   "events_listed": 60,
   "events_upcoming": 16,
-  "games_with_lines": 7,
-  "players_with_lines": 68,
+  "games_with_lines": 11,
+  "players_with_lines": 121,
   "book_players_unmatched": 1,
   "unmatched_examples": [
     "cam johnson"
   ],
-  "requests_this_run": 23,
-  "games_reused_from_cache": 3,
-  "requests_left_today": 787,
+  "requests_this_run": 22,
+  "games_reused_from_cache": 0,
+  "requests_left_today": 978,
   "daily_limit": 1000,
-  "history_rows_added": 197,
+  "history_rows_added": 1480,
   "markets_priced": {
-    "pts": 68,
-    "pra": 55,
-    "reb": 65,
-    "ast": 52,
-    "pr": 65,
-    "pa": 55,
-    "ar": 55
+    "pts": 121,
+    "pra": 108,
+    "reb": 117,
+    "ast": 104,
+    "pr": 115,
+    "pa": 105,
+    "ar": 104
   }
 }
