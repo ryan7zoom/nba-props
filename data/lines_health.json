@@ -1,5 +1,5 @@
 {
-  "run": "27/11/2026 11:37 GMT+8",
+  "run": "27/11/2026 13:05 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -18,23 +18,23 @@
   "events_listed": 60,
   "events_upcoming": 16,
   "games_with_lines": 11,
-  "players_with_lines": 121,
+  "players_with_lines": 132,
   "book_players_unmatched": 1,
   "unmatched_examples": [
     "cam johnson"
   ],
   "requests_this_run": 22,
   "games_reused_from_cache": 0,
-  "requests_left_today": 978,
+  "requests_left_today": 923,
   "daily_limit": 1000,
-  "history_rows_added": 1480,
+  "history_rows_added": 1661,
   "markets_priced": {
-    "pts": 121,
-    "pra": 108,
-    "reb": 117,
-    "ast": 104,
-    "pr": 115,
-    "pa": 105,
-    "ar": 104
+    "pts": 132,
+    "pra": 127,
+    "reb": 128,
+    "ast": 123,
+    "pr": 131,
+    "pa": 125,
+    "ar": 124
   }
 }

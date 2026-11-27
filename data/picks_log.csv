@@ -71,8 +71,8 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-25,Ayo Dosunmu,MIN,OKC,pra,26.5,fanduel,-125,0.667,0.519,0.571,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 26.5, -125]]",23.49,1.0,,,,,,
 2026-11-25,Jaden McDaniels,MIN,OKC,pts,17.5,fanduel,-122,0.663,0.512,0.565,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 17.5, -122]]",15.26,1.0,,,,,,
 2026-11-25,VJ Edgecombe,PHI,MIA,ast,3.5,fanduel,-110,0.5507,0.4968,0.5507,0.0514,2026-11-25T22:00Z,1,2026-11-25T21:44Z,"[[3.5, -113, -110]]",4.75,1.0,o,value,,,recalibrated + market blend,0.883
-2026-11-27,Ace Bailey,UTAH,DEN,pts,15.5,draftkings,-105,0.5632,0.5085,0.5632,0.0996,2026-11-28T02:30Z,0,2026-11-27T03:37Z,"[[15.5, -105, 102]]",12.92,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-27,Allen Graves,TOR,BKN,pr,15.5,draftkings,-120,0.5703,0.5217,0.5703,0.0456,2026-11-28T00:30Z,0,2026-11-27T03:37Z,"[[15.5, -120, 100]]",13.09,1.0,u,value,,,recalibrated + market blend,0.816
-2026-11-27,Daniss Jenkins,DET,MIL,ast,7.5,fanduel,-114,0.5771,0.501,0.5771,0.0832,2026-11-28T00:30Z,0,2026-11-27T03:37Z,"[[7.5, -114, -113]]",5.79,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-27,Giannis Antetokounmpo,MIA,NY,pts,27.5,draftkings,-113,0.5532,0.5148,0.5532,0.0428,2026-11-28T00:00Z,0,2026-11-27T03:37Z,"[[27.5, -113, 100]]",24.74,0.942,u,value,,,recalibrated + market blend,0.942
-2026-11-27,Nickeil Alexander-Walker,ATL,BOS,pts,20.5,draftkings,-118,0.565,0.5198,0.565,0.0437,2026-11-28T01:00Z,0,2026-11-27T03:37Z,"[[20.5, -118, 100]]",17.74,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Ace Bailey,UTAH,DEN,pts,15.5,draftkings,-117,0.5722,0.5213,0.5722,0.0612,2026-11-28T02:30Z,0,2026-11-27T05:05Z,"[[15.5, -117, 102]]",12.92,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Allen Graves,TOR,BKN,pr,15.5,draftkings,-120,0.5686,0.5193,0.5686,0.0425,2026-11-28T00:30Z,0,2026-11-27T05:05Z,"[[15.5, -120, -102]]",13.09,1.0,u,value,,,recalibrated + market blend,0.816
+2026-11-27,Collin Murray-Boyles,TOR,BKN,ar,7.5,fanduel,-112,0.5528,0.5043,0.5528,0.0463,2026-11-28T00:30Z,0,2026-11-27T05:05Z,"[[7.5, -112, -108]]",6.38,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Daniss Jenkins,DET,MIL,ast,7.5,draftkings,-116,0.5807,0.5062,0.5807,0.0813,2026-11-28T00:30Z,0,2026-11-27T05:05Z,"[[7.5, -116, -110]]",5.79,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Keyonte George,UTAH,DEN,pts,21.5,fanduel,-118,0.5651,0.5162,0.5651,0.044,2026-11-28T02:30Z,0,2026-11-27T05:05Z,"[[21.5, -118, -103]]",18.42,1.0,u,value,,,recalibrated + market blend,0.885
