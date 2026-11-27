@@ -1,5 +1,5 @@
 {
-  "run": "27/11/2026 16:47 GMT+8",
+  "run": "28/11/2026 01:30 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
@@ -14,22 +14,26 @@
     "PHI at HOU: nothing for the full market list, retrying points + PRA only",
     "PHI at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "MIA at CLE: nothing for the full market list, retrying points + PRA only",
-    "MIA at CLE: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
+    "MIA at CLE: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "BOS at SA: nothing for the full market list, retrying points + PRA only",
+    "BOS at SA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "LAL at MEM: nothing for the full market list, retrying points + PRA only",
+    "LAL at MEM: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
+    "PHX at UTAH: nothing for the full market list, retrying points + PRA only",
+    "PHX at UTAH: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 12,
+  "warning_count": 18,
   "events_listed": 60,
-  "events_upcoming": 17,
+  "events_upcoming": 20,
   "games_with_lines": 11,
   "players_with_lines": 138,
-  "book_players_unmatched": 1,
-  "unmatched_examples": [
-    "cam johnson"
-  ],
-  "requests_this_run": 24,
-  "games_reused_from_cache": 0,
-  "requests_left_today": 866,
+  "book_players_unmatched": 0,
+  "unmatched_examples": [],
+  "requests_this_run": 19,
+  "games_reused_from_cache": 11,
+  "requests_left_today": 818,
   "daily_limit": 1000,
-  "history_rows_added": 1718,
+  "history_rows_added": 0,
   "markets_priced": {
     "pts": 137,
     "pra": 130,

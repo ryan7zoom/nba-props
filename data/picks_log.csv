@@ -71,8 +71,8 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-25,Ayo Dosunmu,MIN,OKC,pra,26.5,fanduel,-125,0.667,0.519,0.571,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 26.5, -125]]",23.49,1.0,,,,,,
 2026-11-25,Jaden McDaniels,MIN,OKC,pts,17.5,fanduel,-122,0.663,0.512,0.565,0.028,2026-11-26T00:30Z,1,2026-11-24T22:33Z,"[[""fanduel"", 17.5, -122]]",15.26,1.0,,,,,,
 2026-11-25,VJ Edgecombe,PHI,MIA,ast,3.5,fanduel,-110,0.5507,0.4968,0.5507,0.0514,2026-11-25T22:00Z,1,2026-11-25T21:44Z,"[[3.5, -113, -110]]",4.75,1.0,o,value,,,recalibrated + market blend,0.883
-2026-11-27,Ace Bailey,UTAH,DEN,pts,15.5,draftkings,-117,0.5704,0.5188,0.5704,0.058,2026-11-28T02:30Z,0,2026-11-27T08:47Z,"[[15.5, -117, 100]]",12.92,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-27,Daniss Jenkins,DET,MIL,ar,12.5,fanduel,-122,0.5952,0.5224,0.5952,0.0831,2026-11-28T00:30Z,0,2026-11-27T08:47Z,"[[12.5, -122, -101]]",10.05,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-27,Isaiah Joe,DET,MIL,pa,17.5,draftkings,-108,0.5501,0.4877,0.5501,0.0594,2026-11-28T00:30Z,0,2026-11-27T08:47Z,"[[17.5, -108, -120]]",14.53,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-27,Kris Murray,MEM,MIN,ar,5.5,draftkings,-117,0.5583,0.5051,0.5583,0.0355,2026-11-28T01:30Z,0,2026-11-27T08:47Z,"[[5.5, -117, -112]]",4.5,1.0,u,value,,,recalibrated + market blend,0.636
-2026-11-27,Nickeil Alexander-Walker,ATL,BOS,pr,23.5,draftkings,-113,0.5507,0.5054,0.5507,0.0381,2026-11-28T01:00Z,0,2026-11-27T08:47Z,"[[23.5, -113, -108]]",20.86,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Ace Bailey,UTAH,DEN,pts,15.5,draftkings,-117,0.5607,0.5188,0.5607,0.04,2026-11-28T02:30Z,0,2026-11-27T17:31Z,"[[15.5, -117, 100]]",13.42,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Allen Graves,TOR,BKN,pr,15.5,draftkings,-124,0.5736,0.5254,0.5736,0.0363,2026-11-28T00:30Z,0,2026-11-27T17:31Z,"[[15.5, -124, 100]]",13.04,1.0,u,value,,,recalibrated + market blend,0.816
+2026-11-27,Daniss Jenkins,DET,MIL,ar,12.5,fanduel,-122,0.5954,0.5224,0.5954,0.0834,2026-11-28T00:30Z,0,2026-11-27T17:31Z,"[[12.5, -122, -101]]",10.02,1.0,u,value,,,recalibrated + market blend,0.885
+2026-11-27,Jaime Jaquez Jr.,MIL,DET,ast,2.5,fanduel,-125,0.5756,0.5567,0.5756,0.036,2026-11-28T00:30Z,0,2026-11-27T17:31Z,"[[2.5, 126, -125]]",3.34,1.0,o,value,,,recalibrated + market blend,0.885
+2026-11-27,Nickeil Alexander-Walker,ATL,BOS,pr,23.5,draftkings,-113,0.5519,0.5054,0.5519,0.0404,2026-11-28T01:00Z,0,2026-11-27T17:31Z,"[[23.5, -113, -108]]",20.77,1.0,u,value,,,recalibrated + market blend,0.885
