@@ -1,179 +1,179 @@
 {
-  "graded_at": "28/11/2026 12:45 GMT+8",
+  "graded_at": "28/11/2026 16:04 GMT+8",
   "rows_in_history": null,
-  "player_market_days": 5501,
-  "lines_graded": 5501,
+  "player_market_days": 5828,
+  "lines_graded": 5828,
   "game_days": 27,
   "enough_data": true,
   "skipped_integer_lines": 0,
-  "skipped_no_result": 821,
-  "over_win_rate": 0.477,
+  "skipped_no_result": 657,
+  "over_win_rate": 0.48,
   "accuracy": {
-    "brier_ours": 0.2526,
+    "brier_ours": 0.252,
     "brier_market": 0.2489,
-    "brier_best_blend": 0.2484,
-    "logloss_ours": 0.6988,
+    "brier_best_blend": 0.2483,
+    "logloss_ours": 0.6975,
     "logloss_market": 0.691,
-    "logloss_best_blend": 0.69,
-    "best_weight_on_our_model": 0.25,
+    "logloss_best_blend": 0.6897,
+    "best_weight_on_our_model": 0.3,
     "note": "lower is better. weight 0 = trust the market only, 1 = trust our model only. One row per player-game, at the closing line."
   },
   "bets_by_raw_edge": {
     "raw edge above 0%": {
       "all": {
-        "bets": 3824,
-        "win_rate": 0.521,
-        "return_per_unit": -0.021
+        "bets": 4021,
+        "win_rate": 0.526,
+        "return_per_unit": -0.013
       },
       "overs only": {
-        "bets": 1035,
-        "win_rate": 0.493,
-        "return_per_unit": -0.072
+        "bets": 1134,
+        "win_rate": 0.504,
+        "return_per_unit": -0.052
       },
       "unders only": {
-        "bets": 2789,
-        "win_rate": 0.532,
-        "return_per_unit": -0.002
+        "bets": 2887,
+        "win_rate": 0.534,
+        "return_per_unit": 0.002
       }
     },
     "raw edge above 5%": {
       "all": {
-        "bets": 2680,
-        "win_rate": 0.525,
-        "return_per_unit": -0.014
+        "bets": 2813,
+        "win_rate": 0.531,
+        "return_per_unit": -0.002
       },
       "overs only": {
-        "bets": 634,
-        "win_rate": 0.484,
-        "return_per_unit": -0.085
+        "bets": 696,
+        "win_rate": 0.497,
+        "return_per_unit": -0.061
       },
       "unders only": {
-        "bets": 2046,
-        "win_rate": 0.537,
-        "return_per_unit": 0.008
+        "bets": 2117,
+        "win_rate": 0.542,
+        "return_per_unit": 0.017
       }
     },
     "raw edge above 10%": {
       "all": {
-        "bets": 1735,
-        "win_rate": 0.528,
-        "return_per_unit": -0.005
+        "bets": 1818,
+        "win_rate": 0.532,
+        "return_per_unit": 0.003
       },
       "overs only": {
-        "bets": 324,
-        "win_rate": 0.519,
-        "return_per_unit": -0.017
+        "bets": 360,
+        "win_rate": 0.522,
+        "return_per_unit": -0.009
       },
       "unders only": {
-        "bets": 1411,
-        "win_rate": 0.53,
-        "return_per_unit": -0.002
+        "bets": 1458,
+        "win_rate": 0.534,
+        "return_per_unit": 0.005
       }
     },
     "raw edge above 20%": {
       "all": {
-        "bets": 588,
+        "bets": 608,
         "win_rate": 0.536,
-        "return_per_unit": 0.015
+        "return_per_unit": 0.016
       },
       "overs only": {
-        "bets": 88,
-        "win_rate": 0.511,
-        "return_per_unit": -0.032
+        "bets": 94,
+        "win_rate": 0.5,
+        "return_per_unit": -0.049
       },
       "unders only": {
-        "bets": 500,
-        "win_rate": 0.54,
-        "return_per_unit": 0.023
+        "bets": 514,
+        "win_rate": 0.543,
+        "return_per_unit": 0.028
       }
     }
   },
   "bets_by_blended_edge": {
-    "blended edge above 3% (weight 0.25)": {
-      "bets": 123,
-      "win_rate": 0.585,
-      "return_per_unit": 0.114
+    "blended edge above 3% (weight 0.3)": {
+      "bets": 321,
+      "win_rate": 0.542,
+      "return_per_unit": 0.024
     }
   },
   "unders_by_under_price": {
     "under price -200 to -140": {
-      "under won": 0.615,
+      "under won": 0.591,
       "break_even": 0.612,
-      "bets": 109
+      "bets": 132
     },
     "under price -140 to -120": {
-      "under won": 0.542,
+      "under won": 0.538,
       "break_even": 0.561,
-      "bets": 1653
+      "bets": 1758
     },
     "under price -120 to -110": {
-      "under won": 0.535,
+      "under won": 0.533,
       "break_even": 0.535,
-      "bets": 1803
+      "bets": 1882
     },
     "under price -110 to -101": {
-      "under won": 0.497,
+      "under won": 0.495,
       "break_even": 0.514,
-      "bets": 1513
+      "bets": 1575
     },
     "under price -100 to 300": {
-      "under won": 0.464,
-      "break_even": 0.485,
-      "bets": 414
+      "under won": 0.455,
+      "break_even": 0.484,
+      "bets": 468
     }
   },
   "every_main_line_over": {
-    "bets": 5501,
-    "win_rate": 0.477,
-    "return_per_unit": -0.106
+    "bets": 5828,
+    "win_rate": 0.48,
+    "return_per_unit": -0.099
   },
   "every_main_line_under": {
-    "bets": 5501,
-    "win_rate": 0.523,
-    "return_per_unit": -0.023
+    "bets": 5828,
+    "win_rate": 0.52,
+    "return_per_unit": -0.029
   },
   "by_market": {
     "pts": {
-      "rows": 2497,
-      "brier_ours": 0.2532,
+      "rows": 2546,
+      "brier_ours": 0.253,
       "brier_market": 0.2491,
       "over_rate": 0.472
     },
     "reb": {
-      "rows": 215,
-      "brier_ours": 0.2433,
-      "brier_market": 0.2426,
-      "over_rate": 0.498
+      "rows": 261,
+      "brier_ours": 0.2463,
+      "brier_market": 0.2448,
+      "over_rate": 0.517
     },
     "ast": {
-      "rows": 182,
-      "brier_ours": 0.2399,
-      "brier_market": 0.239,
-      "over_rate": 0.473
+      "rows": 228,
+      "brier_ours": 0.2388,
+      "brier_market": 0.2399,
+      "over_rate": 0.487
     },
     "pr": {
-      "rows": 215,
-      "brier_ours": 0.2523,
-      "brier_market": 0.2477,
-      "over_rate": 0.502
+      "rows": 262,
+      "brier_ours": 0.2494,
+      "brier_market": 0.248,
+      "over_rate": 0.504
     },
     "pa": {
-      "rows": 188,
-      "brier_ours": 0.2491,
+      "rows": 235,
+      "brier_ours": 0.2471,
       "brier_market": 0.2485,
-      "over_rate": 0.484
+      "over_rate": 0.494
     },
     "ar": {
-      "rows": 187,
-      "brier_ours": 0.2522,
-      "brier_market": 0.2521,
-      "over_rate": 0.497
+      "rows": 233,
+      "brier_ours": 0.2499,
+      "brier_market": 0.2513,
+      "over_rate": 0.506
     },
     "pra": {
-      "rows": 2017,
-      "brier_ours": 0.2544,
+      "rows": 2063,
+      "brier_ours": 0.2541,
       "brier_market": 0.2501,
-      "over_rate": 0.475
+      "over_rate": 0.478
     }
   }
 }

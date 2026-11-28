@@ -1,32 +1,32 @@
 {
-  "fitted_at": "28/11/2026 12:45 GMT+8",
-  "rows": 5501,
+  "fitted_at": "28/11/2026 16:04 GMT+8",
+  "rows": 5828,
   "skipped_integer_lines": 0,
-  "skipped_no_result": 821,
+  "skipped_no_result": 657,
   "holdout": {
     "split_date": "2026-11-17",
     "train_rows": 2955,
-    "test_rows": 2546,
+    "test_rows": 2873,
     "scores": {
       "raw model": {
-        "logloss": 0.69705,
-        "brier": 0.25178,
-        "rows": 2546
+        "logloss": 0.69477,
+        "brier": 0.25067,
+        "rows": 2873
       },
       "market blend only": {
-        "logloss": 0.6903,
-        "brier": 0.24859,
-        "rows": 2546
+        "logloss": 0.6893,
+        "brier": 0.24809,
+        "rows": 2873
       },
       "recalibrated": {
-        "logloss": 0.69077,
-        "brier": 0.24881,
-        "rows": 2546
+        "logloss": 0.69081,
+        "brier": 0.24883,
+        "rows": 2873
       },
       "recalibrated + market blend": {
-        "logloss": 0.68946,
-        "brier": 0.24817,
-        "rows": 2546
+        "logloss": 0.68955,
+        "brier": 0.24821,
+        "rows": 2873
       }
     },
     "chosen": "market blend only",
@@ -34,22 +34,22 @@
   },
   "calibration": {
     "mode": "market blend only",
-    "rows": 5501,
+    "rows": 5828,
     "global": {
       "knots": [],
-      "w": 0.25
+      "w": 0.3
     },
     "by_market": {
       "pts": {
         "knots": [],
-        "w": 0.25,
-        "rows": 2497,
+        "w": 0.3,
+        "rows": 2546,
         "reliability": []
       },
       "pra": {
         "knots": [],
-        "w": 0.25,
-        "rows": 2017,
+        "w": 0.3,
+        "rows": 2063,
         "reliability": []
       }
     }

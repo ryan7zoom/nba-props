@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-11-28T04:46Z",
- "generated": "28/11/2026 12:46 GMT+8",
+ "generated_utc": "2026-11-28T08:04Z",
+ "generated": "28/11/2026 16:04 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": false,
  "days": [
@@ -17,32 +17,185 @@
      "line": 11.5,
      "side": "u",
      "book": "fanduel",
-     "price": -108,
-     "our_p": 0.5521,
-     "raw_p": 0.684,
-     "market_p": 0.5082,
-     "dec": 1.926,
-     "edge": 0.0634,
-     "mean": 9.57,
+     "price": -106,
+     "our_p": 0.5567,
+     "raw_p": 0.6863,
+     "market_p": 0.5012,
+     "dec": 1.943,
+     "edge": 0.0819,
+     "mean": 9.53,
      "p_play": 1.0,
-     "p_appear": 0.886,
+     "p_appear": 0.887,
      "tipoff_utc": "2026-11-29T01:00Z",
      "event_id": "401910048",
-     "blend_p": 0.5521,
+     "blend_p": 0.5567,
      "all_lines": [
       [
        11.5,
-       -108,
-       -101
+       -106,
+       -105
       ]
      ],
      "list": "value",
      "frozen": "0",
      "locked": false,
-     "logged_utc": "2026-11-28T04:46Z",
+     "logged_utc": "2026-11-28T08:04Z",
      "calibration": "market blend only",
      "level": null,
      "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-28",
+     "team": "PHI",
+     "opp": "HOU",
+     "player": "Tyrese Maxey",
+     "athlete_id": "4431678",
+     "market": "ar",
+     "line": 10.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -108,
+     "our_p": 0.5581,
+     "raw_p": 0.6938,
+     "market_p": 0.5,
+     "dec": 1.926,
+     "edge": 0.0749,
+     "mean": 8.98,
+     "p_play": 1.0,
+     "p_appear": 0.887,
+     "tipoff_utc": "2026-11-29T01:30Z",
+     "event_id": "401910050",
+     "blend_p": 0.5581,
+     "all_lines": [
+      [
+       10.5,
+       -108,
+       -108
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-28T08:04Z",
+     "calibration": "market blend only",
+     "level": null,
+     "market_label": "A+R"
+    },
+    {
+     "game_date": "2026-11-28",
+     "team": "CHA",
+     "opp": "BKN",
+     "player": "Coby White",
+     "athlete_id": "4395651",
+     "market": "pts",
+     "line": 17.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -112,
+     "our_p": 0.5552,
+     "raw_p": 0.6814,
+     "market_p": 0.5011,
+     "dec": 1.893,
+     "edge": 0.0508,
+     "mean": 14.67,
+     "p_play": 1.0,
+     "p_appear": 0.887,
+     "tipoff_utc": "2026-11-28T23:00Z",
+     "event_id": "401910047",
+     "blend_p": 0.5552,
+     "all_lines": [
+      [
+       17.5,
+       -112,
+       -111
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-28T08:04Z",
+     "calibration": "market blend only",
+     "level": null,
+     "market_label": "points"
+    },
+    {
+     "game_date": "2026-11-28",
+     "team": "PHI",
+     "opp": "HOU",
+     "player": "VJ Edgecombe",
+     "athlete_id": "5124612",
+     "market": "pr",
+     "line": 23.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -112,
+     "our_p": 0.5549,
+     "raw_p": 0.6972,
+     "market_p": 0.4939,
+     "dec": 1.893,
+     "edge": 0.0504,
+     "mean": 20.24,
+     "p_play": 1.0,
+     "p_appear": 0.887,
+     "tipoff_utc": "2026-11-29T01:30Z",
+     "event_id": "401910050",
+     "blend_p": 0.5549,
+     "all_lines": [
+      [
+       22.5,
+       -109,
+       -121
+      ],
+      [
+       23.5,
+       -112,
+       -118
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-28T08:04Z",
+     "calibration": "market blend only",
+     "level": null,
+     "market_label": "P+R"
+    },
+    {
+     "game_date": "2026-11-28",
+     "team": "WSH",
+     "opp": "ORL",
+     "player": "AJ Dybantsa",
+     "athlete_id": "5142718",
+     "market": "pra",
+     "line": 29.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -118,
+     "our_p": 0.5651,
+     "raw_p": 0.6821,
+     "market_p": 0.515,
+     "dec": 1.847,
+     "edge": 0.044,
+     "mean": 26.07,
+     "p_play": 1.0,
+     "p_appear": 0.887,
+     "tipoff_utc": "2026-11-28T22:00Z",
+     "event_id": "401910046",
+     "blend_p": 0.5651,
+     "all_lines": [
+      [
+       29.5,
+       -118,
+       -104
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-28T08:04Z",
+     "calibration": "market blend only",
+     "level": null,
+     "market_label": "PRA"
     }
    ],
    "safe": []
@@ -50,8 +203,8 @@
  ],
  "calibration": {
   "mode": "market blend only",
-  "rows": 5501,
-  "fitted_at": "28/11/2026 12:45 GMT+8"
+  "rows": 5828,
+  "fitted_at": "28/11/2026 16:04 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
