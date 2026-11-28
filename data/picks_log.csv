@@ -76,8 +76,8 @@ game_date,player,team,opp,market,line,book,price,our_p,market_p,blend_p,edge,tip
 2026-11-27,Daniss Jenkins,DET,MIL,ar,12.5,fanduel,-122,0.5945,0.5224,0.5945,0.0818,2026-11-28T00:30Z,1,2026-11-27T19:19Z,"[[12.5, -122, -101]]",10.07,1.0,u,value,,,recalibrated + market blend,0.885
 2026-11-27,Jaime Jaquez Jr.,MIL,DET,ast,2.5,fanduel,-125,0.5769,0.5567,0.5769,0.0384,2026-11-28T00:30Z,1,2026-11-27T19:19Z,"[[2.5, 126, -125]]",3.38,1.0,o,value,,,recalibrated + market blend,0.885
 2026-11-27,Nickeil Alexander-Walker,ATL,BOS,pr,23.5,draftkings,-113,0.5527,0.5054,0.5527,0.0418,2026-11-28T01:00Z,1,2026-11-27T19:19Z,"[[23.5, -113, -108]]",20.79,1.0,u,value,,,recalibrated + market blend,0.885
-2026-11-28,AJ Dybantsa,WSH,ORL,pra,29.5,fanduel,-118,0.5651,0.515,0.5651,0.044,2026-11-28T22:00Z,0,2026-11-28T08:04Z,"[[29.5, -118, -104]]",26.07,1.0,u,value,,,market blend only,0.887
-2026-11-28,Coby White,CHA,BKN,pts,17.5,fanduel,-112,0.5552,0.5011,0.5552,0.0508,2026-11-28T23:00Z,0,2026-11-28T08:04Z,"[[17.5, -112, -111]]",14.67,1.0,u,value,,,market blend only,0.887
-2026-11-28,Isaac Okoro,CHI,IND,pts,11.5,fanduel,-106,0.5567,0.5012,0.5567,0.0819,2026-11-29T01:00Z,0,2026-11-28T08:04Z,"[[11.5, -106, -105]]",9.53,1.0,u,value,,,market blend only,0.887
-2026-11-28,Tyrese Maxey,PHI,HOU,ar,10.5,fanduel,-108,0.5581,0.5,0.5581,0.0749,2026-11-29T01:30Z,0,2026-11-28T08:04Z,"[[10.5, -108, -108]]",8.98,1.0,u,value,,,market blend only,0.887
-2026-11-28,VJ Edgecombe,PHI,HOU,pr,23.5,fanduel,-112,0.5549,0.4939,0.5549,0.0504,2026-11-29T01:30Z,0,2026-11-28T08:04Z,"[[22.5, -109, -121], [23.5, -112, -118]]",20.24,1.0,u,value,,,market blend only,0.887
+2026-11-28,AJ Dybantsa,WSH,ORL,pra,29.5,fanduel,-118,0.5645,0.515,0.5645,0.043,2026-11-28T22:00Z,0,2026-11-28T16:14Z,"[[29.5, -118, -104]]",26.09,1.0,u,value,,,market blend only,0.887
+2026-11-28,Coby White,CHA,BKN,pts,17.5,fanduel,-112,0.555,0.5011,0.555,0.0505,2026-11-28T23:00Z,0,2026-11-28T16:14Z,"[[17.5, -112, -111]]",14.63,1.0,u,value,,,market blend only,0.887
+2026-11-28,Isaac Okoro,CHI,IND,pts,11.5,fanduel,-106,0.5567,0.5012,0.5567,0.0818,2026-11-29T01:00Z,0,2026-11-28T16:14Z,"[[11.5, -106, -105]]",9.49,1.0,u,value,,,market blend only,0.887
+2026-11-28,Tyrese Maxey,PHI,HOU,ar,10.5,fanduel,-108,0.5604,0.5,0.5604,0.0793,2026-11-29T01:30Z,0,2026-11-28T16:14Z,"[[10.5, -108, -108]]",8.88,1.0,u,value,,,market blend only,0.887
+2026-11-28,VJ Edgecombe,PHI,HOU,pr,23.5,fanduel,-112,0.557,0.4939,0.557,0.0542,2026-11-29T01:30Z,0,2026-11-28T16:14Z,"[[22.5, -109, -121], [23.5, -112, -118]]",20.03,1.0,u,value,,,market blend only,0.887
