@@ -1,180 +1,58 @@
 {
-  "fitted_at": "28/11/2026 08:56 GMT+8",
-  "rows": 4936,
+  "fitted_at": "28/11/2026 11:15 GMT+8",
+  "rows": 5250,
   "skipped_integer_lines": 0,
-  "skipped_no_result": 1358,
+  "skipped_no_result": 1044,
   "holdout": {
-    "split_date": "2026-11-16",
-    "train_rows": 2782,
-    "test_rows": 2154,
+    "split_date": "2026-11-17",
+    "train_rows": 2955,
+    "test_rows": 2295,
     "scores": {
       "raw model": {
-        "logloss": 0.70081,
-        "brier": 0.25362,
-        "rows": 2154
+        "logloss": 0.69729,
+        "brier": 0.25189,
+        "rows": 2295
       },
       "market blend only": {
-        "logloss": 0.69324,
-        "brier": 0.25004,
-        "rows": 2154
+        "logloss": 0.69097,
+        "brier": 0.24891,
+        "rows": 2295
       },
       "recalibrated": {
-        "logloss": 0.69427,
-        "brier": 0.25055,
-        "rows": 2154
+        "logloss": 0.69153,
+        "brier": 0.24919,
+        "rows": 2295
       },
       "recalibrated + market blend": {
-        "logloss": 0.69181,
-        "brier": 0.24934,
-        "rows": 2154
+        "logloss": 0.69044,
+        "brier": 0.24865,
+        "rows": 2295
       }
     },
-    "chosen": "recalibrated + market blend",
+    "chosen": "market blend only",
     "note": "log-loss on the held-out days; a richer correction must win by 0.15% to be used"
   },
   "calibration": {
-    "mode": "recalibrated + market blend",
-    "rows": 4936,
+    "mode": "market blend only",
+    "rows": 5250,
     "global": {
-      "knots": [
-        [
-          0.0,
-          0.0
-        ],
-        [
-          0.3641,
-          0.4679
-        ],
-        [
-          0.4389,
-          0.4699
-        ],
-        [
-          0.4991,
-          0.4992
-        ],
-        [
-          1.0,
-          1.0
-        ]
-      ],
-      "w": 0.3
+      "knots": [],
+      "w": 0.275
     },
     "by_market": {
       "pts": {
-        "knots": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.3646,
-            0.4591
-          ],
-          [
-            0.4387,
-            0.463
-          ],
-          [
-            0.4985,
-            0.4954
-          ],
-          [
-            1.0,
-            1.0
-          ]
-        ],
-        "w": 0.3,
-        "rows": 2413,
-        "reliability": [
-          {
-            "our_probability": 0.3646,
-            "actual_frequency": 0.4591,
-            "rows": 514
-          },
-          {
-            "our_probability": 0.4387,
-            "actual_frequency": 0.463,
-            "rows": 864
-          },
-          {
-            "our_probability": 0.4985,
-            "actual_frequency": 0.5137,
-            "rows": 475
-          },
-          {
-            "our_probability": 0.5549,
-            "actual_frequency": 0.4737,
-            "rows": 399
-          }
-        ]
+        "knots": [],
+        "w": 0.275,
+        "rows": 2461,
+        "reliability": []
       },
       "pra": {
-        "knots": [
-          [
-            0.0,
-            0.0
-          ],
-          [
-            0.3633,
-            0.4759
-          ],
-          [
-            0.557,
-            0.4969
-          ],
-          [
-            1.0,
-            1.0
-          ]
-        ],
-        "w": 0.3,
-        "rows": 1936,
-        "reliability": [
-          {
-            "our_probability": 0.3633,
-            "actual_frequency": 0.4789,
-            "rows": 426
-          },
-          {
-            "our_probability": 0.4383,
-            "actual_frequency": 0.4773,
-            "rows": 660
-          },
-          {
-            "our_probability": 0.5001,
-            "actual_frequency": 0.4704,
-            "rows": 389
-          },
-          {
-            "our_probability": 0.557,
-            "actual_frequency": 0.4969,
-            "rows": 324
-          }
-        ]
+        "knots": [],
+        "w": 0.275,
+        "rows": 1981,
+        "reliability": []
       }
     }
   },
-  "reliability": [
-    {
-      "our_probability": 0.3641,
-      "actual_frequency": 0.4679,
-      "rows": 1011
-    },
-    {
-      "our_probability": 0.4389,
-      "actual_frequency": 0.4699,
-      "rows": 1692
-    },
-    {
-      "our_probability": 0.4991,
-      "actual_frequency": 0.5045,
-      "rows": 995
-    },
-    {
-      "our_probability": 0.556,
-      "actual_frequency": 0.4932,
-      "rows": 878
-    }
-  ]
+  "reliability": []
 }

@@ -6474,3 +6474,19 @@ report_et,report_utc,game_date_et,game_time_et,matchup,team,player_raw,player_no
 2026-11-27T19:00-05:00,2026-11-28T00:00+00:00,2026-11-27,19:30,PHI@IND,PHI,"Embiid,Joel",joel embiid,Available,Injury/Illness-Illness,2026-11-27_07_00PM,2
 2026-11-27T19:45-05:00,2026-11-28T00:45+00:00,2026-11-27,20:30,MEM@MIN,MEM,"Stewart,Isaiah",isaiah stewart,Out,Injury/Illness-RightHipSoreness,2026-11-27_07_45PM,2
 2026-11-27T19:45-05:00,2026-11-28T00:45+00:00,2026-11-27,21:30,GS@POR,POR,"Yang,Hansen",hansen yang,Out,Injury/Illness-LeftAnkleSprain,2026-11-27_07_45PM,2
+2026-11-27T20:00-05:00,2026-11-28T01:00+00:00,2026-11-27,20:30,MEM@MIN,MEM,"Edey,Zach",zach edey,Available,Injury/Illness-LeftAnkleSoreness,2026-11-27_08_00PM,2
+2026-11-27T20:00-05:00,2026-11-28T01:00+00:00,2026-11-27,21:00,DAL@PHX,DAL,"Irving,Kyrie",kyrie irving,Out,Injury/Illness-LeftKneeInjury Management,2026-11-27_08_00PM,2
+2026-11-27T20:00-05:00,2026-11-28T01:00+00:00,2026-11-27,21:00,DAL@PHX,PHX,"Reath,Duop",duop reath,Out,GLeague-Two-Way,2026-11-27_08_00PM,2
+2026-11-27T20:00-05:00,2026-11-28T01:00+00:00,2026-11-27,21:00,DAL@PHX,PHX,"Spencer,Pat",pat spencer,Out,GLeague-Two-Way,2026-11-27_08_00PM,2
+2026-11-27T20:00-05:00,2026-11-28T01:00+00:00,2026-11-27,21:00,DAL@PHX,PHX,"Timme,Drew",drew timme,Out,GLeague-Two-Way,2026-11-27_08_00PM,2
+2026-11-27T20:15-05:00,2026-11-28T01:15+00:00,2026-11-27,21:30,NO@LAC,NO,"Mathurin,Bennedict",bennedict mathurin,Out,Injury/Illness-LeftPlantarFasciitis,2026-11-27_08_15PM,2
+2026-11-27T20:15-05:00,2026-11-28T01:15+00:00,2026-11-27,21:30,NO@LAC,NO,"Watford,Trendon",trendon watford,Available,Injury/Illness-RightAnkleSprain,2026-11-27_08_15PM,2
+2026-11-27T20:15-05:00,2026-11-28T01:15+00:00,2026-11-27,21:30,NO@LAC,LAC,"Christie,Cam",cam christie,Out,GLeague-Two-Way,2026-11-27_08_15PM,2
+2026-11-27T20:15-05:00,2026-11-28T01:15+00:00,2026-11-27,21:30,NO@LAC,LAC,"Martinelli,Nick",nick martinelli,Available,GLeague-Two-Way,2026-11-27_08_15PM,2
+2026-11-27T20:15-05:00,2026-11-28T01:15+00:00,2026-11-27,21:30,NO@LAC,LAC,"Pickett,Jalen",jalen pickett,Out,GLeague-Two-Way,2026-11-27_08_15PM,2
+2026-11-27T20:30-05:00,2026-11-28T01:30+00:00,2026-11-27,21:30,DEN@UTAH,UTAH,"Bamba,Mo",mo bamba,Out,Injury/Illness-Illness,2026-11-27_08_30PM,2
+2026-11-27T20:30-05:00,2026-11-28T01:30+00:00,2026-11-27,21:30,DEN@UTAH,UTAH,"Hayes,Jaxson",jaxson hayes,Available,Injury/Illness-LeftKneeStrain,2026-11-27_08_30PM,2
+2026-11-27T20:30-05:00,2026-11-28T01:30+00:00,2026-11-27,21:30,DEN@UTAH,UTAH,"Nurkic,Jusuf",jusuf nurkic,Available,Injury/Illness-Right2ndPlantar,2026-11-27_08_30PM,2
+2026-11-27T20:45-05:00,2026-11-28T01:45+00:00,2026-11-27,21:30,LAL@SA,SA,"Fox,De'Aaron",deaaron fox,Available,-,2026-11-27_08_45PM,2
+2026-11-27T20:45-05:00,2026-11-28T01:45+00:00,2026-11-27,21:30,LAL@SA,SA,"Harper,Dylan",dylan harper,Available,-,2026-11-27_08_45PM,2
+2026-11-27T20:45-05:00,2026-11-28T01:45+00:00,2026-11-27,21:30,LAL@SA,SA,"JonesGarcia,David",david jonesgarcia,Out,GLeague-Two-Way,2026-11-27_08_45PM,2
