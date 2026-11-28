@@ -1,10 +1,8 @@
 {
-  "run": "28/11/2026 11:14 GMT+8",
+  "run": "28/11/2026 12:45 GMT+8",
   "ok": true,
   "errors": [],
   "warnings": [
-    "BKN at CHA: nothing for the full market list, retrying points + PRA only",
-    "BKN at CHA: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "PHI at HOU: nothing for the full market list, retrying points + PRA only",
     "PHI at HOU: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])",
     "MIA at CLE: nothing for the full market list, retrying points + PRA only",
@@ -28,25 +26,28 @@
     "MIN at SAC: nothing for the full market list, retrying points + PRA only",
     "MIN at SAC: no player lines posted yet (top keys ['away_team', 'away_team_id', 'away_team_key', 'away_team_logo_url', 'bookmakers', 'commence_time', 'home_team', 'home_team_id', 'home_team_key', 'home_team_logo_url', 'id', 'is_outright']; book keys []; market keys []; outcome keys [])"
   ],
-  "warning_count": 24,
-  "events_listed": 56,
+  "warning_count": 22,
+  "events_listed": 55,
   "events_upcoming": 15,
-  "games_with_lines": 3,
-  "players_with_lines": 26,
-  "book_players_unmatched": 0,
-  "unmatched_examples": [],
-  "requests_this_run": 28,
+  "games_with_lines": 4,
+  "players_with_lines": 30,
+  "book_players_unmatched": 2,
+  "unmatched_examples": [
+    "alexandre sarr",
+    "nicolas claxton"
+  ],
+  "requests_this_run": 27,
   "games_reused_from_cache": 0,
-  "requests_left_today": 913,
+  "requests_left_today": 864,
   "daily_limit": 1000,
-  "history_rows_added": 174,
+  "history_rows_added": 306,
   "markets_priced": {
-    "pts": 26,
-    "pra": 24,
-    "reb": 26,
-    "ast": 24,
-    "pr": 26,
-    "pa": 24,
-    "ar": 24
+    "pts": 30,
+    "pra": 28,
+    "reb": 30,
+    "ast": 28,
+    "pr": 30,
+    "pa": 28,
+    "ar": 28
   }
 }

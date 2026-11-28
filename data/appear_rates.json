@@ -4,32 +4,32 @@
       "min_recent_minutes": 20.0,
       "label": "20+ minutes",
       "appearance_rate": 0.886,
-      "rows": 6123,
+      "rows": 6161,
       "measured": true
     },
     {
       "min_recent_minutes": 14.0,
       "label": "14-20 minutes",
       "appearance_rate": 0.816,
-      "rows": 2115,
+      "rows": 2124,
       "measured": true
     },
     {
       "min_recent_minutes": 8.0,
       "label": "8-14 minutes",
-      "appearance_rate": 0.638,
-      "rows": 1800,
+      "appearance_rate": 0.637,
+      "rows": 1813,
       "measured": true
     },
     {
       "min_recent_minutes": 0.0,
       "label": "under 8 minutes",
-      "appearance_rate": 0.413,
-      "rows": 1804,
+      "appearance_rate": 0.412,
+      "rows": 1813,
       "measured": true
     }
   ],
-  "team_games_measured": 919,
+  "team_games_measured": 925,
   "note": "Chance a player who is NOT on the official injury report still appears. Used by minutes_model.py when no status is on file; before this, 1.0 was assumed.",
-  "fitted_utc": "2026-11-28T11:15:16+08:00"
+  "fitted_utc": "2026-11-28T12:45:49+08:00"
 }

@@ -1,23 +1,23 @@
 {
   "mode": "market blend only",
-  "fitted_at": "28/11/2026 11:15 GMT+8",
-  "rows": 5250,
+  "fitted_at": "28/11/2026 12:45 GMT+8",
+  "rows": 5501,
   "game_days": 27,
   "global": {
     "knots": [],
-    "w": 0.275
+    "w": 0.25
   },
   "by_market": {
     "pts": {
       "knots": [],
-      "w": 0.275,
-      "rows": 2461,
+      "w": 0.25,
+      "rows": 2497,
       "reliability": []
     },
     "pra": {
       "knots": [],
-      "w": 0.275,
-      "rows": 1981,
+      "w": 0.25,
+      "rows": 2017,
       "reliability": []
     }
   },

@@ -1,13 +1,57 @@
 {
- "generated_utc": "2026-11-28T03:15Z",
- "generated": "28/11/2026 11:15 GMT+8",
+ "generated_utc": "2026-11-28T04:46Z",
+ "generated": "28/11/2026 12:46 GMT+8",
  "top_n": 5,
  "locked_by_manual_run": false,
- "days": [],
+ "days": [
+  {
+   "game_date": "2026-11-28",
+   "value": [
+    {
+     "game_date": "2026-11-28",
+     "team": "CHI",
+     "opp": "IND",
+     "player": "Isaac Okoro",
+     "athlete_id": "4432822",
+     "market": "pts",
+     "line": 11.5,
+     "side": "u",
+     "book": "fanduel",
+     "price": -108,
+     "our_p": 0.5521,
+     "raw_p": 0.684,
+     "market_p": 0.5082,
+     "dec": 1.926,
+     "edge": 0.0634,
+     "mean": 9.57,
+     "p_play": 1.0,
+     "p_appear": 0.886,
+     "tipoff_utc": "2026-11-29T01:00Z",
+     "event_id": "401910048",
+     "blend_p": 0.5521,
+     "all_lines": [
+      [
+       11.5,
+       -108,
+       -101
+      ]
+     ],
+     "list": "value",
+     "frozen": "0",
+     "locked": false,
+     "logged_utc": "2026-11-28T04:46Z",
+     "calibration": "market blend only",
+     "level": null,
+     "market_label": "points"
+    }
+   ],
+   "safe": []
+  }
+ ],
  "calibration": {
   "mode": "market blend only",
-  "rows": 5250,
-  "fitted_at": "28/11/2026 11:15 GMT+8"
+  "rows": 5501,
+  "fitted_at": "28/11/2026 12:45 GMT+8"
  },
  "rules": {
   "min_edge": 0.03,
